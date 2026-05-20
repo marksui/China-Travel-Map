@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>中国 5A 景区互动地图</title>
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
+    <link rel="preconnect" href="https://upload.wikimedia.org" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-nav" aria-label="站点导航">
+        <a class="nav-brand" href="#">中国 5A 景区地图</a>
+        <div class="search-shell nav-search">
+          <i data-lucide="search" aria-hidden="true"></i>
+          <input
+            id="searchInput"
+            type="search"
+            autocomplete="off"
+            placeholder="搜索景区、省份或年份"
+          />
+          <button class="icon-button ghost" id="clearSearch" type="button" aria-label="清空搜索">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <nav class="nav-actions" aria-label="地图工具">
+          <button class="nav-button" id="fitFiltered" type="button">
+            <i data-lucide="scan" aria-hidden="true"></i>
+            当前结果
+          </button>
+          <button class="nav-button" id="toggleDistribution" type="button" aria-expanded="true">
+            <i data-lucide="hammer" aria-hidden="true"></i>
+            图例
+          </button>
+          <span class="data-pill" id="dataCountPill">184</span>
+        </nav>
+      </header>
+
+      <main class="map-stage">
+        <div id="map" aria-label="中国 5A 景区地图"></div>
+        <section class="distribution-panel" id="distributionPanel" aria-label="省份分布">
+          <div class="panel-heading">
+            <strong>省份分布</strong>
+            <span id="distributionCaption">当前结果</span>
+          </div>
+          <div class="province-bars" id="provinceBars"></div>
+        </section>
+      </main>
+
+      <aside class="control-panel" aria-label="景区筛选">
+        <figure class="feature-visual">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg/1280px-Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg"
+            alt="慕田峪长城全景"
+          />
+          <figcaption>
+            慕田峪长城全景 ·
+            <a
+              href="https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg"
+              target="_blank"
+              rel="noreferrer"
+              >Greg Zaal / CC0</a
+            >
+          </figcaption>
+        </figure>
+
+        <header class="brand-block">
+          <div>
+            <p class="eyebrow">国家 AAAAA 级旅游景区</p>
+            <h1><span>欢迎使用中国 5A 景区</span><span>在线地图</span></h1>
+            <p class="intro-copy">
+              覆盖中国大陆 31 个省区市的 184 个 5A 景区，支持按省份、年份和关键词浏览。
+            </p>
+          </div>
+        </header>
+
+        <section class="stats-grid" aria-label="统计摘要">
+          <div>
+            <span id="totalStat">184</span>
+            <small>景区</small>
+          </div>
+          <div>
+            <span id="provinceStat">31</span>
+            <small>省区市</small>
+          </div>
+          <div>
+            <span id="yearStat">2007-2014</span>
+            <small>入选年份</small>
+          </div>
+          <div>
+            <span id="visibleStat">184</span>
+            <small>当前显示</small>
+          </div>
+        </section>
+
+        <section class="filter-stack" aria-label="筛选条件">
+          <div class="field-grid">
+            <label class="field-label" for="provinceSelect">省份</label>
+            <select id="provinceSelect"></select>
+          </div>
+
+          <div>
+            <div class="field-label">年份</div>
+            <div class="year-tabs" id="yearTabs" role="tablist" aria-label="入选年份"></div>
+          </div>
+        </section>
+
+        <div class="list-heading">
+          <div>
+            <strong id="resultCount">184 个结果</strong>
+            <span id="filterSubtitle">全国 · 全部年份</span>
+          </div>
+          <button class="text-button" id="resetFilters" type="button">
+            <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+            重置
+          </button>
+        </div>
+
+        <ol class="attraction-list" id="attractionList" aria-label="景区列表"></ol>
+      </aside>
+
+      <aside class="detail-panel" id="detailPanel" aria-label="景区详情">
+        <button class="icon-button close-detail" id="closeDetail" type="button" aria-label="关闭详情">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
+        <p class="eyebrow" id="detailProvince">选择景区</p>
+        <h2 id="detailName">在地图或列表中选择一个景区</h2>
+        <dl class="detail-facts">
+          <div>
+            <dt>入选年份</dt>
+            <dd id="detailYear">-</dd>
+          </div>
+          <div>
+            <dt>定位精度</dt>
+            <dd id="detailPrecision">-</dd>
+          </div>
+          <div>
+            <dt>坐标</dt>
+            <dd id="detailCoords">-</dd>
+          </div>
+        </dl>
+        <div class="detail-actions">
+          <button class="text-button primary" id="focusSelected" type="button" disabled>
+            <i data-lucide="map-pin" aria-hidden="true"></i>
+            定位
+          </button>
+          <button class="text-button" id="filterProvince" type="button" disabled>
+            <i data-lucide="list-filter" aria-hidden="true"></i>
+            同省景区
+          </button>
+        </div>
+        <section class="related-section" aria-label="同省景区">
+          <div class="panel-heading">
+            <strong>同省景区</strong>
+            <span id="relatedCaption">-</span>
+          </div>
+          <div class="related-list" id="relatedList"></div>
+        </section>
+        <p class="source-note">
+          数据来自用户提供的
+          <span>China-5A-tourist-attraction.md</span>；地图底图 © OpenStreetMap。
+        </p>
+      </aside>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="data/attractions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
