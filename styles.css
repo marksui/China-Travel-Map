@@ -506,8 +506,7 @@ select {
   line-height: 1.35;
 }
 
-.card-meta,
-.card-coord {
+.card-meta {
   display: block;
   margin: 6px 0 0;
   color: var(--muted);

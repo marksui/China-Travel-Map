@@ -39,6 +39,15 @@ const rejectedImageTerms = [
   "360度",
   "panorama",
   "全景",
+  "图卷",
+  "画卷",
+  "藏品",
+  "博物院藏",
+  "文物",
+  "painting",
+  "drawing",
+  "manuscript",
+  "collection",
 ];
 
 const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
@@ -74,7 +83,6 @@ const els = {
   detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
   detailPrecision: document.querySelector("#detailPrecision"),
-  detailCoords: document.querySelector("#detailCoords"),
   focusSelected: document.querySelector("#focusSelected"),
   filterProvince: document.querySelector("#filterProvince"),
   relatedList: document.querySelector("#relatedList"),
@@ -90,10 +98,19 @@ const map = L.map("map", {
   preferCanvas: true,
 });
 
+map.createPane("footprintPane");
+map.getPane("footprintPane").style.zIndex = 420;
+map.getPane("footprintPane").style.pointerEvents = "none";
+
 L.control.zoom({ position: "topright" }).addTo(map);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 18,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
+  maxZoom: 16,
+  subdomains: "abcd",
+  updateWhenIdle: true,
+  updateWhenZooming: false,
+  keepBuffer: 1,
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
 }).addTo(map);
 
 const markerLayer =
@@ -110,8 +127,10 @@ markerLayer.addTo(map);
 const markersById = new Map();
 const attractionsById = new Map(attractions.map((item) => [item.id, item]));
 const imageCache = new Map();
+const footprintCache = new Map();
 const selectionLayer = L.layerGroup().addTo(map);
 let activeImageRequest = 0;
+let activeFootprintRequest = 0;
 
 function init() {
   renderBaseStats();
@@ -264,7 +283,6 @@ function renderList(items) {
               </span>
               <span class="year-badge">5A</span>
             </span>
-            <span class="card-coord">${item.lat.toFixed(3)}, ${item.lng.toFixed(3)}</span>
           </button>
         </li>
       `;
@@ -292,7 +310,7 @@ function renderMarkers(items) {
     marker.bindPopup(
       `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(item.province)} · ${
         item.year
-      } 年评为 5A<br><span>${escapeHtml(item.coordinateLevel)}定位</span>`,
+      } 年评为 5A`,
     );
 
     marker.on("click", () => selectAttraction(item));
@@ -358,21 +376,20 @@ function renderDetail(item) {
   els.detailProvince.textContent = hasItem ? item.province : "选择景区";
   els.detailName.textContent = hasItem ? item.name : "在地图或列表中选择一个景区";
   els.detailYear.textContent = hasItem ? `${item.year} 年` : "-";
-  els.detailPrecision.textContent = hasItem
-    ? `${item.coordinateLevel} · ${item.coordinateLabel}`
-    : "-";
-  els.detailCoords.textContent = hasItem ? `${item.lat.toFixed(5)}, ${item.lng.toFixed(5)}` : "-";
+  els.detailPrecision.textContent = hasItem ? "正在查找 OSM 面边界..." : "-";
   els.focusSelected.disabled = !hasItem;
   els.filterProvince.disabled = !hasItem;
 
   if (!hasItem) {
     setDetailImage(fallbackImage, "景区图片");
+    clearFootprint();
     els.relatedCaption.textContent = "-";
     els.relatedList.innerHTML = `<div class="empty-state">暂无选择</div>`;
     return;
   }
 
   loadDetailImage(item);
+  loadAttractionFootprint(item);
 
   const related = attractions
     .filter((candidate) => candidate.province === item.province && candidate.id !== item.id)
@@ -407,8 +424,6 @@ function syncActiveListItem() {
 }
 
 function syncActiveMapMarker(item) {
-  selectionLayer.clearLayers();
-
   markersById.forEach((marker, id) => {
     const active = id === state.selectedId;
     const attraction = attractionsById.get(id);
@@ -418,17 +433,251 @@ function syncActiveMapMarker(item) {
     marker.setZIndexOffset(active ? 1000 : 0);
     marker.getElement()?.classList.toggle("selected", active);
   });
+}
 
-  if (!item) return;
+async function loadAttractionFootprint(item) {
+  const requestId = ++activeFootprintRequest;
+  renderApproximateFootprint(item, "正在查找 OSM 面边界...");
 
-  L.circleMarker([item.lat, item.lng], {
-    radius: 24,
+  const cached = footprintCache.get(item.id);
+  if (cached) {
+    renderFootprint(cached, item);
+    return;
+  }
+
+  const footprint = await findAttractionFootprint(item);
+  if (requestId !== activeFootprintRequest || state.selectedId !== item.id) return;
+
+  footprintCache.set(item.id, footprint);
+  renderFootprint(footprint, item);
+}
+
+async function findAttractionFootprint(item) {
+  for (const query of footprintQueries(item)) {
+    const footprint = await searchNominatimFootprint(query, item);
+    if (footprint) return footprint;
+  }
+
+  return {
+    kind: "approximate",
+    label: "未找到可用面边界，暂用中心点近似范围",
+    radius: estimateFootprintRadius(item),
+  };
+}
+
+function footprintQueries(item) {
+  const compactName = item.name
+    .replace(/[（(].*?[）)]/g, "")
+    .replace(/—|·|-/g, " ")
+    .replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院|文化园区/g, "")
+    .trim();
+  const withoutProvince = compactName.replace(new RegExp(`^${item.province}`), "").trim();
+
+  return unique([
+    `${item.province} ${item.coordinateLabel}`,
+    `${item.province} ${item.name}`,
+    item.name,
+    compactName,
+    withoutProvince,
+    item.coordinateLabel,
+  ].filter(Boolean));
+}
+
+async function searchNominatimFootprint(query, item) {
+  const params = new URLSearchParams({
+    format: "geojson",
+    polygon_geojson: "1",
+    addressdetails: "0",
+    extratags: "1",
+    limit: "6",
+    countrycodes: "cn",
+    q: query,
+  });
+
+  try {
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?${params}`, {
+      headers: { "Accept-Language": "zh-CN,zh;q=0.9" },
+    });
+    const data = await response.json();
+    const candidates = (data.features || [])
+      .filter((feature) => isFootprintCandidate(feature, item))
+      .map((feature) => ({
+        feature,
+        score: scoreFootprintCandidate(feature, item),
+      }))
+      .filter((candidate) => candidate.score >= 2)
+      .sort((a, b) => b.score - a.score);
+
+    const best = candidates[0]?.feature;
+    if (!best) return null;
+
+    return {
+      kind: "osm",
+      feature: best,
+      label: `OSM 面边界 · ${best.properties?.name || item.coordinateLabel}`,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function isFootprintCandidate(feature, item) {
+  const type = feature.geometry?.type;
+  if (type !== "Polygon" && type !== "MultiPolygon") return false;
+
+  const bbox = feature.bbox;
+  if (bbox?.length === 4) {
+    const lngSpan = Math.abs(bbox[2] - bbox[0]);
+    const latSpan = Math.abs(bbox[3] - bbox[1]);
+    if (lngSpan > 4 || latSpan > 4) return false;
+  }
+
+  const text = footprintCandidateText(feature);
+  if (text.includes("省") && !text.includes(item.coordinateLabel.toLocaleLowerCase("zh-CN"))) {
+    const category = feature.properties?.category;
+    const typeName = feature.properties?.type;
+    if (category === "boundary" && typeName === "administrative") return false;
+  }
+
+  return true;
+}
+
+function scoreFootprintCandidate(feature, item) {
+  const text = footprintCandidateText(feature);
+  const category = feature.properties?.category || "";
+  const type = feature.properties?.type || "";
+  const center = featureCenter(feature);
+  let score = 0;
+
+  for (const token of footprintTokens(item)) {
+    if (token && text.includes(token.toLocaleLowerCase("zh-CN"))) score += token.length >= 3 ? 3 : 1;
+  }
+
+  if (category === "tourism" || category === "leisure" || category === "historic") score += 4;
+  if (category === "natural" || category === "boundary") score += 2;
+  if (type === "administrative") score -= 1;
+
+  if (center) {
+    const distance = haversineKm([item.lat, item.lng], center);
+    if (distance < 2) score += 3;
+    else if (distance < 12) score += 2;
+    else if (distance < 40) score += 1;
+    else score -= 3;
+  }
+
+  return score;
+}
+
+function footprintTokens(item) {
+  return unique([
+    item.name,
+    item.coordinateLabel,
+    item.province,
+    item.name.replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院/g, ""),
+  ].filter(Boolean));
+}
+
+function footprintCandidateText(feature) {
+  return [
+    feature.properties?.name,
+    feature.properties?.display_name,
+    feature.properties?.category,
+    feature.properties?.type,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLocaleLowerCase("zh-CN");
+}
+
+function featureCenter(feature) {
+  const bbox = feature.bbox;
+  if (!bbox?.length) return null;
+  return [(bbox[1] + bbox[3]) / 2, (bbox[0] + bbox[2]) / 2];
+}
+
+function haversineKm([lat1, lng1], [lat2, lng2]) {
+  const radius = 6371;
+  const dLat = toRadians(lat2 - lat1);
+  const dLng = toRadians(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * radius * Math.asin(Math.sqrt(a));
+}
+
+function toRadians(value) {
+  return (value * Math.PI) / 180;
+}
+
+function renderApproximateFootprint(item, label) {
+  renderFootprint(
+    {
+      kind: "approximate",
+      label,
+      radius: estimateFootprintRadius(item),
+    },
+    item,
+    { fit: false },
+  );
+}
+
+function renderFootprint(footprint, item, options = {}) {
+  const fit = options.fit !== false;
+  selectionLayer.clearLayers();
+
+  if (footprint.kind === "osm" && footprint.feature) {
+    const layer = L.geoJSON(footprint.feature, {
+      pane: "footprintPane",
+      interactive: false,
+      style: {
+        color: highlightColor,
+        weight: 3,
+        opacity: 0.95,
+        fillColor: highlightColor,
+        fillOpacity: 0.18,
+      },
+    }).addTo(selectionLayer);
+    els.detailPrecision.textContent = footprint.label;
+    fitFootprintBounds(layer, fit);
+    return;
+  }
+
+  const circle = L.circle([item.lat, item.lng], {
+    pane: "footprintPane",
+    radius: footprint.radius || estimateFootprintRadius(item),
     color: highlightColor,
-    weight: 3,
+    weight: 2,
+    opacity: 0.92,
+    dashArray: "6 6",
     fillColor: highlightColor,
-    fillOpacity: 0.18,
+    fillOpacity: 0.1,
     interactive: false,
   }).addTo(selectionLayer);
+  els.detailPrecision.textContent = footprint.label;
+  fitFootprintBounds(circle, fit);
+}
+
+function fitFootprintBounds(layer, fit) {
+  if (!fit) return;
+  const bounds = layer.getBounds?.();
+  if (bounds?.isValid()) {
+    map.fitBounds(bounds.pad(0.22), {
+      paddingTopLeft: [390, 70],
+      paddingBottomRight: [370, 40],
+      maxZoom: 14,
+    });
+  }
+}
+
+function clearFootprint() {
+  activeFootprintRequest += 1;
+  selectionLayer.clearLayers();
+}
+
+function estimateFootprintRadius(item) {
+  if (item.coordinateLevel === "景区") return 1200;
+  if (item.coordinateLevel === "城市") return 6000;
+  return 18000;
 }
 
 function focusAttraction(item, openPopup = false) {

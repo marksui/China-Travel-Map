@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>中国 5A 景区互动地图</title>
     <link rel="preconnect" href="https://unpkg.com" />
-    <link rel="preconnect" href="https://tile.openstreetmap.org" />
+    <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+    <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
     <link rel="preconnect" href="https://upload.wikimedia.org" />
     <link
       rel="stylesheet"
@@ -152,12 +153,8 @@
             <dd id="detailYear">-</dd>
           </div>
           <div>
-            <dt>定位精度</dt>
+            <dt>占地范围</dt>
             <dd id="detailPrecision">-</dd>
-          </div>
-          <div>
-            <dt>坐标</dt>
-            <dd id="detailCoords">-</dd>
           </div>
         </dl>
         <div class="detail-actions">
@@ -179,7 +176,7 @@
         </section>
         <p class="source-note">
           数据来自用户提供的
-          <span>China-5A-tourist-attraction.md</span>；图片优先来自维基百科或 Wikimedia Commons；地图底图 © OpenStreetMap。
+          <span>China-5A-tourist-attraction.md</span>；占地范围来自 OpenStreetMap 可用面边界；地图底图 © CARTO / OpenStreetMap。
         </p>
       </aside>
     </div>
