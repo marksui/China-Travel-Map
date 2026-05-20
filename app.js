@@ -1,20 +1,18 @@
 const attractions = window.CHINA_5A_ATTRACTIONS || [];
 const meta = window.CHINA_5A_META || {};
 
-const colorsByYear = {
-  2007: "#08756f",
-  2010: "#3b6ea8",
-  2011: "#d75a49",
-  2012: "#8a63a6",
-  2013: "#b07d1c",
-  2014: "#3f7f45",
+const highlightColor = "#fa8072";
+const fallbackImage = {
+  url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg/1280px-Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg",
+  pageUrl:
+    "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+  caption: "图片来源：Wikimedia Commons",
 };
 
 const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
 const state = {
   search: "",
   province: "全部",
-  year: "全部",
   selectedId: null,
   distributionOpen: true,
 };
@@ -23,13 +21,11 @@ const els = {
   searchInput: document.querySelector("#searchInput"),
   clearSearch: document.querySelector("#clearSearch"),
   provinceSelect: document.querySelector("#provinceSelect"),
-  yearTabs: document.querySelector("#yearTabs"),
   attractionList: document.querySelector("#attractionList"),
   resultCount: document.querySelector("#resultCount"),
   filterSubtitle: document.querySelector("#filterSubtitle"),
   totalStat: document.querySelector("#totalStat"),
   provinceStat: document.querySelector("#provinceStat"),
-  yearStat: document.querySelector("#yearStat"),
   visibleStat: document.querySelector("#visibleStat"),
   dataCountPill: document.querySelector("#dataCountPill"),
   resetFilters: document.querySelector("#resetFilters"),
@@ -42,6 +38,8 @@ const els = {
   closeDetail: document.querySelector("#closeDetail"),
   detailProvince: document.querySelector("#detailProvince"),
   detailName: document.querySelector("#detailName"),
+  detailImage: document.querySelector("#detailImage"),
+  detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
   detailPrecision: document.querySelector("#detailPrecision"),
   detailCoords: document.querySelector("#detailCoords"),
@@ -78,11 +76,14 @@ const markerLayer =
 markerLayer.addTo(map);
 
 const markersById = new Map();
+const attractionsById = new Map(attractions.map((item) => [item.id, item]));
+const imageCache = new Map();
+const selectionLayer = L.layerGroup().addTo(map);
+let activeImageRequest = 0;
 
 function init() {
   renderBaseStats();
   populateProvinceSelect();
-  populateYearTabs();
   bindEvents();
   render();
   fitTo(attractions);
@@ -93,11 +94,9 @@ function init() {
 }
 
 function renderBaseStats() {
-  const years = meta.years || sortedYears();
   const provinces = unique(attractions.map((item) => item.province));
   els.totalStat.textContent = String(meta.count || attractions.length);
   els.provinceStat.textContent = String(meta.provinces || provinces.length);
-  els.yearStat.textContent = `${years.at(0)}-${years.at(-1)}`;
   els.dataCountPill.textContent = String(meta.count || attractions.length);
 }
 
@@ -109,19 +108,13 @@ function populateProvinceSelect() {
   ].join("");
 }
 
-function populateYearTabs() {
-  const years = sortedYears();
-  const buttons = [
-    `<button class="active" type="button" role="tab" aria-selected="true" data-year="全部">全部</button>`,
-    ...years.map(
-      (year) =>
-        `<button type="button" role="tab" aria-selected="false" data-year="${year}">${year}</button>`,
-    ),
-  ];
-  els.yearTabs.innerHTML = buttons.join("");
-}
-
 function bindEvents() {
+  els.detailImage.addEventListener("error", () => {
+    if (els.detailImage.src !== fallbackImage.url) {
+      setDetailImage(fallbackImage, "景区图片");
+    }
+  });
+
   els.searchInput.addEventListener("input", (event) => {
     state.search = event.target.value.trim();
     render();
@@ -140,22 +133,11 @@ function bindEvents() {
     fitTo(getFilteredAttractions());
   });
 
-  els.yearTabs.addEventListener("click", (event) => {
-    const button = event.target.closest("button[data-year]");
-    if (!button) return;
-    state.year = button.dataset.year;
-    updateYearTabs();
-    render();
-    fitTo(getFilteredAttractions());
-  });
-
   els.resetFilters.addEventListener("click", () => {
     state.search = "";
     state.province = "全部";
-    state.year = "全部";
     els.searchInput.value = "";
     els.provinceSelect.value = "全部";
-    updateYearTabs();
     render();
     fitTo(attractions);
   });
@@ -199,6 +181,7 @@ function render() {
   renderList(filtered);
   renderMarkers(filtered);
   renderDistribution(filtered);
+  syncActiveMapMarker(getSelected());
 
   if (state.selectedId && !filtered.some((item) => item.id === state.selectedId)) {
     selectAttraction(null, { skipRender: true });
@@ -215,12 +198,11 @@ function getFilteredAttractions() {
   const query = normalize(state.search);
   return attractions.filter((item) => {
     const matchesProvince = state.province === "全部" || item.province === state.province;
-    const matchesYear = state.year === "全部" || String(item.year) === state.year;
     const searchable = normalize(
-      `${item.name} ${item.province} ${item.year} ${item.coordinateLabel} ${item.coordinateLevel}`,
+      `${item.name} ${item.province} ${item.coordinateLabel} ${item.coordinateLevel}`,
     );
     const matchesSearch = !query || searchable.includes(query);
-    return matchesProvince && matchesYear && matchesSearch;
+    return matchesProvince && matchesSearch;
   });
 }
 
@@ -228,8 +210,7 @@ function updateSummary(filtered) {
   els.visibleStat.textContent = String(filtered.length);
   els.resultCount.textContent = `${filtered.length} 个结果`;
   const provinceText = state.province === "全部" ? "全国" : state.province;
-  const yearText = state.year === "全部" ? "全部年份" : `${state.year} 年`;
-  els.filterSubtitle.textContent = `${provinceText} · ${yearText}`;
+  els.filterSubtitle.textContent = `${provinceText} · 5A 景区`;
 }
 
 function renderList(items) {
@@ -243,17 +224,13 @@ function renderList(items) {
       const active = item.id === state.selectedId ? " active" : "";
       return `
         <li>
-          <button class="attraction-card${active}" style="--marker-color: ${colorForYear(
-            item.year,
-          )}" type="button" data-id="${item.id}">
+          <button class="attraction-card${active}" type="button" data-id="${item.id}">
             <span class="card-main">
               <span>
                 <span class="card-name">${escapeHtml(item.name)}</span>
-                <span class="card-meta">${escapeHtml(item.province)} · ${item.year} · ${escapeHtml(
-                  item.coordinateLevel,
-                )}</span>
+                <span class="card-meta">${escapeHtml(item.province)} · ${item.year} 年评为 5A</span>
               </span>
-              <span class="year-badge">${item.year}</span>
+              <span class="year-badge">5A</span>
             </span>
             <span class="card-coord">${item.lat.toFixed(3)}, ${item.lng.toFixed(3)}</span>
           </button>
@@ -283,7 +260,7 @@ function renderMarkers(items) {
     marker.bindPopup(
       `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(item.province)} · ${
         item.year
-      }<br><span>${escapeHtml(item.coordinateLevel)}定位</span>`,
+      } 年评为 5A<br><span>${escapeHtml(item.coordinateLevel)}定位</span>`,
     );
 
     marker.on("click", () => selectAttraction(item));
@@ -332,6 +309,7 @@ function selectAttraction(item, options = {}) {
   state.selectedId = item?.id || null;
   renderDetail(item || null);
   syncActiveListItem();
+  syncActiveMapMarker(item || null);
 
   if (item && options.fly) {
     focusAttraction(item, true);
@@ -347,7 +325,7 @@ function renderDetail(item) {
   document.body.classList.toggle("has-selection", hasItem);
   els.detailProvince.textContent = hasItem ? item.province : "选择景区";
   els.detailName.textContent = hasItem ? item.name : "在地图或列表中选择一个景区";
-  els.detailYear.textContent = hasItem ? item.year : "-";
+  els.detailYear.textContent = hasItem ? `${item.year} 年` : "-";
   els.detailPrecision.textContent = hasItem
     ? `${item.coordinateLevel} · ${item.coordinateLabel}`
     : "-";
@@ -356,10 +334,13 @@ function renderDetail(item) {
   els.filterProvince.disabled = !hasItem;
 
   if (!hasItem) {
+    setDetailImage(fallbackImage, "景区图片");
     els.relatedCaption.textContent = "-";
     els.relatedList.innerHTML = `<div class="empty-state">暂无选择</div>`;
     return;
   }
+
+  loadDetailImage(item);
 
   const related = attractions
     .filter((candidate) => candidate.province === item.province && candidate.id !== item.id)
@@ -372,7 +353,7 @@ function renderDetail(item) {
           (candidate) => `
             <button class="related-item" type="button" data-id="${candidate.id}">
               <strong>${escapeHtml(candidate.name)}</strong>
-              <span>${candidate.year} · ${escapeHtml(candidate.coordinateLevel)}</span>
+              <span>${candidate.year} 年评为 5A</span>
             </button>
           `,
         )
@@ -393,6 +374,31 @@ function syncActiveListItem() {
   });
 }
 
+function syncActiveMapMarker(item) {
+  selectionLayer.clearLayers();
+
+  markersById.forEach((marker, id) => {
+    const active = id === state.selectedId;
+    const attraction = attractionsById.get(id);
+    if (attraction) {
+      marker.setIcon(markerIcon(attraction, active));
+    }
+    marker.setZIndexOffset(active ? 1000 : 0);
+    marker.getElement()?.classList.toggle("selected", active);
+  });
+
+  if (!item) return;
+
+  L.circleMarker([item.lat, item.lng], {
+    radius: 24,
+    color: highlightColor,
+    weight: 3,
+    fillColor: highlightColor,
+    fillOpacity: 0.18,
+    interactive: false,
+  }).addTo(selectionLayer);
+}
+
 function focusAttraction(item, openPopup = false) {
   map.flyTo([item.lat, item.lng], Math.max(map.getZoom(), 9), {
     animate: true,
@@ -402,8 +408,12 @@ function focusAttraction(item, openPopup = false) {
   const marker = markersById.get(item.id);
   if (marker && openPopup) {
     if (typeof markerLayer.zoomToShowLayer === "function") {
-      markerLayer.zoomToShowLayer(marker, () => marker.openPopup());
+      markerLayer.zoomToShowLayer(marker, () => {
+        syncActiveMapMarker(item);
+        marker.openPopup();
+      });
     } else {
+      syncActiveMapMarker(item);
       marker.openPopup();
     }
   }
@@ -425,40 +435,142 @@ function fitTo(items) {
   }
 }
 
-function updateYearTabs() {
-  els.yearTabs.querySelectorAll("button[data-year]").forEach((button) => {
-    const active = button.dataset.year === state.year;
-    button.classList.toggle("active", active);
-    button.setAttribute("aria-selected", String(active));
-  });
-}
-
-function markerIcon(item) {
+function markerIcon(item, active = item.id === state.selectedId) {
   return L.divIcon({
-    className: "map-marker-shell",
-    html: `<div class="map-marker" style="--marker-color: ${colorForYear(
-      item.year,
-    )}"><span>${String(item.year).slice(2)}</span></div>`,
+    className: `map-marker-shell${active ? " selected" : ""}`,
+    html: `<div class="map-marker"><span>5A</span></div>`,
     iconSize: [34, 34],
     iconAnchor: [17, 33],
     popupAnchor: [0, -28],
   });
 }
 
-function colorForYear(year) {
-  return colorsByYear[year] || "#08756f";
-}
-
 function getSelected() {
   return attractions.find((item) => item.id === state.selectedId) || null;
 }
 
-function sortedYears() {
-  return unique(attractions.map((item) => item.year)).sort((a, b) => a - b);
-}
-
 function unique(items) {
   return [...new Set(items)];
+}
+
+async function loadDetailImage(item) {
+  const requestId = ++activeImageRequest;
+  setDetailImage({ ...fallbackImage, caption: "正在查找景区图片..." }, item.name);
+
+  const cached = imageCache.get(item.id);
+  if (cached) {
+    setDetailImage(cached, item.name);
+    return;
+  }
+
+  const image = await findAttractionImage(item);
+  if (requestId !== activeImageRequest || state.selectedId !== item.id) return;
+
+  imageCache.set(item.id, image);
+  setDetailImage(image, item.name);
+}
+
+async function findAttractionImage(item) {
+  const queries = imageQueries(item);
+
+  for (const query of queries) {
+    const wikipediaImage = await searchWikipediaImage(query);
+    if (wikipediaImage) return wikipediaImage;
+  }
+
+  for (const query of queries) {
+    const commonsImage = await searchCommonsImage(query);
+    if (commonsImage) return commonsImage;
+  }
+
+  return fallbackImage;
+}
+
+function imageQueries(item) {
+  const compactName = item.name
+    .replace(/[（(].*?[）)]/g, "")
+    .replace(/—|·|-/g, " ")
+    .replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院|文化园区/g, "")
+    .trim();
+  return unique([
+    `${item.province} ${item.name}`,
+    `${item.province} ${item.coordinateLabel}`,
+    item.name,
+    compactName,
+    item.coordinateLabel,
+    `${item.coordinateLabel} ${item.province}`,
+  ].filter(Boolean));
+}
+
+async function searchWikipediaImage(query) {
+  const params = new URLSearchParams({
+    origin: "*",
+    action: "query",
+    generator: "search",
+    gsrsearch: `${query} 中国`,
+    gsrlimit: "4",
+    prop: "pageimages|info",
+    piprop: "thumbnail|name|original",
+    pithumbsize: "720",
+    inprop: "url",
+    format: "json",
+  });
+
+  try {
+    const response = await fetch(`https://zh.wikipedia.org/w/api.php?${params}`);
+    const data = await response.json();
+    const page = sortedPages(data).find((candidate) => candidate.thumbnail?.source);
+    if (!page) return null;
+
+    return {
+      url: page.thumbnail.source,
+      pageUrl: page.fullurl || "https://zh.wikipedia.org/",
+      caption: `图片来源：维基百科 · ${page.title}`,
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function searchCommonsImage(query) {
+  const params = new URLSearchParams({
+    origin: "*",
+    action: "query",
+    generator: "search",
+    gsrsearch: `${query} China`,
+    gsrnamespace: "6",
+    gsrlimit: "4",
+    prop: "imageinfo",
+    iiurlwidth: "720",
+    iiprop: "url",
+    format: "json",
+  });
+
+  try {
+    const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`);
+    const data = await response.json();
+    const page = sortedPages(data).find((candidate) => candidate.imageinfo?.[0]?.thumburl);
+    if (!page) return null;
+
+    return {
+      url: page.imageinfo[0].thumburl,
+      pageUrl: page.imageinfo[0].descriptionurl || "https://commons.wikimedia.org/",
+      caption: `图片来源：Wikimedia Commons · ${page.title.replace(/^File:/, "")}`,
+    };
+  } catch {
+    return null;
+  }
+}
+
+function sortedPages(data) {
+  return Object.values(data.query?.pages || {}).sort((a, b) => (a.index || 0) - (b.index || 0));
+}
+
+function setDetailImage(image, alt) {
+  els.detailImage.src = image.url;
+  els.detailImage.alt = alt;
+  els.detailImageLink.href = image.pageUrl;
+  els.detailImageLink.textContent = image.caption;
 }
 
 function countBy(items, getKey) {

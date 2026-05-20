@@ -12,6 +12,8 @@
   --salmon: #fa8072;
   --green: #167a70;
   --gold: #c79528;
+  --marker: #2b3035;
+  --highlight: #fa8072;
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
   --radius: 4px;
 }
@@ -363,7 +365,7 @@ select {
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -469,7 +471,7 @@ select {
 .attraction-card {
   width: 100%;
   border: 1px solid #ddd;
-  border-left: 4px solid var(--marker-color, var(--green));
+  border-left: 4px solid var(--green);
   border-radius: var(--radius);
   background: var(--panel);
   padding: 10px 11px;
@@ -482,7 +484,8 @@ select {
 
 .attraction-card:hover,
 .attraction-card.active {
-  border-color: var(--salmon);
+  border-color: var(--highlight);
+  background: #fff4f2;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.16);
   transform: translateY(-1px);
 }
@@ -514,11 +517,16 @@ select {
 .year-badge {
   flex: 0 0 auto;
   border-radius: 999px;
-  background: color-mix(in srgb, var(--marker-color) 13%, white);
-  color: var(--marker-color);
+  background: #eef0ef;
+  color: #33383d;
   padding: 3px 7px;
   font-size: 12px;
   font-weight: 700;
+}
+
+.attraction-card.active .year-badge {
+  background: var(--highlight);
+  color: #fff;
 }
 
 .distribution-panel {
@@ -574,7 +582,7 @@ select {
   height: 32px;
   border: 3px solid #fff;
   border-radius: 50% 50% 50% 7px;
-  background: var(--marker-color, var(--green));
+  background: var(--marker);
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.32);
   color: #fff;
   font-size: 10px;
@@ -584,6 +592,14 @@ select {
 
 .map-marker span {
   transform: rotate(45deg);
+}
+
+.map-marker-shell.selected .map-marker {
+  background: var(--highlight);
+  box-shadow:
+    0 0 0 7px rgba(250, 128, 114, 0.18),
+    0 4px 12px rgba(0, 0, 0, 0.34);
+  transform: rotate(-45deg) scale(1.16);
 }
 
 .marker-cluster-small,
@@ -632,6 +648,28 @@ body.has-selection .detail-panel {
   color: #111;
   font-size: 25px;
   font-weight: 600;
+}
+
+.detail-visual {
+  margin: 16px 0 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #dedbd5;
+}
+
+.detail-visual img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.detail-visual figcaption {
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .detail-facts {
