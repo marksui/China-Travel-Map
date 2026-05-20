@@ -8,6 +8,38 @@ const fallbackImage = {
     "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
   caption: "图片来源：Wikimedia Commons",
 };
+const imageQueryOverrides = {
+  "山东-089": ["Nanshan Buddha Longkou", "烟台 龙口 南山", "龙口 南山大佛"],
+};
+const rejectedImageTerms = [
+  "地图",
+  "半岛",
+  "行政区",
+  "区划",
+  "位置图",
+  "标识牌",
+  "指示牌",
+  "示意图",
+  "分布图",
+  "路线图",
+  "政区",
+  "pdf",
+  "djvu",
+  "svg",
+  "map",
+  "locator",
+  "location",
+  "diagram",
+  "sign",
+  "logo",
+  "flag",
+  "seal",
+  "coat of arms",
+  "360°",
+  "360度",
+  "panorama",
+  "全景",
+];
 
 const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
 const state = {
@@ -474,13 +506,13 @@ async function findAttractionImage(item) {
   const queries = imageQueries(item);
 
   for (const query of queries) {
-    const wikipediaImage = await searchWikipediaImage(query);
-    if (wikipediaImage) return wikipediaImage;
+    const commonsImage = await searchCommonsImage(query);
+    if (commonsImage) return commonsImage;
   }
 
   for (const query of queries) {
-    const commonsImage = await searchCommonsImage(query);
-    if (commonsImage) return commonsImage;
+    const wikipediaImage = await searchWikipediaImage(query);
+    if (wikipediaImage) return wikipediaImage;
   }
 
   return fallbackImage;
@@ -492,11 +524,14 @@ function imageQueries(item) {
     .replace(/—|·|-/g, " ")
     .replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院|文化园区/g, "")
     .trim();
+  const withoutProvince = compactName.replace(new RegExp(`^${item.province}`), "").trim();
   return unique([
+    ...(imageQueryOverrides[item.id] || []),
     `${item.province} ${item.name}`,
     `${item.province} ${item.coordinateLabel}`,
     item.name,
     compactName,
+    withoutProvince,
     item.coordinateLabel,
     `${item.coordinateLabel} ${item.province}`,
   ].filter(Boolean));
@@ -519,7 +554,9 @@ async function searchWikipediaImage(query) {
   try {
     const response = await fetch(`https://zh.wikipedia.org/w/api.php?${params}`);
     const data = await response.json();
-    const page = sortedPages(data).find((candidate) => candidate.thumbnail?.source);
+    const page = sortedPages(data).find(
+      (candidate) => candidate.thumbnail?.source && isAllowedImageCandidate(candidate),
+    );
     if (!page) return null;
 
     return {
@@ -549,7 +586,9 @@ async function searchCommonsImage(query) {
   try {
     const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`);
     const data = await response.json();
-    const page = sortedPages(data).find((candidate) => candidate.imageinfo?.[0]?.thumburl);
+    const page = sortedPages(data).find(
+      (candidate) => candidate.imageinfo?.[0]?.thumburl && isAllowedImageCandidate(candidate),
+    );
     if (!page) return null;
 
     return {
@@ -564,6 +603,27 @@ async function searchCommonsImage(query) {
 
 function sortedPages(data) {
   return Object.values(data.query?.pages || {}).sort((a, b) => (a.index || 0) - (b.index || 0));
+}
+
+function isAllowedImageCandidate(candidate) {
+  const info = candidate.imageinfo?.[0] || {};
+  const metadata = info.extmetadata || {};
+  const text = [
+    candidate.title,
+    candidate.pageimage,
+    candidate.fullurl,
+    info.url,
+    info.thumburl,
+    metadata.ObjectName?.value,
+    metadata.ImageDescription?.value,
+    metadata.Categories?.value,
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLocaleLowerCase("zh-CN")
+    .replace(/<[^>]*>/g, " ");
+
+  return !rejectedImageTerms.some((term) => text.includes(term));
 }
 
 function setDetailImage(image, alt) {
