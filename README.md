@@ -19,7 +19,7 @@ python3 -m http.server 4173
 - `data/attractions.js` 由 `scripts/build-attractions.mjs` 生成
 - `data/attraction-images.js` 和 `assets/images/*.jpg` 由 `scripts/build-images.mjs` 生成，本地图片统一压缩到最大边 960px
 - 图片来源记录在 `assets/images/SOURCES.md`
-- 坐标为景点、城市或地区级近似定位；点击景点时会优先使用 OpenStreetMap 可用面边界高亮占地范围
+- 坐标为景点、城市或地区级近似定位；点击景点时会优先使用 OpenStreetMap 可用面边界高亮占地范围，并把选中点校准到可用面边界中心
 
 ## 重新生成图片
 

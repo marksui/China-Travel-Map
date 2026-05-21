@@ -95,6 +95,7 @@ markerLayer.addTo(map);
 const markersById = new Map();
 const attractionsById = new Map(attractions.map((item) => [item.id, item]));
 const footprintCache = new Map();
+const correctedCentersById = new Map();
 const selectionLayer = L.layerGroup().addTo(map);
 let activeFootprintRequest = 0;
 
@@ -314,7 +315,7 @@ function renderMarkers(items) {
   markersById.clear();
 
   items.forEach((item) => {
-    const marker = L.marker([item.lat, item.lng], {
+    const marker = L.marker(getAttractionLatLng(item), {
       icon: markerIcon(item),
       title: item.name,
     });
@@ -533,6 +534,7 @@ async function searchNominatimFootprint(query, item) {
     return {
       kind: "osm",
       feature: best,
+      center: featureDisplayCenter(best),
       label: `OSM 面边界 · ${best.properties?.name || item.coordinateLabel}`,
     };
   } catch {
@@ -562,7 +564,6 @@ function isFootprintCandidate(feature, item) {
 function scoreFootprintCandidate(feature, item) {
   const text = footprintCandidateText(feature);
   const category = feature.properties?.category || "";
-  const type = feature.properties?.type || "";
   const center = featureCenter(feature);
   let score = 0;
 
@@ -574,7 +575,7 @@ function scoreFootprintCandidate(feature, item) {
   if (category === "natural" || category === "boundary") score += 2;
 
   if (center) {
-    const distance = haversineKm([item.lat, item.lng], center);
+    const distance = haversineKm(getAttractionLatLng(item), center);
     if (distance < 2) score += 3;
     else if (distance < 12) score += 2;
     else if (distance < 40) score += 1;
@@ -608,6 +609,75 @@ function featureCenter(feature) {
   const bbox = feature.bbox;
   if (!bbox?.length) return null;
   return [(bbox[1] + bbox[3]) / 2, (bbox[0] + bbox[2]) / 2];
+}
+
+function featureDisplayCenter(feature) {
+  const ring = largestOuterRing(feature.geometry);
+  if (!ring) return featureCenter(feature);
+  return ringCentroid(ring) || featureCenter(feature);
+}
+
+function largestOuterRing(geometry) {
+  if (!geometry) return null;
+  const polygons = geometry.type === "Polygon" ? [geometry.coordinates] : geometry.coordinates || [];
+  let bestRing = null;
+  let bestArea = 0;
+
+  polygons.forEach((polygon) => {
+    const ring = polygon?.[0];
+    if (!ring?.length) return;
+    const area = Math.abs(ringArea(ring));
+    if (area > bestArea) {
+      bestArea = area;
+      bestRing = ring;
+    }
+  });
+
+  return bestRing;
+}
+
+function ringArea(ring) {
+  let area = 0;
+  for (let index = 0; index < ring.length - 1; index += 1) {
+    const [x1, y1] = ring[index];
+    const [x2, y2] = ring[index + 1];
+    area += x1 * y2 - x2 * y1;
+  }
+  return area / 2;
+}
+
+function ringCentroid(ring) {
+  let twiceArea = 0;
+  let lngSum = 0;
+  let latSum = 0;
+
+  for (let index = 0; index < ring.length - 1; index += 1) {
+    const [lng1, lat1] = ring[index];
+    const [lng2, lat2] = ring[index + 1];
+    const cross = lng1 * lat2 - lng2 * lat1;
+    twiceArea += cross;
+    lngSum += (lng1 + lng2) * cross;
+    latSum += (lat1 + lat2) * cross;
+  }
+
+  if (Math.abs(twiceArea) < 1e-12) return averageRingPoint(ring);
+
+  const lng = lngSum / (3 * twiceArea);
+  const lat = latSum / (3 * twiceArea);
+  return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : averageRingPoint(ring);
+}
+
+function averageRingPoint(ring) {
+  const points = ring.filter(([lng, lat]) => Number.isFinite(lat) && Number.isFinite(lng));
+  if (!points.length) return null;
+  const total = points.reduce(
+    (sum, [lng, lat]) => ({
+      lat: sum.lat + lat,
+      lng: sum.lng + lng,
+    }),
+    { lat: 0, lng: 0 },
+  );
+  return [total.lat / points.length, total.lng / points.length];
 }
 
 function haversineKm([lat1, lng1], [lat2, lng2]) {
@@ -651,12 +721,13 @@ function renderFootprint(footprint, item, options = {}) {
         fillOpacity: 0.18,
       },
     }).addTo(selectionLayer);
+    alignAttractionToFootprint(item, footprint.center || featureDisplayCenter(footprint.feature));
     setFootprintDetail(footprint.label);
     fitFootprintBounds(layer, fit);
     return;
   }
 
-  L.circleMarker([item.lat, item.lng], {
+  L.circleMarker(getAttractionLatLng(item), {
     pane: "footprintPane",
     radius: footprint.radius || estimateFootprintRadius(item),
     color: highlightColor,
@@ -667,6 +738,36 @@ function renderFootprint(footprint, item, options = {}) {
     interactive: false,
   }).addTo(selectionLayer);
   setFootprintDetail(null);
+}
+
+function alignAttractionToFootprint(item, center) {
+  const normalizedCenter = normalizeLatLngPair(center);
+  if (!normalizedCenter) return;
+
+  const previousCenter = getAttractionLatLng(item);
+  correctedCentersById.set(item.id, normalizedCenter);
+
+  const marker = markersById.get(item.id);
+  if (marker) {
+    marker.setLatLng(normalizedCenter);
+    marker.setIcon(markerIcon(item, item.id === state.selectedId));
+    marker.setZIndexOffset(item.id === state.selectedId ? 1000 : 0);
+    marker.getElement()?.classList.toggle("selected", item.id === state.selectedId);
+  }
+
+  if (state.selectedId === item.id && haversineKm(previousCenter, normalizedCenter) > 0.08) {
+    map.panTo(normalizedCenter, {
+      animate: true,
+      duration: 0.45,
+    });
+  }
+}
+
+function normalizeLatLngPair(center) {
+  if (!Array.isArray(center) || center.length < 2) return null;
+  const lat = Number(center[0]);
+  const lng = Number(center[1]);
+  return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : null;
 }
 
 function setFootprintDetail(label) {
@@ -702,7 +803,7 @@ function estimateFootprintRadius(item) {
 
 function focusAttraction(item, openPopup = false) {
   const targetZoom = Math.min(Math.max(map.getZoom(), 5.6), 7);
-  map.flyTo([item.lat, item.lng], targetZoom, {
+  map.flyTo(getAttractionLatLng(item), targetZoom, {
     animate: true,
     duration: 0.65,
   });
@@ -724,7 +825,7 @@ function fitTo(items) {
     return;
   }
 
-  const bounds = L.latLngBounds(items.map((item) => [item.lat, item.lng]));
+  const bounds = L.latLngBounds(items.map((item) => getAttractionLatLng(item)));
   if (bounds.isValid()) {
     map.fitBounds(bounds.pad(0.08), {
       paddingTopLeft: mapPaddingTopLeft(),
@@ -760,6 +861,10 @@ function markerIcon(item, active = item.id === state.selectedId) {
 
 function getSelected() {
   return attractions.find((item) => item.id === state.selectedId) || null;
+}
+
+function getAttractionLatLng(item) {
+  return correctedCentersById.get(item.id) || [item.lat, item.lng];
 }
 
 function unique(items) {

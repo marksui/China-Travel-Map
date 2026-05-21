@@ -710,29 +710,8 @@ async function loadOfficialAttractions() {
         province: entry.province,
         name: entry.name,
         year: entry.year,
-        lat: entry.lat,
-        lng: entry.lng,
-        coordinateLevel: entry.coordinateLevel,
-        coordinateLabel: entry.coordinateLabel,
       }));
   }
-}
-
-function hash(value) {
-  let h = 2166136261;
-  for (const char of value) {
-    h ^= char.codePointAt(0);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-
-function jitter([lat, lng], seed, level) {
-  const h = hash(seed);
-  const scale = level === "景区" ? 0.025 : level === "城市" ? 0.16 : 0.65;
-  const a = ((h & 0xffff) / 0xffff - 0.5) * scale;
-  const b = (((h >>> 16) & 0xffff) / 0xffff - 0.5) * scale;
-  return [round(lat + a), round(lng + b)];
 }
 
 function round(value) {
@@ -747,10 +726,9 @@ function resolveCoordinates(entry, index) {
   const match = sortedPatterns.find((pattern) => haystack.includes(pattern.key));
 
   if (match) {
-    const [lat, lng] = jitter([match.lat, match.lng], `${index}-${entry.name}`, match.level);
     return {
-      lat,
-      lng,
+      lat: round(match.lat),
+      lng: round(match.lng),
       coordinateLevel: match.level,
       coordinateLabel: match.key,
     };
@@ -758,10 +736,9 @@ function resolveCoordinates(entry, index) {
 
   const center = provinceCenters[entry.province];
   if (center) {
-    const [lat, lng] = jitter(center, `${index}-${entry.name}`, "省级");
     return {
-      lat,
-      lng,
+      lat: round(center[0]),
+      lng: round(center[1]),
       coordinateLevel: "省级",
       coordinateLabel: entry.province,
     };
