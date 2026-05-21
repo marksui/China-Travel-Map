@@ -28,4 +28,4 @@ python3 -m http.server 4173
 node scripts/build-images.mjs --force
 ```
 
-图片脚本优先使用 Wikimedia Commons / 维基百科 / Openverse 的可复用图片源，并过滤地图、示意图、标识牌、视频缩略图等不适合详情展示的素材。
+图片脚本优先使用 Wikimedia Commons / 维基百科图片源；旧图若来自非 Wiki 来源，会先尝试用 Wiki 图片替换，找不到可靠 Wiki 图时才保留其他可复用来源或占位图。

@@ -18,6 +18,7 @@ const force = process.argv.includes("--force");
 const skipWikimediaDownloads = process.argv.includes("--skip-wikimedia-downloads");
 const metadataOnly = process.argv.includes("--metadata-only");
 const wikiOnly = process.argv.includes("--wiki-only");
+const wikiFirst = !process.argv.includes("--no-wiki-first");
 const wikimediaDownloadGap = Number(getArg("--wikimedia-gap") || 4200);
 const userAgent = "ChinaTravelMapImageBuilder/1.0 (local static site build)";
 const lastDownloadByHost = new Map();
@@ -393,14 +394,27 @@ for (const [index, attraction] of selected.entries()) {
   const itemNumber = attractions.indexOf(attraction) + 1;
   const shouldDownload = !hasDownloadRange || (itemNumber >= fromItem && (!toItem || itemNumber <= toItem));
   const previousSource = trustedPreviousSource(previousSources.get(fileName), attraction);
-  const existing = !force && existingFile && Boolean(previousSource);
+  const shouldRefreshFromWiki =
+    wikiFirst && !force && existingFile && previousSource && !isWikiSource(previousSource);
+  const existing = !force && existingFile && Boolean(previousSource) && !shouldRefreshFromWiki;
 
   let source = null;
   if (!existing && shouldDownload && !metadataOnly) {
-    const candidates = await findImageCandidates(attraction);
-    source = candidates.length
-      ? await downloadFirstAvailable(candidates, fileName, attraction.name)
-      : fallbackSource;
+    const candidates = await findImageCandidates(attraction, {
+      wikiOnly: shouldRefreshFromWiki || wikiOnly,
+    });
+    source = candidates.length ? await downloadFirstAvailable(candidates, fileName, attraction.name) : null;
+
+    if ((!source || source.id === "fallback") && shouldRefreshFromWiki) {
+      source = previousSource;
+    } else if (!source && !wikiOnly) {
+      const fallbackCandidates = await findImageCandidates(attraction);
+      source = fallbackCandidates.length
+        ? await downloadFirstAvailable(fallbackCandidates, fileName, attraction.name)
+        : fallbackSource;
+    } else if (!source) {
+      source = fallbackSource;
+    }
   } else if (!existing && shouldDownload && metadataOnly) {
     source = fallbackSource;
   } else if (!existing && previousSource?.id === "fallback") {
@@ -492,7 +506,7 @@ async function findImage(attraction) {
   return (await findImageCandidates(attraction))[0] || null;
 }
 
-async function findImageCandidates(attraction) {
+async function findImageCandidates(attraction, options = {}) {
   const queries = imageQueries(attraction);
   const candidates = [];
 
@@ -511,7 +525,7 @@ async function findImageCandidates(attraction) {
     if (bestCandidate(candidates, attraction)?.score >= 12) break;
   }
 
-  if (!wikiOnly) {
+  if (!wikiOnly && !options.wikiOnly) {
     for (const query of queries.slice(0, 5)) {
       candidates.push(...(await searchOpenverse(query, attraction)));
       if (bestCandidate(candidates, attraction)?.score >= 12) break;
@@ -566,7 +580,7 @@ async function searchCommons(query, attraction) {
       const meta = info.extmetadata || {};
       const source = {
         id: `commons:${page.pageid}`,
-        url: info.url || info.thumburl,
+        url: info.thumburl || info.url,
         pageUrl: info.descriptionurl,
         title: stripFilePrefix(page.title),
         source: "Wikimedia Commons",
@@ -630,7 +644,7 @@ function wikipediaPageSource(page, attraction) {
   if (!page?.thumbnail?.source) return null;
   const source = {
     id: `wikipedia:${page.pageid}`,
-    url: page.original?.source || page.thumbnail.source,
+    url: page.thumbnail.source || page.original?.source,
     pageUrl: page.fullurl,
     title: page.title,
     source: "维基百科",
@@ -787,8 +801,17 @@ function queryTokens(query) {
 }
 
 function sourcePriority(candidate) {
-  const source = normalizeText(candidate.source);
-  return source.includes("wikimedia") || source.includes("维基") ? 2 : 1;
+  return isWikiSource(candidate) ? 2 : 1;
+}
+
+function isWikiSource(candidate) {
+  const text = normalizeText([candidate.source, candidate.pageUrl, candidate.url].join(" "));
+  return (
+    text.includes("wikimedia") ||
+    text.includes("wikipedia") ||
+    text.includes("维基") ||
+    text.includes("維基")
+  );
 }
 
 async function ensureLocalImage(source, fileName) {
@@ -849,10 +872,15 @@ function proxiedWikimediaSource(source) {
   try {
     const url = new URL(source.url);
     const upstream = `${url.hostname}${url.pathname}`;
+    const proxy = new URL("https://images.weserv.nl/");
+    proxy.searchParams.set("url", upstream);
+    proxy.searchParams.set("w", "960");
+    proxy.searchParams.set("output", "jpg");
+    proxy.searchParams.set("q", "76");
     return {
       ...source,
       id: `${source.id}:proxy`,
-      url: `https://images.weserv.nl/?url=${upstream}&w=960&output=jpg&q=76`,
+      url: proxy.toString(),
     };
   } catch {
     return null;
