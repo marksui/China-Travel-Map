@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>中国 5A 景区互动地图</title>
+    <title>中国 5A 与对标景点互动地图</title>
     <link rel="preconnect" href="https://unpkg.com" />
     <link rel="preconnect" href="https://basemaps.cartocdn.com" />
     <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
-    <link rel="preconnect" href="https://upload.wikimedia.org" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -20,52 +19,96 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260521-2" />
   </head>
   <body>
     <div class="app-shell">
       <header class="app-nav" aria-label="站点导航">
-        <a class="nav-brand" href="#">中国 5A 景区地图</a>
+        <a class="nav-brand" href="#">中国 5A 景点地图</a>
         <div class="search-shell nav-search">
           <i data-lucide="search" aria-hidden="true"></i>
           <input
             id="searchInput"
             type="search"
             autocomplete="off"
-            placeholder="搜索景区或省份"
+            placeholder="搜索景点或地区"
           />
           <button class="icon-button ghost" id="clearSearch" type="button" aria-label="清空搜索">
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
         </div>
         <nav class="nav-actions" aria-label="地图工具">
+          <button class="nav-button" id="toggleControlPanel" type="button" aria-expanded="true">
+            <i data-lucide="panel-left" aria-hidden="true"></i>
+            <span class="nav-label">收起筛选</span>
+          </button>
           <button class="nav-button" id="fitFiltered" type="button">
             <i data-lucide="scan" aria-hidden="true"></i>
-            当前结果
+            定位结果
           </button>
           <button class="nav-button" id="toggleDistribution" type="button" aria-expanded="true">
-            <i data-lucide="hammer" aria-hidden="true"></i>
-            图例
+            <i data-lucide="map" aria-hidden="true"></i>
+            地图说明
           </button>
-          <span class="data-pill" id="dataCountPill">184</span>
+          <span class="data-pill" id="dataCountPill">216</span>
         </nav>
       </header>
 
       <main class="map-stage">
-        <div id="map" aria-label="中国 5A 景区地图"></div>
-        <section class="distribution-panel" id="distributionPanel" aria-label="省份分布">
+        <div id="map" aria-label="中国 5A 与对标景点地图"></div>
+        <section class="distribution-panel" id="distributionPanel" aria-label="地图说明">
           <div class="panel-heading">
-            <strong>省份分布</strong>
-            <span id="distributionCaption">当前结果</span>
+            <div>
+              <strong>地图说明</strong>
+              <span id="distributionCaption">全国 · 216 个景点</span>
+            </div>
+            <button class="icon-button panel-icon" id="closeLegend" type="button" aria-label="关闭地图说明">
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="legend-metrics" aria-label="当前筛选统计">
+            <div>
+              <span id="legendOfficialStat">184</span>
+              <small>国家5A</small>
+            </div>
+            <div>
+              <span id="legendPeerStat">32</span>
+              <small>对标景点</small>
+            </div>
+            <div>
+              <span id="legendRegionStat">34</span>
+              <small>地区</small>
+            </div>
+          </div>
+          <div class="legend-list">
+            <div class="legend-row">
+              <span class="marker-sample">5A</span>
+              <p><strong>国家 5A</strong><span>中国大陆官方 AAAAA 级旅游景区</span></p>
+            </div>
+            <div class="legend-row">
+              <span class="marker-sample peer">对标</span>
+              <p><strong>对标 5A</strong><span>台湾、香港、澳门代表性景点，非大陆官方评级</span></p>
+            </div>
+            <div class="legend-row">
+              <span class="range-sample"></span>
+              <p><strong>选中范围</strong><span>点击景点后优先显示 OSM 面边界，找不到则显示近似范围</span></p>
+            </div>
+          </div>
+          <div class="panel-heading compact">
+            <strong>地区热度</strong>
+            <span>点击可筛选</span>
           </div>
           <div class="province-bars" id="provinceBars"></div>
         </section>
       </main>
 
-      <aside class="control-panel" aria-label="景区筛选">
+      <aside class="control-panel" aria-label="景点筛选">
+        <button class="icon-button panel-icon close-control" id="closeControlPanel" type="button" aria-label="收起筛选面板">
+          <i data-lucide="x" aria-hidden="true"></i>
+        </button>
         <figure class="feature-visual">
           <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg/1280px-Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg"
+            src="assets/images/fallback.jpg"
             alt="慕田峪长城全景"
           />
           <figcaption>
@@ -81,40 +124,40 @@
 
         <header class="brand-block">
           <div>
-            <p class="eyebrow">国家 AAAAA 级旅游景区</p>
-            <h1><span>欢迎使用中国 5A 景区</span><span>在线地图</span></h1>
+            <p class="eyebrow">国家 5A / 对标 5A 景点</p>
+            <h1><span>欢迎使用中国 5A 景点</span><span>在线地图</span></h1>
             <p class="intro-copy">
-              覆盖中国大陆 31 个省区市的 184 个 5A 景区，支持按省份和关键词浏览。
+              覆盖中国大陆官方 5A 景区，并加入中华民国（台湾）、香港、澳门的对标 5A 景点。
             </p>
           </div>
         </header>
 
         <section class="stats-grid" aria-label="统计摘要">
           <div>
-            <span id="totalStat">184</span>
-            <small>景区</small>
+            <span id="totalStat">216</span>
+            <small>景点</small>
           </div>
           <div>
-            <span id="provinceStat">31</span>
-            <small>省区市</small>
+            <span id="provinceStat">34</span>
+            <small>地区</small>
           </div>
           <div>
-            <span id="visibleStat">184</span>
-            <small>当前显示</small>
+            <span id="visibleStat">216</span>
+            <small>筛选结果</small>
           </div>
         </section>
 
         <section class="filter-stack" aria-label="筛选条件">
           <div class="field-grid">
-            <label class="field-label" for="provinceSelect">省份</label>
+            <label class="field-label" for="provinceSelect">地区</label>
             <select id="provinceSelect"></select>
           </div>
         </section>
 
         <div class="list-heading">
           <div>
-            <strong id="resultCount">184 个结果</strong>
-            <span id="filterSubtitle">全国 · 全部年份</span>
+            <strong id="resultCount">216 个景点</strong>
+            <span id="filterSubtitle">全国 · 国家5A + 对标景点</span>
           </div>
           <button class="text-button" id="resetFilters" type="button">
             <i data-lucide="rotate-ccw" aria-hidden="true"></i>
@@ -122,20 +165,20 @@
           </button>
         </div>
 
-        <ol class="attraction-list" id="attractionList" aria-label="景区列表"></ol>
+        <ol class="attraction-list" id="attractionList" aria-label="景点列表"></ol>
       </aside>
 
-      <aside class="detail-panel" id="detailPanel" aria-label="景区详情">
+      <aside class="detail-panel" id="detailPanel" aria-label="景点详情">
         <button class="icon-button close-detail" id="closeDetail" type="button" aria-label="关闭详情">
           <i data-lucide="x" aria-hidden="true"></i>
         </button>
-        <p class="eyebrow" id="detailProvince">选择景区</p>
-        <h2 id="detailName">在地图或列表中选择一个景区</h2>
+        <p class="eyebrow" id="detailProvince">选择景点</p>
+        <h2 id="detailName">在地图或列表中选择一个景点</h2>
         <figure class="detail-visual">
           <img
             id="detailImage"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg/1280px-Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg"
-            alt="景区图片"
+            src="assets/images/fallback.jpg"
+            alt="景点图片"
           />
           <figcaption>
             <a
@@ -149,8 +192,12 @@
         </figure>
         <dl class="detail-facts">
           <div>
-            <dt>评为 5A</dt>
+            <dt>评级</dt>
             <dd id="detailYear">-</dd>
+          </div>
+          <div>
+            <dt>依据</dt>
+            <dd id="detailBasis">-</dd>
           </div>
           <div>
             <dt>占地范围</dt>
@@ -164,19 +211,19 @@
           </button>
           <button class="text-button" id="filterProvince" type="button" disabled>
             <i data-lucide="list-filter" aria-hidden="true"></i>
-            同省景区
+            同地区景点
           </button>
         </div>
-        <section class="related-section" aria-label="同省景区">
+        <section class="related-section" aria-label="同地区景点">
           <div class="panel-heading">
-            <strong>同省景区</strong>
+            <strong>同地区景点</strong>
             <span id="relatedCaption">-</span>
           </div>
           <div class="related-list" id="relatedList"></div>
         </section>
         <p class="source-note">
-          数据来自用户提供的
-          <span>China-5A-tourist-attraction.md</span>；占地范围来自 OpenStreetMap 可用面边界；地图底图 © CARTO / OpenStreetMap。
+          大陆 5A 数据来自用户提供的
+          <span>China-5A-tourist-attraction.md</span>；台港澳为对标 5A 手动补充；占地范围来自 OpenStreetMap 可用面边界；地图底图 © CARTO / OpenStreetMap。
         </p>
       </aside>
     </div>
@@ -184,7 +231,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="data/attractions.js"></script>
-    <script src="app.js"></script>
+    <script src="data/attractions.js?v=20260521-2"></script>
+    <script src="data/attraction-images.js?v=20260521-2"></script>
+    <script src="app.js?v=20260521-2"></script>
   </body>
 </html>

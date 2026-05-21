@@ -1,5 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 import path from "node:path";
+import vm from "node:vm";
 
 const sourcePath =
   process.argv[2] || "/Users/mark/Downloads/China-5A-tourist-attraction.md";
@@ -365,6 +367,302 @@ const coordinatePatterns = [
   ["巴音郭楞", 41.7641, 86.1452, "城市"],
 ];
 
+const peerAttractions = [
+  {
+    province: "中华民国（台湾）",
+    name: "台北故宫博物院",
+    lat: 25.10236,
+    lng: 121.54849,
+    coordinateLevel: "景区",
+    coordinateLabel: "台北故宫",
+    basis: "对标5A：台湾代表性博物馆与国际级文化地标",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "台北101",
+    lat: 25.03396,
+    lng: 121.56447,
+    coordinateLevel: "景区",
+    coordinateLabel: "台北101",
+    basis: "对标5A：台湾代表性城市地标",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "中正纪念堂",
+    lat: 25.03465,
+    lng: 121.52183,
+    coordinateLevel: "景区",
+    coordinateLabel: "中正纪念堂",
+    basis: "对标5A：台湾代表性历史文化地标",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "阳明山国家公园",
+    lat: 25.16626,
+    lng: 121.56374,
+    coordinateLevel: "景区",
+    coordinateLabel: "阳明山",
+    basis: "对标5A：国家公园级自然景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "野柳地质公园",
+    lat: 25.20702,
+    lng: 121.69003,
+    coordinateLevel: "景区",
+    coordinateLabel: "野柳",
+    basis: "对标5A：北海岸及观音山国家风景区代表性景点",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "太鲁阁国家公园",
+    lat: 24.15872,
+    lng: 121.62147,
+    coordinateLevel: "景区",
+    coordinateLabel: "太鲁阁",
+    basis: "对标5A：国家公园级峡谷景观",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "日月潭国家风景区",
+    lat: 23.86574,
+    lng: 120.91592,
+    coordinateLevel: "景区",
+    coordinateLabel: "日月潭",
+    basis: "对标5A：台湾交通部观光署国家风景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "阿里山国家风景区",
+    lat: 23.50886,
+    lng: 120.80503,
+    coordinateLevel: "景区",
+    coordinateLabel: "阿里山",
+    basis: "对标5A：台湾交通部观光署国家风景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "玉山国家公园",
+    lat: 23.46983,
+    lng: 120.95725,
+    coordinateLevel: "景区",
+    coordinateLabel: "玉山",
+    basis: "对标5A：国家公园级高山景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "垦丁国家公园",
+    lat: 21.94847,
+    lng: 120.77975,
+    coordinateLevel: "景区",
+    coordinateLabel: "垦丁",
+    basis: "对标5A：国家公园级海岸景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "澎湖国家风景区",
+    lat: 23.57119,
+    lng: 119.57932,
+    coordinateLevel: "景区",
+    coordinateLabel: "澎湖",
+    basis: "对标5A：台湾交通部观光署国家风景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "东海岸国家风景区（三仙台）",
+    lat: 23.1266,
+    lng: 121.41138,
+    coordinateLevel: "景区",
+    coordinateLabel: "三仙台",
+    basis: "对标5A：台湾交通部观光署国家风景区代表性景点",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "九份老街",
+    lat: 25.10981,
+    lng: 121.84519,
+    coordinateLevel: "景区",
+    coordinateLabel: "九份",
+    basis: "对标5A：台湾代表性历史街区与山城景观",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "佛光山佛陀纪念馆",
+    lat: 22.75506,
+    lng: 120.44544,
+    coordinateLevel: "景区",
+    coordinateLabel: "佛光山",
+    basis: "对标5A：台湾代表性宗教文化景区",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "安平古堡",
+    lat: 23.00174,
+    lng: 120.16044,
+    coordinateLevel: "景区",
+    coordinateLabel: "安平古堡",
+    basis: "对标5A：台湾代表性历史遗迹",
+  },
+  {
+    province: "中华民国（台湾）",
+    name: "淡水红毛城",
+    lat: 25.17537,
+    lng: 121.43265,
+    coordinateLevel: "景区",
+    coordinateLabel: "红毛城",
+    basis: "对标5A：台湾代表性历史建筑群",
+  },
+  {
+    province: "香港",
+    name: "太平山顶",
+    lat: 22.27588,
+    lng: 114.14553,
+    coordinateLevel: "景区",
+    coordinateLabel: "太平山顶",
+    basis: "对标5A：香港旅发局重点城市景观地标",
+  },
+  {
+    province: "香港",
+    name: "维多利亚港与星光大道",
+    lat: 22.29312,
+    lng: 114.17417,
+    coordinateLevel: "景区",
+    coordinateLabel: "维多利亚港",
+    basis: "对标5A：香港代表性海港景观",
+  },
+  {
+    province: "香港",
+    name: "天坛大佛与昂坪",
+    lat: 22.25502,
+    lng: 113.90501,
+    coordinateLevel: "景区",
+    coordinateLabel: "天坛大佛",
+    basis: "对标5A：香港旅发局重点宗教文化地标",
+  },
+  {
+    province: "香港",
+    name: "香港迪士尼乐园",
+    lat: 22.31296,
+    lng: 114.04125,
+    coordinateLevel: "景区",
+    coordinateLabel: "香港迪士尼",
+    basis: "对标5A：国际级主题乐园",
+  },
+  {
+    province: "香港",
+    name: "香港海洋公园",
+    lat: 22.24667,
+    lng: 114.17503,
+    coordinateLevel: "景区",
+    coordinateLabel: "海洋公园",
+    basis: "对标5A：香港代表性主题公园",
+  },
+  {
+    province: "香港",
+    name: "香港联合国教科文组织世界地质公园",
+    lat: 22.3823,
+    lng: 114.3491,
+    coordinateLevel: "景区",
+    coordinateLabel: "香港地质公园",
+    basis: "对标5A：联合国教科文组织世界地质公园",
+  },
+  {
+    province: "香港",
+    name: "黄大仙祠",
+    lat: 22.34205,
+    lng: 114.19379,
+    coordinateLevel: "景区",
+    coordinateLabel: "黄大仙祠",
+    basis: "对标5A：香港代表性宗教文化景点",
+  },
+  {
+    province: "香港",
+    name: "西九文化区与香港故宫文化博物馆",
+    lat: 22.30203,
+    lng: 114.15627,
+    coordinateLevel: "景区",
+    coordinateLabel: "西九文化区",
+    basis: "对标5A：香港代表性文化博物馆片区",
+  },
+  {
+    province: "澳门",
+    name: "澳门历史城区（大三巴牌坊—议事亭前地）",
+    lat: 22.19752,
+    lng: 113.54092,
+    coordinateLevel: "景区",
+    coordinateLabel: "大三巴",
+    basis: "对标5A：澳门政府旅游局世界遗产核心片区",
+  },
+  {
+    province: "澳门",
+    name: "妈阁庙",
+    lat: 22.18543,
+    lng: 113.53188,
+    coordinateLevel: "景区",
+    coordinateLabel: "妈阁庙",
+    basis: "对标5A：澳门世界遗产代表性宗教建筑",
+  },
+  {
+    province: "澳门",
+    name: "东望洋炮台与灯塔",
+    lat: 22.19613,
+    lng: 113.54998,
+    coordinateLevel: "景区",
+    coordinateLabel: "东望洋灯塔",
+    basis: "对标5A：澳门世界遗产代表性历史地标",
+  },
+  {
+    province: "澳门",
+    name: "澳门旅游塔",
+    lat: 22.17938,
+    lng: 113.53647,
+    coordinateLevel: "景区",
+    coordinateLabel: "澳门旅游塔",
+    basis: "对标5A：澳门政府旅游局重点现代地标",
+  },
+  {
+    province: "澳门",
+    name: "路氹金光大道与威尼斯人澳门",
+    lat: 22.14818,
+    lng: 113.56183,
+    coordinateLevel: "景区",
+    coordinateLabel: "威尼斯人澳门",
+    basis: "对标5A：澳门代表性综合旅游度假区",
+  },
+  {
+    province: "澳门",
+    name: "龙环葡韵",
+    lat: 22.15365,
+    lng: 113.55853,
+    coordinateLevel: "景区",
+    coordinateLabel: "龙环葡韵",
+    basis: "对标5A：澳门代表性历史住宅博物馆片区",
+  },
+  {
+    province: "澳门",
+    name: "路环黑沙海滩",
+    lat: 22.12042,
+    lng: 113.57516,
+    coordinateLevel: "景区",
+    coordinateLabel: "黑沙海滩",
+    basis: "对标5A：澳门代表性自然休闲景点",
+  },
+  {
+    province: "澳门",
+    name: "澳门大熊猫馆与石排湾郊野公园",
+    lat: 22.12553,
+    lng: 113.55806,
+    coordinateLevel: "景区",
+    coordinateLabel: "澳门大熊猫馆",
+    basis: "对标5A：澳门政府旅游局家庭与生态游重点景点",
+  },
+].map((entry) => ({
+  rating: "peer5A",
+  ratingLabel: "对标5A",
+  year: null,
+  ...entry,
+}));
+
 function parseMarkdown(text) {
   let province = "";
   const attractions = [];
@@ -387,6 +685,37 @@ function parseMarkdown(text) {
   }
 
   return attractions;
+}
+
+async function loadOfficialAttractions() {
+  try {
+    const text = await readFile(sourcePath, "utf8");
+    return parseMarkdown(text).map((entry) => ({
+      rating: "official5A",
+      ratingLabel: "国家5A",
+      basis: "文化和旅游部国家 AAAAA 级旅游景区",
+      ...entry,
+    }));
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+
+    const sandbox = { window: {} };
+    vm.runInNewContext(readFileSync(outputPath, "utf8"), sandbox);
+    return (sandbox.window.CHINA_5A_ATTRACTIONS || [])
+      .filter((entry) => entry.rating !== "peer5A")
+      .map((entry) => ({
+        rating: "official5A",
+        ratingLabel: "国家5A",
+        basis: "文化和旅游部国家 AAAAA 级旅游景区",
+        province: entry.province,
+        name: entry.name,
+        year: entry.year,
+        lat: entry.lat,
+        lng: entry.lng,
+        coordinateLevel: entry.coordinateLevel,
+        coordinateLabel: entry.coordinateLabel,
+      }));
+  }
 }
 
 function hash(value) {
@@ -452,25 +781,43 @@ function provinceSlug(province) {
     .replace(/^-+|-+$/g, "");
 }
 
-const text = await readFile(sourcePath, "utf8");
-const rows = parseMarkdown(text).map((entry, index) => ({
-  id: `${provinceSlug(entry.province)}-${String(index + 1).padStart(3, "0")}`,
-  ...entry,
-  ...resolveCoordinates(entry, index),
-}));
+const officialRows = await loadOfficialAttractions();
 
-const years = [...new Set(rows.map((row) => row.year))].sort((a, b) => a - b);
+const rows = [...officialRows, ...peerAttractions].map((entry, index) => {
+  const coordinates =
+    Number.isFinite(entry.lat) && Number.isFinite(entry.lng)
+      ? {
+          lat: entry.lat,
+          lng: entry.lng,
+          coordinateLevel: entry.coordinateLevel || "景区",
+          coordinateLabel: entry.coordinateLabel || entry.name,
+        }
+      : resolveCoordinates(entry, index);
+
+  return {
+    id: `${provinceSlug(entry.province)}-${String(index + 1).padStart(3, "0")}`,
+    ...entry,
+    ...coordinates,
+  };
+});
+
+const years = [...new Set(rows.map((row) => row.year).filter(Number.isFinite))].sort((a, b) => a - b);
 const provinces = [...new Set(rows.map((row) => row.province))];
+const officialCount = rows.filter((row) => row.rating === "official5A").length;
+const peerCount = rows.filter((row) => row.rating === "peer5A").length;
 
 const output = `// Generated from ${sourcePath}
 // Coordinates are hand-curated scenic/city/province approximations for UI mapping.
+// Includes mainland official 5A attractions plus Taiwan, Hong Kong and Macao peer-5A landmarks.
 window.CHINA_5A_ATTRACTIONS = ${JSON.stringify(rows, null, 2)};
 window.CHINA_5A_META = ${JSON.stringify(
   {
     count: rows.length,
+    officialCount,
+    peerCount,
     provinces: provinces.length,
     years,
-    source: "China-5A-tourist-attraction.md",
+    source: "China-5A-tourist-attraction.md + peer-5A manual additions",
     generatedAt: new Date().toISOString(),
   },
   null,

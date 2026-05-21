@@ -1,20 +1,20 @@
 :root {
-  --nav: #2b3035;
-  --nav-strong: #212529;
-  --nav-line: #495057;
-  --page: #f1eee9;
-  --panel: #ffffff;
-  --panel-soft: #f7f7f5;
-  --ink: #202428;
-  --muted: #666f77;
-  --line: #d8d8d2;
-  --blue: #2f6faa;
-  --salmon: #fa8072;
-  --green: #167a70;
-  --gold: #c79528;
-  --marker: #2b3035;
-  --highlight: #fa8072;
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.24);
+  --nav: #2a1712;
+  --nav-strong: #3a2119;
+  --nav-line: #704a36;
+  --page: #efe4d0;
+  --panel: #fffaf0;
+  --panel-soft: #f7edda;
+  --ink: #241a16;
+  --muted: #74665a;
+  --line: #d7c4a7;
+  --blue: #2f6f73;
+  --salmon: #b94a3a;
+  --green: #1f6f62;
+  --gold: #b88a2c;
+  --marker: #36231d;
+  --highlight: #c73f32;
+  --shadow: 0 8px 22px rgba(58, 36, 24, 0.2);
   --radius: 4px;
 }
 
@@ -30,7 +30,9 @@ body {
 body {
   margin: 0;
   overflow: hidden;
-  background: var(--page);
+  background:
+    radial-gradient(circle at 16% 12%, rgba(184, 138, 44, 0.13), transparent 28%),
+    linear-gradient(135deg, #f4ead8, var(--page));
   color: var(--ink);
   font-family:
     "Open Sans", "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans",
@@ -74,7 +76,9 @@ a:hover {
   gap: 20px;
   min-height: 56px;
   padding: 0 18px;
-  background: var(--nav);
+  background:
+    linear-gradient(90deg, rgba(133, 40, 29, 0.22), transparent 36%),
+    var(--nav);
   color: #f7f7f7;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }
@@ -113,8 +117,9 @@ a:hover {
 }
 
 .nav-button:hover,
-.nav-button:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
+.nav-button:focus-visible,
+.nav-button.active {
+  background: rgba(255, 240, 213, 0.12);
   color: #fff;
   outline: none;
 }
@@ -131,7 +136,7 @@ a:hover {
   min-width: 44px;
   height: 30px;
   border-radius: var(--radius);
-  background: var(--salmon);
+  background: var(--gold);
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -160,7 +165,7 @@ select {
   height: 34px;
   border-color: var(--nav-line);
   background: var(--nav-strong);
-  color: #dce0e4;
+  color: #f2e6d2;
 }
 
 .nav-search input {
@@ -168,13 +173,13 @@ select {
 }
 
 .nav-search input::placeholder {
-  color: #aab1b8;
+  color: #c6b7a2;
 }
 
 .search-shell:focus-within,
 select:focus {
   border-color: var(--salmon);
-  box-shadow: 0 0 0 2px rgba(250, 128, 114, 0.25);
+  box-shadow: 0 0 0 2px rgba(185, 74, 58, 0.24);
   outline: none;
 }
 
@@ -220,11 +225,24 @@ select {
   color: inherit;
 }
 
+.panel-icon {
+  border-color: rgba(122, 92, 54, 0.28);
+  background: rgba(255, 250, 240, 0.82);
+  color: var(--ink);
+}
+
+.panel-icon:hover,
+.panel-icon:focus-visible {
+  border-color: var(--salmon);
+  color: var(--salmon);
+  outline: none;
+}
+
 .text-button {
   gap: 7px;
   min-height: 34px;
   padding: 0 10px;
-  color: #343a40;
+  color: var(--ink);
   font-size: 13px;
   font-weight: 600;
 }
@@ -250,7 +268,7 @@ select {
   position: absolute;
   inset: 56px 0 0;
   z-index: 0;
-  background: var(--page);
+  background: #e8dcc7;
 }
 
 #map {
@@ -290,16 +308,32 @@ select {
   padding: 0 16px 16px;
   overflow-x: hidden;
   overflow-y: auto;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+body.control-panel-closed .control-panel {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-18px);
 }
 
 .control-panel > * {
   flex-shrink: 0;
 }
 
+.close-control {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
 .feature-visual {
   margin: 0 -16px;
   overflow: hidden;
-  background: #dedbd5;
+  background: #e4d5bd;
   border-radius: var(--radius) var(--radius) 0 0;
 }
 
@@ -317,7 +351,7 @@ select {
   margin-top: -28px;
   min-height: 28px;
   padding: 6px 10px;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.18));
+  background: linear-gradient(90deg, rgba(42, 23, 18, 0.78), rgba(42, 23, 18, 0.18));
   color: rgba(255, 255, 255, 0.92);
   font-size: 12px;
   line-height: 1.3;
@@ -338,7 +372,7 @@ select {
 }
 
 .brand-block h1 {
-  color: #111;
+  color: #1c1411;
   font-size: 24px;
   font-weight: 600;
   word-break: keep-all;
@@ -350,7 +384,7 @@ select {
 
 .intro-copy {
   margin: 14px 0 0;
-  color: #222;
+  color: #39261f;
   font-size: 14px;
   font-style: italic;
   line-height: 1.6;
@@ -358,7 +392,7 @@ select {
 
 .eyebrow {
   margin: 0;
-  color: #4d555c;
+  color: #8a392e;
   font-size: 12px;
   font-weight: 700;
 }
@@ -406,7 +440,7 @@ select {
 .field-label {
   display: block;
   margin-bottom: 6px;
-  color: #33383d;
+  color: #3b2a23;
   font-size: 13px;
   font-weight: 700;
 }
@@ -423,7 +457,7 @@ select {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel-soft);
-  color: #343a40;
+  color: var(--ink);
   font-size: 13px;
   font-weight: 600;
 }
@@ -460,6 +494,12 @@ select {
   font-size: 12px;
 }
 
+.panel-heading.compact {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
 .attraction-list {
   display: grid;
   gap: 8px;
@@ -470,7 +510,7 @@ select {
 
 .attraction-card {
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--line);
   border-left: 4px solid var(--green);
   border-radius: var(--radius);
   background: var(--panel);
@@ -485,8 +525,8 @@ select {
 .attraction-card:hover,
 .attraction-card.active {
   border-color: var(--highlight);
-  background: #fff4f2;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.16);
+  background: #fff4e7;
+  box-shadow: 0 3px 10px rgba(82, 45, 28, 0.18);
   transform: translateY(-1px);
 }
 
@@ -500,7 +540,7 @@ select {
 .card-name {
   display: block;
   margin: 0;
-  color: #15191d;
+  color: #241a16;
   font-size: 14px;
   font-weight: 700;
   line-height: 1.35;
@@ -516,8 +556,8 @@ select {
 .year-badge {
   flex: 0 0 auto;
   border-radius: 999px;
-  background: #eef0ef;
-  color: #33383d;
+  background: #efe3ce;
+  color: #49342b;
   padding: 3px 7px;
   font-size: 12px;
   font-weight: 700;
@@ -531,8 +571,8 @@ select {
 .distribution-panel {
   right: 10px;
   bottom: 10px;
-  width: min(360px, calc(100vw - 20px));
-  max-height: min(48vh, 410px);
+  width: min(390px, calc(100vw - 20px));
+  max-height: min(64vh, 560px);
   padding: 14px;
   overflow: hidden;
 }
@@ -541,28 +581,126 @@ select {
   display: none;
 }
 
+.legend-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.legend-metrics div {
+  min-width: 0;
+  border: 1px solid rgba(215, 196, 167, 0.78);
+  border-radius: var(--radius);
+  background: var(--panel-soft);
+  padding: 9px 10px;
+}
+
+.legend-metrics span,
+.legend-metrics small {
+  display: block;
+}
+
+.legend-metrics span {
+  color: #2b211c;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.legend-metrics small {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.legend-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.legend-row {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.legend-row p {
+  margin: 0;
+  min-width: 0;
+}
+
+.legend-row strong,
+.legend-row span {
+  display: block;
+}
+
+.legend-row strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.legend-row p span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.marker-sample,
+.range-sample {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+}
+
+.marker-sample {
+  border: 3px solid #fff;
+  border-radius: 999px;
+  background: var(--marker);
+  box-shadow: 0 2px 8px rgba(43, 29, 22, 0.28);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.marker-sample.peer {
+  background: var(--green);
+}
+
+.range-sample {
+  border: 2px solid var(--highlight);
+  border-radius: 50%;
+  background: rgba(199, 63, 50, 0.13);
+  box-shadow: inset 0 0 0 5px rgba(199, 63, 50, 0.08);
+}
+
 .province-bars {
   display: grid;
   gap: 8px;
   margin-top: 12px;
-  max-height: 330px;
+  max-height: 210px;
   overflow-y: auto;
   padding-right: 4px;
 }
 
 .province-bar {
   display: grid;
-  grid-template-columns: 56px minmax(0, 1fr) 28px;
+  grid-template-columns: 78px minmax(0, 1fr) 28px;
   align-items: center;
   gap: 8px;
-  color: #343a40;
+  color: var(--ink);
   font-size: 12px;
 }
 
 .province-bar-track {
   height: 7px;
   border-radius: 999px;
-  background: #e8e8e2;
+  background: #eadcc7;
   overflow: hidden;
 }
 
@@ -570,7 +708,7 @@ select {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--green), var(--salmon));
+  background: linear-gradient(90deg, var(--green), var(--gold), var(--salmon));
 }
 
 .map-marker {
@@ -596,7 +734,7 @@ select {
 .map-marker-shell.selected .map-marker {
   background: var(--highlight);
   box-shadow:
-    0 0 0 7px rgba(250, 128, 114, 0.18),
+    0 0 0 7px rgba(199, 63, 50, 0.18),
     0 4px 12px rgba(0, 0, 0, 0.34);
   transform: rotate(-45deg) scale(1.16);
 }
@@ -604,7 +742,7 @@ select {
 .marker-cluster-small,
 .marker-cluster-medium,
 .marker-cluster-large {
-  background-color: rgba(250, 128, 114, 0.24);
+  background-color: rgba(185, 74, 58, 0.24);
 }
 
 .marker-cluster-small div,
@@ -644,7 +782,7 @@ body.has-selection .detail-panel {
 
 .detail-panel h2 {
   margin-right: 34px;
-  color: #111;
+  color: #1c1411;
   font-size: 25px;
   font-weight: 600;
 }
@@ -654,7 +792,7 @@ body.has-selection .detail-panel {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  background: #dedbd5;
+  background: #e4d5bd;
 }
 
 .detail-visual img {
@@ -717,7 +855,7 @@ body.has-selection .detail-panel {
 
 .related-item {
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
   padding: 9px 10px;
@@ -750,12 +888,12 @@ body.has-selection .detail-panel {
 }
 
 .source-note span {
-  color: #394044;
+  color: #4a3127;
   font-weight: 700;
 }
 
 .empty-state {
-  border: 1px dashed #cfcfc8;
+  border: 1px dashed #cdb897;
   border-radius: var(--radius);
   padding: 18px;
   color: var(--muted);
@@ -815,6 +953,10 @@ body.has-selection .detail-panel {
     opacity: 1;
     pointer-events: auto;
     transform: none;
+  }
+
+  body.control-panel-closed .control-panel {
+    display: none;
   }
 
   .detail-panel {

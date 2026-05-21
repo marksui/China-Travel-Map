@@ -1,54 +1,14 @@
 const attractions = window.CHINA_5A_ATTRACTIONS || [];
 const meta = window.CHINA_5A_META || {};
+const localImages = window.CHINA_5A_IMAGES || {};
 
-const highlightColor = "#fa8072";
-const fallbackImage = {
-  url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg/1280px-Mutianyu_%E2%80%93_Panorama_%28Greg_Zaal_via_Poly_Haven%29.jpg",
+const highlightColor = "#c73f32";
+const fallbackImage = localImages.fallback || {
+  url: "assets/images/fallback.jpg",
   pageUrl:
     "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
-  caption: "图片来源：Wikimedia Commons",
+  caption: "暂无该景点本地实景图，显示通用景区图",
 };
-const imageQueryOverrides = {
-  "山东-089": ["Nanshan Buddha Longkou", "烟台 龙口 南山", "龙口 南山大佛"],
-};
-const rejectedImageTerms = [
-  "地图",
-  "半岛",
-  "行政区",
-  "区划",
-  "位置图",
-  "标识牌",
-  "指示牌",
-  "示意图",
-  "分布图",
-  "路线图",
-  "政区",
-  "pdf",
-  "djvu",
-  "svg",
-  "map",
-  "locator",
-  "location",
-  "diagram",
-  "sign",
-  "logo",
-  "flag",
-  "seal",
-  "coat of arms",
-  "360°",
-  "360度",
-  "panorama",
-  "全景",
-  "图卷",
-  "画卷",
-  "藏品",
-  "博物院藏",
-  "文物",
-  "painting",
-  "drawing",
-  "manuscript",
-  "collection",
-];
 
 const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
 const state = {
@@ -56,6 +16,7 @@ const state = {
   province: "全部",
   selectedId: null,
   distributionOpen: true,
+  controlOpen: true,
 };
 
 const els = {
@@ -70,11 +31,17 @@ const els = {
   visibleStat: document.querySelector("#visibleStat"),
   dataCountPill: document.querySelector("#dataCountPill"),
   resetFilters: document.querySelector("#resetFilters"),
+  toggleControlPanel: document.querySelector("#toggleControlPanel"),
+  closeControlPanel: document.querySelector("#closeControlPanel"),
   fitFiltered: document.querySelector("#fitFiltered"),
   toggleDistribution: document.querySelector("#toggleDistribution"),
+  closeLegend: document.querySelector("#closeLegend"),
   distributionPanel: document.querySelector("#distributionPanel"),
   provinceBars: document.querySelector("#provinceBars"),
   distributionCaption: document.querySelector("#distributionCaption"),
+  legendOfficialStat: document.querySelector("#legendOfficialStat"),
+  legendPeerStat: document.querySelector("#legendPeerStat"),
+  legendRegionStat: document.querySelector("#legendRegionStat"),
   detailPanel: document.querySelector("#detailPanel"),
   closeDetail: document.querySelector("#closeDetail"),
   detailProvince: document.querySelector("#detailProvince"),
@@ -82,6 +49,7 @@ const els = {
   detailImage: document.querySelector("#detailImage"),
   detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
+  detailBasis: document.querySelector("#detailBasis"),
   detailPrecision: document.querySelector("#detailPrecision"),
   focusSelected: document.querySelector("#focusSelected"),
   filterProvince: document.querySelector("#filterProvince"),
@@ -126,16 +94,16 @@ markerLayer.addTo(map);
 
 const markersById = new Map();
 const attractionsById = new Map(attractions.map((item) => [item.id, item]));
-const imageCache = new Map();
 const footprintCache = new Map();
 const selectionLayer = L.layerGroup().addTo(map);
-let activeImageRequest = 0;
 let activeFootprintRequest = 0;
 
 function init() {
   renderBaseStats();
   populateProvinceSelect();
   bindEvents();
+  syncControlPanel();
+  syncDistributionPanel();
   render();
   fitTo(attractions);
 
@@ -154,15 +122,15 @@ function renderBaseStats() {
 function populateProvinceSelect() {
   const provinces = unique(attractions.map((item) => item.province));
   els.provinceSelect.innerHTML = [
-    `<option value="全部">全部省份</option>`,
+    `<option value="全部">全部地区</option>`,
     ...provinces.map((province) => `<option value="${escapeHtml(province)}">${province}</option>`),
   ].join("");
 }
 
 function bindEvents() {
   els.detailImage.addEventListener("error", () => {
-    if (els.detailImage.src !== fallbackImage.url) {
-      setDetailImage(fallbackImage, "景区图片");
+    if (els.detailImage.dataset.fallback !== "true") {
+      setDetailImage(fallbackImage, "景点图片");
     }
   });
 
@@ -193,12 +161,22 @@ function bindEvents() {
     fitTo(attractions);
   });
 
+  els.toggleControlPanel.addEventListener("click", () => {
+    setControlPanelOpen(!state.controlOpen);
+  });
+
+  els.closeControlPanel.addEventListener("click", () => {
+    setControlPanelOpen(false);
+  });
+
   els.fitFiltered.addEventListener("click", () => fitTo(getFilteredAttractions()));
 
   els.toggleDistribution.addEventListener("click", () => {
-    state.distributionOpen = !state.distributionOpen;
-    els.distributionPanel.classList.toggle("collapsed", !state.distributionOpen);
-    els.toggleDistribution.setAttribute("aria-expanded", String(state.distributionOpen));
+    setDistributionOpen(!state.distributionOpen);
+  });
+
+  els.closeLegend.addEventListener("click", () => {
+    setDistributionOpen(false);
   });
 
   els.closeDetail.addEventListener("click", () => selectAttraction(null));
@@ -221,9 +199,41 @@ function bindEvents() {
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      selectAttraction(null);
+      if (getSelected()) {
+        selectAttraction(null);
+      } else if (state.distributionOpen) {
+        setDistributionOpen(false);
+      }
     }
   });
+}
+
+function setControlPanelOpen(open) {
+  state.controlOpen = open;
+  syncControlPanel();
+  window.requestAnimationFrame(() => {
+    map.invalidateSize();
+  });
+}
+
+function syncControlPanel() {
+  document.body.classList.toggle("control-panel-closed", !state.controlOpen);
+  els.toggleControlPanel.setAttribute("aria-expanded", String(state.controlOpen));
+  const label = els.toggleControlPanel.querySelector(".nav-label");
+  if (label) {
+    label.textContent = state.controlOpen ? "收起筛选" : "打开筛选";
+  }
+}
+
+function setDistributionOpen(open) {
+  state.distributionOpen = open;
+  syncDistributionPanel();
+}
+
+function syncDistributionPanel() {
+  els.distributionPanel.classList.toggle("collapsed", !state.distributionOpen);
+  els.toggleDistribution.setAttribute("aria-expanded", String(state.distributionOpen));
+  els.toggleDistribution.classList.toggle("active", state.distributionOpen);
 }
 
 function render() {
@@ -250,7 +260,9 @@ function getFilteredAttractions() {
   return attractions.filter((item) => {
     const matchesProvince = state.province === "全部" || item.province === state.province;
     const searchable = normalize(
-      `${item.name} ${item.province} ${item.coordinateLabel} ${item.coordinateLevel}`,
+      `${item.name} ${item.province} ${item.coordinateLabel} ${item.coordinateLevel} ${item.ratingLabel || ""} ${
+        item.basis || ""
+      }`,
     );
     const matchesSearch = !query || searchable.includes(query);
     return matchesProvince && matchesSearch;
@@ -259,14 +271,14 @@ function getFilteredAttractions() {
 
 function updateSummary(filtered) {
   els.visibleStat.textContent = String(filtered.length);
-  els.resultCount.textContent = `${filtered.length} 个结果`;
+  els.resultCount.textContent = `${filtered.length} 个景点`;
   const provinceText = state.province === "全部" ? "全国" : state.province;
-  els.filterSubtitle.textContent = `${provinceText} · 5A 景区`;
+  els.filterSubtitle.textContent = `${provinceText} · 国家5A + 对标景点`;
 }
 
 function renderList(items) {
   if (!items.length) {
-    els.attractionList.innerHTML = `<li class="empty-state">没有匹配的景区</li>`;
+    els.attractionList.innerHTML = `<li class="empty-state">没有匹配的景点</li>`;
     return;
   }
 
@@ -279,9 +291,9 @@ function renderList(items) {
             <span class="card-main">
               <span>
                 <span class="card-name">${escapeHtml(item.name)}</span>
-                <span class="card-meta">${escapeHtml(item.province)} · ${item.year} 年评为 5A</span>
+                <span class="card-meta">${escapeHtml(item.province)} · ${escapeHtml(ratingMeta(item))}</span>
               </span>
-              <span class="year-badge">5A</span>
+              <span class="year-badge">${escapeHtml(ratingBadge(item))}</span>
             </span>
           </button>
         </li>
@@ -308,9 +320,9 @@ function renderMarkers(items) {
     });
 
     marker.bindPopup(
-      `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(item.province)} · ${
-        item.year
-      } 年评为 5A`,
+      `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(item.province)} · ${escapeHtml(
+        ratingMeta(item),
+      )}`,
     );
 
     marker.on("click", () => selectAttraction(item));
@@ -322,7 +334,13 @@ function renderMarkers(items) {
 function renderDistribution(items) {
   const counts = countBy(items, (item) => item.province).sort((a, b) => b.count - a.count);
   const max = Math.max(1, ...counts.map((item) => item.count));
-  els.distributionCaption.textContent = `${items.length} 个景区`;
+  const regionText = state.province === "全部" ? "全国" : state.province;
+  const officialCount = items.filter((item) => !isPeerAttraction(item)).length;
+  const peerCount = items.length - officialCount;
+  els.distributionCaption.textContent = `${regionText} · ${items.length} 个景点`;
+  els.legendOfficialStat.textContent = String(officialCount);
+  els.legendPeerStat.textContent = String(peerCount);
+  els.legendRegionStat.textContent = String(counts.length);
 
   if (!counts.length) {
     els.provinceBars.innerHTML = `<div class="empty-state">暂无数据</div>`;
@@ -330,6 +348,7 @@ function renderDistribution(items) {
   }
 
   els.provinceBars.innerHTML = counts
+    .slice(0, 8)
     .map(
       (item) => `
         <button class="province-bar related-item" type="button" data-province="${escapeHtml(
@@ -373,15 +392,16 @@ function selectAttraction(item, options = {}) {
 function renderDetail(item) {
   const hasItem = Boolean(item);
   document.body.classList.toggle("has-selection", hasItem);
-  els.detailProvince.textContent = hasItem ? item.province : "选择景区";
-  els.detailName.textContent = hasItem ? item.name : "在地图或列表中选择一个景区";
-  els.detailYear.textContent = hasItem ? `${item.year} 年` : "-";
+  els.detailProvince.textContent = hasItem ? item.province : "选择景点";
+  els.detailName.textContent = hasItem ? item.name : "在地图或列表中选择一个景点";
+  els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
+  els.detailBasis.textContent = hasItem ? item.basis || ratingMeta(item) : "-";
   els.detailPrecision.textContent = hasItem ? "正在查找 OSM 面边界..." : "-";
   els.focusSelected.disabled = !hasItem;
   els.filterProvince.disabled = !hasItem;
 
   if (!hasItem) {
-    setDetailImage(fallbackImage, "景区图片");
+    setDetailImage(fallbackImage, "景点图片");
     clearFootprint();
     els.relatedCaption.textContent = "-";
     els.relatedList.innerHTML = `<div class="empty-state">暂无选择</div>`;
@@ -402,12 +422,12 @@ function renderDetail(item) {
           (candidate) => `
             <button class="related-item" type="button" data-id="${candidate.id}">
               <strong>${escapeHtml(candidate.name)}</strong>
-              <span>${candidate.year} 年评为 5A</span>
+              <span>${escapeHtml(ratingMeta(candidate))}</span>
             </button>
           `,
         )
         .join("")
-    : `<div class="empty-state">没有其他同省景区</div>`;
+    : `<div class="empty-state">没有其他同地区景点</div>`;
 
   els.relatedList.querySelectorAll("[data-id]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -490,7 +510,7 @@ async function searchNominatimFootprint(query, item) {
     addressdetails: "0",
     extratags: "1",
     limit: "6",
-    countrycodes: "cn",
+    countrycodes: "cn,tw,hk,mo",
     q: query,
   });
 
@@ -662,8 +682,8 @@ function fitFootprintBounds(layer, fit) {
   const bounds = layer.getBounds?.();
   if (bounds?.isValid()) {
     map.fitBounds(bounds.pad(0.22), {
-      paddingTopLeft: [390, 70],
-      paddingBottomRight: [370, 40],
+      paddingTopLeft: mapPaddingTopLeft(),
+      paddingBottomRight: mapPaddingBottomRight(true),
       maxZoom: 14,
     });
   }
@@ -709,17 +729,31 @@ function fitTo(items) {
   const bounds = L.latLngBounds(items.map((item) => [item.lat, item.lng]));
   if (bounds.isValid()) {
     map.fitBounds(bounds.pad(0.08), {
-      paddingTopLeft: [390, 70],
-      paddingBottomRight: [40, 40],
+      paddingTopLeft: mapPaddingTopLeft(),
+      paddingBottomRight: mapPaddingBottomRight(false),
       maxZoom: 9,
     });
   }
 }
 
+function mapPaddingTopLeft() {
+  if (!isDesktopLayout()) return [24, 24];
+  return state.controlOpen ? [390, 70] : [44, 70];
+}
+
+function mapPaddingBottomRight(hasDetail) {
+  if (!isDesktopLayout()) return [24, 24];
+  return hasDetail ? [370, 40] : [44, 40];
+}
+
+function isDesktopLayout() {
+  return window.matchMedia("(min-width: 981px)").matches;
+}
+
 function markerIcon(item, active = item.id === state.selectedId) {
   return L.divIcon({
     className: `map-marker-shell${active ? " selected" : ""}`,
-    html: `<div class="map-marker"><span>5A</span></div>`,
+    html: `<div class="map-marker"><span>${escapeHtml(ratingBadge(item))}</span></div>`,
     iconSize: [34, 34],
     iconAnchor: [17, 33],
     popupAnchor: [0, -28],
@@ -734,152 +768,35 @@ function unique(items) {
   return [...new Set(items)];
 }
 
-async function loadDetailImage(item) {
-  const requestId = ++activeImageRequest;
-  setDetailImage({ ...fallbackImage, caption: "正在查找景区图片..." }, item.name);
-
-  const cached = imageCache.get(item.id);
-  if (cached) {
-    setDetailImage(cached, item.name);
-    return;
-  }
-
-  const image = await findAttractionImage(item);
-  if (requestId !== activeImageRequest || state.selectedId !== item.id) return;
-
-  imageCache.set(item.id, image);
-  setDetailImage(image, item.name);
+function isPeerAttraction(item) {
+  return item.rating === "peer5A";
 }
 
-async function findAttractionImage(item) {
-  const queries = imageQueries(item);
-
-  for (const query of queries) {
-    const commonsImage = await searchCommonsImage(query);
-    if (commonsImage) return commonsImage;
-  }
-
-  for (const query of queries) {
-    const wikipediaImage = await searchWikipediaImage(query);
-    if (wikipediaImage) return wikipediaImage;
-  }
-
-  return fallbackImage;
+function ratingBadge(item) {
+  return isPeerAttraction(item) ? "对标" : "5A";
 }
 
-function imageQueries(item) {
-  const compactName = item.name
-    .replace(/[（(].*?[）)]/g, "")
-    .replace(/—|·|-/g, " ")
-    .replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院|文化园区/g, "")
-    .trim();
-  const withoutProvince = compactName.replace(new RegExp(`^${item.province}`), "").trim();
-  return unique([
-    ...(imageQueryOverrides[item.id] || []),
-    `${item.province} ${item.name}`,
-    `${item.province} ${item.coordinateLabel}`,
-    item.name,
-    compactName,
-    withoutProvince,
-    item.coordinateLabel,
-    `${item.coordinateLabel} ${item.province}`,
-  ].filter(Boolean));
+function ratingMeta(item) {
+  return isPeerAttraction(item) ? "对标大陆 5A" : `${item.year} 年评为 5A`;
 }
 
-async function searchWikipediaImage(query) {
-  const params = new URLSearchParams({
-    origin: "*",
-    action: "query",
-    generator: "search",
-    gsrsearch: `${query} 中国`,
-    gsrlimit: "4",
-    prop: "pageimages|info",
-    piprop: "thumbnail|name|original",
-    pithumbsize: "720",
-    inprop: "url",
-    format: "json",
-  });
-
-  try {
-    const response = await fetch(`https://zh.wikipedia.org/w/api.php?${params}`);
-    const data = await response.json();
-    const page = sortedPages(data).find(
-      (candidate) => candidate.thumbnail?.source && isAllowedImageCandidate(candidate),
-    );
-    if (!page) return null;
-
-    return {
-      url: page.thumbnail.source,
-      pageUrl: page.fullurl || "https://zh.wikipedia.org/",
-      caption: `图片来源：维基百科 · ${page.title}`,
-    };
-  } catch {
-    return null;
-  }
+function ratingDetail(item) {
+  return isPeerAttraction(item)
+    ? `${item.ratingLabel || "对标5A"}（非大陆官方评级）`
+    : `${item.year} 年`;
 }
 
-async function searchCommonsImage(query) {
-  const params = new URLSearchParams({
-    origin: "*",
-    action: "query",
-    generator: "search",
-    gsrsearch: `${query} China`,
-    gsrnamespace: "6",
-    gsrlimit: "4",
-    prop: "imageinfo",
-    iiurlwidth: "720",
-    iiprop: "url",
-    format: "json",
-  });
-
-  try {
-    const response = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`);
-    const data = await response.json();
-    const page = sortedPages(data).find(
-      (candidate) => candidate.imageinfo?.[0]?.thumburl && isAllowedImageCandidate(candidate),
-    );
-    if (!page) return null;
-
-    return {
-      url: page.imageinfo[0].thumburl,
-      pageUrl: page.imageinfo[0].descriptionurl || "https://commons.wikimedia.org/",
-      caption: `图片来源：Wikimedia Commons · ${page.title.replace(/^File:/, "")}`,
-    };
-  } catch {
-    return null;
-  }
-}
-
-function sortedPages(data) {
-  return Object.values(data.query?.pages || {}).sort((a, b) => (a.index || 0) - (b.index || 0));
-}
-
-function isAllowedImageCandidate(candidate) {
-  const info = candidate.imageinfo?.[0] || {};
-  const metadata = info.extmetadata || {};
-  const text = [
-    candidate.title,
-    candidate.pageimage,
-    candidate.fullurl,
-    info.url,
-    info.thumburl,
-    metadata.ObjectName?.value,
-    metadata.ImageDescription?.value,
-    metadata.Categories?.value,
-  ]
-    .filter(Boolean)
-    .join(" ")
-    .toLocaleLowerCase("zh-CN")
-    .replace(/<[^>]*>/g, " ");
-
-  return !rejectedImageTerms.some((term) => text.includes(term));
+function loadDetailImage(item) {
+  setDetailImage(localImages[item.id] || fallbackImage, item.name);
 }
 
 function setDetailImage(image, alt) {
-  els.detailImage.src = image.url;
+  const safeImage = image || fallbackImage;
+  els.detailImage.dataset.fallback = safeImage.url === fallbackImage.url ? "true" : "false";
+  els.detailImage.src = safeImage.url;
   els.detailImage.alt = alt;
-  els.detailImageLink.href = image.pageUrl;
-  els.detailImageLink.textContent = image.caption;
+  els.detailImageLink.href = safeImage.pageUrl || fallbackImage.pageUrl;
+  els.detailImageLink.textContent = safeImage.caption || fallbackImage.caption;
 }
 
 function countBy(items, getKey) {
