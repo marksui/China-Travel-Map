@@ -2,7 +2,7 @@ const attractions = window.CHINA_5A_ATTRACTIONS || [];
 const meta = window.CHINA_5A_META || {};
 const localImages = window.CHINA_5A_IMAGES || {};
 
-const highlightColor = "#c73f32";
+const highlightColor = "#b65345";
 const fallbackImage = localImages.fallback || {
   url: "assets/images/fallback.jpg",
   pageUrl:
@@ -1627,10 +1627,10 @@ function renderFootprint(footprint, item, options = {}) {
       interactive: false,
       style: {
         color: highlightColor,
-        weight: 3,
-        opacity: 0.95,
+        weight: 2.5,
+        opacity: 0.9,
         fillColor: highlightColor,
-        fillOpacity: 0.18,
+        fillOpacity: 0.12,
       },
     }).addTo(selectionLayer);
     alignAttractionToFootprint(item, footprint.center || featureDisplayCenter(footprint.feature));
@@ -1644,9 +1644,9 @@ function renderFootprint(footprint, item, options = {}) {
     radius: footprint.radius || estimateFootprintRadius(item),
     color: highlightColor,
     weight: 2,
-    opacity: 0.92,
+    opacity: 0.86,
     fillColor: highlightColor,
-    fillOpacity: 0.18,
+    fillOpacity: 0.12,
     interactive: false,
   }).addTo(selectionLayer);
   setFootprintDetail(null);

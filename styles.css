@@ -13,7 +13,10 @@
   --green: #1f6f62;
   --gold: #b88a2c;
   --marker: #36231d;
-  --highlight: #c73f32;
+  --highlight: #b65345;
+  --map-ink: #2f2924;
+  --map-highlight-soft: rgba(182, 83, 69, 0.14);
+  --map-surface: #ebe5dc;
   --shadow: 0 8px 22px rgba(58, 36, 24, 0.2);
   --radius: 4px;
 }
@@ -278,13 +281,19 @@ select {
   position: absolute;
   inset: 56px 0 0;
   z-index: 0;
-  background: #e8dcc7;
+  background: var(--map-surface);
 }
 
 #map {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: var(--map-surface);
+}
+
+.leaflet-tile-pane {
+  filter: grayscale(0.7) saturate(0.48) sepia(0.08) brightness(1.05) contrast(0.94);
+  opacity: 0.94;
 }
 
 .leaflet-control-attribution {
@@ -671,22 +680,24 @@ body.control-panel-closed .control-panel {
 .marker-sample {
   border: 3px solid #fff;
   border-radius: 999px;
-  background: var(--marker);
-  box-shadow: 0 2px 8px rgba(43, 29, 22, 0.28);
+  background: var(--map-ink);
+  box-shadow: 0 2px 6px rgba(43, 29, 22, 0.22);
   color: #fff;
   font-size: 10px;
   font-weight: 800;
 }
 
 .marker-sample.peer {
-  background: var(--green);
+  background: var(--map-ink);
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.36),
+    0 2px 6px rgba(43, 29, 22, 0.22);
 }
 
 .range-sample {
   border: 2px solid var(--highlight);
   border-radius: 50%;
-  background: rgba(199, 63, 50, 0.13);
-  box-shadow: inset 0 0 0 5px rgba(199, 63, 50, 0.08);
+  background: var(--map-highlight-soft);
 }
 
 .province-bars {
@@ -710,7 +721,7 @@ body.control-panel-closed .control-panel {
 .province-bar-track {
   height: 7px;
   border-radius: 999px;
-  background: #eadcc7;
+  background: #e5ddd2;
   overflow: hidden;
 }
 
@@ -718,7 +729,8 @@ body.control-panel-closed .control-panel {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--green), var(--gold), var(--salmon));
+  background: var(--highlight);
+  opacity: 0.82;
 }
 
 .map-marker {
@@ -729,8 +741,8 @@ body.control-panel-closed .control-panel {
   height: 32px;
   border: 3px solid #fff;
   border-radius: 50% 50% 50% 7px;
-  background: var(--marker);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.32);
+  background: var(--map-ink);
+  box-shadow: 0 2px 7px rgba(47, 41, 36, 0.28);
   color: #fff;
   font-size: 10px;
   font-weight: 800;
@@ -744,21 +756,21 @@ body.control-panel-closed .control-panel {
 .map-marker-shell.selected .map-marker {
   background: var(--highlight);
   box-shadow:
-    0 0 0 7px rgba(199, 63, 50, 0.18),
-    0 4px 12px rgba(0, 0, 0, 0.34);
+    0 0 0 7px var(--map-highlight-soft),
+    0 4px 11px rgba(47, 41, 36, 0.3);
   transform: rotate(-45deg) scale(1.16);
 }
 
 .marker-cluster-small,
 .marker-cluster-medium,
 .marker-cluster-large {
-  background-color: rgba(185, 74, 58, 0.24);
+  background-color: var(--map-highlight-soft);
 }
 
 .marker-cluster-small div,
 .marker-cluster-medium div,
 .marker-cluster-large div {
-  background-color: rgba(43, 48, 53, 0.9);
+  background-color: rgba(47, 41, 36, 0.9);
   color: #fff;
   font-weight: 700;
 }
