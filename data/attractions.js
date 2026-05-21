@@ -2395,11 +2395,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "coordinateLabel": "博斯腾湖"
   },
   {
-    "id": "中华民国-台湾-185",
+    "id": "台湾-185",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "台北故宫博物院",
     "lat": 25.10236,
     "lng": 121.54849,
@@ -2408,11 +2408,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾代表性博物馆与国际级文化地标"
   },
   {
-    "id": "中华民国-台湾-186",
+    "id": "台湾-186",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "台北101",
     "lat": 25.03396,
     "lng": 121.56447,
@@ -2421,11 +2421,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾代表性城市地标"
   },
   {
-    "id": "中华民国-台湾-187",
+    "id": "台湾-187",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "中正纪念堂",
     "lat": 25.03465,
     "lng": 121.52183,
@@ -2434,11 +2434,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾代表性历史文化地标"
   },
   {
-    "id": "中华民国-台湾-188",
+    "id": "台湾-188",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "阳明山国家公园",
     "lat": 25.16626,
     "lng": 121.56374,
@@ -2447,11 +2447,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：国家公园级自然景区"
   },
   {
-    "id": "中华民国-台湾-189",
+    "id": "台湾-189",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "野柳地质公园",
     "lat": 25.20702,
     "lng": 121.69003,
@@ -2460,11 +2460,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：北海岸及观音山国家风景区代表性景点"
   },
   {
-    "id": "中华民国-台湾-190",
+    "id": "台湾-190",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "太鲁阁国家公园",
     "lat": 24.15872,
     "lng": 121.62147,
@@ -2473,11 +2473,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：国家公园级峡谷景观"
   },
   {
-    "id": "中华民国-台湾-191",
+    "id": "台湾-191",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "日月潭国家风景区",
     "lat": 23.86574,
     "lng": 120.91592,
@@ -2486,11 +2486,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾交通部观光署国家风景区"
   },
   {
-    "id": "中华民国-台湾-192",
+    "id": "台湾-192",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "阿里山国家风景区",
     "lat": 23.50886,
     "lng": 120.80503,
@@ -2499,11 +2499,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾交通部观光署国家风景区"
   },
   {
-    "id": "中华民国-台湾-193",
+    "id": "台湾-193",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "玉山国家公园",
     "lat": 23.46983,
     "lng": 120.95725,
@@ -2512,11 +2512,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：国家公园级高山景区"
   },
   {
-    "id": "中华民国-台湾-194",
+    "id": "台湾-194",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "垦丁国家公园",
     "lat": 21.94847,
     "lng": 120.77975,
@@ -2525,11 +2525,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：国家公园级海岸景区"
   },
   {
-    "id": "中华民国-台湾-195",
+    "id": "台湾-195",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "澎湖国家风景区",
     "lat": 23.57119,
     "lng": 119.57932,
@@ -2538,11 +2538,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾交通部观光署国家风景区"
   },
   {
-    "id": "中华民国-台湾-196",
+    "id": "台湾-196",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "东海岸国家风景区（三仙台）",
     "lat": 23.1266,
     "lng": 121.41138,
@@ -2551,11 +2551,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾交通部观光署国家风景区代表性景点"
   },
   {
-    "id": "中华民国-台湾-197",
+    "id": "台湾-197",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "九份老街",
     "lat": 25.10981,
     "lng": 121.84519,
@@ -2564,11 +2564,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾代表性历史街区与山城景观"
   },
   {
-    "id": "中华民国-台湾-198",
+    "id": "台湾-198",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "佛光山佛陀纪念馆",
     "lat": 22.75506,
     "lng": 120.44544,
@@ -2577,11 +2577,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾代表性宗教文化景区"
   },
   {
-    "id": "中华民国-台湾-199",
+    "id": "台湾-199",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "安平古堡",
     "lat": 23.00174,
     "lng": 120.16044,
@@ -2590,11 +2590,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "basis": "对标5A：台湾代表性历史遗迹"
   },
   {
-    "id": "中华民国-台湾-200",
+    "id": "台湾-200",
     "rating": "peer5A",
     "ratingLabel": "对标5A",
     "year": null,
-    "province": "中华民国（台湾）",
+    "province": "台湾",
     "name": "淡水红毛城",
     "lat": 25.17537,
     "lng": 121.43265,

@@ -920,82 +920,82 @@ window.CHINA_5A_IMAGES = {
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
-  "中华民国-台湾-185": {
+  "台湾-185": {
     "url": "assets/images/185.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E5%8C%97%E6%95%85%E5%AE%AB_-_panoramio.jpg",
     "caption": "图片来源：Wikimedia Commons · 台北故宫 - panoramio.jpg"
   },
-  "中华民国-台湾-186": {
+  "台湾-186": {
     "url": "assets/images/186.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Taipei_Taiwan_Taipei-101-Tower-01.jpg",
     "caption": "图片来源：Wikimedia Commons · Taipei Taiwan Taipei-101-Tower-01.jpg"
   },
-  "中华民国-台湾-187": {
+  "台湾-187": {
     "url": "assets/images/187.jpg",
     "pageUrl": "https://www.flickr.com/photos/193353181@N06/52622421873",
     "caption": "图片来源：flickr · Long Exposure of Chiang Kai-Shek Memorial Hall 中正紀念堂 in Taipei"
   },
-  "中华民国-台湾-188": {
+  "台湾-188": {
     "url": "assets/images/188.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E9%99%BD%E6%98%8E%E5%B1%B1%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92",
     "caption": "图片来源：维基百科 · 陽明山國家公園"
   },
-  "中华民国-台湾-189": {
+  "台湾-189": {
     "url": "assets/images/189.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8F%B0%E6%B9%BE_%E9%87%8E%E6%9F%B3%E5%9C%B0%E8%B4%A8%E5%85%AC%E5%9B%AD_-_panoramio.jpg",
     "caption": "图片来源：Wikimedia Commons · 台湾 野柳地质公园 - panoramio.jpg"
   },
-  "中华民国-台湾-190": {
+  "台湾-190": {
     "url": "assets/images/190.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Taroko_National_Park%EF%BC%8Bby_Steven%EF%BC%8B9287.jpg",
     "caption": "图片来源：Wikimedia Commons · Taroko National Park＋by Steven＋9287.jpg"
   },
-  "中华民国-台湾-191": {
+  "台湾-191": {
     "url": "assets/images/191.jpg",
     "pageUrl": "https://www.flickr.com/photos/130477966@N06/51697010344",
     "caption": "图片来源：flickr · 日月潭"
   },
-  "中华民国-台湾-192": {
+  "台湾-192": {
     "url": "assets/images/192.jpg",
     "pageUrl": "https://www.flickr.com/photos/40092099@N04/53866978925",
     "caption": "图片来源：flickr · 07.19 總統出席「阿里山林業鐵路全線通車感恩活動」"
   },
-  "中华民国-台湾-193": {
+  "台湾-193": {
     "url": "assets/images/193.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mt._Jade_Front_Peak.jpg",
     "caption": "图片来源：Wikimedia Commons · Mt. Jade Front Peak.jpg"
   },
-  "中华民国-台湾-194": {
+  "台湾-194": {
     "url": "assets/images/194.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%A2%BE%E4%B8%81%E5%9C%8B%E5%AE%B6%E5%85%AC%E5%9C%92",
     "caption": "图片来源：维基百科 · 墾丁國家公園"
   },
-  "中华民国-台湾-195": {
+  "台湾-195": {
     "url": "assets/images/195.jpg",
     "pageUrl": "https://www.flickr.com/photos/91049143@N00/52316350117",
     "caption": "图片来源：flickr · Snapshot, Fongguei Cave, Penghu, Taiwan, 隨拍, 風櫃洞, 澎湖, 台灣"
   },
-  "中华民国-台湾-196": {
+  "台湾-196": {
     "url": "assets/images/196.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:East_Coast_National_Scenic_Area%2B_%E4%B8%89%E4%BB%99%E5%8F%B0.jpg",
     "caption": "图片来源：Wikimedia Commons · East Coast National Scenic Area+ 三仙台.jpg"
   },
-  "中华民国-台湾-197": {
+  "台湾-197": {
     "url": "assets/images/197.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:People_at_Jiufen_old_street(20240716130916).jpg",
     "caption": "图片来源：Wikimedia Commons · People at Jiufen old street(20240716130916).jpg"
   },
-  "中华民国-台湾-198": {
+  "台湾-198": {
     "url": "assets/images/198.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fo_Guang_Shan_Buddha_Museum_%E4%BD%9B%E5%85%89%E5%B1%B1%E4%BD%9B%E9%99%80%E7%B4%80%E5%BF%B5%E9%A4%A8_.jpg",
     "caption": "图片来源：Wikimedia Commons · Fo Guang Shan Buddha Museum 佛光山佛陀紀念館 .jpg"
   },
-  "中华民国-台湾-199": {
+  "台湾-199": {
     "url": "assets/images/199.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Fort_Zeelandia,_Anping_District,_Tainan_City_(Taiwan).jpg",
     "caption": "图片来源：Wikimedia Commons · Fort Zeelandia, Anping District, Tainan City (Taiwan).jpg"
   },
-  "中华民国-台湾-200": {
+  "台湾-200": {
     "url": "assets/images/200.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E7%B4%85%E6%AF%9B%E5%9F%8E",
     "caption": "图片来源：维基百科 · 紅毛城"

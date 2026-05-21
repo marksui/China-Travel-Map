@@ -809,6 +809,14 @@ body.has-selection .detail-panel {
   font-weight: 600;
 }
 
+.detail-description {
+  margin: -4px 34px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
 .detail-visual {
   margin: 16px 0 18px;
   overflow: hidden;

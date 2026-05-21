@@ -56,7 +56,7 @@ const translations = {
     eyebrow: "国家 5A / 对标 5A 景点",
     heroLine1: "欢迎使用中国 5A 景点",
     heroLine2: "在线地图",
-    intro: "覆盖中国大陆官方 5A 景区，并加入中华民国（台湾）、香港、澳门的对标 5A 景点。",
+    intro: "覆盖中国大陆官方 5A 景区，并加入台湾、香港、澳门的对标 5A 景点。",
     summaryStats: "统计摘要",
     attractions: "景点",
     filteredResults: "筛选结果",
@@ -129,7 +129,7 @@ const translations = {
     eyebrow: "國家 5A / 對標 5A 景點",
     heroLine1: "歡迎使用中國 5A 景點",
     heroLine2: "線上地圖",
-    intro: "覆蓋中國大陸官方 5A 景區，並加入中華民國（臺灣）、香港、澳門的對標 5A 景點。",
+    intro: "覆蓋中國大陸官方 5A 景區，並加入臺灣、香港、澳門的對標 5A 景點。",
     summaryStats: "統計摘要",
     attractions: "景點",
     filteredResults: "篩選結果",
@@ -646,7 +646,7 @@ const provinceNames = {
     青海: "青海",
     宁夏: "寧夏",
     新疆: "新疆",
-    "中华民国（台湾）": "中華民國（臺灣）",
+    "台湾": "臺灣",
     香港: "香港",
     澳门: "澳門",
   },
@@ -682,7 +682,7 @@ const provinceNames = {
     青海: "Qinghai",
     宁夏: "Ningxia",
     新疆: "Xinjiang",
-    "中华民国（台湾）": "Taiwan",
+    "台湾": "Taiwan",
     香港: "Hong Kong",
     澳门: "Macao",
   },
@@ -718,7 +718,7 @@ const provinceNames = {
     青海: "칭하이",
     宁夏: "닝샤",
     新疆: "신장",
-    "中华民国（台湾）": "타이완",
+    "台湾": "타이완",
     香港: "홍콩",
     澳门: "마카오",
   },
@@ -754,7 +754,7 @@ const provinceNames = {
     青海: "青海",
     宁夏: "寧夏",
     新疆: "新疆",
-    "中华民国（台湾）": "台湾",
+    "台湾": "台湾",
     香港: "香港",
     澳门: "マカオ",
   },
@@ -790,7 +790,7 @@ const provinceNames = {
     青海: "ชิงไห่",
     宁夏: "หนิงเซี่ย",
     新疆: "ซินเจียง",
-    "中华民国（台湾）": "ไต้หวัน",
+    "台湾": "ไต้หวัน",
     香港: "ฮ่องกง",
     澳门: "มาเก๊า",
   },
@@ -826,7 +826,7 @@ const provinceNames = {
     青海: "Qinghai",
     宁夏: "Ningxia",
     新疆: "Xinjiang",
-    "中华民国（台湾）": "Taiwán",
+    "台湾": "Taiwán",
     香港: "Hong Kong",
     澳门: "Macao",
   },
@@ -862,11 +862,106 @@ const provinceNames = {
     青海: "Цинхай",
     宁夏: "Нинся",
     新疆: "Синьцзян",
-    "中华民国（台湾）": "Тайвань",
+    "台湾": "Тайвань",
     香港: "Гонконг",
     澳门: "Макао",
   },
 };
+
+const descriptionTemplates = {
+  "zh-CN": "{name}位于{region}，{phrase}",
+  "zh-TW": "{name}位於{region}，{phrase}",
+  en: "{name} is in {region}, {phrase}",
+  ko: "{name}은/는 {region}에 있으며, {phrase}",
+  ja: "{name}は{region}にあり、{phrase}",
+  th: "{name} อยู่ใน{region} {phrase}",
+  es: "{name} está en {region}, {phrase}",
+  ru: "{name} находится в регионе {region}, {phrase}",
+};
+
+const descriptionPhrases = {
+  "zh-CN": {
+    museum: "以馆藏展陈与历史文化见长。",
+    heritage: "以历史遗存、古建格局和人文景观见长。",
+    nature: "以山水地貌和自然风光见长。",
+    water: "以湖海水景和滨水游览见长。",
+    settlement: "以传统聚落、街巷风貌和地方生活气息见长。",
+    leisure: "以主题体验和休闲游览见长。",
+    default: "是当地代表性景观与文化名片。",
+  },
+  "zh-TW": {
+    museum: "以館藏展陳與歷史文化見長。",
+    heritage: "以歷史遺存、古建格局和人文景觀見長。",
+    nature: "以山水地貌和自然風光見長。",
+    water: "以湖海水景和濱水遊覽見長。",
+    settlement: "以傳統聚落、街巷風貌和地方生活氣息見長。",
+    leisure: "以主題體驗和休閒遊覽見長。",
+    default: "是當地代表性景觀與文化名片。",
+  },
+  en: {
+    museum: "known for collections, exhibitions, and cultural history.",
+    heritage: "known for historic remains, traditional architecture, and cultural scenery.",
+    nature: "known for landforms, mountains, and natural scenery.",
+    water: "known for lakes, coastlines, and waterside views.",
+    settlement: "known for traditional settlements, streets, and local life.",
+    leisure: "known for themed experiences and leisure travel.",
+    default: "a representative landmark for local scenery and culture.",
+  },
+  ko: {
+    museum: "소장품 전시와 역사 문화로 알려져 있습니다.",
+    heritage: "역사 유적, 전통 건축, 인문 경관으로 알려져 있습니다.",
+    nature: "산수 지형과 자연 풍경으로 알려져 있습니다.",
+    water: "호수, 해안, 물가 풍경으로 알려져 있습니다.",
+    settlement: "전통 마을, 거리 풍경, 지역 생활감으로 알려져 있습니다.",
+    leisure: "테마 체험과 휴식형 여행으로 알려져 있습니다.",
+    default: "지역 경관과 문화를 보여 주는 대표 명소입니다.",
+  },
+  ja: {
+    museum: "収蔵展示と歴史文化で知られています。",
+    heritage: "歴史遺構、伝統建築、人文景観で知られています。",
+    nature: "地形、山水、自然風景で知られています。",
+    water: "湖や海岸、水辺の景観で知られています。",
+    settlement: "伝統集落、街並み、地域の暮らしで知られています。",
+    leisure: "テーマ体験とレジャー観光で知られています。",
+    default: "地域の景観と文化を代表する観光地です。",
+  },
+  th: {
+    museum: "โดดเด่นด้านนิทรรศการ ของสะสม และประวัติศาสตร์วัฒนธรรม",
+    heritage: "โดดเด่นด้านร่องรอยประวัติศาสตร์ สถาปัตยกรรม และภูมิทัศน์วัฒนธรรม",
+    nature: "โดดเด่นด้านภูมิประเทศ ภูเขา และธรรมชาติ",
+    water: "โดดเด่นด้านทะเลสาบ ชายฝั่ง และทิวทัศน์ริมน้ำ",
+    settlement: "โดดเด่นด้านชุมชนดั้งเดิม ถนนเก่า และวิถีชีวิตท้องถิ่น",
+    leisure: "โดดเด่นด้านประสบการณ์ธีมและการพักผ่อน",
+    default: "เป็นแลนด์มาร์กที่สะท้อนทิวทัศน์และวัฒนธรรมท้องถิ่น",
+  },
+  es: {
+    museum: "destaca por sus colecciones, exposiciones e historia cultural.",
+    heritage: "destaca por sus vestigios históricos, arquitectura tradicional y paisaje cultural.",
+    nature: "destaca por sus formas del relieve, montañas y paisajes naturales.",
+    water: "destaca por sus lagos, costas y vistas junto al agua.",
+    settlement: "destaca por sus asentamientos tradicionales, calles y vida local.",
+    leisure: "destaca por sus experiencias temáticas y turismo de ocio.",
+    default: "es un punto representativo del paisaje y la cultura local.",
+  },
+  ru: {
+    museum: "известен коллекциями, экспозициями и культурной историей.",
+    heritage: "известен историческими памятниками, традиционной архитектурой и культурным ландшафтом.",
+    nature: "известен рельефом, горами и природными видами.",
+    water: "известен озерами, побережьями и видами у воды.",
+    settlement: "известен традиционными поселениями, улицами и местной жизнью.",
+    leisure: "известен тематическими впечатлениями и отдыхом.",
+    default: "это заметный ориентир местного ландшафта и культуры.",
+  },
+};
+
+const descriptionRules = [
+  { category: "leisure", pattern: /迪士尼|乐园|樂園|海洋公园|海洋公園|欢乐|歡樂|影视|影視|温泉|溫泉|度假|环球|環球|方特/ },
+  { category: "museum", pattern: /博物|纪念馆|紀念館|科技馆|科技館|展馆|展館|故宫|故宮/ },
+  { category: "settlement", pattern: /古镇|古鎮|古村|老街|街区|街區|民俗|村|寨|土楼|土樓|部落/ },
+  { category: "heritage", pattern: /古城|园林|園林|府|宫|宮|城墙|城牆|陵|庙|廟|寺|祠|坛|壇|塔|楼|樓|关|關|窟|石刻|遗址|遺址|古堡|长城|長城|布达拉|布達拉|莫高窟|中正纪念堂|中正紀念堂/ },
+  { category: "water", pattern: /湖|潭|海|湾|灣|港|江|河|溪|瀑|泉|湿地|濕地|岛|島|海岸|漂流|水/ },
+  { category: "nature", pattern: /山|峰|岭|嶺|峡|峽|谷|岩|石林|地质|地質|丹霞|喀斯特|洞|沟|溝|坡|天池|草原|沙|胡杨|胡楊|森林|林|国家公园|國家公園/ },
+];
 
 const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
 const state = {
@@ -906,6 +1001,7 @@ const els = {
   closeDetail: document.querySelector("#closeDetail"),
   detailProvince: document.querySelector("#detailProvince"),
   detailName: document.querySelector("#detailName"),
+  detailDescription: document.querySelector("#detailDescription"),
   detailImage: document.querySelector("#detailImage"),
   detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
@@ -1304,6 +1400,7 @@ function renderDetail(item) {
   document.body.classList.toggle("has-selection", hasItem);
   els.detailProvince.textContent = hasItem ? regionName(item.province) : t("chooseAttraction");
   els.detailName.textContent = hasItem ? item.name : t("noSelectionTitle");
+  els.detailDescription.textContent = hasItem ? attractionDescription(item) : "";
   els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
   els.detailBasis.textContent = hasItem ? basisText(item) : "-";
   setFootprintDetail(null);
@@ -1348,6 +1445,22 @@ function renderDetail(item) {
       selectAttraction(relatedItem);
     });
   });
+}
+
+function attractionDescription(item) {
+  const language = descriptionTemplates[state.language] ? state.language : "zh-CN";
+  const category = attractionDescriptionCategory(item);
+  const phrase = descriptionPhrases[language]?.[category] || descriptionPhrases[language]?.default;
+  const template = descriptionTemplates[language] || descriptionTemplates["zh-CN"];
+  return template
+    .replace("{name}", item.name)
+    .replace("{region}", regionName(item.province))
+    .replace("{phrase}", phrase);
+}
+
+function attractionDescriptionCategory(item) {
+  const text = [item.name, item.coordinateLabel, item.basis].filter(Boolean).join(" ");
+  return descriptionRules.find((rule) => rule.pattern.test(text))?.category || "default";
 }
 
 function syncActiveListItem() {
