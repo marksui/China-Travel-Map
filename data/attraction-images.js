@@ -12,33 +12,33 @@ window.CHINA_5A_IMAGES = {
   },
   "北京-003": {
     "url": "assets/images/003.jpg",
-    "pageUrl": "https://www.flickr.com/photos/67525885@N00/54239317922",
-    "caption": "图片来源：flickr · Summer Palace. Beijing, China"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Beijing_China_Summer-Palace-02.jpg",
+    "caption": "图片来源：Wikimedia Commons · Beijing China Summer-Palace-02.jpg"
   },
   "北京-004": {
     "url": "assets/images/004.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:2014-1-%E5%8C%97%E4%BA%AC-%E5%85%AB%E8%BE%BE%E5%B2%AD%E9%95%BF%E5%9F%8E_(48).jpg",
-    "caption": "图片来源：Wikimedia Commons · 2014-1-北京-八达岭长城 (48).jpg"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E5%85%AB%E8%BE%BE%E5%B2%AD",
+    "caption": "图片来源：维基百科 · 八达岭"
   },
   "北京-005": {
     "url": "assets/images/005.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Ming_Tombs_Reservoir_After_Snow.jpg",
-    "caption": "图片来源：Wikimedia Commons · Ming Tombs Reservoir After Snow.jpg"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E6%98%8E%E5%8D%81%E4%B8%89%E9%99%B5",
+    "caption": "图片来源：维基百科 · 明十三陵"
   },
   "北京-006": {
-    "url": "assets/images/006.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Garden_at_GongWangFu_(2916324365).jpg",
-    "caption": "图片来源：Wikimedia Commons · Garden at GongWangFu (2916324365).jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "北京-007": {
     "url": "assets/images/007.jpg",
-    "pageUrl": "https://www.flickr.com/photos/7138083@N04/54051845264",
-    "caption": "图片来源：flickr · Beijing Olympic Park"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8C%97%E4%BA%AC%E5%A5%A5%E6%9E%97%E5%8C%B9%E5%85%8B%E5%A1%94%E9%A1%B6%E9%83%A8.JPG",
+    "caption": "图片来源：Wikimedia Commons · 北京奥林匹克塔顶部.JPG"
   },
   "天津-008": {
-    "url": "assets/images/008.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%A9%E6%B4%A5%E5%8F%A4%E6%96%87%E5%8C%96%E8%A1%97%E6%98%A5%E8%8A%82%E7%81%AF%E4%BC%9A.jpg",
-    "caption": "图片来源：Wikimedia Commons · 天津古文化街春节灯会.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "天津-009": {
     "url": "assets/images/fallback.jpg",
@@ -51,19 +51,19 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 山海关"
   },
   "河北-011": {
-    "url": "assets/images/011.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Baiyangdian_Lake.JPG",
-    "caption": "图片来源：Wikimedia Commons · Baiyangdian Lake.JPG"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "河北-012": {
-    "url": "assets/images/012.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Chengde_Mountain_Resort_4.jpg",
-    "caption": "图片来源：Wikimedia Commons · Chengde Mountain Resort 4.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "河北-013": {
-    "url": "assets/images/013.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Valley_lake_(6263498464).jpg",
-    "caption": "图片来源：Wikimedia Commons · Valley lake (6263498464).jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "河北-014": {
     "url": "assets/images/fallback.jpg",
@@ -71,9 +71,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "山西-015": {
-    "url": "assets/images/015.jpg",
-    "pageUrl": "https://www.flickr.com/photos/101561334@N08/53711387026",
-    "caption": "图片来源：flickr · Yungang Grottoes"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "山西-016": {
     "url": "assets/images/016.jpg",
@@ -92,8 +92,8 @@ window.CHINA_5A_IMAGES = {
   },
   "山西-019": {
     "url": "assets/images/019.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:The_Skyline_of_Qiao_Family_Compound_Shanxi.jpg",
-    "caption": "图片来源：Wikimedia Commons · The Skyline of Qiao Family Compound Shanxi.jpg"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E4%B9%94%E5%AE%B6%E5%A4%A7%E9%99%A2",
+    "caption": "图片来源：维基百科 · 乔家大院"
   },
   "内蒙古-020": {
     "url": "assets/images/fallback.jpg",
@@ -116,9 +116,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "辽宁-024": {
-    "url": "assets/images/024.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Childhood_by_the_sea-%E6%B5%B7%E8%BE%B9%E7%9A%84%E7%AB%A5%E5%B9%B4_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · Childhood by the sea-海边的童年 - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "吉林-025": {
     "url": "assets/images/025.jpg",
@@ -131,14 +131,14 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 长白山"
   },
   "吉林-027": {
-    "url": "assets/images/027.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E9%95%BF%E6%98%A5%E5%87%80%E6%9C%88%E6%BD%AD_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 长春净月潭 - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "黑龙江-028": {
-    "url": "assets/images/028.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%AA%E9%98%B3%E5%B2%9B%E9%81%93%E5%8F%A3.jpg",
-    "caption": "图片来源：Wikimedia Commons · 太阳岛道口.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "黑龙江-029": {
     "url": "assets/images/fallback.jpg",
@@ -146,9 +146,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "黑龙江-030": {
-    "url": "assets/images/030.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Jingpo_Lake_view.jpg",
-    "caption": "图片来源：Wikimedia Commons · Jingpo Lake view.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "黑龙江-031": {
     "url": "assets/images/031.jpg",
@@ -156,14 +156,14 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 黑龙江省"
   },
   "上海-032": {
-    "url": "assets/images/032.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Shanghai_Oriental_Pearl_Tower-20150516-RM-123453.jpg",
-    "caption": "图片来源：Wikimedia Commons · Shanghai Oriental Pearl Tower-20150516-RM-123453.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "上海-033": {
-    "url": "assets/images/033.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E4%B8%8A%E6%B5%B7%E9%87%8E%E7%94%9F%E5%8A%A8%E7%89%A9%E5%9B%AD",
-    "caption": "图片来源：维基百科 · 上海野生动物园"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "上海-034": {
     "url": "assets/images/034.jpg",
@@ -171,14 +171,14 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 上海科技馆"
   },
   "江苏-035": {
-    "url": "assets/images/035.jpg",
-    "pageUrl": "https://www.flickr.com/photos/7138083@N04/54400431328",
-    "caption": "图片来源：flickr · Sun Yat-sen Mausoleum"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "江苏-036": {
-    "url": "assets/images/036.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Students_and_teachers_from_Chizhou_No.10_Middle_School_in_Wuxi_Film_and_Television_Base,_June_24_2018.jpg",
-    "caption": "图片来源：Wikimedia Commons · Students and teachers from Chizhou No.10 Middle School in Wuxi Film and Television Base, June 24 2018.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "江苏-037": {
     "url": "assets/images/037.jpg",
@@ -207,8 +207,8 @@ window.CHINA_5A_IMAGES = {
   },
   "江苏-042": {
     "url": "assets/images/042.jpg",
-    "pageUrl": "https://www.flickr.com/photos/68166820@N08/48019070222",
-    "caption": "图片来源：flickr · Tongli Water Town, Suzhou, China"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E5%90%8C%E9%87%8C%E9%95%87",
+    "caption": "图片来源：维基百科 · 同里镇"
   },
   "江苏-043": {
     "url": "assets/images/fallback.jpg",
@@ -241,9 +241,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 鼋头渚对面的三山岛胜景 - panoramio.jpg"
   },
   "江苏-049": {
-    "url": "assets/images/049.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E8%8B%8F%E5%B7%9E%E5%90%B4%E4%B8%AD%E5%A4%AA%E6%B9%96%E4%B9%8B%E6%BB%A8_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 苏州吴中太湖之滨 - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "江苏-050": {
     "url": "assets/images/fallback.jpg",
@@ -297,8 +297,8 @@ window.CHINA_5A_IMAGES = {
   },
   "浙江-060": {
     "url": "assets/images/060.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%98%89%E5%85%B4%E5%8D%97%E6%B9%96%E6%B8%B8%E8%88%B9_03.jpg",
-    "caption": "图片来源：Wikimedia Commons · 嘉兴南湖游船 03.jpg"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E6%B5%99%E6%B1%9F%E7%9C%81",
+    "caption": "图片来源：维基百科 · 浙江省"
   },
   "浙江-061": {
     "url": "assets/images/061.jpg",
@@ -316,9 +316,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "安徽-064": {
-    "url": "assets/images/064.jpg",
-    "pageUrl": "https://www.rawpixel.com/image/5965086/emerald-valley-huangshan-china",
-    "caption": "图片来源：rawpixel · Emerald Valley In Huangshan, China"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "安徽-065": {
     "url": "assets/images/fallback.jpg",
@@ -341,9 +341,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 天堂寨镇2012.7 - panoramio.jpg"
   },
   "安徽-069": {
-    "url": "assets/images/069.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E9%BE%99%E5%B7%9D%E6%AC%A7%E6%B1%9F%E6%9D%91%E9%87%91%E5%AE%89%E5%9B%B420121004_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 龙川欧江村金安围20121004 - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "安徽-070": {
     "url": "assets/images/fallback.jpg",
@@ -357,8 +357,8 @@ window.CHINA_5A_IMAGES = {
   },
   "福建-072": {
     "url": "assets/images/072.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%8E%A6%E9%97%A8%E5%B8%82%E9%BC%93%E6%B5%AA%E5%B1%BF%E6%AF%93%E5%9B%AD-%E6%9E%97%E5%B7%A7%E7%A8%9A%E5%A1%91%E5%83%8F%E6%99%AF%E8%89%B2_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 厦门市鼓浪屿毓园-林巧稚塑像景色 - panoramio.jpg"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E9%BC%93%E6%B5%AA%E5%B1%BF%E8%A1%97%E9%81%93",
+    "caption": "图片来源：维基百科 · 鼓浪屿街道"
   },
   "福建-073": {
     "url": "assets/images/073.jpg",
@@ -431,14 +431,14 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 曲阜孔庙"
   },
   "山东-087": {
-    "url": "assets/images/087.jpg",
-    "pageUrl": "https://www.flickr.com/photos/48973657@N00/53733077663",
-    "caption": "图片来源：flickr · Love Locks, Jade Emperor Peak 玉皇頂, Mount Tai 泰山 / SML.20121011.7D.09582.C23"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "山东-088": {
-    "url": "assets/images/088.jpg",
-    "pageUrl": "https://www.flickr.com/photos/131814204@N04/52211967102",
-    "caption": "图片来源：flickr · Tea time"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "山东-089": {
     "url": "assets/images/089.jpg",
@@ -471,14 +471,14 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "河南-095": {
-    "url": "assets/images/095.jpg",
-    "pageUrl": "https://www.flickr.com/photos/101561334@N08/53733334754",
-    "caption": "图片来源：flickr · Longmen Grottoes: Fengxian Temple (Grand Buddha Niche) Southern Wall"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "河南-096": {
-    "url": "assets/images/096.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E4%BA%91%E5%8F%B0%E5%B1%B1%E4%B9%8B%E5%B7%85%E9%B8%9F%E7%9E%B0%E4%BA%91%E5%8F%B0%E5%B1%B1_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 云台山之巅鸟瞰云台山 - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "河南-097": {
     "url": "assets/images/097.jpg",
@@ -492,8 +492,8 @@ window.CHINA_5A_IMAGES = {
   },
   "河南-099": {
     "url": "assets/images/099.jpg",
-    "pageUrl": "https://www.flickr.com/photos/101561334@N08/53427450052",
-    "caption": "图片来源：flickr · Shang Chariot Burial Information"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E6%AE%B7%E5%A2%9F",
+    "caption": "图片来源：维基百科 · 殷墟"
   },
   "河南-100": {
     "url": "assets/images/fallback.jpg",
@@ -532,13 +532,13 @@ window.CHINA_5A_IMAGES = {
   },
   "湖南-107": {
     "url": "assets/images/107.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90.%E5%8D%97%E6%B9%96%E8%B7%AF_China_Xinjiang_Urumqi_Welcome_you_to_tour_the_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 乌鲁木齐.南湖路 China Xinjiang Urumqi Welcome you to tour the - panoramio.jpg"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Shaoshan_City_04.jpg",
+    "caption": "图片来源：Wikimedia Commons · Shaoshan City 04.jpg"
   },
   "湖南-108": {
-    "url": "assets/images/108.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E6%A9%98%E5%AD%90%E6%B4%B2",
-    "caption": "图片来源：维基百科 · 橘子洲"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "湖南-109": {
     "url": "assets/images/109.jpg",
@@ -571,9 +571,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "湖北-115": {
-    "url": "assets/images/115.jpg",
-    "pageUrl": "https://www.flickr.com/photos/7138083@N04/54159361507",
-    "caption": "图片来源：flickr · Shennongtan"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "湖北-116": {
     "url": "assets/images/fallback.jpg",
@@ -636,9 +636,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "广东-128": {
-    "url": "assets/images/128.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E7%BD%97%E6%B5%AE%E5%B1%B1",
-    "caption": "图片来源：维基百科 · 罗浮山"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "广西-129": {
     "url": "assets/images/129.jpg",
@@ -691,9 +691,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 重庆 三峡-小三峡 - panoramio.jpg"
   },
   "重庆-139": {
-    "url": "assets/images/139.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Three_Natural_Bridges_CNS_2024_(5).png",
-    "caption": "图片来源：Wikimedia Commons · Three Natural Bridges CNS 2024 (5).png"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "重庆-140": {
     "url": "assets/images/fallback.jpg",
@@ -711,9 +711,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "四川-143": {
-    "url": "assets/images/143.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E9%9D%92%E5%9F%8E%E5%B1%B1",
-    "caption": "图片来源：维基百科 · 青城山"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "四川-144": {
     "url": "assets/images/144.jpg",
@@ -731,9 +731,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 乐山大佛"
   },
   "四川-147": {
-    "url": "assets/images/147.jpg",
-    "pageUrl": "https://www.flickr.com/photos/200659129@N06/54133101062",
-    "caption": "图片来源：flickr · 中国四川省阿坝州松潘县黄龙风景名胜区"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "四川-148": {
     "url": "assets/images/fallback.jpg",
@@ -761,9 +761,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 贵州 黄果树瀑布 - panoramio.jpg"
   },
   "贵州-153": {
-    "url": "assets/images/153.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E9%BE%99%E5%AE%AB%E5%BA%99_-_Dragon_Temple_-_2015.03_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 龙宫庙 - Dragon Temple - 2015.03 - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "贵州-154": {
     "url": "assets/images/fallback.jpg",
@@ -786,19 +786,19 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 崇圣寺三塔"
   },
   "云南-158": {
-    "url": "assets/images/158.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E5%9B%BD%E7%A7%91%E5%AD%A6%E9%99%A2%E8%A5%BF%E5%8F%8C%E7%89%88%E7%BA%B3%E7%83%AD%E5%B8%A6%E6%A4%8D%E7%89%A9%E5%9B%AD%E6%98%86%E6%98%8E%E5%88%86%E9%83%A8_-_2025-05-17.jpg",
-    "caption": "图片来源：Wikimedia Commons · 中国科学院西双版纳热带植物园昆明分部 - 2025-05-17.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "云南-159": {
     "url": "assets/images/159.jpg",
-    "pageUrl": "https://www.flickr.com/photos/193625223@N04/51357251863",
-    "caption": "图片来源：flickr · Old Town, Lijiang"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E4%B8%AD%E5%9B%BD%E4%BA%91%E5%8D%97%E7%9C%81%E4%B8%BD%E6%B1%9F_%E4%B8%BD%E6%B1%9F%E5%8F%A4%E5%9F%8E_-_panoramio.jpg",
+    "caption": "图片来源：Wikimedia Commons · 中国云南省丽江 丽江古城 - panoramio.jpg"
   },
   "云南-160": {
     "url": "assets/images/160.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Policeman_booth,_Shangri-La,_Yunnan,_China_-_%E9%A6%99%E6%A0%BC%E9%87%8C%E6%8B%89%E5%8E%BF%EF%BC%8C%E4%BA%91%E5%8D%97%EF%BC%8C%E4%B8%AD%E5%9B%BD_(10225804024).jpg",
-    "caption": "图片来源：Wikimedia Commons · Policeman booth, Shangri-La, Yunnan, China - 香格里拉县，云南，中国 (10225804024).jpg"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Potatso_(Pudacuo)_National_Park,_Diqing_-_panoramio.jpg",
+    "caption": "图片来源：Wikimedia Commons · Potatso (Pudacuo) National Park, Diqing - panoramio.jpg"
   },
   "西藏-161": {
     "url": "assets/images/161.jpg",
@@ -812,8 +812,8 @@ window.CHINA_5A_IMAGES = {
   },
   "陕西-163": {
     "url": "assets/images/163.jpg",
-    "pageUrl": "https://www.flickr.com/photos/69506664@N06/54318126260",
-    "caption": "图片来源：flickr · 2024-12-01_11-26-53_ILCE-7C_DSC12052_Kiri_DxO"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E7%A7%A6%E5%A7%8B%E7%9A%87%E5%85%B5%E9%A9%AC%E4%BF%91",
+    "caption": "图片来源：维基百科 · 秦始皇兵马俑"
   },
   "陕西-164": {
     "url": "assets/images/164.jpg",
@@ -821,9 +821,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 华清池"
   },
   "陕西-165": {
-    "url": "assets/images/165.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E9%BB%84%E5%B8%9D%E9%99%B5%E5%B1%B1%E9%97%A8%E9%BE%99%E5%A3%81_dragon_wall_-_panoramio.jpg",
-    "caption": "图片来源：Wikimedia Commons · 黄帝陵山门龙壁 dragon wall - panoramio.jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "陕西-166": {
     "url": "assets/images/166.jpg",
@@ -911,9 +911,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：维基百科 · 新疆维吾尔自治区"
   },
   "新疆-183": {
-    "url": "assets/images/183.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E5%A4%A9%E5%B1%B1%E5%A4%A7%E5%B3%A1%E8%B0%B7",
-    "caption": "图片来源：维基百科 · 天山大峡谷"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "新疆-184": {
     "url": "assets/images/184.jpg",
@@ -972,8 +972,8 @@ window.CHINA_5A_IMAGES = {
   },
   "台湾-195": {
     "url": "assets/images/195.jpg",
-    "pageUrl": "https://www.flickr.com/photos/91049143@N00/52316126197",
-    "caption": "图片来源：flickr · 仙人掌汁, 劉正港檸檬汁, 澎湖, 台灣, Penghu, Taiwan"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Penghu_National_Scenic_Area,_Tourism_Administration_1.jpg",
+    "caption": "图片来源：Wikimedia Commons · Penghu National Scenic Area, Tourism Administration 1.jpg"
   },
   "台湾-196": {
     "url": "assets/images/196.jpg",
@@ -991,14 +991,14 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · Fo Guang Shan Buddha Museum 佛光山佛陀紀念館 .jpg"
   },
   "台湾-199": {
-    "url": "assets/images/199.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E5%AE%89%E5%B9%B3%E5%8F%A4%E5%A0%A1",
-    "caption": "图片来源：维基百科 · 安平古堡"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "台湾-200": {
-    "url": "assets/images/200.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E7%B4%85%E6%AF%9B%E5%9F%8E",
-    "caption": "图片来源：维基百科 · 紅毛城"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "香港-201": {
     "url": "assets/images/201.jpg",
@@ -1007,8 +1007,8 @@ window.CHINA_5A_IMAGES = {
   },
   "香港-202": {
     "url": "assets/images/202.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E6%98%9F%E5%85%89%E5%A4%A7%E9%81%93_(%E9%A6%99%E6%B8%AF)",
-    "caption": "图片来源：维基百科 · 星光大道 (香港)"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Vista_del_Puerto_de_Victoria_desde_Sky100,_Hong_Kong,_2013-08-09,_DD_10.JPG",
+    "caption": "图片来源：Wikimedia Commons · Vista del Puerto de Victoria desde Sky100, Hong Kong, 2013-08-09, DD 10.JPG"
   },
   "香港-203": {
     "url": "assets/images/203.jpg",
@@ -1017,23 +1017,23 @@ window.CHINA_5A_IMAGES = {
   },
   "香港-204": {
     "url": "assets/images/204.jpg",
-    "pageUrl": "https://www.flickr.com/photos/32916425@N04/53432135132",
-    "caption": "图片来源：flickr · Hong Kong Disneyland"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E8%BF%AA%E5%A3%AB%E5%B0%BC%E6%A8%82%E5%9C%92",
+    "caption": "图片来源：维基百科 · 香港迪士尼樂園"
   },
   "香港-205": {
     "url": "assets/images/205.jpg",
-    "pageUrl": "https://www.flickr.com/photos/146295563@N08/51964623751",
-    "caption": "图片来源：flickr · Ocean Park Cable Car Terminal"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E9%A6%99%E6%B8%AF%E6%B5%B7%E6%B4%8B%E5%85%AC%E5%9C%92%E6%B0%B4%E4%B8%8A%E6%A8%82%E5%9C%92",
+    "caption": "图片来源：维基百科 · 香港海洋公園水上樂園"
   },
   "香港-206": {
     "url": "assets/images/206.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:High_Island_Reservoir_East_Dam_38.jpg",
-    "caption": "图片来源：Wikimedia Commons · High Island Reservoir East Dam 38.jpg"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E9%A6%99%E6%B8%AF%E4%B8%96%E7%95%8C%E5%9C%B0%E8%B4%A8%E5%85%AC%E5%9B%AD_-_Hong_Kong_Global_Geopark_-_2015.01_-_panoramio.jpg",
+    "caption": "图片来源：Wikimedia Commons · 香港世界地质公园 - Hong Kong Global Geopark - 2015.01 - panoramio.jpg"
   },
   "香港-207": {
     "url": "assets/images/207.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Wong_Tai_Sin_Temple_2023_05_part2.jpg",
-    "caption": "图片来源：Wikimedia Commons · Wong Tai Sin Temple 2023 05 part2.jpg"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hong_Kong_China_Wong-Tai-Sin-Temple-01.jpg",
+    "caption": "图片来源：Wikimedia Commons · Hong Kong China Wong-Tai-Sin-Temple-01.jpg"
   },
   "香港-208": {
     "url": "assets/images/208.jpg",
@@ -1042,18 +1042,18 @@ window.CHINA_5A_IMAGES = {
   },
   "澳门-209": {
     "url": "assets/images/209.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E4%B8%89%E5%B7%B4%E7%89%8C%E5%9D%8A",
-    "caption": "图片来源：维基百科 · 大三巴牌坊"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E4%B8%89%E5%B7%B4%E7%89%8C%E5%9D%8A%E5%8F%8A%E5%9B%9B%E5%91%A8%E7%92%B0%E5%A2%83.jpg",
+    "caption": "图片来源：Wikimedia Commons · 大三巴牌坊及四周環境.jpg"
   },
   "澳门-210": {
     "url": "assets/images/210.jpg",
-    "pageUrl": "https://www.flickr.com/photos/53326337@N00/53083493944",
-    "caption": "图片来源：flickr · Approaching A-Ma Temple"
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%A6%88%E9%98%81%E5%BA%99%E5%89%8D%E5%9C%B0_-_A-Ma_Temple_Square_-_2016.06_-_panoramio.jpg",
+    "caption": "图片来源：Wikimedia Commons · 妈阁庙前地 - A-Ma Temple Square - 2016.06 - panoramio.jpg"
   },
   "澳门-211": {
-    "url": "assets/images/211.jpg",
-    "pageUrl": "https://zh.wikipedia.org/wiki/%E6%9D%B1%E6%9C%9B%E6%B4%8B%E5%B1%B1",
-    "caption": "图片来源：维基百科 · 東望洋山"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "澳门-212": {
     "url": "assets/images/212.jpg",
@@ -1061,9 +1061,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：rawpixel · Openverse image"
   },
   "澳门-213": {
-    "url": "assets/images/213.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Venetian_(98716).jpg",
-    "caption": "图片来源：Wikimedia Commons · Venetian (98716).jpg"
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "澳门-214": {
     "url": "assets/images/214.jpg",
@@ -1072,8 +1072,8 @@ window.CHINA_5A_IMAGES = {
   },
   "澳门-215": {
     "url": "assets/images/215.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Hac_Sa_Beach_shop_11-07-2024.jpg",
-    "caption": "图片来源：Wikimedia Commons · Hac Sa Beach shop 11-07-2024.jpg"
+    "pageUrl": "https://zh.wikipedia.org/wiki/%E9%BB%91%E6%B2%99%E6%B5%B7%E7%81%98",
+    "caption": "图片来源：维基百科 · 黑沙海灘"
   },
   "澳门-216": {
     "url": "assets/images/216.jpg",
@@ -1081,6 +1081,121 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · Macao Giant Panda Pavilion 2011.JPG"
   },
   "fallback": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "河北-217": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "山西-218": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "江苏-219": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "浙江-220": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "安徽-221": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "福建-222": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "江西-223": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "山东-224": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "湖北-225": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "湖南-226": {
+    "url": "assets/images/226.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%AE%89%E5%BE%BD%E9%BB%9F%E5%8E%BF%E8%A5%BF%E9%80%92%E6%9D%91,_2010-10-19_02.jpg",
+    "caption": "图片来源：Wikimedia Commons · 安徽黟县西递村, 2010-10-19 02.jpg"
+  },
+  "广东-227": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "广西-228": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "重庆-229": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "四川-230": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "四川-231": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "贵州-232": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "云南-233": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "陕西-234": {
+    "url": "assets/images/234.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E5%A4%A7%E6%98%8E%E5%AE%AB%E2%80%94%E7%B4%AB%E5%AE%B8%E6%AE%BF%E9%81%97%E5%9D%80.JPG",
+    "caption": "图片来源：Wikimedia Commons · 大明宫—紫宸殿遗址.JPG"
+  },
+  "甘肃-235": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "青海-236": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "新疆-237": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "新疆-238": {
+    "url": "assets/images/fallback.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
+    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+  },
+  "新疆生产建设兵团-239": {
     "url": "assets/images/fallback.jpg",
     "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"

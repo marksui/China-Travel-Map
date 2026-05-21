@@ -16,6 +16,9 @@ const skipWikimediaDownloads = process.argv.includes("--skip-wikimedia-downloads
 const metadataOnly = process.argv.includes("--metadata-only");
 const wikiOnly = process.argv.includes("--wiki-only");
 const wikiFirst = !process.argv.includes("--no-wiki-first");
+const targetArg = getArg("--targets");
+const targetSelection = parseTargets(targetArg);
+const hasTargetSelection = targetSelection.ids.size > 0 || targetSelection.numbers.size > 0;
 const wikimediaDownloadGap = Number(getArg("--wikimedia-gap") || 4200);
 const imageWidth = Number(getArg("--image-width") || 960);
 const imageQuality = Number(getArg("--image-quality") || 76);
@@ -378,8 +381,13 @@ await mkdir(outDir, { recursive: true });
 await mkdir(tmpDir, { recursive: true });
 
 const attractions = loadAttractions();
-const selected = maxItems ? attractions.slice(0, maxItems) : attractions;
-const manifest = {};
+const selected = hasTargetSelection
+  ? attractions.filter((attraction) => selectedByTarget(attraction, targetSelection))
+  : maxItems
+    ? attractions.slice(0, maxItems)
+    : attractions;
+const partialUpdate = hasTargetSelection || hasDownloadRange;
+const manifest = partialUpdate ? loadPreviousManifest() : {};
 const attributionRows = [];
 const previousSources = loadPreviousSources();
 
@@ -387,10 +395,10 @@ console.log(`Preparing ${selected.length} attraction image records...`);
 const fallbackLocal = await ensureLocalImage(fallbackSource, "fallback.jpg");
 
 for (const [index, attraction] of selected.entries()) {
-  const fileName = `${String(attractions.indexOf(attraction) + 1).padStart(3, "0")}.jpg`;
+  const itemNumber = itemNumberFromId(attraction) || attractions.indexOf(attraction) + 1;
+  const fileName = `${String(itemNumber).padStart(3, "0")}.jpg`;
   const outputPath = path.join(outDir, fileName);
   const existingFile = await fileExists(outputPath);
-  const itemNumber = attractions.indexOf(attraction) + 1;
   const shouldDownload = !hasDownloadRange || (itemNumber >= fromItem && (!toItem || itemNumber <= toItem));
   const previousSource = trustedPreviousSource(previousSources.get(fileName), attraction);
   const shouldRefreshFromWiki =
@@ -458,7 +466,9 @@ await writeFile(
   )};\n`,
   "utf8",
 );
-await writeFile(attributionPath, buildAttribution(attributionRows), "utf8");
+if (!partialUpdate) {
+  await writeFile(attributionPath, buildAttribution(attributionRows), "utf8");
+}
 await rm(tmpDir, { recursive: true, force: true });
 
 const fallbackCount = attributionRows.filter((row) => row.fallback).length;
@@ -473,6 +483,40 @@ function loadAttractions() {
   const sandbox = { window: {} };
   vm.runInNewContext(readFileSync("data/attractions.js", "utf8"), sandbox);
   return sandbox.window.CHINA_5A_ATTRACTIONS;
+}
+
+function loadPreviousManifest() {
+  try {
+    const sandbox = { window: {} };
+    vm.runInNewContext(readFileSync(manifestPath, "utf8"), sandbox);
+    return sandbox.window.CHINA_5A_IMAGES || {};
+  } catch {
+    return {};
+  }
+}
+
+function itemNumberFromId(attraction) {
+  const match = String(attraction.id || "").match(/-(\d+)$/);
+  return match ? Number(match[1]) : 0;
+}
+
+function parseTargets(value) {
+  const ids = new Set();
+  const numbers = new Set();
+  for (const raw of String(value || "").split(",")) {
+    const token = raw.trim();
+    if (!token) continue;
+    if (/^\d+$/.test(token)) {
+      numbers.add(Number(token));
+    } else {
+      ids.add(token);
+    }
+  }
+  return { ids, numbers };
+}
+
+function selectedByTarget(attraction, targets) {
+  return targets.ids.has(attraction.id) || targets.numbers.has(itemNumberFromId(attraction));
 }
 
 function loadPreviousSources() {

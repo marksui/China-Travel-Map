@@ -892,6 +892,26 @@ body.has-selection .detail-panel {
   object-position: center;
 }
 
+.detail-visual.image-missing {
+  display: grid;
+}
+
+.detail-visual.image-missing::before {
+  content: attr(data-placeholder);
+  display: grid;
+  place-items: center;
+  min-height: 220px;
+  padding: 24px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.detail-visual.image-missing img {
+  display: none;
+}
+
 .detail-visual figcaption {
   padding: 8px 10px;
   color: var(--muted);

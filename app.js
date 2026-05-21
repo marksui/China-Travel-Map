@@ -107,6 +107,7 @@ const translations = {
     peerBasis: "台港澳官方旅游体系中的代表性景点，对标大陆 5A 展示",
     osmBoundary: "OSM 面边界",
     imageSourcePrefix: "图片来源：",
+    imageUnavailable: "暂无可靠图片，正在补图",
     fallbackImageCaption: "通用景区占位图（慕田峪长城全景）",
     sourceNote:
       '大陆 5A 数据以用户提供的 <span>China-5A-tourist-attraction.md</span> 为基础，并补充文旅部 2020-2024 官方公告；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。',
@@ -1022,6 +1023,7 @@ const els = {
   detailName: document.querySelector("#detailName"),
   detailDescription: document.querySelector("#detailDescription"),
   detailImage: document.querySelector("#detailImage"),
+  detailVisual: document.querySelector(".detail-visual"),
   detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
   detailBasis: document.querySelector("#detailBasis"),
@@ -1129,7 +1131,7 @@ function bindEvents() {
 
   els.detailImage.addEventListener("error", () => {
     if (els.detailImage.dataset.fallback !== "true") {
-      setDetailImage(fallbackImage, t("scenicImageAlt"));
+      setDetailImage(null, t("scenicImageAlt"));
     }
   });
 
@@ -2166,16 +2168,29 @@ function toTraditionalName(value) {
 }
 
 function loadDetailImage(item) {
-  setDetailImage(localImages[item.id] || fallbackImage, displayAttractionName(item));
+  const image = localImages[item.id];
+  setDetailImage(isReliableImage(image) ? image : null, displayAttractionName(item));
 }
 
 function setDetailImage(image, alt) {
-  const safeImage = image || fallbackImage;
-  els.detailImage.dataset.fallback = safeImage.url === fallbackImage.url ? "true" : "false";
-  els.detailImage.src = safeImage.url;
+  const hasImage = isReliableImage(image);
+  const safeImage = hasImage ? image : null;
+  els.detailVisual.classList.toggle("image-missing", !hasImage);
+  els.detailVisual.dataset.placeholder = t("imageUnavailable");
+  els.detailImage.dataset.fallback = hasImage ? "false" : "true";
+  els.detailImage.src = safeImage?.url || "";
   els.detailImage.alt = alt;
-  els.detailImageLink.href = safeImage.pageUrl || fallbackImage.pageUrl;
-  els.detailImageLink.textContent = localizeImageCaption(safeImage.caption || fallbackImage.caption);
+  els.detailImageLink.href = safeImage?.pageUrl || "#";
+  els.detailImageLink.textContent = hasImage ? localizeImageCaption(safeImage.caption) : t("imageUnavailable");
+}
+
+function isReliableImage(image) {
+  if (!image?.url) return false;
+  return (
+    !image.url.includes("fallback") &&
+    !String(image.pageUrl || "").includes("Mutianyu") &&
+    !String(image.caption || "").includes("通用景区占位")
+  );
 }
 
 function localizeImageCaption(caption) {
