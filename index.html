@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>中国 5A 与对标景点互动地图</title>
     <link rel="preconnect" href="https://unpkg.com" />
-    <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+    <link rel="preconnect" href="https://tile.openstreetmap.org" />
     <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
     <link
       rel="stylesheet"
@@ -19,7 +19,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260521-2" />
+    <link rel="stylesheet" href="styles.css?v=20260521-4" />
   </head>
   <body>
     <div class="app-shell">
@@ -91,7 +91,7 @@
             </div>
             <div class="legend-row">
               <span class="range-sample"></span>
-              <p><strong>选中范围</strong><span>点击景点后优先显示 OSM 面边界，找不到则显示近似范围</span></p>
+              <p><strong>选中范围</strong><span>点击景点后优先显示 OSM 面边界；没有面边界时只保留选中点</span></p>
             </div>
           </div>
           <div class="panel-heading compact">
@@ -223,7 +223,7 @@
         </section>
         <p class="source-note">
           大陆 5A 数据来自用户提供的
-          <span>China-5A-tourist-attraction.md</span>；台港澳为对标 5A 手动补充；占地范围来自 OpenStreetMap 可用面边界；地图底图 © CARTO / OpenStreetMap。
+          <span>China-5A-tourist-attraction.md</span>；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。
         </p>
       </aside>
     </div>
@@ -231,8 +231,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="data/attractions.js?v=20260521-2"></script>
-    <script src="data/attraction-images.js?v=20260521-2"></script>
-    <script src="app.js?v=20260521-2"></script>
+    <script src="data/attractions.js?v=20260521-4"></script>
+    <script src="data/attraction-images.js?v=20260521-4"></script>
+    <script src="app.js?v=20260521-4"></script>
   </body>
 </html>

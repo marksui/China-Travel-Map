@@ -51,6 +51,7 @@ const els = {
   detailYear: document.querySelector("#detailYear"),
   detailBasis: document.querySelector("#detailBasis"),
   detailPrecision: document.querySelector("#detailPrecision"),
+  detailPrecisionRow: document.querySelector("#detailPrecision")?.closest("div"),
   focusSelected: document.querySelector("#focusSelected"),
   filterProvince: document.querySelector("#filterProvince"),
   relatedList: document.querySelector("#relatedList"),
@@ -71,14 +72,13 @@ map.getPane("footprintPane").style.zIndex = 420;
 map.getPane("footprintPane").style.pointerEvents = "none";
 
 L.control.zoom({ position: "topright" }).addTo(map);
-L.tileLayer("https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png", {
-  maxZoom: 16,
-  subdomains: "abcd",
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 19,
+  subdomains: "abc",
   updateWhenIdle: true,
   updateWhenZooming: false,
   keepBuffer: 1,
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 
 const markerLayer =
@@ -396,7 +396,7 @@ function renderDetail(item) {
   els.detailName.textContent = hasItem ? item.name : "在地图或列表中选择一个景点";
   els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
   els.detailBasis.textContent = hasItem ? item.basis || ratingMeta(item) : "-";
-  els.detailPrecision.textContent = hasItem ? "正在查找 OSM 面边界..." : "-";
+  setFootprintDetail(null);
   els.focusSelected.disabled = !hasItem;
   els.filterProvince.disabled = !hasItem;
 
@@ -457,11 +457,11 @@ function syncActiveMapMarker(item) {
 
 async function loadAttractionFootprint(item) {
   const requestId = ++activeFootprintRequest;
-  renderApproximateFootprint(item, "正在查找 OSM 面边界...");
+  renderApproximateFootprint(item);
 
   const cached = footprintCache.get(item.id);
   if (cached) {
-    renderFootprint(cached, item);
+    renderFootprint(cached, item, { fit: false });
     return;
   }
 
@@ -469,7 +469,7 @@ async function loadAttractionFootprint(item) {
   if (requestId !== activeFootprintRequest || state.selectedId !== item.id) return;
 
   footprintCache.set(item.id, footprint);
-  renderFootprint(footprint, item);
+  renderFootprint(footprint, item, { fit: false });
 }
 
 async function findAttractionFootprint(item) {
@@ -480,7 +480,6 @@ async function findAttractionFootprint(item) {
 
   return {
     kind: "approximate",
-    label: "未找到可用面边界，暂用中心点近似范围",
     radius: estimateFootprintRadius(item),
   };
 }
@@ -553,11 +552,9 @@ function isFootprintCandidate(feature, item) {
   }
 
   const text = footprintCandidateText(feature);
-  if (text.includes("省") && !text.includes(item.coordinateLabel.toLocaleLowerCase("zh-CN"))) {
-    const category = feature.properties?.category;
-    const typeName = feature.properties?.type;
-    if (category === "boundary" && typeName === "administrative") return false;
-  }
+  const category = feature.properties?.category;
+  const typeName = feature.properties?.type;
+  if (category === "boundary" && typeName === "administrative") return false;
 
   return true;
 }
@@ -575,7 +572,6 @@ function scoreFootprintCandidate(feature, item) {
 
   if (category === "tourism" || category === "leisure" || category === "historic") score += 4;
   if (category === "natural" || category === "boundary") score += 2;
-  if (type === "administrative") score -= 1;
 
   if (center) {
     const distance = haversineKm([item.lat, item.lng], center);
@@ -592,7 +588,6 @@ function footprintTokens(item) {
   return unique([
     item.name,
     item.coordinateLabel,
-    item.province,
     item.name.replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院/g, ""),
   ].filter(Boolean));
 }
@@ -629,11 +624,10 @@ function toRadians(value) {
   return (value * Math.PI) / 180;
 }
 
-function renderApproximateFootprint(item, label) {
+function renderApproximateFootprint(item) {
   renderFootprint(
     {
       kind: "approximate",
-      label,
       radius: estimateFootprintRadius(item),
     },
     item,
@@ -657,24 +651,30 @@ function renderFootprint(footprint, item, options = {}) {
         fillOpacity: 0.18,
       },
     }).addTo(selectionLayer);
-    els.detailPrecision.textContent = footprint.label;
+    setFootprintDetail(footprint.label);
     fitFootprintBounds(layer, fit);
     return;
   }
 
-  const circle = L.circle([item.lat, item.lng], {
+  L.circleMarker([item.lat, item.lng], {
     pane: "footprintPane",
     radius: footprint.radius || estimateFootprintRadius(item),
     color: highlightColor,
     weight: 2,
     opacity: 0.92,
-    dashArray: "6 6",
     fillColor: highlightColor,
-    fillOpacity: 0.1,
+    fillOpacity: 0.18,
     interactive: false,
   }).addTo(selectionLayer);
-  els.detailPrecision.textContent = footprint.label;
-  fitFootprintBounds(circle, fit);
+  setFootprintDetail(null);
+}
+
+function setFootprintDetail(label) {
+  const hasLabel = Boolean(label);
+  els.detailPrecision.textContent = hasLabel ? label : "";
+  if (els.detailPrecisionRow) {
+    els.detailPrecisionRow.hidden = !hasLabel;
+  }
 }
 
 function fitFootprintBounds(layer, fit) {
@@ -684,7 +684,7 @@ function fitFootprintBounds(layer, fit) {
     map.fitBounds(bounds.pad(0.22), {
       paddingTopLeft: mapPaddingTopLeft(),
       paddingBottomRight: mapPaddingBottomRight(true),
-      maxZoom: 14,
+      maxZoom: 8,
     });
   }
 }
@@ -695,28 +695,26 @@ function clearFootprint() {
 }
 
 function estimateFootprintRadius(item) {
-  if (item.coordinateLevel === "景区") return 1200;
-  if (item.coordinateLevel === "城市") return 6000;
-  return 18000;
+  if (item.coordinateLevel === "景区") return 10;
+  if (item.coordinateLevel === "城市") return 12;
+  return 14;
 }
 
 function focusAttraction(item, openPopup = false) {
-  map.flyTo([item.lat, item.lng], Math.max(map.getZoom(), 9), {
+  const targetZoom = Math.min(Math.max(map.getZoom(), 5.6), 7);
+  map.flyTo([item.lat, item.lng], targetZoom, {
     animate: true,
-    duration: 0.8,
+    duration: 0.65,
   });
 
   const marker = markersById.get(item.id);
   if (marker && openPopup) {
-    if (typeof markerLayer.zoomToShowLayer === "function") {
-      markerLayer.zoomToShowLayer(marker, () => {
+    window.setTimeout(() => {
+      if (marker.getElement()) {
         syncActiveMapMarker(item);
         marker.openPopup();
-      });
-    } else {
-      syncActiveMapMarker(item);
-      marker.openPopup();
-    }
+      }
+    }, 680);
   }
 }
 
@@ -731,7 +729,7 @@ function fitTo(items) {
     map.fitBounds(bounds.pad(0.08), {
       paddingTopLeft: mapPaddingTopLeft(),
       paddingBottomRight: mapPaddingBottomRight(false),
-      maxZoom: 9,
+      maxZoom: 7,
     });
   }
 }
