@@ -394,6 +394,7 @@ const markerLayer =
   typeof L.markerClusterGroup === "function"
     ? L.markerClusterGroup({
         showCoverageOnHover: false,
+        zoomToBoundsOnClick: true,
         maxClusterRadius: 46,
         spiderfyDistanceMultiplier: 1.5,
       })
@@ -671,7 +672,7 @@ function renderList(items) {
   els.attractionList.querySelectorAll("[data-id]").forEach((button) => {
     button.addEventListener("click", () => {
       const item = attractions.find((attraction) => attraction.id === button.dataset.id);
-      selectAttraction(item, { fly: true });
+      selectAttraction(item);
     });
   });
 }
@@ -747,10 +748,6 @@ function selectAttraction(item, options = {}) {
   syncActiveListItem();
   syncActiveMapMarker(item || null);
 
-  if (item && options.fly) {
-    focusAttraction(item, true);
-  }
-
   if (!options.skipRender) {
     renderList(getFilteredAttractions());
   }
@@ -802,7 +799,7 @@ function renderDetail(item) {
   els.relatedList.querySelectorAll("[data-id]").forEach((button) => {
     button.addEventListener("click", () => {
       const relatedItem = attractions.find((candidate) => candidate.id === button.dataset.id);
-      selectAttraction(relatedItem, { fly: true });
+      selectAttraction(relatedItem);
     });
   });
 }
