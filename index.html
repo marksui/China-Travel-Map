@@ -19,9 +19,9 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260521-6" />
+    <link rel="stylesheet" href="styles.css?v=20260521-7" />
   </head>
-  <body>
+  <body class="control-panel-closed">
     <div class="app-shell">
       <header class="app-nav" aria-label="站点导航" data-i18n-aria-label="siteNav">
         <a class="nav-brand" href="#" data-i18n="brand">中国 5A 景点地图</a>
@@ -39,15 +39,15 @@
           </button>
         </div>
         <nav class="nav-actions" aria-label="地图工具" data-i18n-aria-label="mapTools">
-          <button class="nav-button" id="toggleControlPanel" type="button" aria-expanded="true">
+          <button class="nav-button" id="toggleControlPanel" type="button" aria-expanded="false">
             <i data-lucide="panel-left" aria-hidden="true"></i>
-            <span class="nav-label">收起筛选</span>
+            <span class="nav-label">打开筛选</span>
           </button>
           <button class="nav-button" id="fitFiltered" type="button">
             <i data-lucide="scan" aria-hidden="true"></i>
             <span data-i18n="fitResults">定位结果</span>
           </button>
-          <button class="nav-button" id="toggleDistribution" type="button" aria-expanded="true">
+          <button class="nav-button" id="toggleDistribution" type="button" aria-expanded="false">
             <i data-lucide="map" aria-hidden="true"></i>
             <span data-i18n="mapGuide">地图说明</span>
           </button>
@@ -62,7 +62,7 @@
 
       <main class="map-stage">
         <div id="map" aria-label="中国 5A 与对标景点地图" data-i18n-aria-label="mapAria"></div>
-        <section class="distribution-panel" id="distributionPanel" aria-label="地图说明" data-i18n-aria-label="mapGuide">
+        <section class="distribution-panel collapsed" id="distributionPanel" aria-label="地图说明" data-i18n-aria-label="mapGuide">
           <div class="panel-heading">
             <div>
               <strong data-i18n="mapGuide">地图说明</strong>
@@ -240,8 +240,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="data/attractions.js?v=20260521-6"></script>
-    <script src="data/attraction-images.js?v=20260521-6"></script>
-    <script src="app.js?v=20260521-6"></script>
+    <script src="data/attractions.js?v=20260521-7"></script>
+    <script src="data/attraction-images.js?v=20260521-7"></script>
+    <script src="app.js?v=20260521-7"></script>
   </body>
 </html>

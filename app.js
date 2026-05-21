@@ -323,8 +323,8 @@ const state = {
   province: allRegionsValue,
   language: resolveInitialLanguage(),
   selectedId: null,
-  distributionOpen: true,
-  controlOpen: true,
+  distributionOpen: false,
+  controlOpen: false,
 };
 
 const els = {
