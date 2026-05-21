@@ -203,7 +203,7 @@ select {
 }
 
 .language-select {
-  width: 88px;
+  width: 118px;
   height: 34px;
   border-color: var(--nav-line);
   background: var(--nav-strong);
