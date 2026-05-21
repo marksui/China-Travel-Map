@@ -202,6 +202,16 @@ select {
   padding: 0 10px;
 }
 
+.language-select {
+  width: 88px;
+  height: 34px;
+  border-color: var(--nav-line);
+  background: var(--nav-strong);
+  color: #f7ead8;
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .icon-button,
 .text-button {
   display: inline-flex;

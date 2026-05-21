@@ -10,10 +10,318 @@ const fallbackImage = localImages.fallback || {
   caption: "暂无该景点本地实景图，显示通用景区图",
 };
 
+const allRegionsValue = "全部";
+const languageStorageKey = "china5a.language";
+const languages = {
+  "zh-CN": { htmlLang: "zh-CN" },
+  "zh-TW": { htmlLang: "zh-Hant" },
+  en: { htmlLang: "en" },
+};
+
+const translations = {
+  "zh-CN": {
+    documentTitle: "中国 5A 与对标景点互动地图",
+    siteNav: "站点导航",
+    brand: "中国 5A 景点地图",
+    searchPlaceholder: "搜索景点或地区",
+    clearSearch: "清空搜索",
+    mapTools: "地图工具",
+    collapseFilters: "收起筛选",
+    openFilters: "打开筛选",
+    fitResults: "定位结果",
+    mapGuide: "地图说明",
+    language: "语言",
+    mapAria: "中国 5A 与对标景点地图",
+    closeMapGuide: "关闭地图说明",
+    currentFilterStats: "当前筛选统计",
+    official5A: "国家5A",
+    peerAttractions: "对标景点",
+    regions: "地区",
+    official5ATitle: "国家 5A",
+    official5ADesc: "中国大陆官方 AAAAA 级旅游景区",
+    peer5ATitle: "对标 5A",
+    peer5ADesc: "台湾、香港、澳门代表性景点，非大陆官方评级",
+    selectedRangeTitle: "选中范围",
+    selectedRangeDesc: "点击景点后优先显示 OSM 面边界；没有面边界时只保留选中点",
+    regionalHeat: "地区热度",
+    clickToFilter: "点击可筛选",
+    filtersAria: "景点筛选",
+    closeFilters: "收起筛选面板",
+    featureAlt: "慕田峪长城全景",
+    featureCaption: "慕田峪长城全景",
+    eyebrow: "国家 5A / 对标 5A 景点",
+    heroLine1: "欢迎使用中国 5A 景点",
+    heroLine2: "在线地图",
+    intro: "覆盖中国大陆官方 5A 景区，并加入中华民国（台湾）、香港、澳门的对标 5A 景点。",
+    summaryStats: "统计摘要",
+    attractions: "景点",
+    filteredResults: "筛选结果",
+    filterConditions: "筛选条件",
+    regionLabel: "地区",
+    allRegions: "全部地区",
+    nationwide: "全国",
+    resultCount: "{count} 个景点",
+    filterSubtitle: "{region} · 国家5A + 对标景点",
+    reset: "重置",
+    attractionList: "景点列表",
+    noMatches: "没有匹配的景点",
+    detailAria: "景点详情",
+    closeDetail: "关闭详情",
+    chooseAttraction: "选择景点",
+    noSelectionTitle: "在地图或列表中选择一个景点",
+    scenicImageAlt: "景点图片",
+    rating: "评级",
+    basis: "依据",
+    footprint: "占地范围",
+    focus: "定位",
+    sameRegion: "同地区景点",
+    noSelection: "暂无选择",
+    noSameRegion: "没有其他同地区景点",
+    relatedCaption: "{region} · {count} 个",
+    distributionCaption: "{region} · {count} 个景点",
+    peerBadgeShort: "对标",
+    peerMeta: "对标大陆 5A",
+    officialMeta: "{year} 年评为 5A",
+    peerDetail: "{label}（非大陆官方评级）",
+    officialDetail: "{year} 年",
+    officialBasis: "文化和旅游部国家 AAAAA 级旅游景区",
+    peerBasis: "台港澳官方旅游体系中的代表性景点，对标大陆 5A 展示",
+    osmBoundary: "OSM 面边界",
+    imageSourcePrefix: "图片来源：",
+    fallbackImageCaption: "通用景区占位图（慕田峪长城全景）",
+    sourceNote:
+      '大陆 5A 数据来自用户提供的 <span>China-5A-tourist-attraction.md</span>；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。',
+  },
+  "zh-TW": {
+    documentTitle: "中國 5A 與對標景點互動地圖",
+    siteNav: "站點導覽",
+    brand: "中國 5A 景點地圖",
+    searchPlaceholder: "搜尋景點或地區",
+    clearSearch: "清除搜尋",
+    mapTools: "地圖工具",
+    collapseFilters: "收起篩選",
+    openFilters: "打開篩選",
+    fitResults: "定位結果",
+    mapGuide: "地圖說明",
+    language: "語言",
+    mapAria: "中國 5A 與對標景點地圖",
+    closeMapGuide: "關閉地圖說明",
+    currentFilterStats: "目前篩選統計",
+    official5A: "國家5A",
+    peerAttractions: "對標景點",
+    regions: "地區",
+    official5ATitle: "國家 5A",
+    official5ADesc: "中國大陸官方 AAAAA 級旅遊景區",
+    peer5ATitle: "對標 5A",
+    peer5ADesc: "臺灣、香港、澳門代表性景點，非大陸官方評級",
+    selectedRangeTitle: "選中範圍",
+    selectedRangeDesc: "點擊景點後優先顯示 OSM 面邊界；沒有面邊界時只保留選中點",
+    regionalHeat: "地區熱度",
+    clickToFilter: "點擊可篩選",
+    filtersAria: "景點篩選",
+    closeFilters: "收起篩選面板",
+    featureAlt: "慕田峪長城全景",
+    featureCaption: "慕田峪長城全景",
+    eyebrow: "國家 5A / 對標 5A 景點",
+    heroLine1: "歡迎使用中國 5A 景點",
+    heroLine2: "線上地圖",
+    intro: "覆蓋中國大陸官方 5A 景區，並加入中華民國（臺灣）、香港、澳門的對標 5A 景點。",
+    summaryStats: "統計摘要",
+    attractions: "景點",
+    filteredResults: "篩選結果",
+    filterConditions: "篩選條件",
+    regionLabel: "地區",
+    allRegions: "全部地區",
+    nationwide: "全國",
+    resultCount: "{count} 個景點",
+    filterSubtitle: "{region} · 國家5A + 對標景點",
+    reset: "重置",
+    attractionList: "景點列表",
+    noMatches: "沒有符合的景點",
+    detailAria: "景點詳情",
+    closeDetail: "關閉詳情",
+    chooseAttraction: "選擇景點",
+    noSelectionTitle: "在地圖或列表中選擇一個景點",
+    scenicImageAlt: "景點圖片",
+    rating: "評級",
+    basis: "依據",
+    footprint: "占地範圍",
+    focus: "定位",
+    sameRegion: "同地區景點",
+    noSelection: "暫無選擇",
+    noSameRegion: "沒有其他同地區景點",
+    relatedCaption: "{region} · {count} 個",
+    distributionCaption: "{region} · {count} 個景點",
+    peerBadgeShort: "對標",
+    peerMeta: "對標大陸 5A",
+    officialMeta: "{year} 年評為 5A",
+    peerDetail: "{label}（非大陸官方評級）",
+    officialDetail: "{year} 年",
+    officialBasis: "文化和旅遊部國家 AAAAA 級旅遊景區",
+    peerBasis: "臺港澳官方旅遊體系中的代表性景點，對標大陸 5A 展示",
+    osmBoundary: "OSM 面邊界",
+    imageSourcePrefix: "圖片來源：",
+    fallbackImageCaption: "通用景區占位圖（慕田峪長城全景）",
+    sourceNote:
+      '大陸 5A 資料來自使用者提供的 <span>China-5A-tourist-attraction.md</span>；臺港澳為對標 5A 手動補充；可用面邊界來自 OpenStreetMap；地圖底圖 © OpenStreetMap。',
+  },
+  en: {
+    documentTitle: "China 5A & Peer Attractions Interactive Map",
+    siteNav: "Site navigation",
+    brand: "China 5A Attractions Map",
+    searchPlaceholder: "Search attractions or regions",
+    clearSearch: "Clear search",
+    mapTools: "Map tools",
+    collapseFilters: "Hide filters",
+    openFilters: "Show filters",
+    fitResults: "Fit results",
+    mapGuide: "Map guide",
+    language: "Language",
+    mapAria: "Map of China 5A and peer attractions",
+    closeMapGuide: "Close map guide",
+    currentFilterStats: "Current filter statistics",
+    official5A: "Official 5A",
+    peerAttractions: "Peer sites",
+    regions: "Regions",
+    official5ATitle: "Official 5A",
+    official5ADesc: "Mainland China official AAAAA tourist attractions",
+    peer5ATitle: "Peer 5A",
+    peer5ADesc: "Representative sites in Taiwan, Hong Kong, and Macao; not mainland official ratings",
+    selectedRangeTitle: "Selected area",
+    selectedRangeDesc: "Shows an OSM polygon when available; otherwise keeps only the selected point",
+    regionalHeat: "Regional density",
+    clickToFilter: "Click to filter",
+    filtersAria: "Attraction filters",
+    closeFilters: "Hide filter panel",
+    featureAlt: "Mutianyu Great Wall panorama",
+    featureCaption: "Mutianyu Great Wall panorama",
+    eyebrow: "Official 5A / Peer 5A Attractions",
+    heroLine1: "China 5A Attractions",
+    heroLine2: "Interactive Map",
+    intro:
+      "Covers official mainland China 5A scenic areas plus peer 5A attractions in Taiwan, Hong Kong, and Macao.",
+    summaryStats: "Summary statistics",
+    attractions: "Attractions",
+    filteredResults: "Shown",
+    filterConditions: "Filters",
+    regionLabel: "Region",
+    allRegions: "All regions",
+    nationwide: "Nationwide",
+    resultCount: "{count} attractions",
+    filterSubtitle: "{region} · mainland 5A + peer attractions",
+    reset: "Reset",
+    attractionList: "Attraction list",
+    noMatches: "No matching attractions",
+    detailAria: "Attraction details",
+    closeDetail: "Close details",
+    chooseAttraction: "Choose an attraction",
+    noSelectionTitle: "Select an attraction on the map or list",
+    scenicImageAlt: "Attraction image",
+    rating: "Rating",
+    basis: "Basis",
+    footprint: "Footprint",
+    focus: "Focus",
+    sameRegion: "Same region",
+    noSelection: "No selection",
+    noSameRegion: "No other attractions in this region",
+    relatedCaption: "{region} · {count}",
+    distributionCaption: "{region} · {count} attractions",
+    peerBadgeShort: "P5A",
+    peerMeta: "Peer to mainland 5A",
+    officialMeta: "Rated 5A in {year}",
+    peerDetail: "{label} (not an official mainland rating)",
+    officialDetail: "{year}",
+    officialBasis: "Ministry of Culture and Tourism national AAAAA tourist attraction",
+    peerBasis: "Representative sites from Taiwan, Hong Kong, and Macao tourism systems, shown as 5A peers",
+    osmBoundary: "OSM polygon",
+    imageSourcePrefix: "Image source: ",
+    fallbackImageCaption: "generic scenic placeholder (Mutianyu Great Wall panorama)",
+    sourceNote:
+      'Mainland 5A data comes from the user-provided <span>China-5A-tourist-attraction.md</span>; Taiwan, Hong Kong, and Macao peer sites were added manually; available polygons come from OpenStreetMap; basemap © OpenStreetMap.',
+  },
+};
+
+const provinceNames = {
+  "zh-CN": {},
+  "zh-TW": {
+    北京: "北京",
+    天津: "天津",
+    河北: "河北",
+    山西: "山西",
+    内蒙古: "內蒙古",
+    辽宁: "遼寧",
+    吉林: "吉林",
+    黑龙江: "黑龍江",
+    上海: "上海",
+    江苏: "江蘇",
+    浙江: "浙江",
+    安徽: "安徽",
+    福建: "福建",
+    江西: "江西",
+    山东: "山東",
+    河南: "河南",
+    湖南: "湖南",
+    湖北: "湖北",
+    广东: "廣東",
+    广西: "廣西",
+    海南: "海南",
+    重庆: "重慶",
+    四川: "四川",
+    贵州: "貴州",
+    云南: "雲南",
+    西藏: "西藏",
+    陕西: "陝西",
+    甘肃: "甘肅",
+    青海: "青海",
+    宁夏: "寧夏",
+    新疆: "新疆",
+    "中华民国（台湾）": "中華民國（臺灣）",
+    香港: "香港",
+    澳门: "澳門",
+  },
+  en: {
+    北京: "Beijing",
+    天津: "Tianjin",
+    河北: "Hebei",
+    山西: "Shanxi",
+    内蒙古: "Inner Mongolia",
+    辽宁: "Liaoning",
+    吉林: "Jilin",
+    黑龙江: "Heilongjiang",
+    上海: "Shanghai",
+    江苏: "Jiangsu",
+    浙江: "Zhejiang",
+    安徽: "Anhui",
+    福建: "Fujian",
+    江西: "Jiangxi",
+    山东: "Shandong",
+    河南: "Henan",
+    湖南: "Hunan",
+    湖北: "Hubei",
+    广东: "Guangdong",
+    广西: "Guangxi",
+    海南: "Hainan",
+    重庆: "Chongqing",
+    四川: "Sichuan",
+    贵州: "Guizhou",
+    云南: "Yunnan",
+    西藏: "Tibet",
+    陕西: "Shaanxi",
+    甘肃: "Gansu",
+    青海: "Qinghai",
+    宁夏: "Ningxia",
+    新疆: "Xinjiang",
+    "中华民国（台湾）": "Taiwan",
+    香港: "Hong Kong",
+    澳门: "Macao",
+  },
+};
+
 const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
 const state = {
   search: "",
-  province: "全部",
+  province: allRegionsValue,
+  language: resolveInitialLanguage(),
   selectedId: null,
   distributionOpen: true,
   controlOpen: true,
@@ -30,6 +338,7 @@ const els = {
   provinceStat: document.querySelector("#provinceStat"),
   visibleStat: document.querySelector("#visibleStat"),
   dataCountPill: document.querySelector("#dataCountPill"),
+  languageSelect: document.querySelector("#languageSelect"),
   resetFilters: document.querySelector("#resetFilters"),
   toggleControlPanel: document.querySelector("#toggleControlPanel"),
   closeControlPanel: document.querySelector("#closeControlPanel"),
@@ -100,6 +409,7 @@ const selectionLayer = L.layerGroup().addTo(map);
 let activeFootprintRequest = 0;
 
 function init() {
+  applyLanguage();
   renderBaseStats();
   populateProvinceSelect();
   bindEvents();
@@ -123,15 +433,22 @@ function renderBaseStats() {
 function populateProvinceSelect() {
   const provinces = unique(attractions.map((item) => item.province));
   els.provinceSelect.innerHTML = [
-    `<option value="全部">全部地区</option>`,
-    ...provinces.map((province) => `<option value="${escapeHtml(province)}">${province}</option>`),
+    `<option value="${allRegionsValue}">${escapeHtml(t("allRegions"))}</option>`,
+    ...provinces.map(
+      (province) => `<option value="${escapeHtml(province)}">${escapeHtml(regionName(province))}</option>`,
+    ),
   ].join("");
+  els.provinceSelect.value = state.province;
 }
 
 function bindEvents() {
+  els.languageSelect.addEventListener("change", (event) => {
+    setLanguage(event.target.value);
+  });
+
   els.detailImage.addEventListener("error", () => {
     if (els.detailImage.dataset.fallback !== "true") {
-      setDetailImage(fallbackImage, "景点图片");
+      setDetailImage(fallbackImage, t("scenicImageAlt"));
     }
   });
 
@@ -155,9 +472,9 @@ function bindEvents() {
 
   els.resetFilters.addEventListener("click", () => {
     state.search = "";
-    state.province = "全部";
+    state.province = allRegionsValue;
     els.searchInput.value = "";
-    els.provinceSelect.value = "全部";
+    els.provinceSelect.value = allRegionsValue;
     render();
     fitTo(attractions);
   });
@@ -209,6 +526,46 @@ function bindEvents() {
   });
 }
 
+function setLanguage(language) {
+  if (!languages[language] || language === state.language) return;
+  state.language = language;
+  try {
+    localStorage.setItem(languageStorageKey, language);
+  } catch {
+    // Local storage can be unavailable in strict privacy contexts.
+  }
+
+  applyLanguage();
+  populateProvinceSelect();
+  render();
+}
+
+function applyLanguage() {
+  document.documentElement.lang = languages[state.language]?.htmlLang || languages["zh-CN"].htmlLang;
+  document.title = t("documentTitle");
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = t(element.dataset.i18n);
+  });
+  document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+    element.innerHTML = t(element.dataset.i18nHtml);
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    element.setAttribute("placeholder", t(element.dataset.i18nPlaceholder));
+  });
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
+    element.setAttribute("aria-label", t(element.dataset.i18nAriaLabel));
+  });
+  document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+    element.setAttribute("alt", t(element.dataset.i18nAlt));
+  });
+
+  if (els.languageSelect) {
+    els.languageSelect.value = state.language;
+  }
+  syncControlPanel();
+}
+
 function setControlPanelOpen(open) {
   state.controlOpen = open;
   syncControlPanel();
@@ -222,7 +579,7 @@ function syncControlPanel() {
   els.toggleControlPanel.setAttribute("aria-expanded", String(state.controlOpen));
   const label = els.toggleControlPanel.querySelector(".nav-label");
   if (label) {
-    label.textContent = state.controlOpen ? "收起筛选" : "打开筛选";
+    label.textContent = state.controlOpen ? t("collapseFilters") : t("openFilters");
   }
 }
 
@@ -259,11 +616,20 @@ function render() {
 function getFilteredAttractions() {
   const query = normalize(state.search);
   return attractions.filter((item) => {
-    const matchesProvince = state.province === "全部" || item.province === state.province;
+    const matchesProvince = state.province === allRegionsValue || item.province === state.province;
     const searchable = normalize(
-      `${item.name} ${item.province} ${item.coordinateLabel} ${item.coordinateLevel} ${item.ratingLabel || ""} ${
-        item.basis || ""
-      }`,
+      [
+        item.name,
+        item.province,
+        ...regionSearchNames(item.province),
+        item.coordinateLabel,
+        item.coordinateLevel,
+        item.ratingLabel || "",
+        item.basis || "",
+        ratingMeta(item),
+        ratingDetail(item),
+        basisText(item),
+      ].join(" "),
     );
     const matchesSearch = !query || searchable.includes(query);
     return matchesProvince && matchesSearch;
@@ -272,14 +638,14 @@ function getFilteredAttractions() {
 
 function updateSummary(filtered) {
   els.visibleStat.textContent = String(filtered.length);
-  els.resultCount.textContent = `${filtered.length} 个景点`;
-  const provinceText = state.province === "全部" ? "全国" : state.province;
-  els.filterSubtitle.textContent = `${provinceText} · 国家5A + 对标景点`;
+  els.resultCount.textContent = t("resultCount", { count: filtered.length });
+  const provinceText = state.province === allRegionsValue ? t("nationwide") : regionName(state.province);
+  els.filterSubtitle.textContent = t("filterSubtitle", { region: provinceText });
 }
 
 function renderList(items) {
   if (!items.length) {
-    els.attractionList.innerHTML = `<li class="empty-state">没有匹配的景点</li>`;
+    els.attractionList.innerHTML = `<li class="empty-state">${escapeHtml(t("noMatches"))}</li>`;
     return;
   }
 
@@ -292,7 +658,7 @@ function renderList(items) {
             <span class="card-main">
               <span>
                 <span class="card-name">${escapeHtml(item.name)}</span>
-                <span class="card-meta">${escapeHtml(item.province)} · ${escapeHtml(ratingMeta(item))}</span>
+                <span class="card-meta">${escapeHtml(regionName(item.province))} · ${escapeHtml(ratingMeta(item))}</span>
               </span>
               <span class="year-badge">${escapeHtml(ratingBadge(item))}</span>
             </span>
@@ -321,7 +687,7 @@ function renderMarkers(items) {
     });
 
     marker.bindPopup(
-      `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(item.province)} · ${escapeHtml(
+      `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(regionName(item.province))} · ${escapeHtml(
         ratingMeta(item),
       )}`,
     );
@@ -335,16 +701,16 @@ function renderMarkers(items) {
 function renderDistribution(items) {
   const counts = countBy(items, (item) => item.province).sort((a, b) => b.count - a.count);
   const max = Math.max(1, ...counts.map((item) => item.count));
-  const regionText = state.province === "全部" ? "全国" : state.province;
+  const regionText = state.province === allRegionsValue ? t("nationwide") : regionName(state.province);
   const officialCount = items.filter((item) => !isPeerAttraction(item)).length;
   const peerCount = items.length - officialCount;
-  els.distributionCaption.textContent = `${regionText} · ${items.length} 个景点`;
+  els.distributionCaption.textContent = t("distributionCaption", { region: regionText, count: items.length });
   els.legendOfficialStat.textContent = String(officialCount);
   els.legendPeerStat.textContent = String(peerCount);
   els.legendRegionStat.textContent = String(counts.length);
 
   if (!counts.length) {
-    els.provinceBars.innerHTML = `<div class="empty-state">暂无数据</div>`;
+    els.provinceBars.innerHTML = `<div class="empty-state">${escapeHtml(t("noMatches"))}</div>`;
     return;
   }
 
@@ -355,7 +721,7 @@ function renderDistribution(items) {
         <button class="province-bar related-item" type="button" data-province="${escapeHtml(
           item.key,
         )}">
-          <span>${escapeHtml(item.key)}</span>
+          <span>${escapeHtml(regionName(item.key))}</span>
           <span class="province-bar-track" aria-hidden="true">
             <span class="province-bar-fill" style="width: ${(item.count / max) * 100}%"></span>
           </span>
@@ -393,19 +759,19 @@ function selectAttraction(item, options = {}) {
 function renderDetail(item) {
   const hasItem = Boolean(item);
   document.body.classList.toggle("has-selection", hasItem);
-  els.detailProvince.textContent = hasItem ? item.province : "选择景点";
-  els.detailName.textContent = hasItem ? item.name : "在地图或列表中选择一个景点";
+  els.detailProvince.textContent = hasItem ? regionName(item.province) : t("chooseAttraction");
+  els.detailName.textContent = hasItem ? item.name : t("noSelectionTitle");
   els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
-  els.detailBasis.textContent = hasItem ? item.basis || ratingMeta(item) : "-";
+  els.detailBasis.textContent = hasItem ? basisText(item) : "-";
   setFootprintDetail(null);
   els.focusSelected.disabled = !hasItem;
   els.filterProvince.disabled = !hasItem;
 
   if (!hasItem) {
-    setDetailImage(fallbackImage, "景点图片");
+    setDetailImage(fallbackImage, t("scenicImageAlt"));
     clearFootprint();
     els.relatedCaption.textContent = "-";
-    els.relatedList.innerHTML = `<div class="empty-state">暂无选择</div>`;
+    els.relatedList.innerHTML = `<div class="empty-state">${escapeHtml(t("noSelection"))}</div>`;
     return;
   }
 
@@ -416,19 +782,22 @@ function renderDetail(item) {
     .filter((candidate) => candidate.province === item.province && candidate.id !== item.id)
     .slice(0, 8);
 
-  els.relatedCaption.textContent = `${item.province} · ${related.length} 个`;
+  els.relatedCaption.textContent = t("relatedCaption", {
+    region: regionName(item.province),
+    count: related.length,
+  });
   els.relatedList.innerHTML = related.length
     ? related
         .map(
           (candidate) => `
             <button class="related-item" type="button" data-id="${candidate.id}">
               <strong>${escapeHtml(candidate.name)}</strong>
-              <span>${escapeHtml(ratingMeta(candidate))}</span>
+              <span>${escapeHtml(regionName(candidate.province))} · ${escapeHtml(ratingMeta(candidate))}</span>
             </button>
           `,
         )
         .join("")
-    : `<div class="empty-state">没有其他同地区景点</div>`;
+    : `<div class="empty-state">${escapeHtml(t("noSameRegion"))}</div>`;
 
   els.relatedList.querySelectorAll("[data-id]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -516,7 +885,7 @@ async function searchNominatimFootprint(query, item) {
 
   try {
     const response = await fetch(`https://nominatim.openstreetmap.org/search?${params}`, {
-      headers: { "Accept-Language": "zh-CN,zh;q=0.9" },
+      headers: { "Accept-Language": osmLanguageHeader() },
     });
     const data = await response.json();
     const candidates = (data.features || [])
@@ -535,7 +904,7 @@ async function searchNominatimFootprint(query, item) {
       kind: "osm",
       feature: best,
       center: featureDisplayCenter(best),
-      label: `OSM 面边界 · ${best.properties?.name || item.coordinateLabel}`,
+      name: best.properties?.name || item.coordinateLabel,
     };
   } catch {
     return null;
@@ -722,7 +1091,7 @@ function renderFootprint(footprint, item, options = {}) {
       },
     }).addTo(selectionLayer);
     alignAttractionToFootprint(item, footprint.center || featureDisplayCenter(footprint.feature));
-    setFootprintDetail(footprint.label);
+    setFootprintDetail(`${t("osmBoundary")} · ${footprint.name || item.coordinateLabel}`);
     fitFootprintBounds(layer, fit);
     return;
   }
@@ -876,17 +1245,21 @@ function isPeerAttraction(item) {
 }
 
 function ratingBadge(item) {
-  return isPeerAttraction(item) ? "对标" : "5A";
+  return isPeerAttraction(item) ? t("peerBadgeShort") : "5A";
 }
 
 function ratingMeta(item) {
-  return isPeerAttraction(item) ? "对标大陆 5A" : `${item.year} 年评为 5A`;
+  return isPeerAttraction(item) ? t("peerMeta") : t("officialMeta", { year: item.year });
 }
 
 function ratingDetail(item) {
   return isPeerAttraction(item)
-    ? `${item.ratingLabel || "对标5A"}（非大陆官方评级）`
-    : `${item.year} 年`;
+    ? t("peerDetail", { label: t("peer5ATitle") })
+    : t("officialDetail", { year: item.year });
+}
+
+function basisText(item) {
+  return isPeerAttraction(item) ? t("peerBasis") : t("officialBasis");
 }
 
 function loadDetailImage(item) {
@@ -899,7 +1272,23 @@ function setDetailImage(image, alt) {
   els.detailImage.src = safeImage.url;
   els.detailImage.alt = alt;
   els.detailImageLink.href = safeImage.pageUrl || fallbackImage.pageUrl;
-  els.detailImageLink.textContent = safeImage.caption || fallbackImage.caption;
+  els.detailImageLink.textContent = localizeImageCaption(safeImage.caption || fallbackImage.caption);
+}
+
+function localizeImageCaption(caption) {
+  const fallbackCaption = `${t("imageSourcePrefix")}Wikimedia Commons · ${t("fallbackImageCaption")}`;
+  const rawCaption = caption || fallbackCaption;
+  if (state.language === "zh-CN") return rawCaption;
+
+  if (state.language === "zh-TW") {
+    return rawCaption
+      .replace(/^图片来源：/, t("imageSourcePrefix"))
+      .replace(/通用景区占位图（慕田峪长城全景）/g, t("fallbackImageCaption"));
+  }
+
+  return rawCaption
+    .replace(/^图片来源：/, t("imageSourcePrefix"))
+    .replace(/通用景区占位图（慕田峪长城全景）/g, t("fallbackImageCaption"));
 }
 
 function countBy(items, getKey) {
@@ -912,7 +1301,43 @@ function countBy(items, getKey) {
 }
 
 function normalize(value) {
-  return String(value).trim().toLocaleLowerCase("zh-CN");
+  return String(value).trim().toLocaleLowerCase();
+}
+
+function resolveInitialLanguage() {
+  try {
+    const storedLanguage = localStorage.getItem(languageStorageKey);
+    if (languages[storedLanguage]) return storedLanguage;
+  } catch {
+    // Ignore unavailable local storage and fall back to the browser locale.
+  }
+
+  const browserLanguage = navigator.language.toLocaleLowerCase();
+  if (browserLanguage.startsWith("zh-tw") || browserLanguage.startsWith("zh-hk") || browserLanguage.startsWith("zh-mo")) {
+    return "zh-TW";
+  }
+  if (browserLanguage.startsWith("en")) return "en";
+  return "zh-CN";
+}
+
+function t(key, params = {}) {
+  const value = translations[state.language]?.[key] ?? translations["zh-CN"][key] ?? key;
+  return value.replace(/\{(\w+)\}/g, (_, paramKey) => params[paramKey] ?? "");
+}
+
+function regionName(region) {
+  if (region === allRegionsValue) return t("allRegions");
+  return provinceNames[state.language]?.[region] || region;
+}
+
+function regionSearchNames(region) {
+  return unique([region, provinceNames["zh-TW"][region], provinceNames.en[region]].filter(Boolean));
+}
+
+function osmLanguageHeader() {
+  if (state.language === "en") return "en,zh-CN;q=0.8,zh;q=0.7";
+  if (state.language === "zh-TW") return "zh-TW,zh-Hant;q=0.9,zh-CN;q=0.8,zh;q=0.7";
+  return "zh-CN,zh;q=0.9";
 }
 
 function escapeHtml(value) {
