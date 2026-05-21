@@ -1,11 +1,8 @@
-import { execFile } from "node:child_process";
 import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { readFileSync } from "node:fs";
 import path from "node:path";
-import { promisify } from "node:util";
 import vm from "node:vm";
 
-const execFileAsync = promisify(execFile);
 const outDir = path.resolve("assets/images");
 const tmpDir = path.join(outDir, ".tmp");
 const manifestPath = path.resolve("data/attraction-images.js");
@@ -20,6 +17,8 @@ const metadataOnly = process.argv.includes("--metadata-only");
 const wikiOnly = process.argv.includes("--wiki-only");
 const wikiFirst = !process.argv.includes("--no-wiki-first");
 const wikimediaDownloadGap = Number(getArg("--wikimedia-gap") || 4200);
+const imageWidth = Number(getArg("--image-width") || 960);
+const imageQuality = Number(getArg("--image-quality") || 76);
 const userAgent = "ChinaTravelMapImageBuilder/1.0 (local static site build)";
 const lastDownloadByHost = new Map();
 
@@ -822,36 +821,74 @@ async function ensureLocalImage(source, fileName) {
     return `assets/images/fallback.jpg`;
   }
 
-  const tmpPath = path.join(tmpDir, `${fileName}.download`);
-  const response = await fetchWithRetry(source.url);
-  if (!response.ok) throw new Error(`Image download failed ${response.status}: ${source.url}`);
-  const bytes = Buffer.from(await response.arrayBuffer());
-  await writeFile(tmpPath, bytes);
-  await execFileAsync("sips", [
-    "-s",
-    "format",
-    "jpeg",
-    "-s",
-    "formatOptions",
-    "76",
-    "--resampleHeightWidthMax",
-    "960",
-    tmpPath,
-    "--out",
-    outputPath,
-  ]);
+  const bytes = await fetchLocalImageBytes(source);
+  await writeFile(outputPath, bytes);
   return `assets/images/${fileName}`;
+}
+
+async function fetchLocalImageBytes(source) {
+  const candidates = localDownloadSources(source);
+  let lastError = null;
+
+  for (const candidate of candidates) {
+    try {
+      const response = await fetchWithRetry(candidate.url);
+      if (!response.ok) throw new Error(`Image download failed ${response.status}: ${candidate.url}`);
+      const bytes = Buffer.from(await response.arrayBuffer());
+      if (!looksLikeImage(bytes)) throw new Error(`Downloaded data was not an image: ${candidate.url}`);
+      return bytes;
+    } catch (error) {
+      lastError = error;
+    }
+  }
+
+  throw lastError || new Error(`Image download failed: ${source.url}`);
+}
+
+function localDownloadSources(source) {
+  const proxied = proxiedImageSource(source);
+  if (proxied && skipWikimediaDownloads && isWikimediaUrl(source.url)) {
+    return [proxied, source];
+  }
+  return proxied ? [source, proxied] : [source];
+}
+
+function proxiedImageSource(source) {
+  try {
+    const url = new URL(source.url);
+    if (!/^https?:$/.test(url.protocol) || url.hostname === "images.weserv.nl") return null;
+
+    const proxy = new URL("https://images.weserv.nl/");
+    proxy.searchParams.set("url", `${url.hostname}${url.pathname}${url.search}`);
+    proxy.searchParams.set("w", String(imageWidth));
+    proxy.searchParams.set("output", "jpg");
+    proxy.searchParams.set("q", String(imageQuality));
+    return {
+      ...source,
+      id: `${source.id}:local-jpeg`,
+      url: proxy.toString(),
+    };
+  } catch {
+    return null;
+  }
+}
+
+function looksLikeImage(bytes) {
+  if (!bytes?.length) return false;
+  const header = bytes.subarray(0, 12);
+  return (
+    (header[0] === 0xff && header[1] === 0xd8 && header[2] === 0xff) ||
+    header.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])) ||
+    header.subarray(0, 4).toString("ascii") === "RIFF" ||
+    header.subarray(0, 6).toString("ascii") === "GIF87a" ||
+    header.subarray(0, 6).toString("ascii") === "GIF89a"
+  );
 }
 
 async function downloadFirstAvailable(candidates, fileName, label) {
   for (const source of candidates) {
-    const downloadSource =
-      skipWikimediaDownloads && source.id !== "fallback" && isWikimediaUrl(source.url)
-        ? proxiedWikimediaSource(source)
-        : source;
-    if (!downloadSource) continue;
     try {
-      await ensureLocalImage(downloadSource, fileName);
+      await ensureLocalImage(source, fileName);
       return source;
     } catch (error) {
       console.warn(`Skipping image for ${label}: ${source.title} (${error.message})`);
@@ -865,25 +902,6 @@ function isWikimediaUrl(url) {
     return new URL(url).hostname.includes("wikimedia.org");
   } catch {
     return false;
-  }
-}
-
-function proxiedWikimediaSource(source) {
-  try {
-    const url = new URL(source.url);
-    const upstream = `${url.hostname}${url.pathname}`;
-    const proxy = new URL("https://images.weserv.nl/");
-    proxy.searchParams.set("url", upstream);
-    proxy.searchParams.set("w", "960");
-    proxy.searchParams.set("output", "jpg");
-    proxy.searchParams.set("q", "76");
-    return {
-      ...source,
-      id: `${source.id}:proxy`,
-      url: proxy.toString(),
-    };
-  } catch {
-    return null;
   }
 }
 
@@ -972,7 +990,7 @@ function buildAttribution(rows) {
   const lines = [
     "# Image Sources",
     "",
-    "Generated by `scripts/build-images.mjs`. Images are resized local copies for the static map UI.",
+    "Generated by `scripts/build-images.mjs`. Images are downloaded local copies for the static map UI.",
     "",
     "| 景区 | 本地文件 | 来源 | 授权 | 原始页面 |",
     "| --- | --- | --- | --- | --- |",

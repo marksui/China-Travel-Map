@@ -1,6 +1,7 @@
 const attractions = window.CHINA_5A_ATTRACTIONS || [];
 const meta = window.CHINA_5A_META || {};
 const localImages = window.CHINA_5A_IMAGES || {};
+const localizedAttractionNames = window.CHINA_5A_ATTRACTION_NAMES || {};
 
 const highlightColor = "#b65345";
 const fallbackImage = localImages.fallback || {
@@ -24,9 +25,23 @@ const languages = {
 
 const translations = {
   "zh-CN": {
-    documentTitle: "中国 5A 与对标景点互动地图",
+    documentTitle: "中国景点互动地图",
     siteNav: "站点导航",
-    brand: "中国 5A 景点地图",
+    brand: "中国景点地图",
+    aboutMap: "关于这个地图",
+    aboutAria: "关于中国景点地图",
+    aboutClose: "关闭说明",
+    aboutEyebrow: "开放数据说明",
+    aboutTitle: "关于中国景点地图",
+    aboutLead: "这是一张开放、可核查的中国景点互动地图，用来浏览中国大陆官方 5A 景区，并补充台港澳代表性对标景点。",
+    aboutDataTitle: "数据",
+    aboutDataBody: "大陆 5A 景区依据公开公告与本地整理数据维护；台港澳景点作为对标展示。",
+    aboutOpenTitle: "开放",
+    aboutOpenBody: "项目以静态网页和本地数据文件组织，方便学习、审阅、复用和继续补充。",
+    aboutDisclaimerTitle: "免责声明",
+    aboutDisclaimerBody: "景点评级、边界、图片和坐标会随官方公告、开放地图和图片授权变化而变化，本页面仅供浏览参考，不构成官方发布、出行承诺或商业建议。",
+    aboutCredit: "Made by marksui",
+    aboutDate: "2026年6月",
     searchPlaceholder: "搜索景点或地区",
     clearSearch: "清空搜索",
     mapTools: "地图工具",
@@ -35,7 +50,7 @@ const translations = {
     fitResults: "定位结果",
     mapGuide: "地图说明",
     language: "语言",
-    mapAria: "中国 5A 与对标景点地图",
+    mapAria: "中国景点地图",
     closeMapGuide: "关闭地图说明",
     currentFilterStats: "当前筛选统计",
     official5A: "国家5A",
@@ -54,7 +69,7 @@ const translations = {
     featureAlt: "慕田峪长城全景",
     featureCaption: "慕田峪长城全景",
     eyebrow: "国家 5A / 对标 5A 景点",
-    heroLine1: "欢迎使用中国 5A 景点",
+    heroLine1: "欢迎使用中国景点",
     heroLine2: "在线地图",
     intro: "覆盖中国大陆官方 5A 景区，并加入台湾、香港、澳门的对标 5A 景点。",
     summaryStats: "统计摘要",
@@ -94,12 +109,12 @@ const translations = {
     imageSourcePrefix: "图片来源：",
     fallbackImageCaption: "通用景区占位图（慕田峪长城全景）",
     sourceNote:
-      '大陆 5A 数据来自用户提供的 <span>China-5A-tourist-attraction.md</span>；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。',
+      '大陆 5A 数据以用户提供的 <span>China-5A-tourist-attraction.md</span> 为基础，并补充文旅部 2020-2024 官方公告；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。',
   },
   "zh-TW": {
-    documentTitle: "中國 5A 與對標景點互動地圖",
+    documentTitle: "中國景點互動地圖",
     siteNav: "站點導覽",
-    brand: "中國 5A 景點地圖",
+    brand: "中國景點地圖",
     searchPlaceholder: "搜尋景點或地區",
     clearSearch: "清除搜尋",
     mapTools: "地圖工具",
@@ -108,7 +123,7 @@ const translations = {
     fitResults: "定位結果",
     mapGuide: "地圖說明",
     language: "語言",
-    mapAria: "中國 5A 與對標景點地圖",
+    mapAria: "中國景點地圖",
     closeMapGuide: "關閉地圖說明",
     currentFilterStats: "目前篩選統計",
     official5A: "國家5A",
@@ -127,7 +142,7 @@ const translations = {
     featureAlt: "慕田峪長城全景",
     featureCaption: "慕田峪長城全景",
     eyebrow: "國家 5A / 對標 5A 景點",
-    heroLine1: "歡迎使用中國 5A 景點",
+    heroLine1: "歡迎使用中國景點",
     heroLine2: "線上地圖",
     intro: "覆蓋中國大陸官方 5A 景區，並加入臺灣、香港、澳門的對標 5A 景點。",
     summaryStats: "統計摘要",
@@ -167,12 +182,12 @@ const translations = {
     imageSourcePrefix: "圖片來源：",
     fallbackImageCaption: "通用景區占位圖（慕田峪長城全景）",
     sourceNote:
-      '大陸 5A 資料來自使用者提供的 <span>China-5A-tourist-attraction.md</span>；臺港澳為對標 5A 手動補充；可用面邊界來自 OpenStreetMap；地圖底圖 © OpenStreetMap。',
+      '大陸 5A 資料以使用者提供的 <span>China-5A-tourist-attraction.md</span> 為基礎，並補充文旅部 2020-2024 官方公告；臺港澳為對標 5A 手動補充；可用面邊界來自 OpenStreetMap；地圖底圖 © OpenStreetMap。',
   },
   en: {
-    documentTitle: "China 5A & Peer Attractions Interactive Map",
+    documentTitle: "China Attractions Interactive Map",
     siteNav: "Site navigation",
-    brand: "China 5A Attractions Map",
+    brand: "China Attractions Map",
     searchPlaceholder: "Search attractions or regions",
     clearSearch: "Clear search",
     mapTools: "Map tools",
@@ -181,7 +196,7 @@ const translations = {
     fitResults: "Fit results",
     mapGuide: "Map guide",
     language: "Language",
-    mapAria: "Map of China 5A and peer attractions",
+    mapAria: "Map of China attractions",
     closeMapGuide: "Close map guide",
     currentFilterStats: "Current filter statistics",
     official5A: "Official 5A",
@@ -200,7 +215,7 @@ const translations = {
     featureAlt: "Mutianyu Great Wall panorama",
     featureCaption: "Mutianyu Great Wall panorama",
     eyebrow: "Official 5A / Peer 5A Attractions",
-    heroLine1: "China 5A Attractions",
+    heroLine1: "China Attractions",
     heroLine2: "Interactive Map",
     intro:
       "Covers official mainland China 5A scenic areas plus peer 5A attractions in Taiwan, Hong Kong, and Macao.",
@@ -241,12 +256,12 @@ const translations = {
     imageSourcePrefix: "Image source: ",
     fallbackImageCaption: "generic scenic placeholder (Mutianyu Great Wall panorama)",
     sourceNote:
-      'Mainland 5A data comes from the user-provided <span>China-5A-tourist-attraction.md</span>; Taiwan, Hong Kong, and Macao peer sites were added manually; available polygons come from OpenStreetMap; basemap © OpenStreetMap.',
+      'Mainland 5A data is based on the user-provided <span>China-5A-tourist-attraction.md</span>, with 2020-2024 Ministry of Culture and Tourism announcements added; Taiwan, Hong Kong, and Macao peer sites were added manually; available polygons come from OpenStreetMap; basemap © OpenStreetMap.',
   },
   ko: {
-    documentTitle: "중국 5A 및 준 5A 명소 인터랙티브 지도",
+    documentTitle: "중국 명소 인터랙티브 지도",
     siteNav: "사이트 내비게이션",
-    brand: "중국 5A 명소 지도",
+    brand: "중국 명소 지도",
     searchPlaceholder: "명소 또는 지역 검색",
     clearSearch: "검색 지우기",
     mapTools: "지도 도구",
@@ -255,7 +270,7 @@ const translations = {
     fitResults: "결과 보기",
     mapGuide: "지도 안내",
     language: "언어",
-    mapAria: "중국 5A 및 준 5A 명소 지도",
+    mapAria: "중국 명소 지도",
     closeMapGuide: "지도 안내 닫기",
     currentFilterStats: "현재 필터 통계",
     official5A: "국가 5A",
@@ -274,7 +289,7 @@ const translations = {
     featureAlt: "무톈위 만리장성 전경",
     featureCaption: "무톈위 만리장성 전경",
     eyebrow: "국가 5A / 준 5A 명소",
-    heroLine1: "중국 5A 명소",
+    heroLine1: "중국 명소",
     heroLine2: "온라인 지도",
     intro: "중국 본토 공식 5A 관광지와 대만, 홍콩, 마카오의 준 5A 명소를 함께 제공합니다.",
     summaryStats: "통계 요약",
@@ -314,12 +329,12 @@ const translations = {
     imageSourcePrefix: "이미지 출처: ",
     fallbackImageCaption: "공통 명소 대체 이미지(무톈위 만리장성 전경)",
     sourceNote:
-      '중국 본토 5A 데이터는 사용자가 제공한 <span>China-5A-tourist-attraction.md</span>에서 가져왔습니다. 대만, 홍콩, 마카오 준 5A 명소는 수동으로 보완했으며, 사용 가능한 면 경계는 OpenStreetMap, 배경 지도는 © OpenStreetMap입니다.',
+      '중국 본토 5A 데이터는 사용자가 제공한 <span>China-5A-tourist-attraction.md</span>를 기반으로 하며 2020-2024년 문화여유부 공식 공고를 보완했습니다. 대만, 홍콩, 마카오 준 5A 명소는 수동으로 보완했으며, 사용 가능한 면 경계는 OpenStreetMap, 배경 지도는 © OpenStreetMap입니다.',
   },
   ja: {
-    documentTitle: "中国 5A と準 5A 観光地インタラクティブ地図",
+    documentTitle: "中国観光地インタラクティブ地図",
     siteNav: "サイトナビゲーション",
-    brand: "中国 5A 観光地マップ",
+    brand: "中国観光地マップ",
     searchPlaceholder: "観光地または地域を検索",
     clearSearch: "検索をクリア",
     mapTools: "地図ツール",
@@ -328,7 +343,7 @@ const translations = {
     fitResults: "結果に合わせる",
     mapGuide: "地図ガイド",
     language: "言語",
-    mapAria: "中国 5A と準 5A 観光地の地図",
+    mapAria: "中国観光地の地図",
     closeMapGuide: "地図ガイドを閉じる",
     currentFilterStats: "現在のフィルター統計",
     official5A: "国家5A",
@@ -347,7 +362,7 @@ const translations = {
     featureAlt: "慕田峪長城の全景",
     featureCaption: "慕田峪長城の全景",
     eyebrow: "国家 5A / 準 5A 観光地",
-    heroLine1: "中国 5A 観光地",
+    heroLine1: "中国観光地",
     heroLine2: "オンラインマップ",
     intro: "中国本土の公式 5A 観光地に加え、台湾、香港、マカオの準 5A 観光地を掲載しています。",
     summaryStats: "統計概要",
@@ -387,12 +402,12 @@ const translations = {
     imageSourcePrefix: "画像出典: ",
     fallbackImageCaption: "共通の観光地プレースホルダー（慕田峪長城の全景）",
     sourceNote:
-      '中国本土 5A データはユーザー提供の <span>China-5A-tourist-attraction.md</span> に基づきます。台湾、香港、マカオの準 5A は手動で追加しました。利用可能な面境界は OpenStreetMap、背景地図は © OpenStreetMap です。',
+      '中国本土 5A データはユーザー提供の <span>China-5A-tourist-attraction.md</span> を基に、2020-2024 年の文化観光部公式公告を補足しています。台湾、香港、マカオの準 5A は手動で追加しました。利用可能な面境界は OpenStreetMap、背景地図は © OpenStreetMap です。',
   },
   th: {
-    documentTitle: "แผนที่โต้ตอบแหล่งท่องเที่ยว 5A และเทียบเท่าในจีน",
+    documentTitle: "แผนที่โต้ตอบแหล่งท่องเที่ยวในจีน",
     siteNav: "การนำทางไซต์",
-    brand: "แผนที่แหล่งท่องเที่ยว 5A ของจีน",
+    brand: "แผนที่แหล่งท่องเที่ยวของจีน",
     searchPlaceholder: "ค้นหาแหล่งท่องเที่ยวหรือภูมิภาค",
     clearSearch: "ล้างการค้นหา",
     mapTools: "เครื่องมือแผนที่",
@@ -401,7 +416,7 @@ const translations = {
     fitResults: "ดูผลลัพธ์",
     mapGuide: "คำอธิบายแผนที่",
     language: "ภาษา",
-    mapAria: "แผนที่แหล่งท่องเที่ยว 5A และเทียบเท่าในจีน",
+    mapAria: "แผนที่แหล่งท่องเที่ยวในจีน",
     closeMapGuide: "ปิดคำอธิบายแผนที่",
     currentFilterStats: "สถิติตัวกรองปัจจุบัน",
     official5A: "5A ทางการ",
@@ -420,7 +435,7 @@ const translations = {
     featureAlt: "ภาพพาโนรามากำแพงเมืองจีนมู่เถียนยวี่",
     featureCaption: "ภาพพาโนรามากำแพงเมืองจีนมู่เถียนยวี่",
     eyebrow: "แหล่งท่องเที่ยว 5A ทางการ / เทียบเท่า 5A",
-    heroLine1: "แหล่งท่องเที่ยว 5A ของจีน",
+    heroLine1: "แหล่งท่องเที่ยวของจีน",
     heroLine2: "แผนที่ออนไลน์",
     intro: "ครอบคลุมแหล่งท่องเที่ยว 5A ทางการในจีนแผ่นดินใหญ่ พร้อมแหล่งเทียบเท่าในไต้หวัน ฮ่องกง และมาเก๊า",
     summaryStats: "สรุปสถิติ",
@@ -460,12 +475,12 @@ const translations = {
     imageSourcePrefix: "ที่มาภาพ: ",
     fallbackImageCaption: "ภาพตัวอย่างทั่วไป (พาโนรามากำแพงเมืองจีนมู่เถียนยวี่)",
     sourceNote:
-      'ข้อมูล 5A ของจีนแผ่นดินใหญ่มาจากไฟล์ <span>China-5A-tourist-attraction.md</span> ที่ผู้ใช้ให้มา; แหล่งเทียบเท่าในไต้หวัน ฮ่องกง และมาเก๊าเพิ่มด้วยตนเอง; ขอบเขตพื้นที่ที่มีมาจาก OpenStreetMap; แผนที่พื้นฐาน © OpenStreetMap.',
+      'ข้อมูล 5A ของจีนแผ่นดินใหญ่อ้างอิงจากไฟล์ <span>China-5A-tourist-attraction.md</span> ที่ผู้ใช้ให้มา และเพิ่มประกาศทางการของกระทรวงวัฒนธรรมและการท่องเที่ยวปี 2020-2024; แหล่งเทียบเท่าในไต้หวัน ฮ่องกง และมาเก๊าเพิ่มด้วยตนเอง; ขอบเขตพื้นที่ที่มีมาจาก OpenStreetMap; แผนที่พื้นฐาน © OpenStreetMap.',
   },
   es: {
-    documentTitle: "Mapa interactivo de atracciones 5A y equivalentes de China",
+    documentTitle: "Mapa interactivo de atracciones de China",
     siteNav: "Navegación del sitio",
-    brand: "Mapa de atracciones 5A de China",
+    brand: "Mapa de atracciones de China",
     searchPlaceholder: "Buscar atracciones o regiones",
     clearSearch: "Borrar búsqueda",
     mapTools: "Herramientas del mapa",
@@ -474,7 +489,7 @@ const translations = {
     fitResults: "Ver resultados",
     mapGuide: "Guía del mapa",
     language: "Idioma",
-    mapAria: "Mapa de atracciones 5A y equivalentes de China",
+    mapAria: "Mapa de atracciones de China",
     closeMapGuide: "Cerrar guía del mapa",
     currentFilterStats: "Estadísticas del filtro actual",
     official5A: "5A oficial",
@@ -493,7 +508,7 @@ const translations = {
     featureAlt: "Panorama de la Gran Muralla de Mutianyu",
     featureCaption: "Panorama de la Gran Muralla de Mutianyu",
     eyebrow: "Atracciones 5A oficiales / equivalentes 5A",
-    heroLine1: "Atracciones 5A de China",
+    heroLine1: "Atracciones de China",
     heroLine2: "Mapa en línea",
     intro:
       "Cubre las áreas escénicas 5A oficiales de China continental y atracciones equivalentes en Taiwán, Hong Kong y Macao.",
@@ -534,12 +549,12 @@ const translations = {
     imageSourcePrefix: "Fuente de imagen: ",
     fallbackImageCaption: "marcador visual genérico (panorama de la Gran Muralla de Mutianyu)",
     sourceNote:
-      'Los datos 5A de China continental provienen del archivo <span>China-5A-tourist-attraction.md</span> proporcionado por el usuario; los sitios equivalentes de Taiwán, Hong Kong y Macao se añadieron manualmente; los polígonos disponibles provienen de OpenStreetMap; mapa base © OpenStreetMap.',
+      'Los datos 5A de China continental se basan en el archivo <span>China-5A-tourist-attraction.md</span> proporcionado por el usuario, con anuncios oficiales 2020-2024 del Ministerio de Cultura y Turismo añadidos; los sitios equivalentes de Taiwán, Hong Kong y Macao se añadieron manualmente; los polígonos disponibles provienen de OpenStreetMap; mapa base © OpenStreetMap.',
   },
   ru: {
-    documentTitle: "Интерактивная карта достопримечательностей 5A и аналогов в Китае",
+    documentTitle: "Интерактивная карта достопримечательностей Китая",
     siteNav: "Навигация по сайту",
-    brand: "Карта достопримечательностей 5A Китая",
+    brand: "Карта достопримечательностей Китая",
     searchPlaceholder: "Поиск достопримечательностей или регионов",
     clearSearch: "Очистить поиск",
     mapTools: "Инструменты карты",
@@ -548,7 +563,7 @@ const translations = {
     fitResults: "Показать результаты",
     mapGuide: "Описание карты",
     language: "Язык",
-    mapAria: "Карта достопримечательностей 5A и аналогов в Китае",
+    mapAria: "Карта достопримечательностей Китая",
     closeMapGuide: "Закрыть описание карты",
     currentFilterStats: "Статистика текущего фильтра",
     official5A: "Официальные 5A",
@@ -567,7 +582,7 @@ const translations = {
     featureAlt: "Панорама участка Мутяньюй Великой Китайской стены",
     featureCaption: "Панорама участка Мутяньюй Великой Китайской стены",
     eyebrow: "Официальные 5A / аналоги 5A",
-    heroLine1: "Достопримечательности 5A Китая",
+    heroLine1: "Достопримечательности Китая",
     heroLine2: "Онлайн-карта",
     intro:
       "Охватывает официальные зоны 5A материкового Китая и аналогичные достопримечательности Тайваня, Гонконга и Макао.",
@@ -608,7 +623,7 @@ const translations = {
     imageSourcePrefix: "Источник изображения: ",
     fallbackImageCaption: "универсальное изображение-заглушка (панорама Великой Китайской стены Мутяньюй)",
     sourceNote:
-      'Данные 5A материкового Китая взяты из файла <span>China-5A-tourist-attraction.md</span>, предоставленного пользователем; аналоги Тайваня, Гонконга и Макао добавлены вручную; доступные полигоны взяты из OpenStreetMap; базовая карта © OpenStreetMap.',
+      'Данные 5A материкового Китая основаны на файле <span>China-5A-tourist-attraction.md</span>, предоставленном пользователем, и дополнены официальными объявлениями Министерства культуры и туризма за 2020-2024 годы; аналоги Тайваня, Гонконга и Макао добавлены вручную; доступные полигоны взяты из OpenStreetMap; базовая карта © OpenStreetMap.',
   },
 };
 
@@ -971,6 +986,7 @@ const state = {
   selectedId: null,
   distributionOpen: false,
   controlOpen: false,
+  aboutOpen: false,
 };
 
 const els = {
@@ -985,6 +1001,9 @@ const els = {
   visibleStat: document.querySelector("#visibleStat"),
   dataCountPill: document.querySelector("#dataCountPill"),
   languageSelect: document.querySelector("#languageSelect"),
+  openAbout: document.querySelector("#openAbout"),
+  aboutDialog: document.querySelector("#aboutDialog"),
+  closeAbout: document.querySelector("#closeAbout"),
   resetFilters: document.querySelector("#resetFilters"),
   toggleControlPanel: document.querySelector("#toggleControlPanel"),
   closeControlPanel: document.querySelector("#closeControlPanel"),
@@ -1094,6 +1113,20 @@ function bindEvents() {
     setLanguage(event.target.value);
   });
 
+  els.openAbout.addEventListener("click", () => {
+    setAboutOpen(true);
+  });
+
+  els.closeAbout.addEventListener("click", () => {
+    setAboutOpen(false);
+  });
+
+  els.aboutDialog.addEventListener("click", (event) => {
+    if (event.target === els.aboutDialog) {
+      setAboutOpen(false);
+    }
+  });
+
   els.detailImage.addEventListener("error", () => {
     if (els.detailImage.dataset.fallback !== "true") {
       setDetailImage(fallbackImage, t("scenicImageAlt"));
@@ -1165,7 +1198,9 @@ function bindEvents() {
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
-      if (getSelected()) {
+      if (state.aboutOpen) {
+        setAboutOpen(false);
+      } else if (getSelected()) {
         selectAttraction(null);
       } else if (state.distributionOpen) {
         setDistributionOpen(false);
@@ -1207,6 +1242,18 @@ function applyLanguage() {
     els.languageSelect.value = state.language;
   }
   syncControlPanel();
+}
+
+function setAboutOpen(open) {
+  state.aboutOpen = open;
+  els.aboutDialog.classList.toggle("hidden", !open);
+  els.aboutDialog.setAttribute("aria-hidden", String(!open));
+  document.body.classList.toggle("about-open", open);
+  if (open) {
+    window.setTimeout(() => els.closeAbout.focus(), 0);
+  } else {
+    els.openAbout.focus();
+  }
 }
 
 function setControlPanelOpen(open) {
@@ -1263,6 +1310,11 @@ function getFilteredAttractions() {
     const searchable = normalize(
       [
         item.name,
+        item.displayName,
+        item.city,
+        displayAttractionName(item),
+        attractionLocationLabel(item),
+        ...Object.values(localizedAttractionNames[item.id] || {}),
         item.province,
         ...regionSearchNames(item.province),
         item.coordinateLabel,
@@ -1300,8 +1352,8 @@ function renderList(items) {
           <button class="attraction-card${active}" type="button" data-id="${item.id}">
             <span class="card-main">
               <span>
-                <span class="card-name">${escapeHtml(item.name)}</span>
-                <span class="card-meta">${escapeHtml(regionName(item.province))} · ${escapeHtml(ratingMeta(item))}</span>
+                <span class="card-name">${escapeHtml(displayAttractionName(item))}</span>
+                <span class="card-meta">${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(ratingMeta(item))}</span>
               </span>
               <span class="year-badge">${escapeHtml(ratingBadge(item))}</span>
             </span>
@@ -1326,11 +1378,11 @@ function renderMarkers(items) {
   items.forEach((item) => {
     const marker = L.marker(getAttractionLatLng(item), {
       icon: markerIcon(item),
-      title: item.name,
+      title: displayAttractionName(item),
     });
 
     marker.bindPopup(
-      `<strong>${escapeHtml(item.name)}</strong><br>${escapeHtml(regionName(item.province))} · ${escapeHtml(
+      `<strong>${escapeHtml(displayAttractionName(item))}</strong><br>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(
         ratingMeta(item),
       )}`,
     );
@@ -1398,8 +1450,8 @@ function selectAttraction(item, options = {}) {
 function renderDetail(item) {
   const hasItem = Boolean(item);
   document.body.classList.toggle("has-selection", hasItem);
-  els.detailProvince.textContent = hasItem ? regionName(item.province) : t("chooseAttraction");
-  els.detailName.textContent = hasItem ? item.name : t("noSelectionTitle");
+  els.detailProvince.textContent = hasItem ? attractionLocationLabel(item) : t("chooseAttraction");
+  els.detailName.textContent = hasItem ? displayAttractionName(item) : t("noSelectionTitle");
   els.detailDescription.textContent = hasItem ? attractionDescription(item) : "";
   els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
   els.detailBasis.textContent = hasItem ? basisText(item) : "-";
@@ -1431,8 +1483,8 @@ function renderDetail(item) {
         .map(
           (candidate) => `
             <button class="related-item" type="button" data-id="${candidate.id}">
-              <strong>${escapeHtml(candidate.name)}</strong>
-              <span>${escapeHtml(regionName(candidate.province))} · ${escapeHtml(ratingMeta(candidate))}</span>
+              <strong>${escapeHtml(displayAttractionName(candidate))}</strong>
+              <span>${escapeHtml(attractionLocationLabel(candidate))} · ${escapeHtml(ratingMeta(candidate))}</span>
             </button>
           `,
         )
@@ -1453,8 +1505,8 @@ function attractionDescription(item) {
   const phrase = descriptionPhrases[language]?.[category] || descriptionPhrases[language]?.default;
   const template = descriptionTemplates[language] || descriptionTemplates["zh-CN"];
   return template
-    .replace("{name}", item.name)
-    .replace("{region}", regionName(item.province))
+    .replace("{name}", displayAttractionName(item))
+    .replace("{region}", attractionLocationLabel(item))
     .replace("{phrase}", phrase);
 }
 
@@ -1918,8 +1970,203 @@ function basisText(item) {
   return isPeerAttraction(item) ? t("peerBasis") : t("officialBasis");
 }
 
+function displayAttractionName(item) {
+  const name = attractionDisplayParts(item).name;
+  if (state.language === "zh-TW") return toTraditionalName(name);
+  if (state.language !== "zh-CN") return localizedAttractionNames[item.id]?.[state.language] || localizedAttractionNames[item.id]?.en || name;
+  return name;
+}
+
+function attractionLocationLabel(item) {
+  const { city } = attractionDisplayParts(item);
+  const province = regionName(item.province);
+  if (state.language === "zh-TW") {
+    const cityName = toTraditionalName(city);
+    return cityName && city !== item.province ? `${province} ${cityName}` : province;
+  }
+  if (state.language !== "zh-CN") return province;
+  return city && city !== item.province ? `${province} ${city}` : province;
+}
+
+function attractionDisplayParts(item) {
+  if (item.displayName || item.city) {
+    const fallbackName = String(item.name || "").trim();
+    return {
+      city: item.city || provinceCityName(item.province),
+      name: cleanDisplayName(item.displayName || fallbackName) || fallbackName,
+    };
+  }
+
+  const rawName = String(item.name || "").trim();
+  const withoutProvince = removeLeadingProvince(rawName, item.province);
+  const cityMatch = withoutProvince.match(/^(.+?(?:市|州|地区|盟))(.+)$/);
+
+  if (cityMatch && cityMatch[2].trim().length >= 2) {
+    return {
+      city: cityMatch[1].trim(),
+      name: cleanDisplayName(cityMatch[2]) || rawName,
+    };
+  }
+
+  const name = isPeerAttraction(item) ? rawName : cleanDisplayName(withoutProvince);
+  return {
+    city: provinceCityName(item.province),
+    name: name || rawName,
+  };
+}
+
+function removeLeadingProvince(name, province) {
+  const prefixes = provincePrefixes(province).sort((a, b) => b.length - a.length);
+  const prefix = prefixes.find((candidate) => name.startsWith(candidate));
+  return prefix ? name.slice(prefix.length).trim() : name;
+}
+
+function provincePrefixes(province) {
+  return unique([
+    province,
+    `${province}省`,
+    `${province}市`,
+    `${province}自治区`,
+    `${province}壮族自治区`,
+    `${province}回族自治区`,
+    `${province}维吾尔自治区`,
+    `${province}特别行政区`,
+  ]);
+}
+
+function provinceCityName(province) {
+  return ["北京", "天津", "上海", "重庆"].includes(province) ? province : "";
+}
+
+function cleanDisplayName(name) {
+  return String(name || "")
+    .replace(/^[\s·—-]+/, "")
+    .trim();
+}
+
+function toTraditionalName(value) {
+  const replacements = {
+    台: "臺",
+    湾: "灣",
+    门: "門",
+    龙: "龍",
+    马: "馬",
+    鸟: "鳥",
+    鸡: "雞",
+    鱼: "魚",
+    岛: "島",
+    关: "關",
+    广: "廣",
+    东: "東",
+    庆: "慶",
+    宁: "寧",
+    苏: "蘇",
+    浙: "浙",
+    皖: "皖",
+    闽: "閩",
+    赣: "贛",
+    鲁: "魯",
+    豫: "豫",
+    湘: "湘",
+    鄂: "鄂",
+    桂: "桂",
+    琼: "瓊",
+    川: "川",
+    贵: "貴",
+    云: "雲",
+    陕: "陝",
+    甘: "甘",
+    青: "青",
+    疆: "疆",
+    厦: "廈",
+    阳: "陽",
+    阴: "陰",
+    园: "園",
+    场: "場",
+    馆: "館",
+    纪: "紀",
+    念: "念",
+    乡: "鄉",
+    镇: "鎮",
+    县: "縣",
+    区: "區",
+    级: "級",
+    观: "觀",
+    华: "華",
+    历: "歷",
+    史: "史",
+    城: "城",
+    们: "們",
+    风: "風",
+    景: "景",
+    名: "名",
+    胜: "勝",
+    旅: "旅",
+    游: "遊",
+    线: "線",
+    联: "聯",
+    合: "合",
+    国: "國",
+    教: "教",
+    科: "科",
+    文: "文",
+    组: "組",
+    织: "織",
+    世: "世",
+    界: "界",
+    质: "質",
+    乐: "樂",
+    义: "義",
+    议: "議",
+    归: "歸",
+    体: "體",
+    宝: "寶",
+    佛: "佛",
+    陕: "陝",
+    头: "頭",
+    滩: "灘",
+    湿: "濕",
+    术: "術",
+    业: "業",
+    万: "萬",
+    壮: "壯",
+    藏: "藏",
+    维: "維",
+    吾: "吾",
+    尔: "爾",
+    黄: "黃",
+    鹤: "鶴",
+    楼: "樓",
+    庙: "廟",
+    坛: "壇",
+    祠: "祠",
+    宫: "宮",
+    厅: "廳",
+    洞: "洞",
+    峡: "峽",
+    沟: "溝",
+    岭: "嶺",
+    邓: "鄧",
+    鲜: "鮮",
+    旧: "舊",
+    车: "車",
+    叶: "葉",
+    单: "單",
+    双: "雙",
+    开: "開",
+    发: "發",
+    经: "經",
+    济: "濟",
+    视: "視",
+    线: "線",
+    画: "畫",
+    牆: "牆",
+  };
+  return String(value || "").replace(/[^\x00-\x7F]/g, (char) => replacements[char] || char);
+}
+
 function loadDetailImage(item) {
-  setDetailImage(localImages[item.id] || fallbackImage, item.name);
+  setDetailImage(localImages[item.id] || fallbackImage, displayAttractionName(item));
 }
 
 function setDetailImage(image, alt) {

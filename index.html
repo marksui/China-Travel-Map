@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>中国 5A 与对标景点互动地图</title>
+    <title>中国景点互动地图</title>
     <link rel="preconnect" href="https://unpkg.com" />
     <link rel="preconnect" href="https://tile.openstreetmap.org" />
     <link rel="preconnect" href="https://nominatim.openstreetmap.org" />
@@ -19,12 +19,17 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260521-11" />
+    <link rel="stylesheet" href="styles.css?v=20260521-17" />
   </head>
   <body class="control-panel-closed">
     <div class="app-shell">
       <header class="app-nav" aria-label="站点导航" data-i18n-aria-label="siteNav">
-        <a class="nav-brand" href="#" data-i18n="brand">中国 5A 景点地图</a>
+        <div class="brand-cluster">
+          <a class="nav-brand" href="#" data-i18n="brand">中国景点地图</a>
+          <button class="icon-button about-button" id="openAbout" type="button" aria-label="关于这个地图" data-i18n-aria-label="aboutMap">
+            <i data-lucide="circle-help" aria-hidden="true"></i>
+          </button>
+        </div>
         <div class="search-shell nav-search">
           <i data-lucide="search" aria-hidden="true"></i>
           <input
@@ -38,14 +43,16 @@
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
         </div>
+        <div class="nav-center" aria-label="地图定位">
+          <button class="nav-button fit-button" id="fitFiltered" type="button">
+            <i data-lucide="scan" aria-hidden="true"></i>
+            <span data-i18n="fitResults">定位结果</span>
+          </button>
+        </div>
         <nav class="nav-actions" aria-label="地图工具" data-i18n-aria-label="mapTools">
           <button class="nav-button" id="toggleControlPanel" type="button" aria-expanded="false">
             <i data-lucide="panel-left" aria-hidden="true"></i>
             <span class="nav-label">打开筛选</span>
-          </button>
-          <button class="nav-button" id="fitFiltered" type="button">
-            <i data-lucide="scan" aria-hidden="true"></i>
-            <span data-i18n="fitResults">定位结果</span>
           </button>
           <button class="nav-button" id="toggleDistribution" type="button" aria-expanded="false">
             <i data-lucide="map" aria-hidden="true"></i>
@@ -61,17 +68,17 @@
             <option value="es">Español</option>
             <option value="ru">Русский</option>
           </select>
-          <span class="data-pill" id="dataCountPill">216</span>
+          <span class="data-pill" id="dataCountPill">293</span>
         </nav>
       </header>
 
       <main class="map-stage">
-        <div id="map" aria-label="中国 5A 与对标景点地图" data-i18n-aria-label="mapAria"></div>
+        <div id="map" aria-label="中国景点地图" data-i18n-aria-label="mapAria"></div>
         <section class="distribution-panel collapsed" id="distributionPanel" aria-label="地图说明" data-i18n-aria-label="mapGuide">
           <div class="panel-heading">
             <div>
               <strong data-i18n="mapGuide">地图说明</strong>
-              <span id="distributionCaption">全国 · 216 个景点</span>
+              <span id="distributionCaption">全国 · 293 个景点</span>
             </div>
             <button class="icon-button panel-icon" id="closeLegend" type="button" aria-label="关闭地图说明" data-i18n-aria-label="closeMapGuide">
               <i data-lucide="x" aria-hidden="true"></i>
@@ -79,7 +86,7 @@
           </div>
           <div class="legend-metrics" aria-label="当前筛选统计" data-i18n-aria-label="currentFilterStats">
             <div>
-              <span id="legendOfficialStat">184</span>
+              <span id="legendOfficialStat">261</span>
               <small data-i18n="official5A">国家5A</small>
             </div>
             <div>
@@ -87,7 +94,7 @@
               <small data-i18n="peerAttractions">对标景点</small>
             </div>
             <div>
-              <span id="legendRegionStat">34</span>
+              <span id="legendRegionStat">35</span>
               <small data-i18n="regions">地区</small>
             </div>
           </div>
@@ -138,7 +145,7 @@
         <header class="brand-block">
           <div>
             <p class="eyebrow" data-i18n="eyebrow">国家 5A / 对标 5A 景点</p>
-            <h1><span data-i18n="heroLine1">欢迎使用中国 5A 景点</span><span data-i18n="heroLine2">在线地图</span></h1>
+            <h1><span data-i18n="heroLine1">欢迎使用中国景点</span><span data-i18n="heroLine2">在线地图</span></h1>
             <p class="intro-copy">
               <span data-i18n="intro">覆盖中国大陆官方 5A 景区，并加入台湾、香港、澳门的对标 5A 景点。</span>
             </p>
@@ -147,15 +154,15 @@
 
         <section class="stats-grid" aria-label="统计摘要" data-i18n-aria-label="summaryStats">
           <div>
-            <span id="totalStat">216</span>
+            <span id="totalStat">293</span>
             <small data-i18n="attractions">景点</small>
           </div>
           <div>
-            <span id="provinceStat">34</span>
+            <span id="provinceStat">35</span>
             <small data-i18n="regions">地区</small>
           </div>
           <div>
-            <span id="visibleStat">216</span>
+            <span id="visibleStat">293</span>
             <small data-i18n="filteredResults">筛选结果</small>
           </div>
         </section>
@@ -169,7 +176,7 @@
 
         <div class="list-heading">
           <div>
-            <strong id="resultCount">216 个景点</strong>
+            <strong id="resultCount">293 个景点</strong>
             <span id="filterSubtitle">全国 · 国家5A + 对标景点</span>
           </div>
           <button class="text-button" id="resetFilters" type="button">
@@ -237,17 +244,51 @@
           <div class="related-list" id="relatedList"></div>
         </section>
         <p class="source-note" data-i18n-html="sourceNote">
-          大陆 5A 数据来自用户提供的
-          <span>China-5A-tourist-attraction.md</span>；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。
+          大陆 5A 数据以用户提供的
+          <span>China-5A-tourist-attraction.md</span> 为基础，并补充文旅部 2020-2024 官方公告；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。
         </p>
       </aside>
+
+      <div class="about-backdrop hidden" id="aboutDialog" aria-hidden="true">
+        <section class="about-card" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+          <button class="icon-button panel-icon about-close" id="closeAbout" type="button" aria-label="关闭说明" data-i18n-aria-label="aboutClose">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+          <p class="eyebrow" data-i18n="aboutEyebrow">开放数据说明</p>
+          <h2 id="aboutTitle" data-i18n="aboutTitle">关于中国景点地图</h2>
+          <p class="about-lead" data-i18n="aboutLead">
+            这是一张开放、可核查的中国景点互动地图，用来浏览中国大陆官方 5A 景区，并补充台港澳代表性对标景点。
+          </p>
+          <div class="about-grid">
+            <article>
+              <strong data-i18n="aboutDataTitle">数据</strong>
+              <p data-i18n="aboutDataBody">大陆 5A 景区依据公开公告与本地整理数据维护；台港澳景点作为对标展示。</p>
+            </article>
+            <article>
+              <strong data-i18n="aboutOpenTitle">开放</strong>
+              <p data-i18n="aboutOpenBody">项目以静态网页和本地数据文件组织，方便学习、审阅、复用和继续补充。</p>
+            </article>
+          </div>
+          <article class="about-disclaimer">
+            <strong data-i18n="aboutDisclaimerTitle">免责声明</strong>
+            <p data-i18n="aboutDisclaimerBody">
+              景点评级、边界、图片和坐标会随官方公告、开放地图和图片授权变化而变化，本页面仅供浏览参考，不构成官方发布、出行承诺或商业建议。
+            </p>
+          </article>
+          <footer class="about-credit">
+            <span data-i18n="aboutCredit">Made by marksui</span>
+            <span data-i18n="aboutDate">2026年6月</span>
+          </footer>
+        </section>
+      </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="data/attractions.js?v=20260521-11"></script>
+    <script src="data/attractions.js?v=20260521-15"></script>
+    <script src="data/attraction-names.js?v=20260521-15"></script>
     <script src="data/attraction-images.js?v=20260521-11"></script>
-    <script src="app.js?v=20260521-11"></script>
+    <script src="app.js?v=20260521-17"></script>
   </body>
 </html>

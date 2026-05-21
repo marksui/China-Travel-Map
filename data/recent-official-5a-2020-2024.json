@@ -1,0 +1,772 @@
+[
+  {
+    "year": 2020,
+    "province": "河北",
+    "city": "承德市",
+    "displayName": "金山岭长城景区",
+    "name": "河北省承德市金山岭长城景区",
+    "en": "Jinshanling Great Wall",
+    "lat": 40.685,
+    "lng": 117.245
+  },
+  {
+    "year": 2020,
+    "province": "山西",
+    "city": "临汾市",
+    "displayName": "云丘山景区",
+    "name": "山西省临汾市云丘山景区",
+    "en": "Yunqiu Mountain Scenic Area",
+    "lat": 35.665,
+    "lng": 111.173
+  },
+  {
+    "year": 2020,
+    "province": "江苏",
+    "city": "宿迁市",
+    "displayName": "洪泽湖湿地景区",
+    "name": "江苏省宿迁市洪泽湖湿地景区",
+    "en": "Hongze Lake Wetland Scenic Area",
+    "lat": 33.298,
+    "lng": 118.228
+  },
+  {
+    "year": 2020,
+    "province": "浙江",
+    "city": "温州市",
+    "displayName": "刘伯温故里景区",
+    "name": "浙江省温州市刘伯温故里景区",
+    "en": "Liu Bowen Hometown Scenic Area",
+    "lat": 27.785,
+    "lng": 120.05
+  },
+  {
+    "year": 2020,
+    "province": "安徽",
+    "city": "马鞍山市",
+    "displayName": "长江采石矶文化生态旅游区",
+    "name": "安徽省马鞍山市长江采石矶文化生态旅游区",
+    "en": "Caishiji Yangtze River Cultural Eco-Tourism Area",
+    "lat": 31.672,
+    "lng": 118.488
+  },
+  {
+    "year": 2020,
+    "province": "福建",
+    "city": "莆田市",
+    "displayName": "湄洲岛妈祖文化旅游区",
+    "name": "福建省莆田市湄洲岛妈祖文化旅游区",
+    "en": "Meizhou Island Mazu Cultural Tourism Area",
+    "lat": 25.067,
+    "lng": 119.129
+  },
+  {
+    "year": 2020,
+    "province": "江西",
+    "city": "九江市",
+    "displayName": "庐山西海景区",
+    "name": "江西省九江市庐山西海景区",
+    "en": "Lushan West Sea Scenic Area",
+    "lat": 29.179,
+    "lng": 115.57
+  },
+  {
+    "year": 2020,
+    "province": "山东",
+    "city": "临沂市",
+    "displayName": "萤火虫水洞·地下大峡谷旅游区",
+    "name": "山东省临沂市萤火虫水洞·地下大峡谷旅游区",
+    "en": "Firefly Water Cave and Underground Grand Canyon Tourism Area",
+    "lat": 35.79,
+    "lng": 118.45
+  },
+  {
+    "year": 2020,
+    "province": "湖北",
+    "city": "恩施州",
+    "displayName": "腾龙洞景区",
+    "name": "湖北省恩施州腾龙洞景区",
+    "en": "Tenglong Cave Scenic Area",
+    "lat": 30.294,
+    "lng": 108.932
+  },
+  {
+    "year": 2020,
+    "province": "湖南",
+    "city": "常德市",
+    "displayName": "桃花源旅游区",
+    "name": "湖南省常德市桃花源旅游区",
+    "en": "Taohuayuan Tourism Area",
+    "lat": 28.804,
+    "lng": 111.432
+  },
+  {
+    "year": 2020,
+    "province": "广东",
+    "city": "江门市",
+    "displayName": "开平碉楼文化旅游区",
+    "name": "广东省江门市开平碉楼文化旅游区",
+    "en": "Kaiping Diaolou Cultural Tourism Area",
+    "lat": 22.284,
+    "lng": 112.566
+  },
+  {
+    "year": 2020,
+    "province": "广西",
+    "city": "北海市",
+    "displayName": "涠洲岛南湾鳄鱼山景区",
+    "name": "广西壮族自治区北海市涠洲岛南湾鳄鱼山景区",
+    "en": "Weizhou Island Nanwan Crocodile Mountain Scenic Area",
+    "lat": 21.025,
+    "lng": 109.107
+  },
+  {
+    "year": 2020,
+    "province": "重庆",
+    "city": "黔江区",
+    "displayName": "濯水景区",
+    "name": "重庆市黔江区濯水景区",
+    "en": "Zhuoshui Scenic Area",
+    "lat": 29.335,
+    "lng": 108.74
+  },
+  {
+    "year": 2020,
+    "province": "四川",
+    "city": "巴中市",
+    "displayName": "光雾山旅游景区",
+    "name": "四川省巴中市光雾山旅游景区",
+    "en": "Guangwu Mountain Tourism Scenic Area",
+    "lat": 32.613,
+    "lng": 106.801
+  },
+  {
+    "year": 2020,
+    "province": "四川",
+    "city": "甘孜州",
+    "displayName": "稻城亚丁旅游景区",
+    "name": "四川省甘孜州稻城亚丁旅游景区",
+    "en": "Daocheng Yading Tourism Scenic Area",
+    "lat": 28.453,
+    "lng": 100.349
+  },
+  {
+    "year": 2020,
+    "province": "贵州",
+    "city": "遵义市",
+    "displayName": "赤水丹霞旅游区",
+    "name": "贵州省遵义市赤水丹霞旅游区",
+    "en": "Chishui Danxia Tourism Area",
+    "lat": 28.442,
+    "lng": 105.928
+  },
+  {
+    "year": 2020,
+    "province": "云南",
+    "city": "文山州",
+    "displayName": "普者黑旅游景区",
+    "name": "云南省文山州普者黑旅游景区",
+    "en": "Puzhehei Tourism Scenic Area",
+    "lat": 24.118,
+    "lng": 104.125
+  },
+  {
+    "year": 2020,
+    "province": "陕西",
+    "city": "西安市",
+    "displayName": "大明宫旅游景区",
+    "name": "陕西省西安市大明宫旅游景区",
+    "en": "Daming Palace Tourism Scenic Area",
+    "lat": 34.298,
+    "lng": 108.963
+  },
+  {
+    "year": 2020,
+    "province": "甘肃",
+    "city": "临夏州",
+    "displayName": "炳灵寺世界文化遗产旅游区",
+    "name": "甘肃省临夏州炳灵寺世界文化遗产旅游区",
+    "en": "Bingling Temple World Cultural Heritage Tourism Area",
+    "lat": 35.78,
+    "lng": 103.309
+  },
+  {
+    "year": 2020,
+    "province": "青海",
+    "city": "海北州",
+    "displayName": "阿咪东索景区",
+    "name": "青海省海北州阿咪东索景区",
+    "en": "Ami Dongso Scenic Area",
+    "lat": 38.177,
+    "lng": 100.245
+  },
+  {
+    "year": 2020,
+    "province": "新疆",
+    "city": "克拉玛依市",
+    "displayName": "世界魔鬼城景区",
+    "name": "新疆维吾尔自治区克拉玛依市世界魔鬼城景区",
+    "en": "World Ghost City Scenic Area",
+    "lat": 46.002,
+    "lng": 85.733
+  },
+  {
+    "year": 2021,
+    "province": "新疆",
+    "city": "博尔塔拉蒙古自治州",
+    "displayName": "赛里木湖景区",
+    "name": "新疆维吾尔自治区博尔塔拉蒙古自治州赛里木湖景区",
+    "en": "Sayram Lake Scenic Area",
+    "lat": 44.583,
+    "lng": 81.167
+  },
+  {
+    "year": 2021,
+    "province": "新疆生产建设兵团",
+    "city": "阿拉尔市",
+    "displayName": "塔克拉玛干·三五九旅文化旅游区",
+    "name": "新疆生产建设兵团阿拉尔市塔克拉玛干·三五九旅文化旅游区",
+    "en": "Taklamakan 359th Brigade Cultural Tourism Area",
+    "lat": 40.542,
+    "lng": 81.281
+  },
+  {
+    "year": 2021,
+    "province": "上海",
+    "city": "黄浦区",
+    "displayName": "中国共产党一大·二大·四大纪念馆景区",
+    "name": "上海市中国共产党一大·二大·四大纪念馆景区",
+    "en": "Sites of the First, Second and Fourth CPC National Congresses",
+    "lat": 31.226,
+    "lng": 121.475
+  },
+  {
+    "year": 2021,
+    "province": "湖南",
+    "city": "湘西土家族苗族自治州",
+    "displayName": "矮寨·十八洞·德夯大峡谷景区",
+    "name": "湖南省湘西土家族苗族自治州矮寨·十八洞·德夯大峡谷景区",
+    "en": "Aizhai, Shibadong and Dehang Grand Canyon Scenic Area",
+    "lat": 28.336,
+    "lng": 109.598
+  },
+  {
+    "year": 2022,
+    "province": "陕西",
+    "city": "延安市·临汾市",
+    "displayName": "黄河壶口瀑布旅游区",
+    "name": "黄河壶口瀑布旅游区（陕西省延安市·山西省临汾市）",
+    "en": "Hukou Waterfall Tourism Area",
+    "lat": 36.142,
+    "lng": 110.444
+  },
+  {
+    "year": 2022,
+    "province": "浙江",
+    "city": "台州市",
+    "displayName": "台州府城文化旅游区",
+    "name": "浙江省台州市台州府城文化旅游区",
+    "en": "Taizhou Fucheng Cultural Tourism Area",
+    "lat": 28.853,
+    "lng": 121.131
+  },
+  {
+    "year": 2022,
+    "province": "江西",
+    "city": "赣州市",
+    "displayName": "三百山景区",
+    "name": "江西省赣州市三百山景区",
+    "en": "Sanbai Mountain Scenic Area",
+    "lat": 25.087,
+    "lng": 115.404
+  },
+  {
+    "year": 2022,
+    "province": "山东",
+    "city": "济宁市",
+    "displayName": "微山湖旅游区",
+    "name": "山东省济宁市微山湖旅游区",
+    "en": "Weishan Lake Tourism Area",
+    "lat": 34.708,
+    "lng": 117.128
+  },
+  {
+    "year": 2022,
+    "province": "河南",
+    "city": "信阳市",
+    "displayName": "鸡公山景区",
+    "name": "河南省信阳市鸡公山景区",
+    "en": "Jigong Mountain Scenic Area",
+    "lat": 31.811,
+    "lng": 114.085
+  },
+  {
+    "year": 2022,
+    "province": "湖北",
+    "city": "宜昌市",
+    "displayName": "三峡大瀑布景区",
+    "name": "湖北省宜昌市三峡大瀑布景区",
+    "en": "Three Gorges Waterfall Scenic Area",
+    "lat": 30.878,
+    "lng": 111.286
+  },
+  {
+    "year": 2022,
+    "province": "广西",
+    "city": "贺州市",
+    "displayName": "黄姚古镇景区",
+    "name": "广西壮族自治区贺州市黄姚古镇景区",
+    "en": "Huangyao Ancient Town Scenic Area",
+    "lat": 24.244,
+    "lng": 111.197
+  },
+  {
+    "year": 2022,
+    "province": "重庆",
+    "city": "奉节县",
+    "displayName": "白帝城·瞿塘峡景区",
+    "name": "重庆市奉节县白帝城·瞿塘峡景区",
+    "en": "Baidi City and Qutang Gorge Scenic Area",
+    "lat": 31.045,
+    "lng": 109.571
+  },
+  {
+    "year": 2022,
+    "province": "四川",
+    "city": "成都市",
+    "displayName": "安仁古镇景区",
+    "name": "四川省成都市安仁古镇景区",
+    "en": "Anren Ancient Town Scenic Area",
+    "lat": 30.508,
+    "lng": 103.624
+  },
+  {
+    "year": 2022,
+    "province": "贵州",
+    "city": "毕节市",
+    "displayName": "织金洞景区",
+    "name": "贵州省毕节市织金洞景区",
+    "en": "Zhijin Cave Scenic Area",
+    "lat": 26.78,
+    "lng": 105.894
+  },
+  {
+    "year": 2022,
+    "province": "甘肃",
+    "city": "陇南市",
+    "displayName": "官鹅沟景区",
+    "name": "甘肃省陇南市官鹅沟景区",
+    "en": "Guanegou Scenic Area",
+    "lat": 33.918,
+    "lng": 104.343
+  },
+  {
+    "year": 2022,
+    "province": "新疆",
+    "city": "昌吉回族自治州",
+    "displayName": "江布拉克景区",
+    "name": "新疆维吾尔自治区昌吉回族自治州江布拉克景区",
+    "en": "Jiangbulake Scenic Area",
+    "lat": 43.831,
+    "lng": 89.772
+  },
+  {
+    "year": 2024,
+    "province": "北京",
+    "city": "通州区",
+    "displayName": "北京（通州）大运河文化旅游景区",
+    "name": "北京市北京（通州）大运河文化旅游景区",
+    "en": "Beijing Tongzhou Grand Canal Cultural Tourism Scenic Area",
+    "lat": 39.901,
+    "lng": 116.665
+  },
+  {
+    "year": 2024,
+    "province": "河北",
+    "city": "唐山市",
+    "displayName": "南湖·开滦旅游景区",
+    "name": "河北省唐山市南湖·开滦旅游景区",
+    "en": "Nanhu-Kailuan Tourism Scenic Area",
+    "lat": 39.605,
+    "lng": 118.18
+  },
+  {
+    "year": 2024,
+    "province": "内蒙古",
+    "city": "呼伦贝尔市",
+    "displayName": "呼伦贝尔大草原·莫尔格勒河景区",
+    "name": "内蒙古自治区呼伦贝尔市呼伦贝尔大草原·莫尔格勒河景区",
+    "en": "Hulunbuir Grassland and Mergel River Scenic Area",
+    "lat": 49.353,
+    "lng": 119.758
+  },
+  {
+    "year": 2024,
+    "province": "辽宁",
+    "city": "本溪市",
+    "displayName": "五女山景区",
+    "name": "辽宁省本溪市五女山景区",
+    "en": "Wunü Mountain Scenic Area",
+    "lat": 41.297,
+    "lng": 125.402
+  },
+  {
+    "year": 2024,
+    "province": "吉林",
+    "city": "松原市",
+    "displayName": "前郭查干湖景区",
+    "name": "吉林省松原市前郭查干湖景区",
+    "en": "Qianguo Chagan Lake Scenic Area",
+    "lat": 45.236,
+    "lng": 124.254
+  },
+  {
+    "year": 2024,
+    "province": "上海",
+    "city": "崇明区",
+    "displayName": "西沙明珠湖景区",
+    "name": "上海市崇明区西沙明珠湖景区",
+    "en": "Xisha-Mingzhu Lake Scenic Area",
+    "lat": 31.738,
+    "lng": 121.258
+  },
+  {
+    "year": 2024,
+    "province": "江苏",
+    "city": "连云港市",
+    "displayName": "连岛景区",
+    "name": "江苏省连云港市连岛景区",
+    "en": "Lian Island Scenic Area",
+    "lat": 34.761,
+    "lng": 119.487
+  },
+  {
+    "year": 2024,
+    "province": "浙江",
+    "city": "丽水市",
+    "displayName": "云和梯田景区",
+    "name": "浙江省丽水市云和梯田景区",
+    "en": "Yunhe Rice Terraces Scenic Area",
+    "lat": 28.096,
+    "lng": 119.475
+  },
+  {
+    "year": 2024,
+    "province": "安徽",
+    "city": "滁州市",
+    "displayName": "琅琊山景区",
+    "name": "安徽省滁州市琅琊山景区",
+    "en": "Langya Mountain Scenic Area",
+    "lat": 32.309,
+    "lng": 118.296
+  },
+  {
+    "year": 2024,
+    "province": "福建",
+    "city": "厦门市",
+    "displayName": "厦门园林植物园景区",
+    "name": "福建省厦门市厦门园林植物园景区",
+    "en": "Xiamen Botanical Garden Scenic Area",
+    "lat": 24.448,
+    "lng": 118.104
+  },
+  {
+    "year": 2024,
+    "province": "山东",
+    "city": "青岛市",
+    "displayName": "奥帆海洋文化旅游区",
+    "name": "山东省青岛市奥帆海洋文化旅游区",
+    "en": "Qingdao Olympic Sailing Marine Culture Tourism Area",
+    "lat": 36.06,
+    "lng": 120.387
+  },
+  {
+    "year": 2024,
+    "province": "河南",
+    "city": "周口市",
+    "displayName": "太昊伏羲陵文化旅游区",
+    "name": "河南省周口市太昊伏羲陵文化旅游区",
+    "en": "Taihao Fuxi Mausoleum Cultural Tourism Area",
+    "lat": 33.732,
+    "lng": 114.883
+  },
+  {
+    "year": 2024,
+    "province": "湖北",
+    "city": "荆门市",
+    "displayName": "明显陵文化旅游景区",
+    "name": "湖北省荆门市明显陵文化旅游景区",
+    "en": "Mingxianling Cultural Tourism Scenic Area",
+    "lat": 31.169,
+    "lng": 112.629
+  },
+  {
+    "year": 2024,
+    "province": "湖南",
+    "city": "湘西土家族苗族自治州",
+    "displayName": "凤凰古城旅游区",
+    "name": "湖南省湘西土家族苗族自治州凤凰古城旅游区",
+    "en": "Fenghuang Ancient Town Tourism Area",
+    "lat": 27.948,
+    "lng": 109.599
+  },
+  {
+    "year": 2024,
+    "province": "广西",
+    "city": "柳州市",
+    "displayName": "程阳八寨景区",
+    "name": "广西壮族自治区柳州市程阳八寨景区",
+    "en": "Chengyang Eight Villages Scenic Area",
+    "lat": 25.794,
+    "lng": 109.613
+  },
+  {
+    "year": 2024,
+    "province": "海南",
+    "city": "三亚市",
+    "displayName": "天涯海角游览区",
+    "name": "海南省三亚市天涯海角游览区",
+    "en": "Tianya Haijiao Scenic Area",
+    "lat": 18.298,
+    "lng": 109.346
+  },
+  {
+    "year": 2024,
+    "province": "重庆",
+    "city": "涪陵区",
+    "displayName": "武陵山大裂谷景区",
+    "name": "重庆市涪陵区武陵山大裂谷景区",
+    "en": "Wuling Mountain Great Rift Valley Scenic Area",
+    "lat": 29.68,
+    "lng": 107.596
+  },
+  {
+    "year": 2024,
+    "province": "四川",
+    "city": "阿坝藏族羌族自治州",
+    "displayName": "四姑娘山景区",
+    "name": "四川省阿坝藏族羌族自治州四姑娘山景区",
+    "en": "Mount Siguniang Scenic Area",
+    "lat": 31.103,
+    "lng": 102.902
+  },
+  {
+    "year": 2024,
+    "province": "云南",
+    "city": "腾冲市",
+    "displayName": "和顺古镇景区",
+    "name": "云南省腾冲市和顺古镇景区",
+    "en": "Heshun Ancient Town Scenic Area",
+    "lat": 25.018,
+    "lng": 98.457
+  },
+  {
+    "year": 2024,
+    "province": "陕西",
+    "city": "延安市",
+    "displayName": "延川黄河乾坤湾景区",
+    "name": "陕西省延安市延川黄河乾坤湾景区",
+    "en": "Yanchuan Yellow River Qiankun Bay Scenic Area",
+    "lat": 36.821,
+    "lng": 110.256
+  },
+  {
+    "year": 2024,
+    "province": "宁夏",
+    "city": "吴忠市",
+    "displayName": "青铜峡黄河大峡谷旅游区",
+    "name": "宁夏回族自治区吴忠市青铜峡黄河大峡谷旅游区",
+    "en": "Qingtongxia Yellow River Grand Canyon Tourism Area",
+    "lat": 37.892,
+    "lng": 105.999
+  },
+  {
+    "year": 2024,
+    "province": "河北",
+    "city": "衡水市",
+    "displayName": "衡水湖旅游景区",
+    "name": "河北省衡水市衡水湖旅游景区",
+    "en": "Hengshui Lake Tourism Scenic Area",
+    "lat": 37.617,
+    "lng": 115.69
+  },
+  {
+    "year": 2024,
+    "province": "山西",
+    "city": "太原市",
+    "displayName": "晋祠天龙山景区",
+    "name": "山西省太原市晋祠天龙山景区",
+    "en": "Jinci and Tianlong Mountain Scenic Area",
+    "lat": 37.708,
+    "lng": 112.436
+  },
+  {
+    "year": 2024,
+    "province": "内蒙古",
+    "city": "呼和浩特市",
+    "displayName": "老牛湾黄河大峡谷旅游区",
+    "name": "内蒙古自治区呼和浩特市老牛湾黄河大峡谷旅游区",
+    "en": "Laoniuwan Yellow River Grand Canyon Tourism Area",
+    "lat": 39.668,
+    "lng": 111.174
+  },
+  {
+    "year": 2024,
+    "province": "吉林",
+    "city": "白城市",
+    "displayName": "大安嫩江湾旅游区",
+    "name": "吉林省白城市大安嫩江湾旅游区",
+    "en": "Da'an Nenjiang Bay Tourism Area",
+    "lat": 45.51,
+    "lng": 124.292
+  },
+  {
+    "year": 2024,
+    "province": "黑龙江",
+    "city": "齐齐哈尔市",
+    "displayName": "扎龙生态旅游区",
+    "name": "黑龙江省齐齐哈尔市扎龙生态旅游区",
+    "en": "Zhalong Eco-Tourism Area",
+    "lat": 47.21,
+    "lng": 124.243
+  },
+  {
+    "year": 2024,
+    "province": "浙江",
+    "city": "金华市",
+    "displayName": "双龙风景旅游区",
+    "name": "浙江省金华市双龙风景旅游区",
+    "en": "Shuanglong Scenic Tourism Area",
+    "lat": 29.208,
+    "lng": 119.615
+  },
+  {
+    "year": 2024,
+    "province": "山东",
+    "city": "淄博市",
+    "displayName": "周村古商城景区",
+    "name": "山东省淄博市周村古商城景区",
+    "en": "Zhoucun Ancient Commercial City Scenic Area",
+    "lat": 36.804,
+    "lng": 117.85
+  },
+  {
+    "year": 2024,
+    "province": "江西",
+    "city": "上饶市",
+    "displayName": "篁岭景区",
+    "name": "江西省上饶市篁岭景区",
+    "en": "Huangling Scenic Area",
+    "lat": 29.353,
+    "lng": 118.127
+  },
+  {
+    "year": 2024,
+    "province": "河南",
+    "city": "新乡市",
+    "displayName": "宝泉旅游区",
+    "name": "河南省新乡市宝泉旅游区",
+    "en": "Baoquan Tourism Area",
+    "lat": 35.526,
+    "lng": 113.617
+  },
+  {
+    "year": 2024,
+    "province": "湖北",
+    "city": "黄冈市",
+    "displayName": "麻城龟峰山景区",
+    "name": "湖北省黄冈市麻城龟峰山景区",
+    "en": "Macheng Guifeng Mountain Scenic Area",
+    "lat": 31.163,
+    "lng": 115.114
+  },
+  {
+    "year": 2024,
+    "province": "广东",
+    "city": "河源市",
+    "displayName": "万绿湖风景区",
+    "name": "广东省河源市万绿湖风景区",
+    "en": "Wanlü Lake Scenic Area",
+    "lat": 23.789,
+    "lng": 114.564
+  },
+  {
+    "year": 2024,
+    "province": "福建",
+    "city": "龙岩市",
+    "displayName": "冠豸山景区",
+    "name": "福建省龙岩市冠豸山景区",
+    "en": "Guanzhai Mountain Scenic Area",
+    "lat": 25.721,
+    "lng": 116.754
+  },
+  {
+    "year": 2024,
+    "province": "广西",
+    "city": "崇左市",
+    "displayName": "花山岩画景区",
+    "name": "广西壮族自治区崇左市花山岩画景区",
+    "en": "Huashan Rock Art Scenic Area",
+    "lat": 22.258,
+    "lng": 107.019
+  },
+  {
+    "year": 2024,
+    "province": "四川",
+    "city": "成都市",
+    "displayName": "天台山景区",
+    "name": "四川省成都市天台山景区",
+    "en": "Tiantai Mountain Scenic Area",
+    "lat": 30.312,
+    "lng": 103.209
+  },
+  {
+    "year": 2024,
+    "province": "贵州",
+    "city": "黔西南州",
+    "displayName": "万峰林景区",
+    "name": "贵州省黔西南州万峰林景区",
+    "en": "Wanfenglin Scenic Area",
+    "lat": 25.031,
+    "lng": 104.895
+  },
+  {
+    "year": 2024,
+    "province": "陕西",
+    "city": "咸阳市",
+    "displayName": "乾陵景区",
+    "name": "陕西省咸阳市乾陵景区",
+    "en": "Qianling Mausoleum Scenic Area",
+    "lat": 34.577,
+    "lng": 108.216
+  },
+  {
+    "year": 2024,
+    "province": "甘肃",
+    "city": "甘南州",
+    "displayName": "冶力关旅游区",
+    "name": "甘肃省甘南州冶力关旅游区",
+    "en": "Yeliguan Tourism Area",
+    "lat": 34.998,
+    "lng": 103.454
+  },
+  {
+    "year": 2024,
+    "province": "宁夏",
+    "city": "固原市",
+    "displayName": "六盘山红军长征旅游区",
+    "name": "宁夏回族自治区固原市六盘山红军长征旅游区",
+    "en": "Liupan Mountain Red Army Long March Tourism Area",
+    "lat": 35.669,
+    "lng": 106.193
+  },
+  {
+    "year": 2024,
+    "province": "新疆",
+    "city": "阿克苏地区",
+    "displayName": "天山托木尔景区",
+    "name": "新疆维吾尔自治区阿克苏地区天山托木尔景区",
+    "en": "Tianshan Tomur Scenic Area",
+    "lat": 41.76,
+    "lng": 80.13
+  }
+]
