@@ -2092,13 +2092,13 @@ function displayAttractionName(item) {
 
 function attractionLocationLabel(item) {
   const { city } = attractionDisplayParts(item);
-  const province = regionName(item.province);
+  const province = provinceDisplayName(item.province);
+  const cityName = cityDisplayName(city, item.province);
   if (state.language === "zh-TW") {
-    const cityName = toTraditionalName(city);
-    return cityName && city !== item.province ? `${province} ${cityName}` : province;
+    return cityName && !isSameAdministrativeName(province, cityName) ? `${province} ${cityName}` : province;
   }
   if (state.language !== "zh-CN") return province;
-  return city && city !== item.province ? `${province} ${city}` : province;
+  return cityName && !isSameAdministrativeName(province, cityName) ? `${province} ${cityName}` : province;
 }
 
 function attractionDisplayParts(item) {
@@ -2112,12 +2112,21 @@ function attractionDisplayParts(item) {
 
   const rawName = String(item.name || "").trim();
   const withoutProvince = removeLeadingProvince(rawName, item.province);
-  const cityMatch = withoutProvince.match(/^(.+?(?:市|州|地区|盟))(.+)$/);
+  const leadingCity = inferLeadingCity(withoutProvince, item.province);
 
-  if (cityMatch && cityMatch[2].trim().length >= 2) {
+  if (leadingCity) {
     return {
-      city: cityMatch[1].trim(),
-      name: cleanDisplayName(cityMatch[2]) || rawName,
+      city: leadingCity.city,
+      name: cleanDisplayName(leadingCity.name) || rawName,
+    };
+  }
+
+  const cityMatch = splitLeadingAdministrativeCity(withoutProvince);
+
+  if (cityMatch) {
+    return {
+      city: cityMatch.city,
+      name: cleanDisplayName(cityMatch.name) || rawName,
     };
   }
 
@@ -2137,6 +2146,7 @@ function removeLeadingProvince(name, province) {
 function provincePrefixes(province) {
   return unique([
     province,
+    fullProvinceName(province),
     `${province}省`,
     `${province}市`,
     `${province}自治区`,
@@ -2149,6 +2159,112 @@ function provincePrefixes(province) {
 
 function provinceCityName(province) {
   return ["北京", "天津", "上海", "重庆"].includes(province) ? province : "";
+}
+
+function splitLeadingAdministrativeCity(name) {
+  const cityMatch = name.match(/^(.+?市)(.+)$/);
+  if (cityMatch && cityMatch[2].trim().length >= 2) {
+    return {
+      city: cityMatch[1].trim(),
+      name: cityMatch[2],
+    };
+  }
+
+  const regionalMatch = name.match(/^(.+?(?:自治州|地区|盟|州))(.+)$/);
+  if (regionalMatch && regionalMatch[2].trim().length >= 2) {
+    return {
+      city: regionalMatch[1].trim(),
+      name: regionalMatch[2],
+    };
+  }
+
+  return null;
+}
+
+function provinceDisplayName(province) {
+  const name = state.language === "zh-CN" || state.language === "zh-TW" ? fullProvinceName(province) : regionName(province);
+  return state.language === "zh-TW" ? toTraditionalName(name) : name;
+}
+
+function fullProvinceName(province) {
+  const names = {
+    北京: "北京市",
+    天津: "天津市",
+    河北: "河北省",
+    山西: "山西省",
+    内蒙古: "内蒙古自治区",
+    辽宁: "辽宁省",
+    吉林: "吉林省",
+    黑龙江: "黑龙江省",
+    上海: "上海市",
+    江苏: "江苏省",
+    浙江: "浙江省",
+    安徽: "安徽省",
+    福建: "福建省",
+    江西: "江西省",
+    山东: "山东省",
+    河南: "河南省",
+    湖南: "湖南省",
+    湖北: "湖北省",
+    广东: "广东省",
+    广西: "广西壮族自治区",
+    海南: "海南省",
+    重庆: "重庆市",
+    四川: "四川省",
+    贵州: "贵州省",
+    云南: "云南省",
+    西藏: "西藏自治区",
+    陕西: "陕西省",
+    甘肃: "甘肃省",
+    青海: "青海省",
+    宁夏: "宁夏回族自治区",
+    新疆: "新疆维吾尔自治区",
+    新疆生产建设兵团: "新疆生产建设兵团",
+    台湾: "台湾地区",
+    香港: "香港特别行政区",
+    澳门: "澳门特别行政区",
+  };
+  return names[province] || province;
+}
+
+function cityDisplayName(city, province) {
+  const name = cleanDisplayName(city);
+  if (!name) return "";
+  const normalized = name.match(/(市|州|地区|盟|县|区|自治州|特别行政区)$/) ? name : `${name}市`;
+  return state.language === "zh-TW" ? toTraditionalName(normalized) : normalized;
+}
+
+function isSameAdministrativeName(province, city) {
+  const simplify = (value) =>
+    String(value || "")
+      .replace(/(省|市|地区|特别行政区|维吾尔自治区|壮族自治区|回族自治区|自治区)$/g, "")
+      .replace(/(臺|台)灣/g, "台湾")
+      .trim();
+  return simplify(province) === simplify(city);
+}
+
+function inferLeadingCity(name, province) {
+  const aliases = {
+    吉林: [{ prefix: "长春", city: "长春市" }],
+    山东: [{ prefix: "烟台", city: "烟台市" }],
+    河南: [{ prefix: "开封", city: "开封市" }],
+    陕西: [{ prefix: "渭南", city: "渭南市" }],
+    甘肃: [{ prefix: "天水", city: "天水市" }],
+    宁夏: [{ prefix: "银川", city: "银川市" }],
+    新疆: [
+      { prefix: "乌鲁木齐", city: "乌鲁木齐市" },
+      { prefix: "伊犁", city: "伊犁哈萨克自治州" },
+    ],
+    台湾: [{ prefix: "台北", city: "台北市" }],
+  };
+  const match = (aliases[province] || [])
+    .sort((a, b) => b.prefix.length - a.prefix.length)
+    .find((candidate) => name.startsWith(candidate.prefix));
+  if (!match) return null;
+  return {
+    city: match.city,
+    name: name.slice(match.prefix.length),
+  };
 }
 
 function cleanDisplayName(name) {
@@ -2298,10 +2414,15 @@ function setDetailImage(image, alt) {
 function isReliableImage(image) {
   if (!image?.url) return false;
   return (
+    isLocalImageUrl(image.url) &&
     !image.url.includes("fallback") &&
     !String(image.pageUrl || "").includes("Mutianyu") &&
     !String(image.caption || "").includes("通用景区占位")
   );
+}
+
+function isLocalImageUrl(url) {
+  return String(url || "").startsWith("assets/images/");
 }
 
 function localizeImageCaption(caption) {
