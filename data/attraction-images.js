@@ -1180,9 +1180,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "青海-236": {
-    "url": "assets/images/fallback.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
-    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+    "url": "assets/images/青海/阿咪东索景区.jpg",
+    "caption": "图片来源：Wikimedia Commons · 牛心山.jpg",
+    "pageUrl": "https://commons.wikimedia.org/wiki/File:%E7%89%9B%E5%BF%83%E5%B1%B1.jpg"
   },
   "新疆-237": {
     "url": "assets/images/fallback.jpg",
@@ -1455,9 +1455,9 @@ window.CHINA_5A_IMAGES = {
     "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
   },
   "甘肃-291": {
-    "url": "assets/images/fallback.jpg",
-    "pageUrl": "https://commons.wikimedia.org/wiki/File:Mutianyu_%E2%80%93_Panorama_(Greg_Zaal_via_Poly_Haven).jpg",
-    "caption": "图片来源：Wikimedia Commons · 通用景区占位图（慕田峪长城全景）"
+    "url": "assets/images/甘肃/冶力关旅游区.jpg",
+    "caption": "图片来源：冶力关旅游区官方站 · Tianchi Yehai",
+    "pageUrl": "https://gj.ylgly.com/"
   },
   "宁夏-292": {
     "url": "assets/images/fallback.jpg",
