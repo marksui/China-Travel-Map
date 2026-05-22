@@ -728,9 +728,10 @@ body.control-panel-closed .control-panel {
 }
 
 .marker-sample {
-  display: inline-flex;
+  display: grid;
   align-items: center;
   justify-content: center;
+  place-items: center;
   overflow: hidden;
   border: 4px solid #fff;
   border-radius: 999px;
@@ -744,6 +745,8 @@ body.control-panel-closed .control-panel {
   line-height: 1;
   text-align: center;
   white-space: nowrap;
+  padding: 0;
+  transform: translateZ(0);
 }
 
 .marker-sample.peer {

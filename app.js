@@ -103,8 +103,6 @@ const translations = {
     officialMeta: "{year} 年评为 5A",
     peerDetail: "{label}（非大陆官方评级）",
     officialDetail: "{year} 年",
-    officialBasis: "文化和旅游部国家 AAAAA 级旅游景区",
-    peerBasis: "台港澳官方旅游体系中的代表性景点，对标大陆 5A 展示",
     osmBoundary: "OSM 面边界",
     imageSourcePrefix: "图片来源：",
     imageUnavailable: "暂无可靠图片，正在补图",
@@ -177,8 +175,6 @@ const translations = {
     officialMeta: "{year} 年評為 5A",
     peerDetail: "{label}（非大陸官方評級）",
     officialDetail: "{year} 年",
-    officialBasis: "文化和旅遊部國家 AAAAA 級旅遊景區",
-    peerBasis: "臺港澳官方旅遊體系中的代表性景點，對標大陸 5A 展示",
     osmBoundary: "OSM 面邊界",
     imageSourcePrefix: "圖片來源：",
     fallbackImageCaption: "通用景區占位圖（慕田峪長城全景）",
@@ -251,8 +247,6 @@ const translations = {
     officialMeta: "Rated 5A in {year}",
     peerDetail: "{label} (not an official mainland rating)",
     officialDetail: "{year}",
-    officialBasis: "Ministry of Culture and Tourism national AAAAA tourist attraction",
-    peerBasis: "Representative sites from Taiwan, Hong Kong, and Macao tourism systems, shown as 5A peers",
     osmBoundary: "OSM polygon",
     imageSourcePrefix: "Image source: ",
     fallbackImageCaption: "generic scenic placeholder (Mutianyu Great Wall panorama)",
@@ -324,8 +318,6 @@ const translations = {
     officialMeta: "{year}년 5A 지정",
     peerDetail: "{label} (중국 본토 공식 등급 아님)",
     officialDetail: "{year}년",
-    officialBasis: "문화여유부 국가 AAAAA급 관광지",
-    peerBasis: "대만, 홍콩, 마카오 관광 체계의 대표 명소를 본토 5A와 비교해 표시",
     osmBoundary: "OSM 면 경계",
     imageSourcePrefix: "이미지 출처: ",
     fallbackImageCaption: "공통 명소 대체 이미지(무톈위 만리장성 전경)",
@@ -397,8 +389,6 @@ const translations = {
     officialMeta: "{year}年に 5A 認定",
     peerDetail: "{label}（中国本土の公式等級ではありません）",
     officialDetail: "{year}年",
-    officialBasis: "文化観光部 国家 AAAAA 級観光地",
-    peerBasis: "台湾、香港、マカオの観光体系における代表的観光地を本土 5A 相当として表示",
     osmBoundary: "OSM 面境界",
     imageSourcePrefix: "画像出典: ",
     fallbackImageCaption: "共通の観光地プレースホルダー（慕田峪長城の全景）",
@@ -470,8 +460,6 @@ const translations = {
     officialMeta: "ได้รับระดับ 5A ในปี {year}",
     peerDetail: "{label} (ไม่ใช่การจัดอันดับทางการของจีนแผ่นดินใหญ่)",
     officialDetail: "{year}",
-    officialBasis: "แหล่งท่องเที่ยวระดับ AAAAA แห่งชาติของกระทรวงวัฒนธรรมและการท่องเที่ยว",
-    peerBasis: "แหล่งเด่นในระบบท่องเที่ยวของไต้หวัน ฮ่องกง และมาเก๊า แสดงเป็นแหล่งเทียบเท่า 5A",
     osmBoundary: "ขอบเขตพื้นที่ OSM",
     imageSourcePrefix: "ที่มาภาพ: ",
     fallbackImageCaption: "ภาพตัวอย่างทั่วไป (พาโนรามากำแพงเมืองจีนมู่เถียนยวี่)",
@@ -544,8 +532,6 @@ const translations = {
     officialMeta: "Calificada 5A en {year}",
     peerDetail: "{label} (no es una calificación oficial de China continental)",
     officialDetail: "{year}",
-    officialBasis: "Atracción turística nacional AAAAA del Ministerio de Cultura y Turismo",
-    peerBasis: "Sitios representativos de los sistemas turísticos de Taiwán, Hong Kong y Macao, mostrados como equivalentes 5A",
     osmBoundary: "Polígono OSM",
     imageSourcePrefix: "Fuente de imagen: ",
     fallbackImageCaption: "marcador visual genérico (panorama de la Gran Muralla de Mutianyu)",
@@ -618,8 +604,6 @@ const translations = {
     officialMeta: "Получило 5A в {year}",
     peerDetail: "{label} (не официальный рейтинг материкового Китая)",
     officialDetail: "{year}",
-    officialBasis: "Национальная туристическая зона AAAAA Министерства культуры и туризма",
-    peerBasis: "Представительные места туристических систем Тайваня, Гонконга и Макао, показанные как аналоги 5A",
     osmBoundary: "Полигон OSM",
     imageSourcePrefix: "Источник изображения: ",
     fallbackImageCaption: "универсальное изображение-заглушка (панорама Великой Китайской стены Мутяньюй)",
@@ -627,6 +611,141 @@ const translations = {
       'Данные 5A материкового Китая основаны на файле <span>China-5A-tourist-attraction.md</span>, предоставленном пользователем, и дополнены официальными объявлениями Министерства культуры и туризма за 2020-2024 годы; аналоги Тайваня, Гонконга и Макао добавлены вручную; доступные полигоны взяты из OpenStreetMap; базовая карта © OpenStreetMap.',
   },
 };
+
+const aboutTranslations = {
+  "zh-CN": {
+    aboutMap: "关于这个地图",
+    aboutAria: "关于中国景点地图",
+    aboutClose: "关闭说明",
+    aboutEyebrow: "开放数据说明",
+    aboutTitle: "关于中国景点地图",
+    aboutLead: "这是一张开放、可核查的中国景点互动地图，用来浏览中国大陆官方 5A 景区，并补充台港澳代表性对标景点。",
+    aboutDataTitle: "开放数据",
+    aboutDataBody: "大陆 5A 景区来自公开公告与本地整理数据；边界参考 OpenStreetMap，图片来自开放授权图库并保留来源。",
+    aboutOpenTitle: "开源复用",
+    aboutOpenBody: "项目以静态网页和本地数据文件组织，方便审阅、学习、复用、二次开发和继续补充。",
+    aboutDisclaimerTitle: "免责声明",
+    aboutDisclaimerBody: "景点评级、边界、图片和坐标会随官方公告、开放地图和图片授权变化而变化，本页面仅供浏览参考，不构成官方发布、出行承诺或商业建议。",
+    aboutCredit: "Made by marksui",
+    aboutDate: "2026年6月",
+  },
+  "zh-TW": {
+    aboutMap: "關於這個地圖",
+    aboutAria: "關於中國景點地圖",
+    aboutClose: "關閉說明",
+    aboutEyebrow: "開放資料說明",
+    aboutTitle: "關於中國景點地圖",
+    aboutLead: "這是一張開放、可核查的中國景點互動地圖，用來瀏覽中國大陸官方 5A 景區，並補充台港澳代表性對標景點。",
+    aboutDataTitle: "開放資料",
+    aboutDataBody: "大陸 5A 景區來自公開公告與本地整理資料；邊界參考 OpenStreetMap，圖片來自開放授權圖庫並保留來源。",
+    aboutOpenTitle: "開源複用",
+    aboutOpenBody: "專案以靜態網頁和本地資料檔組織，方便審閱、學習、複用、二次開發和持續補充。",
+    aboutDisclaimerTitle: "免責聲明",
+    aboutDisclaimerBody: "景點評級、邊界、圖片和座標會隨官方公告、開放地圖和圖片授權變化而變化，本頁面僅供瀏覽參考，不構成官方發布、出行承諾或商業建議。",
+    aboutCredit: "Made by marksui",
+    aboutDate: "2026年6月",
+  },
+  en: {
+    aboutMap: "About this map",
+    aboutAria: "About China Attractions Map",
+    aboutClose: "Close information",
+    aboutEyebrow: "Open Data Notice",
+    aboutTitle: "About China Attractions Map",
+    aboutLead: "An open, reviewable interactive map for browsing official mainland China 5A scenic areas, with representative peer sites in Taiwan, Hong Kong, and Macao.",
+    aboutDataTitle: "Open Data",
+    aboutDataBody: "Mainland 5A sites are maintained from public announcements and local curated data; boundaries reference OpenStreetMap, and images come from open-license sources with attribution kept.",
+    aboutOpenTitle: "Open Source",
+    aboutOpenBody: "The project is organized as static pages and local data files so it can be reviewed, learned from, reused, extended, and supplemented.",
+    aboutDisclaimerTitle: "Disclaimer",
+    aboutDisclaimerBody: "Ratings, boundaries, images, and coordinates may change with official notices, open-map edits, and image licenses. This page is for browsing only and is not an official release, travel commitment, or business advice.",
+    aboutCredit: "Made by marksui",
+    aboutDate: "June 2026",
+  },
+  ko: {
+    aboutMap: "이 지도 소개",
+    aboutAria: "중국 명소 지도 소개",
+    aboutClose: "설명 닫기",
+    aboutEyebrow: "오픈 데이터 안내",
+    aboutTitle: "중국 명소 지도 소개",
+    aboutLead: "중국 본토 공식 5A 관광지를 살펴보고 대만, 홍콩, 마카오의 대표적인 비교 명소를 함께 볼 수 있는 개방형 인터랙티브 지도입니다.",
+    aboutDataTitle: "오픈 데이터",
+    aboutDataBody: "본토 5A 관광지는 공개 공고와 로컬 정리 데이터를 기준으로 관리합니다. 경계는 OpenStreetMap을 참고하고, 이미지는 출처를 남긴 공개 라이선스 자료를 사용합니다.",
+    aboutOpenTitle: "오픈 소스",
+    aboutOpenBody: "정적 웹페이지와 로컬 데이터 파일로 구성되어 검토, 학습, 재사용, 확장, 보완이 쉽습니다.",
+    aboutDisclaimerTitle: "면책 고지",
+    aboutDisclaimerBody: "등급, 경계, 이미지, 좌표는 공식 공고, 오픈 지도 편집, 이미지 라이선스 변화에 따라 달라질 수 있습니다. 이 페이지는 참고용이며 공식 발표, 여행 보장, 비즈니스 조언이 아닙니다.",
+    aboutCredit: "Made by marksui",
+    aboutDate: "2026년 6월",
+  },
+  ja: {
+    aboutMap: "この地図について",
+    aboutAria: "中国観光地マップについて",
+    aboutClose: "説明を閉じる",
+    aboutEyebrow: "オープンデータの説明",
+    aboutTitle: "中国観光地マップについて",
+    aboutLead: "中国本土の公式 5A 観光地を閲覧し、台湾・香港・マカオの代表的な比較対象スポットも確認できる、オープンで検証しやすいインタラクティブ地図です。",
+    aboutDataTitle: "オープンデータ",
+    aboutDataBody: "本土 5A 観光地は公開公告とローカル整理データをもとに管理しています。境界は OpenStreetMap を参照し、画像は出典を保持したオープンライセンス素材を使用します。",
+    aboutOpenTitle: "オープンソース",
+    aboutOpenBody: "静的ページとローカルデータファイルで構成しているため、確認、学習、再利用、拡張、追加がしやすくなっています。",
+    aboutDisclaimerTitle: "免責事項",
+    aboutDisclaimerBody: "等級、境界、画像、座標は公式公告、オープン地図の編集、画像ライセンスの変更により変わる場合があります。このページは閲覧用の参考であり、公式発表、旅行上の保証、商業的助言ではありません。",
+    aboutCredit: "Made by marksui",
+    aboutDate: "2026年6月",
+  },
+  th: {
+    aboutMap: "เกี่ยวกับแผนที่นี้",
+    aboutAria: "เกี่ยวกับแผนที่สถานที่ท่องเที่ยวจีน",
+    aboutClose: "ปิดคำอธิบาย",
+    aboutEyebrow: "คำอธิบายข้อมูลเปิด",
+    aboutTitle: "เกี่ยวกับแผนที่สถานที่ท่องเที่ยวจีน",
+    aboutLead: "แผนที่แบบโต้ตอบที่เปิดเผยและตรวจสอบได้ สำหรับดูแหล่งท่องเที่ยว 5A อย่างเป็นทางการของจีนแผ่นดินใหญ่ พร้อมสถานที่เทียบเคียงจากไต้หวัน ฮ่องกง และมาเก๊า",
+    aboutDataTitle: "ข้อมูลเปิด",
+    aboutDataBody: "ข้อมูล 5A ของจีนแผ่นดินใหญ่มาจากประกาศสาธารณะและข้อมูลที่จัดทำในเครื่อง ขอบเขตอ้างอิง OpenStreetMap และรูปภาพมาจากแหล่งอนุญาตแบบเปิดพร้อมเก็บเครดิตไว้",
+    aboutOpenTitle: "โอเพนซอร์ส",
+    aboutOpenBody: "โครงการจัดเป็นหน้าเว็บแบบสแตติกและไฟล์ข้อมูลในเครื่อง เพื่อให้ตรวจสอบ เรียนรู้ นำกลับใช้ พัฒนาต่อ และเติมข้อมูลได้ง่าย",
+    aboutDisclaimerTitle: "ข้อจำกัดความรับผิด",
+    aboutDisclaimerBody: "ระดับแหล่งท่องเที่ยว ขอบเขต รูปภาพ และพิกัดอาจเปลี่ยนตามประกาศทางการ การแก้ไขแผนที่เปิด และเงื่อนไขอนุญาตรูปภาพ หน้านี้มีไว้เพื่อการอ้างอิงเท่านั้น ไม่ใช่ประกาศทางการ คำรับรองการเดินทาง หรือคำแนะนำทางธุรกิจ",
+    aboutCredit: "Made by marksui",
+    aboutDate: "มิถุนายน 2026",
+  },
+  es: {
+    aboutMap: "Acerca de este mapa",
+    aboutAria: "Acerca del mapa de atracciones de China",
+    aboutClose: "Cerrar información",
+    aboutEyebrow: "Aviso de datos abiertos",
+    aboutTitle: "Acerca del mapa de atracciones de China",
+    aboutLead: "Un mapa interactivo abierto y verificable para explorar las zonas escénicas 5A oficiales de China continental, con sitios de referencia de Taiwán, Hong Kong y Macao.",
+    aboutDataTitle: "Datos Abiertos",
+    aboutDataBody: "Los sitios 5A de China continental se mantienen a partir de anuncios públicos y datos locales curados; los límites usan OpenStreetMap como referencia y las imágenes provienen de fuentes con licencia abierta y atribución.",
+    aboutOpenTitle: "Código Abierto",
+    aboutOpenBody: "El proyecto se organiza como páginas estáticas y archivos de datos locales para facilitar revisión, aprendizaje, reutilización, extensión y nuevas aportaciones.",
+    aboutDisclaimerTitle: "Aviso Legal",
+    aboutDisclaimerBody: "Las calificaciones, límites, imágenes y coordenadas pueden cambiar según avisos oficiales, ediciones de mapas abiertos y licencias de imagen. Esta página es solo de referencia y no constituye una publicación oficial, garantía de viaje ni asesoría comercial.",
+    aboutCredit: "Made by marksui",
+    aboutDate: "junio de 2026",
+  },
+  ru: {
+    aboutMap: "Об этой карте",
+    aboutAria: "О карте достопримечательностей Китая",
+    aboutClose: "Закрыть описание",
+    aboutEyebrow: "Сведения об открытых данных",
+    aboutTitle: "О карте достопримечательностей Китая",
+    aboutLead: "Открытая и проверяемая интерактивная карта официальных туристических зон 5A материкового Китая с представительными сопоставимыми объектами Тайваня, Гонконга и Макао.",
+    aboutDataTitle: "Открытые данные",
+    aboutDataBody: "Список 5A материкового Китая ведется по публичным объявлениям и локально подготовленным данным; границы опираются на OpenStreetMap, а изображения берутся из открыто лицензированных источников с сохранением атрибуции.",
+    aboutOpenTitle: "Открытый исходный код",
+    aboutOpenBody: "Проект организован как статические страницы и локальные файлы данных, чтобы его было удобно проверять, изучать, повторно использовать, развивать и дополнять.",
+    aboutDisclaimerTitle: "Отказ от ответственности",
+    aboutDisclaimerBody: "Рейтинги, границы, изображения и координаты могут меняться вслед за официальными сообщениями, правками открытых карт и лицензиями изображений. Страница предназначена только для справочного просмотра и не является официальной публикацией, гарантией поездки или коммерческой рекомендацией.",
+    aboutCredit: "Made by marksui",
+    aboutDate: "июнь 2026",
+  },
+};
+
+for (const [language, copy] of Object.entries(aboutTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
 
 const provinceNames = {
   "zh-CN": {},
@@ -1026,7 +1145,6 @@ const els = {
   detailVisual: document.querySelector(".detail-visual"),
   detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
-  detailBasis: document.querySelector("#detailBasis"),
   detailPrecision: document.querySelector("#detailPrecision"),
   detailPrecisionRow: document.querySelector("#detailPrecision")?.closest("div"),
   focusSelected: document.querySelector("#focusSelected"),
@@ -1322,10 +1440,8 @@ function getFilteredAttractions() {
         item.coordinateLabel,
         item.coordinateLevel,
         item.ratingLabel || "",
-        item.basis || "",
         ratingMeta(item),
         ratingDetail(item),
-        basisText(item),
       ].join(" "),
     );
     const matchesSearch = !query || searchable.includes(query);
@@ -1456,7 +1572,6 @@ function renderDetail(item) {
   els.detailName.textContent = hasItem ? displayAttractionName(item) : t("noSelectionTitle");
   els.detailDescription.textContent = hasItem ? attractionDescription(item) : "";
   els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
-  els.detailBasis.textContent = hasItem ? basisText(item) : "-";
   setFootprintDetail(null);
   els.focusSelected.disabled = !hasItem;
   els.filterProvince.disabled = !hasItem;
@@ -1513,7 +1628,7 @@ function attractionDescription(item) {
 }
 
 function attractionDescriptionCategory(item) {
-  const text = [item.name, item.coordinateLabel, item.basis].filter(Boolean).join(" ");
+  const text = [item.name, item.coordinateLabel].filter(Boolean).join(" ");
   return descriptionRules.find((rule) => rule.pattern.test(text))?.category || "default";
 }
 
@@ -1966,10 +2081,6 @@ function ratingDetail(item) {
   return isPeerAttraction(item)
     ? t("peerDetail", { label: t("peer5ATitle") })
     : t("officialDetail", { year: item.year });
-}
-
-function basisText(item) {
-  return isPeerAttraction(item) ? t("peerBasis") : t("officialBasis");
 }
 
 function displayAttractionName(item) {

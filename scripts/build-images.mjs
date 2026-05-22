@@ -7,6 +7,7 @@ const outDir = path.resolve("assets/images");
 const tmpDir = path.join(outDir, ".tmp");
 const manifestPath = path.resolve("data/attraction-images.js");
 const attributionPath = path.resolve("assets/images/SOURCES.md");
+const nameHintsPath = path.resolve("data/attraction-names.js");
 const maxItems = Number(getArg("--limit") || 0);
 const fromItem = Math.max(1, Number(getArg("--from") || 1));
 const toItem = Number(getArg("--to") || maxItems || 0);
@@ -15,6 +16,10 @@ const force = process.argv.includes("--force");
 const skipWikimediaDownloads = process.argv.includes("--skip-wikimedia-downloads");
 const metadataOnly = process.argv.includes("--metadata-only");
 const wikiOnly = process.argv.includes("--wiki-only");
+const openverseOnly = process.argv.includes("--openverse-only");
+const openverseAllLicenses = process.argv.includes("--openverse-all-licenses");
+const artistic = process.argv.includes("--artistic");
+const compressDownloads = process.argv.includes("--compress-downloads");
 const wikiFirst = !process.argv.includes("--no-wiki-first");
 const targetArg = getArg("--targets");
 const targetSelection = parseTargets(targetArg);
@@ -322,6 +327,31 @@ const rejectedTerms = [
   "mrt",
   "train station",
   "hospital",
+  "selfie",
+  "self portrait",
+  "ego portrait",
+  "ego-portrait",
+  "group photo",
+  "family photo",
+  "portrait",
+  "earthquake",
+  "magnitude",
+  "seismic",
+  "seismogram",
+  "aleutian",
+  "offshore",
+  "satellite",
+  "nasa",
+  "iss0",
+  "selected and enhanced",
+  "model of mountain",
+  "museum model",
+  "500pcs",
+  "puzzle",
+  "tea time",
+  "baiyun temple",
+  "dayun temple",
+  "shanxi pingshun",
   "australia",
   "wollongong",
   "nantian",
@@ -381,6 +411,8 @@ await mkdir(outDir, { recursive: true });
 await mkdir(tmpDir, { recursive: true });
 
 const attractions = loadAttractions();
+const localizedNames = loadLocalizedNames();
+const imageRelativePaths = buildImageRelativePaths(attractions);
 const selected = hasTargetSelection
   ? attractions.filter((attraction) => selectedByTarget(attraction, targetSelection))
   : maxItems
@@ -396,26 +428,34 @@ const fallbackLocal = await ensureLocalImage(fallbackSource, "fallback.jpg");
 
 for (const [index, attraction] of selected.entries()) {
   const itemNumber = itemNumberFromId(attraction) || attractions.indexOf(attraction) + 1;
-  const fileName = `${String(itemNumber).padStart(3, "0")}.jpg`;
+  const legacyFileName = `${String(itemNumber).padStart(3, "0")}.jpg`;
+  const fileName = imageRelativePaths.get(attraction.id) || legacyFileName;
+  const imageUrl = `assets/images/${fileName}`;
   const outputPath = path.join(outDir, fileName);
   const existingFile = await fileExists(outputPath);
   const shouldDownload = !hasDownloadRange || (itemNumber >= fromItem && (!toItem || itemNumber <= toItem));
-  const previousSource = trustedPreviousSource(previousSources.get(fileName), attraction);
+  const previousSource = trustedPreviousSource(
+    previousSources.get(fileName) || previousSources.get(legacyFileName),
+    attraction,
+  );
   const shouldRefreshFromWiki =
     wikiFirst && !force && existingFile && previousSource && !isWikiSource(previousSource);
   const existing = !force && existingFile && Boolean(previousSource) && !shouldRefreshFromWiki;
 
   let source = null;
   if (!existing && shouldDownload && !metadataOnly) {
-    const candidates = await findImageCandidates(attraction, {
-      wikiOnly: shouldRefreshFromWiki || wikiOnly,
-    });
+    const candidates = filterUnusedCandidates(
+      await findImageCandidates(attraction, {
+        wikiOnly: shouldRefreshFromWiki || wikiOnly,
+      }),
+      attraction,
+    );
     source = candidates.length ? await downloadFirstAvailable(candidates, fileName, attraction.name) : null;
 
     if ((!source || source.id === "fallback") && shouldRefreshFromWiki) {
       source = previousSource;
     } else if (!source && !wikiOnly) {
-      const fallbackCandidates = await findImageCandidates(attraction);
+      const fallbackCandidates = filterUnusedCandidates(await findImageCandidates(attraction), attraction);
       source = fallbackCandidates.length
         ? await downloadFirstAvailable(fallbackCandidates, fileName, attraction.name)
         : fallbackSource;
@@ -434,7 +474,7 @@ for (const [index, attraction] of selected.entries()) {
     (shouldDownload ? await findImage(attraction) : null) ||
     fallbackSource;
   manifest[attraction.id] = {
-    url: finalSource.id === "fallback" ? fallbackLocal : `assets/images/${fileName}`,
+    url: finalSource.id === "fallback" ? fallbackLocal : imageUrl,
     pageUrl: finalSource.pageUrl,
     caption: `图片来源：${finalSource.source} · ${finalSource.title}`,
   };
@@ -485,6 +525,16 @@ function loadAttractions() {
   return sandbox.window.CHINA_5A_ATTRACTIONS;
 }
 
+function loadLocalizedNames() {
+  try {
+    const sandbox = { window: {} };
+    vm.runInNewContext(readFileSync(nameHintsPath, "utf8"), sandbox);
+    return sandbox.window.CHINA_5A_ATTRACTION_NAMES || {};
+  } catch {
+    return {};
+  }
+}
+
 function loadPreviousManifest() {
   try {
     const sandbox = { window: {} };
@@ -498,6 +548,34 @@ function loadPreviousManifest() {
 function itemNumberFromId(attraction) {
   const match = String(attraction.id || "").match(/-(\d+)$/);
   return match ? Number(match[1]) : 0;
+}
+
+function buildImageRelativePaths(items) {
+  const paths = new Map();
+  const used = new Set();
+  for (const attraction of items) {
+    const province = safePathPart(attraction.province || "未分组", "未分组");
+    const baseName = safePathPart(attraction.displayName || attraction.coordinateLabel || attraction.name || attraction.id, attraction.id);
+    let relativePath = `${province}/${baseName}.jpg`;
+    let index = 2;
+    while (used.has(relativePath.toLowerCase())) {
+      relativePath = `${province}/${baseName}-${index}.jpg`;
+      index += 1;
+    }
+    used.add(relativePath.toLowerCase());
+    paths.set(attraction.id, relativePath);
+  }
+  return paths;
+}
+
+function safePathPart(value, fallback) {
+  const cleaned = String(value || "")
+    .replace(/[<>:"/\\|?*\u0000-\u001f]/g, "-")
+    .replace(/\s+/g, " ")
+    .replace(/[. ]+$/g, "")
+    .trim()
+    .slice(0, 90);
+  return cleaned || fallback || "未命名";
 }
 
 function parseTargets(value) {
@@ -524,7 +602,7 @@ function loadPreviousSources() {
   try {
     const text = readFileSync(attributionPath, "utf8");
     for (const line of text.split("\n")) {
-      const match = line.match(/^\| .*? \| `(\d+\.jpg)` \| (.*?) \| (.*?) \| \[link\]\((.*?)\) \|$/);
+      const match = line.match(/^\| .*? \| `([^`]+\.jpg)` \| (.*?) \| (.*?) \| \[link\]\((.*?)\) \|$/);
       if (!match) continue;
       const [, fileName, sourceAndTitle, license, pageUrl] = match;
       const separator = sourceAndTitle.indexOf(" · ");
@@ -553,23 +631,25 @@ async function findImageCandidates(attraction, options = {}) {
   const queries = imageQueries(attraction);
   const candidates = [];
 
-  for (const query of queries.slice(0, 7)) {
-    candidates.push(...(await searchWikipediaExact(query, attraction)));
-    if (bestCandidate(candidates, attraction)?.score >= 12) break;
-  }
+  if (!openverseOnly && !options.openverseOnly) {
+    for (const query of queries.slice(0, 7)) {
+      candidates.push(...(await searchWikipediaExact(query, attraction)));
+      if (bestCandidate(candidates, attraction)?.score >= 12) break;
+    }
 
-  for (const query of queries) {
-    candidates.push(...(await searchCommons(query, attraction)));
-    if (bestCandidate(candidates, attraction)?.score >= 12) break;
-  }
+    for (const query of queries) {
+      candidates.push(...(await searchCommons(query, attraction)));
+      if (bestCandidate(candidates, attraction)?.score >= 12) break;
+    }
 
-  for (const query of queries.slice(0, 4)) {
-    candidates.push(...(await searchWikipedia(query, attraction)));
-    if (bestCandidate(candidates, attraction)?.score >= 12) break;
+    for (const query of queries.slice(0, 4)) {
+      candidates.push(...(await searchWikipedia(query, attraction)));
+      if (bestCandidate(candidates, attraction)?.score >= 12) break;
+    }
   }
 
   if (!wikiOnly && !options.wikiOnly) {
-    for (const query of queries.slice(0, 5)) {
+    for (const query of queries.slice(0, openverseOnly ? 8 : 5)) {
       candidates.push(...(await searchOpenverse(query, attraction)));
       if (bestCandidate(candidates, attraction)?.score >= 12) break;
     }
@@ -579,14 +659,26 @@ async function findImageCandidates(attraction, options = {}) {
 }
 
 function imageQueries(attraction) {
-  const compactName = cleanName(attraction.name);
+  const displayName = attraction.displayName || attraction.coordinateLabel || attraction.name;
+  const compactName = cleanName(displayName);
+  const fullName = cleanName(attraction.name);
   const withoutProvince = compactName.replace(new RegExp(`^${attraction.province}`), "").trim();
+  const englishName = localizedNames[attraction.id]?.en || "";
   return unique([
     ...(queryOverrides[attraction.id] || []),
+    englishName,
+    englishName && `${englishName} China travel photography`,
+    englishName && `${englishName} landscape photography`,
+    attraction.city && `${attraction.city} ${displayName}`,
+    `${displayName} 旅行 摄影`,
+    `${displayName} 风景 摄影`,
     `${attraction.province} ${attraction.coordinateLabel}`,
     `${attraction.province} ${attraction.name}`,
+    `${attraction.province} ${displayName}`,
     `${attraction.coordinateLabel} China`,
+    `${displayName} China`,
     `${withoutProvince} China`,
+    fullName,
     attraction.name,
     compactName,
     withoutProvince,
@@ -702,12 +794,14 @@ function wikipediaPageSource(page, attraction) {
 
 async function searchOpenverse(query, attraction) {
   const params = new URLSearchParams({
-    q: scopedQuery(query, attraction, "China"),
-    license_type: "commercial,modification",
+    q: openverseQuery(query, attraction),
     extension: "jpg,png,jpeg",
     category: "photograph",
     page_size: "8",
   });
+  if (!openverseAllLicenses) {
+    params.set("license_type", "commercial,modification");
+  }
   const data = await fetchJson(`https://api.openverse.engineering/v1/images/?${params}`, {
     followRedirects: true,
   });
@@ -731,6 +825,10 @@ async function searchOpenverse(query, attraction) {
     .filter(Boolean);
 }
 
+function openverseQuery(query, attraction) {
+  return scopedQuery(query, attraction, "China");
+}
+
 function withScore(candidate, attraction, options = {}) {
   if (!candidate.url) return null;
   if (!isAllowed(candidate)) return null;
@@ -750,6 +848,7 @@ function isAllowed(candidate) {
     candidate.pageUrl,
     candidate.text,
   ].join(" "));
+  if (isGenericCameraTitle(candidate.title)) return false;
   if (rejectedTerms.some((term) => text.includes(normalizeText(term)))) return false;
   if (candidate.width && candidate.height) {
     if (candidate.width < 420 || candidate.height < 280) return false;
@@ -775,6 +874,11 @@ function scoreCandidate(candidate, attraction, query = "") {
   }
   for (const token of queryTokens(query)) {
     if (text.includes(token)) score += 2;
+  }
+  if (artistic) {
+    for (const term of ["photography", "travel", "landscape", "scenery", "flickr"]) {
+      if (text.includes(term)) score += 1;
+    }
   }
   if (sourcePriority(candidate) > 1) score += 2;
   if (candidate.width && candidate.height) {
@@ -833,6 +937,35 @@ function rankedCandidates(candidates, attraction) {
     });
 }
 
+function filterUnusedCandidates(candidates, attraction) {
+  const usedKeys = manifestUsedSourceKeys(attraction.id);
+  if (!usedKeys.size) return candidates;
+  return candidates.filter((source) => {
+    if (source.id === "fallback") return true;
+    const keys = sourceReuseKeys(source);
+    return !keys.some((key) => usedKeys.has(key));
+  });
+}
+
+function manifestUsedSourceKeys(currentAttractionId) {
+  const keys = new Set();
+  for (const [attractionId, image] of Object.entries(manifest)) {
+    if (attractionId === currentAttractionId || attractionId === "fallback") continue;
+    if (!image || image.url === "assets/images/fallback.jpg") continue;
+    for (const key of sourceReuseKeys(image)) keys.add(key);
+  }
+  return keys;
+}
+
+function sourceReuseKeys(source) {
+  return unique([source.id, source.pageUrl, source.url].filter(Boolean).map((value) => normalizeText(value)));
+}
+
+function isGenericCameraTitle(title = "") {
+  const normalized = normalizeText(String(title).replace(/\.(jpg|jpeg|png)$/i, "").trim());
+  return /^_?(dsc|img|pxl|sam|p)[-_ ]?\d+[a-z]*$/.test(normalized);
+}
+
 function queryTokens(query) {
   return normalizeText(query)
     .split(/[\s,，.·\-—:：()（）]+/)
@@ -866,6 +999,7 @@ async function ensureLocalImage(source, fileName) {
   }
 
   const bytes = await fetchLocalImageBytes(source);
+  await mkdir(path.dirname(outputPath), { recursive: true });
   await writeFile(outputPath, bytes);
   return `assets/images/${fileName}`;
 }
@@ -891,6 +1025,9 @@ async function fetchLocalImageBytes(source) {
 
 function localDownloadSources(source) {
   const proxied = proxiedImageSource(source);
+  if (compressDownloads && proxied) {
+    return [proxied, source];
+  }
   if (proxied && skipWikimediaDownloads && isWikimediaUrl(source.url)) {
     return [proxied, source];
   }
