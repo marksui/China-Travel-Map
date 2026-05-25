@@ -535,6 +535,36 @@ body.control-panel-closed .control-panel {
   color: #fff;
 }
 
+.rating-toggle {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(245, 245, 247, 0.84);
+}
+
+.rating-toggle button {
+  min-width: 0;
+  min-height: 34px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.rating-toggle button.active {
+  background: #1d1d1f;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
 .list-heading,
 .panel-heading {
   display: flex;
@@ -650,7 +680,7 @@ body.control-panel-closed .control-panel {
 
 .legend-metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
   margin-top: 14px;
 }
@@ -758,6 +788,10 @@ body.control-panel-closed .control-panel {
   font-size: 11px;
 }
 
+.marker-sample.four-a {
+  background: linear-gradient(180deg, #4d6f85 0%, #263d4c 100%);
+}
+
 .range-sample {
   width: 42px;
   height: 42px;
@@ -813,6 +847,17 @@ body.control-panel-closed .control-panel {
   font-size: 10px;
   font-weight: 800;
   transform: rotate(-45deg);
+}
+
+.map-marker.four-a {
+  background: #2f5f75;
+  font-size: 9px;
+}
+
+.map-marker.peer {
+  background: #f5f5f7;
+  color: var(--ink);
+  font-size: 8px;
 }
 
 .map-marker span {

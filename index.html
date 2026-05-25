@@ -19,7 +19,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260521-20" />
+    <link rel="stylesheet" href="styles.css?v=20260525-01" />
   </head>
   <body class="control-panel-closed">
     <div class="app-shell">
@@ -68,7 +68,7 @@
             <option value="es">Español</option>
             <option value="ru">Русский</option>
           </select>
-          <span class="data-pill" id="dataCountPill">293</span>
+          <span class="data-pill" id="dataCountPill">5390</span>
         </nav>
       </header>
 
@@ -90,6 +90,10 @@
               <small data-i18n="official5A">国家5A</small>
             </div>
             <div>
+              <span id="legendOfficial4AStat">0</span>
+              <small data-i18n="official4A">国家4A</small>
+            </div>
+            <div>
               <span id="legendPeerStat">32</span>
               <small data-i18n="peerAttractions">对标景点</small>
             </div>
@@ -102,6 +106,10 @@
             <div class="legend-row">
               <span class="marker-sample">5A</span>
               <p><strong data-i18n="official5ATitle">国家 5A</strong><span data-i18n="official5ADesc">中国大陆官方 AAAAA 级旅游景区</span></p>
+            </div>
+            <div class="legend-row">
+              <span class="marker-sample four-a">4A</span>
+              <p><strong data-i18n="official4ATitle">国家 4A</strong><span data-i18n="official4ADesc">中国大陆 AAAA 级旅游景区，初始点位为区县或城市参考坐标</span></p>
             </div>
             <div class="legend-row">
               <span class="marker-sample peer" data-i18n="peerBadgeShort">对标</span>
@@ -144,17 +152,17 @@
 
         <header class="brand-block">
           <div>
-            <p class="eyebrow" data-i18n="eyebrow">国家 5A / 对标 5A 景点</p>
+            <p class="eyebrow" data-i18n="eyebrow">国家 5A / 4A 景点</p>
             <h1><span data-i18n="heroLine1">欢迎使用中国景点</span><span data-i18n="heroLine2">在线地图</span></h1>
             <p class="intro-copy">
-              <span data-i18n="intro">覆盖中国大陆官方 5A 景区，并加入台湾、香港、澳门的对标 5A 景点。</span>
+              <span data-i18n="intro">覆盖中国大陆官方 5A 与 4A 景区，并加入台湾、香港、澳门的对标 5A 景点。</span>
             </p>
           </div>
         </header>
 
         <section class="stats-grid" aria-label="统计摘要" data-i18n-aria-label="summaryStats">
           <div>
-            <span id="totalStat">293</span>
+            <span id="totalStat">5390</span>
             <small data-i18n="attractions">景点</small>
           </div>
           <div>
@@ -172,12 +180,20 @@
             <label class="field-label" for="provinceSelect" data-i18n="regionLabel">地区</label>
             <select id="provinceSelect"></select>
           </div>
+          <div class="field-grid">
+            <span class="field-label" id="levelFilterLabel" data-i18n="levelLabel">等级</span>
+            <div class="rating-toggle" role="group" aria-labelledby="levelFilterLabel" data-i18n-aria-label="levelFilters">
+              <button class="active" type="button" data-rating-filter="official5A" aria-pressed="true" data-i18n="levelOfficial5A">5A</button>
+              <button type="button" data-rating-filter="official4A" aria-pressed="false" data-i18n="levelOfficial4A">4A</button>
+              <button class="active" type="button" data-rating-filter="peer5A" aria-pressed="true" data-i18n="levelPeer5A">对标</button>
+            </div>
+          </div>
         </section>
 
         <div class="list-heading">
           <div>
             <strong id="resultCount">293 个景点</strong>
-            <span id="filterSubtitle">全国 · 国家5A + 对标景点</span>
+            <span id="filterSubtitle">全国 · 5A + 对标</span>
           </div>
           <button class="text-button" id="resetFilters" type="button">
             <i data-lucide="rotate-ccw" aria-hidden="true"></i>
@@ -283,8 +299,9 @@
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="data/attractions.js?v=20260521-15"></script>
+    <script src="data/attractions-4a.js?v=20260525-01"></script>
     <script src="data/attraction-names.js?v=20260521-15"></script>
-    <script src="data/attraction-images.js?v=20260525-01"></script>
-    <script src="app.js?v=20260521-24"></script>
+    <script src="data/attraction-images.js?v=20260525-02"></script>
+    <script src="app.js?v=20260525-01"></script>
   </body>
 </html>
