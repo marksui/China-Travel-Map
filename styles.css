@@ -16,6 +16,12 @@
   --highlight: #0071e3;
   --map-ink: #1d1d1f;
   --map-highlight-soft: rgba(0, 113, 227, 0.14);
+  --marker-5a: #0071e3;
+  --marker-5a-soft: rgba(0, 113, 227, 0.18);
+  --marker-4a: #34c759;
+  --marker-4a-soft: rgba(52, 199, 89, 0.2);
+  --marker-peer: #1d1d1f;
+  --marker-peer-soft: rgba(29, 29, 31, 0.14);
   --map-surface: #f2f2f4;
   --shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
   --radius: 8px;
@@ -565,6 +571,19 @@ body.control-panel-closed .control-panel {
   color: #fff;
 }
 
+.rating-toggle button[data-rating-filter="official5A"].active {
+  background: var(--marker-5a);
+}
+
+.rating-toggle button[data-rating-filter="official4A"].active {
+  background: var(--marker-4a);
+  color: #061a0b;
+}
+
+.rating-toggle button[data-rating-filter="peer5A"].active {
+  background: var(--marker-peer);
+}
+
 .list-heading,
 .panel-heading {
   display: flex;
@@ -757,15 +776,17 @@ body.control-panel-closed .control-panel {
 }
 
 .marker-sample {
+  --sample-fill: var(--marker-5a);
+  --sample-fill-strong: #0056b3;
   display: inline-grid;
   place-items: center;
   min-width: 42px;
   height: 30px;
-  border: 1px solid rgba(29, 29, 31, 0.08);
+  border: 1px solid color-mix(in srgb, var(--sample-fill) 65%, #fff);
   border-radius: 999px;
-  background: linear-gradient(180deg, #2b2b2f 0%, #171719 100%);
+  background: linear-gradient(180deg, var(--sample-fill) 0%, var(--sample-fill-strong) 100%);
   box-shadow:
-    0 5px 14px rgba(0, 0, 0, 0.14),
+    0 5px 14px color-mix(in srgb, var(--sample-fill) 24%, transparent),
     inset 0 1px 0 rgba(255, 255, 255, 0.16);
   color: #fff;
   font-size: 12px;
@@ -778,18 +799,22 @@ body.control-panel-closed .control-panel {
 }
 
 .marker-sample.peer {
+  --sample-fill: #2b2b2f;
+  --sample-fill-strong: #171719;
   min-width: 50px;
   border-color: rgba(29, 29, 31, 0.16);
-  background: rgba(245, 245, 247, 0.96);
+  background: linear-gradient(180deg, var(--sample-fill) 0%, var(--sample-fill-strong) 100%);
   box-shadow:
     0 4px 10px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.86);
-  color: var(--ink);
+  color: #fff;
   font-size: 11px;
 }
 
 .marker-sample.four-a {
-  background: linear-gradient(180deg, #4d6f85 0%, #263d4c 100%);
+  --sample-fill: var(--marker-4a);
+  --sample-fill-strong: #1f8f3e;
+  color: #061a0b;
 }
 
 .range-sample {
@@ -834,6 +859,9 @@ body.control-panel-closed .control-panel {
 }
 
 .map-marker {
+  --pin-fill: var(--marker-5a);
+  --pin-soft: var(--marker-5a-soft);
+  --pin-ink: #fff;
   position: relative;
   display: grid;
   place-items: center;
@@ -841,22 +869,30 @@ body.control-panel-closed .control-panel {
   height: 32px;
   border: 3px solid #fff;
   border-radius: 50% 50% 50% 7px;
-  background: var(--map-ink);
-  box-shadow: 0 2px 7px rgba(47, 41, 36, 0.28);
-  color: #fff;
+  background: var(--pin-fill);
+  box-shadow: 0 2px 7px color-mix(in srgb, var(--pin-fill) 38%, transparent);
+  color: var(--pin-ink);
   font-size: 10px;
   font-weight: 800;
   transform: rotate(-45deg);
 }
 
+.map-marker.official {
+  --pin-fill: var(--marker-5a);
+  --pin-soft: var(--marker-5a-soft);
+}
+
 .map-marker.four-a {
-  background: #2f5f75;
+  --pin-fill: var(--marker-4a);
+  --pin-soft: var(--marker-4a-soft);
+  --pin-ink: #061a0b;
   font-size: 9px;
 }
 
 .map-marker.peer {
-  background: #f5f5f7;
-  color: var(--ink);
+  --pin-fill: var(--marker-peer);
+  --pin-soft: var(--marker-peer-soft);
+  --pin-ink: #fff;
   font-size: 8px;
 }
 
@@ -865,10 +901,9 @@ body.control-panel-closed .control-panel {
 }
 
 .map-marker-shell.selected .map-marker {
-  background: var(--highlight);
   box-shadow:
-    0 0 0 7px var(--map-highlight-soft),
-    0 4px 11px rgba(47, 41, 36, 0.3);
+    0 0 0 7px var(--pin-soft),
+    0 4px 11px color-mix(in srgb, var(--pin-fill) 36%, transparent);
   transform: rotate(-45deg) scale(1.16);
 }
 
@@ -884,6 +919,45 @@ body.control-panel-closed .control-panel {
   background-color: rgba(47, 41, 36, 0.9);
   color: #fff;
   font-weight: 700;
+}
+
+.map-cluster {
+  --cluster-fill: var(--marker-5a);
+  --cluster-soft: var(--marker-5a-soft);
+  --cluster-ink: #fff;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--cluster-fill);
+  box-shadow:
+    0 0 0 7px var(--cluster-soft),
+    0 6px 16px color-mix(in srgb, var(--cluster-fill) 30%, transparent);
+  color: var(--cluster-ink);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.map-cluster.four-a {
+  --cluster-fill: var(--marker-4a);
+  --cluster-soft: var(--marker-4a-soft);
+  --cluster-ink: #061a0b;
+}
+
+.map-cluster.peer {
+  --cluster-fill: var(--marker-peer);
+  --cluster-soft: var(--marker-peer-soft);
+}
+
+.map-cluster.mixed {
+  --cluster-fill: #8e8e93;
+  --cluster-soft: rgba(142, 142, 147, 0.18);
+}
+
+.map-cluster span {
+  line-height: 1;
 }
 
 .detail-panel {

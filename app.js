@@ -12,7 +12,7 @@ const meta = {
   fiveA: fiveAMeta,
   fourA: fourAMeta,
 };
-const localImages = window.CHINA_5A_IMAGES || {};
+const localImages = { ...(window.CHINA_5A_IMAGES || {}), ...(window.CHINA_4A_IMAGES || {}) };
 const localizedAttractionNames = window.CHINA_5A_ATTRACTION_NAMES || {};
 
 const highlightColor = "#b65345";
@@ -1280,6 +1280,7 @@ const markerLayer =
         zoomToBoundsOnClick: true,
         maxClusterRadius: 46,
         spiderfyDistanceMultiplier: 1.5,
+        iconCreateFunction: (cluster) => clusterIcon(cluster),
       })
     : L.layerGroup();
 
@@ -1630,6 +1631,7 @@ function renderMarkers(items) {
     const marker = L.marker(getAttractionLatLng(item), {
       icon: markerIcon(item),
       title: displayAttractionName(item),
+      attractionId: item.id,
     });
 
     marker.bindPopup(
@@ -2187,6 +2189,35 @@ function markerIcon(item, active = item.id === state.selectedId) {
     iconAnchor: [17, 33],
     popupAnchor: [0, -28],
   });
+}
+
+function clusterIcon(cluster) {
+  const childItems = cluster
+    .getAllChildMarkers()
+    .map((marker) => attractionsById.get(marker.options.attractionId))
+    .filter(Boolean);
+  const ratingClass = clusterRatingClass(childItems);
+  const count = cluster.getChildCount();
+  const size = count >= 100 ? 50 : count >= 20 ? 46 : 42;
+  return L.divIcon({
+    className: `map-cluster-shell ${ratingClass}`,
+    html: `<div class="map-cluster ${ratingClass}"><span>${count}</span></div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
+  });
+}
+
+function clusterRatingClass(items) {
+  const ratings = new Set(items.map((item) => item.rating));
+  if (ratings.size === 1) {
+    const [rating] = ratings;
+    if (rating === "official4A") return "four-a";
+    if (rating === "peer5A") return "peer";
+    return "official";
+  }
+  if (ratings.has("official4A") && !ratings.has("official5A") && !ratings.has("peer5A")) return "four-a";
+  if (ratings.has("official5A") && !ratings.has("official4A") && !ratings.has("peer5A")) return "official";
+  return "mixed";
 }
 
 function getSelected() {
