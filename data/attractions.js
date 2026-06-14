@@ -13,7 +13,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.9174,
     "lng": 116.3908,
     "coordinateLevel": "景区",
-    "coordinateLabel": "故宫"
+    "coordinateLabel": "故宫",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "北京-002",
@@ -26,7 +29,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.8822,
     "lng": 116.4066,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天坛"
+    "coordinateLabel": "天坛",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "北京-003",
@@ -39,7 +45,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.9999,
     "lng": 116.2755,
     "coordinateLevel": "景区",
-    "coordinateLabel": "颐和园"
+    "coordinateLabel": "颐和园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "北京-004",
@@ -52,7 +61,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.358,
     "lng": 116.0176,
     "coordinateLevel": "景区",
-    "coordinateLabel": "八达岭"
+    "coordinateLabel": "八达岭",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "北京-005",
@@ -65,7 +77,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.2551,
     "lng": 116.2247,
     "coordinateLevel": "景区",
-    "coordinateLabel": "明十三陵"
+    "coordinateLabel": "明十三陵",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "北京-006",
@@ -78,7 +93,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.9373,
     "lng": 116.3869,
     "coordinateLevel": "景区",
-    "coordinateLabel": "恭王府"
+    "coordinateLabel": "恭王府",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "北京-007",
@@ -91,7 +109,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.0151,
     "lng": 116.3964,
     "coordinateLevel": "景区",
-    "coordinateLabel": "奥林匹克公园"
+    "coordinateLabel": "奥林匹克公园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "天津-008",
@@ -104,7 +125,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.1429,
     "lng": 117.2011,
     "coordinateLevel": "景区",
-    "coordinateLabel": "古文化街"
+    "coordinateLabel": "古文化街",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "天津-009",
@@ -117,7 +141,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.0946,
     "lng": 117.2709,
     "coordinateLevel": "景区",
-    "coordinateLabel": "盘山"
+    "coordinateLabel": "盘山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河北-010",
@@ -130,7 +157,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.0068,
     "lng": 119.7692,
     "coordinateLevel": "景区",
-    "coordinateLabel": "山海关"
+    "coordinateLabel": "山海关",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河北-011",
@@ -143,7 +173,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.9418,
     "lng": 115.9688,
     "coordinateLevel": "景区",
-    "coordinateLabel": "白洋淀"
+    "coordinateLabel": "白洋淀",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河北-012",
@@ -156,7 +189,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.986,
     "lng": 117.9393,
     "coordinateLevel": "景区",
-    "coordinateLabel": "避暑山庄"
+    "coordinateLabel": "避暑山庄",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河北-013",
@@ -169,7 +205,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.6721,
     "lng": 115.426,
     "coordinateLevel": "景区",
-    "coordinateLabel": "野三坡"
+    "coordinateLabel": "野三坡",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河北-014",
@@ -182,7 +221,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.3414,
     "lng": 113.9466,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西柏坡"
+    "coordinateLabel": "西柏坡",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山西-015",
@@ -195,7 +237,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.1135,
     "lng": 113.122,
     "coordinateLevel": "景区",
-    "coordinateLabel": "云冈石窟"
+    "coordinateLabel": "云冈石窟",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山西-016",
@@ -208,7 +253,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.0056,
     "lng": 113.5964,
     "coordinateLevel": "景区",
-    "coordinateLabel": "五台山"
+    "coordinateLabel": "五台山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山西-017",
@@ -221,7 +269,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.5144,
     "lng": 112.5862,
     "coordinateLevel": "景区",
-    "coordinateLabel": "皇城相府"
+    "coordinateLabel": "皇城相府",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山西-018",
@@ -234,7 +285,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.8818,
     "lng": 111.9677,
     "coordinateLevel": "景区",
-    "coordinateLabel": "绵山"
+    "coordinateLabel": "绵山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山西-019",
@@ -247,7 +301,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.4073,
     "lng": 112.4517,
     "coordinateLevel": "景区",
-    "coordinateLabel": "乔家大院"
+    "coordinateLabel": "乔家大院",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "内蒙古-020",
@@ -260,7 +317,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.6087,
     "lng": 109.7813,
     "coordinateLevel": "城市",
-    "coordinateLabel": "鄂尔多斯"
+    "coordinateLabel": "鄂尔多斯",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "内蒙古-021",
@@ -273,7 +333,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.3632,
     "lng": 109.7874,
     "coordinateLevel": "景区",
-    "coordinateLabel": "成吉思汗陵"
+    "coordinateLabel": "成吉思汗陵",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "辽宁-022",
@@ -286,7 +349,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 41.866,
     "lng": 123.654,
     "coordinateLevel": "景区",
-    "coordinateLabel": "沈阳市植物园"
+    "coordinateLabel": "沈阳市植物园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "辽宁-023",
@@ -299,7 +365,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.8848,
     "lng": 121.6896,
     "coordinateLevel": "景区",
-    "coordinateLabel": "老虎滩"
+    "coordinateLabel": "老虎滩",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "辽宁-024",
@@ -312,7 +381,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.0838,
     "lng": 121.9961,
     "coordinateLevel": "景区",
-    "coordinateLabel": "金石滩"
+    "coordinateLabel": "金石滩",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "吉林-025",
@@ -325,7 +397,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 43.9042,
     "lng": 125.3483,
     "coordinateLevel": "景区",
-    "coordinateLabel": "伪满皇宫"
+    "coordinateLabel": "伪满皇宫",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "吉林-026",
@@ -338,7 +413,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 42.007,
     "lng": 128.055,
     "coordinateLevel": "景区",
-    "coordinateLabel": "长白山"
+    "coordinateLabel": "长白山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "吉林-027",
@@ -351,7 +429,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 43.7915,
     "lng": 125.4719,
     "coordinateLevel": "景区",
-    "coordinateLabel": "净月潭"
+    "coordinateLabel": "净月潭",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "黑龙江-028",
@@ -364,7 +445,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 45.7927,
     "lng": 126.5891,
     "coordinateLevel": "景区",
-    "coordinateLabel": "太阳岛"
+    "coordinateLabel": "太阳岛",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "黑龙江-029",
@@ -377,7 +461,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 48.6688,
     "lng": 126.1696,
     "coordinateLevel": "景区",
-    "coordinateLabel": "五大连池"
+    "coordinateLabel": "五大连池",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "黑龙江-030",
@@ -390,7 +477,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 44.0489,
     "lng": 128.9249,
     "coordinateLevel": "景区",
-    "coordinateLabel": "镜泊湖"
+    "coordinateLabel": "镜泊湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "黑龙江-031",
@@ -403,7 +493,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 48.4549,
     "lng": 129.4301,
     "coordinateLevel": "景区",
-    "coordinateLabel": "汤旺河"
+    "coordinateLabel": "汤旺河",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "上海-032",
@@ -416,7 +509,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.2397,
     "lng": 121.4997,
     "coordinateLevel": "景区",
-    "coordinateLabel": "东方明珠"
+    "coordinateLabel": "东方明珠",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "上海-033",
@@ -429,7 +525,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.0598,
     "lng": 121.7282,
     "coordinateLevel": "景区",
-    "coordinateLabel": "野生动物园"
+    "coordinateLabel": "野生动物园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "上海-034",
@@ -442,7 +541,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.2206,
     "lng": 121.544,
     "coordinateLevel": "景区",
-    "coordinateLabel": "科技馆"
+    "coordinateLabel": "科技馆",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-035",
@@ -455,7 +557,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.0604,
     "lng": 118.8504,
     "coordinateLevel": "景区",
-    "coordinateLabel": "中山陵"
+    "coordinateLabel": "中山陵",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-036",
@@ -468,7 +573,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.4807,
     "lng": 120.2478,
     "coordinateLevel": "景区",
-    "coordinateLabel": "无锡影视基地"
+    "coordinateLabel": "无锡影视基地",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-037",
@@ -481,7 +589,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.3246,
     "lng": 120.6253,
     "coordinateLevel": "景区",
-    "coordinateLabel": "苏州园林"
+    "coordinateLabel": "苏州园林",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-038",
@@ -494,7 +605,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.116,
     "lng": 120.8463,
     "coordinateLevel": "景区",
-    "coordinateLabel": "周庄"
+    "coordinateLabel": "周庄",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-039",
@@ -507,7 +621,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.4339,
     "lng": 120.0946,
     "coordinateLevel": "景区",
-    "coordinateLabel": "灵山"
+    "coordinateLabel": "灵山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-040",
@@ -520,7 +637,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.0206,
     "lng": 118.7882,
     "coordinateLevel": "景区",
-    "coordinateLabel": "夫子庙"
+    "coordinateLabel": "夫子庙",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-041",
@@ -533,7 +653,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.4127,
     "lng": 119.424,
     "coordinateLevel": "景区",
-    "coordinateLabel": "瘦西湖"
+    "coordinateLabel": "瘦西湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-042",
@@ -546,7 +669,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.158,
     "lng": 120.7176,
     "coordinateLevel": "景区",
-    "coordinateLabel": "同里"
+    "coordinateLabel": "同里",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-043",
@@ -559,7 +685,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.8209,
     "lng": 119.9743,
     "coordinateLevel": "景区",
-    "coordinateLabel": "恐龙城"
+    "coordinateLabel": "恐龙城",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-044",
@@ -572,7 +701,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.5927,
     "lng": 120.1024,
     "coordinateLevel": "景区",
-    "coordinateLabel": "溱湖"
+    "coordinateLabel": "溱湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-045",
@@ -585,7 +717,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.3174,
     "lng": 120.705,
     "coordinateLevel": "景区",
-    "coordinateLabel": "金鸡湖"
+    "coordinateLabel": "金鸡湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-046",
@@ -598,7 +733,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.0155,
     "lng": 120.8646,
     "coordinateLevel": "景区",
-    "coordinateLabel": "濠河"
+    "coordinateLabel": "濠河",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-047",
@@ -611,7 +749,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.1878,
     "lng": 119.425,
     "coordinateLevel": "城市",
-    "coordinateLabel": "镇江"
+    "coordinateLabel": "镇江",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-048",
@@ -624,7 +765,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.5189,
     "lng": 120.2202,
     "coordinateLevel": "景区",
-    "coordinateLabel": "鼋头渚"
+    "coordinateLabel": "鼋头渚",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-049",
@@ -637,7 +781,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.2367,
     "lng": 120.3948,
     "coordinateLevel": "景区",
-    "coordinateLabel": "吴中太湖"
+    "coordinateLabel": "吴中太湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-050",
@@ -650,7 +797,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.3188,
     "lng": 119.4576,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天目湖"
+    "coordinateLabel": "天目湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-051",
@@ -663,7 +813,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.551,
     "lng": 120.8574,
     "coordinateLevel": "景区",
-    "coordinateLabel": "沙家浜"
+    "coordinateLabel": "沙家浜",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江苏-052",
@@ -676,7 +829,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.7841,
     "lng": 119.3009,
     "coordinateLevel": "景区",
-    "coordinateLabel": "茅山"
+    "coordinateLabel": "茅山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-053",
@@ -689,7 +845,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.244,
     "lng": 120.148,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西湖"
+    "coordinateLabel": "西湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-054",
@@ -702,7 +861,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.3787,
     "lng": 121.0626,
     "coordinateLevel": "景区",
-    "coordinateLabel": "雁荡山"
+    "coordinateLabel": "雁荡山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-055",
@@ -715,7 +877,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.0025,
     "lng": 122.3904,
     "coordinateLevel": "景区",
-    "coordinateLabel": "普陀山"
+    "coordinateLabel": "普陀山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-056",
@@ -728,7 +893,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.6015,
     "lng": 119.0436,
     "coordinateLevel": "景区",
-    "coordinateLabel": "千岛湖"
+    "coordinateLabel": "千岛湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-057",
@@ -741,7 +909,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.6877,
     "lng": 121.2679,
     "coordinateLevel": "景区",
-    "coordinateLabel": "溪口"
+    "coordinateLabel": "溪口",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-058",
@@ -754,7 +925,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.746,
     "lng": 120.4904,
     "coordinateLevel": "景区",
-    "coordinateLabel": "乌镇"
+    "coordinateLabel": "乌镇",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-059",
@@ -767,7 +941,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.1542,
     "lng": 120.3256,
     "coordinateLevel": "景区",
-    "coordinateLabel": "横店"
+    "coordinateLabel": "横店",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-060",
@@ -780,7 +957,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.7575,
     "lng": 120.7623,
     "coordinateLevel": "景区",
-    "coordinateLabel": "南湖"
+    "coordinateLabel": "南湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-061",
@@ -793,7 +973,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.2702,
     "lng": 120.0675,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西溪"
+    "coordinateLabel": "西溪",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-062",
@@ -806,7 +989,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.9992,
     "lng": 120.5861,
     "coordinateLevel": "景区",
-    "coordinateLabel": "鲁迅故里"
+    "coordinateLabel": "鲁迅故里",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "浙江-063",
@@ -819,7 +1005,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.1423,
     "lng": 118.4107,
     "coordinateLevel": "景区",
-    "coordinateLabel": "根宫佛国"
+    "coordinateLabel": "根宫佛国",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-064",
@@ -832,7 +1021,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.1318,
     "lng": 118.166,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄山风景区"
+    "coordinateLabel": "黄山风景区",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-065",
@@ -845,7 +1037,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.479,
     "lng": 117.8106,
     "coordinateLevel": "景区",
-    "coordinateLabel": "九华山"
+    "coordinateLabel": "九华山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-066",
@@ -858,7 +1053,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.7338,
     "lng": 116.4585,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天柱山"
+    "coordinateLabel": "天柱山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-067",
@@ -871,7 +1069,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.925,
     "lng": 117.9955,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西递宏村"
+    "coordinateLabel": "西递宏村",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-068",
@@ -884,7 +1085,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.1417,
     "lng": 115.7799,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天堂寨"
+    "coordinateLabel": "天堂寨",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-069",
@@ -897,7 +1101,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.0731,
     "lng": 118.665,
     "coordinateLevel": "景区",
-    "coordinateLabel": "龙川"
+    "coordinateLabel": "龙川",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-070",
@@ -910,7 +1117,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.6267,
     "lng": 116.2767,
     "coordinateLevel": "景区",
-    "coordinateLabel": "八里河"
+    "coordinateLabel": "八里河",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "安徽-071",
@@ -923,7 +1133,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.8663,
     "lng": 118.3369,
     "coordinateLevel": "景区",
-    "coordinateLabel": "古徽州"
+    "coordinateLabel": "古徽州",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-072",
@@ -936,7 +1149,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.4475,
     "lng": 118.0676,
     "coordinateLevel": "景区",
-    "coordinateLabel": "鼓浪屿"
+    "coordinateLabel": "鼓浪屿",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-073",
@@ -949,7 +1165,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.7555,
     "lng": 117.6803,
     "coordinateLevel": "景区",
-    "coordinateLabel": "武夷山"
+    "coordinateLabel": "武夷山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-074",
@@ -962,7 +1181,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.6588,
     "lng": 117.0046,
     "coordinateLevel": "景区",
-    "coordinateLabel": "土楼"
+    "coordinateLabel": "土楼",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-075",
@@ -975,7 +1197,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 26.9008,
     "lng": 117.1764,
     "coordinateLevel": "景区",
-    "coordinateLabel": "泰宁"
+    "coordinateLabel": "泰宁",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-076",
@@ -988,7 +1213,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.1111,
     "lng": 119.0687,
     "coordinateLevel": "景区",
-    "coordinateLabel": "白水洋"
+    "coordinateLabel": "白水洋",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-077",
@@ -1001,7 +1229,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.9581,
     "lng": 118.607,
     "coordinateLevel": "景区",
-    "coordinateLabel": "清源山"
+    "coordinateLabel": "清源山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "福建-078",
@@ -1014,7 +1245,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.106,
     "lng": 120.198,
     "coordinateLevel": "景区",
-    "coordinateLabel": "太姥山"
+    "coordinateLabel": "太姥山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江西-079",
@@ -1027,7 +1261,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.5582,
     "lng": 115.9796,
     "coordinateLevel": "景区",
-    "coordinateLabel": "庐山"
+    "coordinateLabel": "庐山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江西-080",
@@ -1040,7 +1277,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 26.5731,
     "lng": 114.1661,
     "coordinateLevel": "景区",
-    "coordinateLabel": "井冈山"
+    "coordinateLabel": "井冈山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江西-081",
@@ -1053,7 +1293,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.9143,
     "lng": 118.0655,
     "coordinateLevel": "景区",
-    "coordinateLabel": "三清山"
+    "coordinateLabel": "三清山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江西-082",
@@ -1066,7 +1309,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.1152,
     "lng": 116.9993,
     "coordinateLevel": "景区",
-    "coordinateLabel": "龙虎山"
+    "coordinateLabel": "龙虎山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江西-083",
@@ -1079,7 +1325,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.254,
     "lng": 117.861,
     "coordinateLevel": "景区",
-    "coordinateLabel": "婺源"
+    "coordinateLabel": "婺源",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "江西-084",
@@ -1092,7 +1341,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.2688,
     "lng": 117.1784,
     "coordinateLevel": "城市",
-    "coordinateLabel": "景德镇"
+    "coordinateLabel": "景德镇",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-085",
@@ -1105,7 +1357,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.8251,
     "lng": 120.7503,
     "coordinateLevel": "景区",
-    "coordinateLabel": "蓬莱阁"
+    "coordinateLabel": "蓬莱阁",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-086",
@@ -1118,7 +1373,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.5969,
     "lng": 116.9865,
     "coordinateLevel": "景区",
-    "coordinateLabel": "曲阜明故城"
+    "coordinateLabel": "曲阜明故城",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-087",
@@ -1131,7 +1389,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.255,
     "lng": 117.101,
     "coordinateLevel": "景区",
-    "coordinateLabel": "泰山"
+    "coordinateLabel": "泰山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-088",
@@ -1144,7 +1405,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.188,
     "lng": 120.6086,
     "coordinateLevel": "景区",
-    "coordinateLabel": "崂山"
+    "coordinateLabel": "崂山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-089",
@@ -1157,7 +1421,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.5838,
     "lng": 120.5115,
     "coordinateLevel": "景区",
-    "coordinateLabel": "龙口南山"
+    "coordinateLabel": "龙口南山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-090",
@@ -1170,7 +1437,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.5005,
     "lng": 122.1867,
     "coordinateLevel": "景区",
-    "coordinateLabel": "刘公岛"
+    "coordinateLabel": "刘公岛",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-091",
@@ -1183,7 +1453,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.5636,
     "lng": 117.734,
     "coordinateLevel": "景区",
-    "coordinateLabel": "台儿庄"
+    "coordinateLabel": "台儿庄",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-092",
@@ -1196,7 +1469,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.6652,
     "lng": 117.0176,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天下第一泉"
+    "coordinateLabel": "天下第一泉",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "山东-093",
@@ -1209,7 +1485,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.5496,
     "lng": 118.1768,
     "coordinateLevel": "景区",
-    "coordinateLabel": "沂蒙山"
+    "coordinateLabel": "沂蒙山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-094",
@@ -1222,7 +1501,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.5075,
     "lng": 112.935,
     "coordinateLevel": "景区",
-    "coordinateLabel": "少林"
+    "coordinateLabel": "少林",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-095",
@@ -1235,7 +1517,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.5551,
     "lng": 112.4696,
     "coordinateLevel": "景区",
-    "coordinateLabel": "龙门石窟"
+    "coordinateLabel": "龙门石窟",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-096",
@@ -1248,7 +1533,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.421,
     "lng": 113.402,
     "coordinateLevel": "景区",
-    "coordinateLabel": "云台山"
+    "coordinateLabel": "云台山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-097",
@@ -1261,7 +1549,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.8062,
     "lng": 114.343,
     "coordinateLevel": "景区",
-    "coordinateLabel": "清明上河园"
+    "coordinateLabel": "清明上河园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-098",
@@ -1274,7 +1565,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.6668,
     "lng": 111.8424,
     "coordinateLevel": "景区",
-    "coordinateLabel": "白云山景区"
+    "coordinateLabel": "白云山景区",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-099",
@@ -1287,7 +1581,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.1259,
     "lng": 114.3034,
     "coordinateLevel": "景区",
-    "coordinateLabel": "殷墟"
+    "coordinateLabel": "殷墟",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-100",
@@ -1300,7 +1597,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.7662,
     "lng": 113.1927,
     "coordinateLevel": "城市",
-    "coordinateLabel": "平顶山"
+    "coordinateLabel": "平顶山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-101",
@@ -1313,7 +1613,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.7654,
     "lng": 111.6638,
     "coordinateLevel": "景区",
-    "coordinateLabel": "老君山"
+    "coordinateLabel": "老君山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-102",
@@ -1326,7 +1629,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.971,
     "lng": 112.057,
     "coordinateLevel": "景区",
-    "coordinateLabel": "龙潭大峡谷"
+    "coordinateLabel": "龙潭大峡谷",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河南-103",
@@ -1339,7 +1645,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.305,
     "lng": 111.493,
     "coordinateLevel": "景区",
-    "coordinateLabel": "恐龙遗址园"
+    "coordinateLabel": "恐龙遗址园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖南-104",
@@ -1352,7 +1661,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.2537,
     "lng": 112.6873,
     "coordinateLevel": "景区",
-    "coordinateLabel": "衡山"
+    "coordinateLabel": "衡山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖南-105",
@@ -1365,7 +1677,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.345,
     "lng": 110.5504,
     "coordinateLevel": "景区",
-    "coordinateLabel": "武陵源"
+    "coordinateLabel": "武陵源",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖南-106",
@@ -1378,7 +1693,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.3571,
     "lng": 113.091,
     "coordinateLevel": "景区",
-    "coordinateLabel": "岳阳楼"
+    "coordinateLabel": "岳阳楼",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖南-107",
@@ -1391,7 +1709,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.7575,
     "lng": 120.7623,
     "coordinateLevel": "景区",
-    "coordinateLabel": "南湖"
+    "coordinateLabel": "南湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖南-108",
@@ -1404,7 +1725,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.1861,
     "lng": 112.9446,
     "coordinateLevel": "景区",
-    "coordinateLabel": "岳麓山"
+    "coordinateLabel": "岳麓山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖南-109",
@@ -1417,7 +1741,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.0358,
     "lng": 112.646,
     "coordinateLevel": "景区",
-    "coordinateLabel": "花明楼"
+    "coordinateLabel": "花明楼",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-110",
@@ -1430,7 +1757,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.5466,
     "lng": 114.2978,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄鹤楼"
+    "coordinateLabel": "黄鹤楼",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-111",
@@ -1443,7 +1773,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.8236,
     "lng": 111.0038,
     "coordinateLevel": "景区",
-    "coordinateLabel": "三峡大坝"
+    "coordinateLabel": "三峡大坝",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-112",
@@ -1456,7 +1789,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.403,
     "lng": 111.0044,
     "coordinateLevel": "景区",
-    "coordinateLabel": "武当山"
+    "coordinateLabel": "武当山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-113",
@@ -1469,7 +1805,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.788,
     "lng": 111.168,
     "coordinateLevel": "景区",
-    "coordinateLabel": "三峡人家"
+    "coordinateLabel": "三峡人家",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-114",
@@ -1482,7 +1821,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.069,
     "lng": 110.32,
     "coordinateLevel": "景区",
-    "coordinateLabel": "神龙溪"
+    "coordinateLabel": "神龙溪",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-115",
@@ -1495,7 +1837,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.7444,
     "lng": 110.6759,
     "coordinateLevel": "景区",
-    "coordinateLabel": "神农架"
+    "coordinateLabel": "神农架",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-116",
@@ -1508,7 +1853,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.4725,
     "lng": 111.195,
     "coordinateLevel": "景区",
-    "coordinateLabel": "清江画廊"
+    "coordinateLabel": "清江画廊",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-117",
@@ -1521,7 +1869,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.5587,
     "lng": 114.4032,
     "coordinateLevel": "景区",
-    "coordinateLabel": "东湖"
+    "coordinateLabel": "东湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "湖北-118",
@@ -1534,7 +1885,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.0907,
     "lng": 114.3816,
     "coordinateLevel": "景区",
-    "coordinateLabel": "木兰"
+    "coordinateLabel": "木兰",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-119",
@@ -1547,7 +1901,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 23.0051,
     "lng": 113.327,
     "coordinateLevel": "景区",
-    "coordinateLabel": "长隆"
+    "coordinateLabel": "长隆",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-120",
@@ -1560,7 +1917,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.5406,
     "lng": 113.9866,
     "coordinateLevel": "景区",
-    "coordinateLabel": "华侨城"
+    "coordinateLabel": "华侨城",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-121",
@@ -1573,7 +1933,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.7488,
     "lng": 114.0563,
     "coordinateLevel": "景区",
-    "coordinateLabel": "观澜湖"
+    "coordinateLabel": "观澜湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-122",
@@ -1586,7 +1949,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.3696,
     "lng": 116.626,
     "coordinateLevel": "景区",
-    "coordinateLabel": "雁南飞"
+    "coordinateLabel": "雁南飞",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-123",
@@ -1599,7 +1965,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 23.1842,
     "lng": 113.2976,
     "coordinateLevel": "景区",
-    "coordinateLabel": "白云山风景区"
+    "coordinateLabel": "白云山风景区",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-124",
@@ -1612,7 +1981,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.7897,
     "lng": 112.374,
     "coordinateLevel": "景区",
-    "coordinateLabel": "连州地下河"
+    "coordinateLabel": "连州地下河",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-125",
@@ -1625,7 +1997,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.0225,
     "lng": 113.745,
     "coordinateLevel": "景区",
-    "coordinateLabel": "丹霞山"
+    "coordinateLabel": "丹霞山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-126",
@@ -1638,7 +2013,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.9254,
     "lng": 112.9762,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西樵山"
+    "coordinateLabel": "西樵山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-127",
@@ -1651,7 +2029,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.8373,
     "lng": 113.255,
     "coordinateLevel": "景区",
-    "coordinateLabel": "长鹿"
+    "coordinateLabel": "长鹿",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广东-128",
@@ -1664,7 +2045,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 23.2707,
     "lng": 114.0554,
     "coordinateLevel": "景区",
-    "coordinateLabel": "罗浮山"
+    "coordinateLabel": "罗浮山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广西-129",
@@ -1677,7 +2061,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.246,
     "lng": 110.428,
     "coordinateLevel": "景区",
-    "coordinateLabel": "漓江"
+    "coordinateLabel": "漓江",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广西-130",
@@ -1690,7 +2077,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.6079,
     "lng": 110.6701,
     "coordinateLevel": "景区",
-    "coordinateLabel": "乐满地"
+    "coordinateLabel": "乐满地",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广西-131",
@@ -1703,7 +2093,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.2857,
     "lng": 110.2964,
     "coordinateLevel": "景区",
-    "coordinateLabel": "独秀峰"
+    "coordinateLabel": "独秀峰",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "广西-132",
@@ -1716,7 +2109,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.793,
     "lng": 108.389,
     "coordinateLevel": "景区",
-    "coordinateLabel": "青秀山"
+    "coordinateLabel": "青秀山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "海南-133",
@@ -1729,7 +2125,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 18.2925,
     "lng": 109.205,
     "coordinateLevel": "景区",
-    "coordinateLabel": "南山文化"
+    "coordinateLabel": "南山文化",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "海南-134",
@@ -1742,7 +2141,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 18.305,
     "lng": 109.153,
     "coordinateLevel": "景区",
-    "coordinateLabel": "大小洞天"
+    "coordinateLabel": "大小洞天",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "海南-135",
@@ -1755,7 +2157,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 18.443,
     "lng": 109.654,
     "coordinateLevel": "景区",
-    "coordinateLabel": "呀诺达"
+    "coordinateLabel": "呀诺达",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "海南-136",
@@ -1768,7 +2173,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 18.578,
     "lng": 110.194,
     "coordinateLevel": "景区",
-    "coordinateLabel": "分界洲岛"
+    "coordinateLabel": "分界洲岛",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "重庆-137",
@@ -1781,7 +2189,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.7048,
     "lng": 105.8028,
     "coordinateLevel": "景区",
-    "coordinateLabel": "大足石刻"
+    "coordinateLabel": "大足石刻",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "重庆-138",
@@ -1794,7 +2205,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.074,
     "lng": 109.878,
     "coordinateLevel": "景区",
-    "coordinateLabel": "小三峡"
+    "coordinateLabel": "小三峡",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "重庆-139",
@@ -1807,7 +2221,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.398,
     "lng": 107.758,
     "coordinateLevel": "景区",
-    "coordinateLabel": "武隆"
+    "coordinateLabel": "武隆",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "重庆-140",
@@ -1820,7 +2237,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.845,
     "lng": 108.767,
     "coordinateLevel": "景区",
-    "coordinateLabel": "桃花源"
+    "coordinateLabel": "桃花源",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "重庆-141",
@@ -1833,7 +2253,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.912,
     "lng": 106.966,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黑山谷"
+    "coordinateLabel": "黑山谷",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "重庆-142",
@@ -1846,7 +2269,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.031,
     "lng": 107.193,
     "coordinateLevel": "景区",
-    "coordinateLabel": "金佛山"
+    "coordinateLabel": "金佛山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-143",
@@ -1859,7 +2285,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.908,
     "lng": 103.565,
     "coordinateLevel": "景区",
-    "coordinateLabel": "青城山"
+    "coordinateLabel": "青城山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-144",
@@ -1872,7 +2301,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.518,
     "lng": 103.334,
     "coordinateLevel": "景区",
-    "coordinateLabel": "峨眉山"
+    "coordinateLabel": "峨眉山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-145",
@@ -1885,7 +2317,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.2604,
     "lng": 103.9182,
     "coordinateLevel": "景区",
-    "coordinateLabel": "九寨沟"
+    "coordinateLabel": "九寨沟",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-146",
@@ -1898,7 +2333,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.544,
     "lng": 103.773,
     "coordinateLevel": "景区",
-    "coordinateLabel": "乐山大佛"
+    "coordinateLabel": "乐山大佛",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-147",
@@ -1911,7 +2349,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.743,
     "lng": 103.833,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄龙"
+    "coordinateLabel": "黄龙",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-148",
@@ -1924,7 +2365,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.513,
     "lng": 106.633,
     "coordinateLevel": "景区",
-    "coordinateLabel": "邓小平故里"
+    "coordinateLabel": "邓小平故里",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-149",
@@ -1937,7 +2381,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.575,
     "lng": 106.005,
     "coordinateLevel": "景区",
-    "coordinateLabel": "阆中古城"
+    "coordinateLabel": "阆中古城",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-150",
@@ -1950,7 +2397,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.826,
     "lng": 104.445,
     "coordinateLevel": "景区",
-    "coordinateLabel": "北川羌城"
+    "coordinateLabel": "北川羌城",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "四川-151",
@@ -1963,7 +2413,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.476,
     "lng": 103.59,
     "coordinateLevel": "景区",
-    "coordinateLabel": "汶川"
+    "coordinateLabel": "汶川",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "贵州-152",
@@ -1976,7 +2429,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.9894,
     "lng": 105.668,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄果树"
+    "coordinateLabel": "黄果树",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "贵州-153",
@@ -1989,7 +2445,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 26.016,
     "lng": 105.875,
     "coordinateLevel": "景区",
-    "coordinateLabel": "龙宫"
+    "coordinateLabel": "龙宫",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "贵州-154",
@@ -2002,7 +2461,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.178,
     "lng": 105.863,
     "coordinateLevel": "景区",
-    "coordinateLabel": "百里杜鹃"
+    "coordinateLabel": "百里杜鹃",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "云南-155",
@@ -2015,7 +2477,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.817,
     "lng": 103.321,
     "coordinateLevel": "景区",
-    "coordinateLabel": "石林"
+    "coordinateLabel": "石林",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "云南-156",
@@ -2028,7 +2493,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.102,
     "lng": 100.255,
     "coordinateLevel": "景区",
-    "coordinateLabel": "玉龙雪山"
+    "coordinateLabel": "玉龙雪山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "云南-157",
@@ -2041,7 +2509,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.703,
     "lng": 100.148,
     "coordinateLevel": "景区",
-    "coordinateLabel": "崇圣寺"
+    "coordinateLabel": "崇圣寺",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "云南-158",
@@ -2054,7 +2525,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 21.931,
     "lng": 101.25,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西双版纳"
+    "coordinateLabel": "西双版纳",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "云南-159",
@@ -2067,7 +2541,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 26.872,
     "lng": 100.237,
     "coordinateLevel": "景区",
-    "coordinateLabel": "丽江古城"
+    "coordinateLabel": "丽江古城",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "云南-160",
@@ -2080,7 +2557,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.8297,
     "lng": 99.7087,
     "coordinateLevel": "城市",
-    "coordinateLabel": "香格里拉"
+    "coordinateLabel": "香格里拉",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "西藏-161",
@@ -2093,7 +2573,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.6578,
     "lng": 91.1169,
     "coordinateLevel": "景区",
-    "coordinateLabel": "布达拉宫"
+    "coordinateLabel": "布达拉宫",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "西藏-162",
@@ -2106,7 +2589,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.6534,
     "lng": 91.1311,
     "coordinateLevel": "景区",
-    "coordinateLabel": "大昭寺"
+    "coordinateLabel": "大昭寺",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "陕西-163",
@@ -2119,7 +2605,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.3853,
     "lng": 109.2734,
     "coordinateLevel": "景区",
-    "coordinateLabel": "兵马俑"
+    "coordinateLabel": "兵马俑",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "陕西-164",
@@ -2132,7 +2621,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.3667,
     "lng": 109.2128,
     "coordinateLevel": "景区",
-    "coordinateLabel": "华清池"
+    "coordinateLabel": "华清池",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "陕西-165",
@@ -2145,7 +2637,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.584,
     "lng": 109.262,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄帝陵"
+    "coordinateLabel": "黄帝陵",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "陕西-166",
@@ -2158,7 +2653,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.488,
     "lng": 110.09,
     "coordinateLevel": "景区",
-    "coordinateLabel": "华山"
+    "coordinateLabel": "华山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "陕西-167",
@@ -2171,7 +2669,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.2135,
     "lng": 108.976,
     "coordinateLevel": "景区",
-    "coordinateLabel": "大唐芙蓉园"
+    "coordinateLabel": "大唐芙蓉园",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "陕西-168",
@@ -2184,7 +2685,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.4388,
     "lng": 107.896,
     "coordinateLevel": "景区",
-    "coordinateLabel": "法门寺"
+    "coordinateLabel": "法门寺",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "甘肃-169",
@@ -2197,7 +2701,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.8024,
     "lng": 98.2163,
     "coordinateLevel": "景区",
-    "coordinateLabel": "嘉峪关"
+    "coordinateLabel": "嘉峪关",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "甘肃-170",
@@ -2210,7 +2717,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.5504,
     "lng": 106.506,
     "coordinateLevel": "景区",
-    "coordinateLabel": "崆峒山"
+    "coordinateLabel": "崆峒山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "甘肃-171",
@@ -2223,7 +2733,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.3534,
     "lng": 106.0026,
     "coordinateLevel": "景区",
-    "coordinateLabel": "麦积山"
+    "coordinateLabel": "麦积山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "青海-172",
@@ -2236,7 +2749,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.896,
     "lng": 100.243,
     "coordinateLevel": "景区",
-    "coordinateLabel": "青海湖"
+    "coordinateLabel": "青海湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "青海-173",
@@ -2249,7 +2765,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.489,
     "lng": 101.566,
     "coordinateLevel": "景区",
-    "coordinateLabel": "塔尔寺"
+    "coordinateLabel": "塔尔寺",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "宁夏-174",
@@ -2262,7 +2781,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.9841,
     "lng": 106.3833,
     "coordinateLevel": "城市",
-    "coordinateLabel": "石嘴山"
+    "coordinateLabel": "石嘴山",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "宁夏-175",
@@ -2275,7 +2797,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.466,
     "lng": 105.001,
     "coordinateLevel": "景区",
-    "coordinateLabel": "沙坡头"
+    "coordinateLabel": "沙坡头",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "宁夏-176",
@@ -2288,7 +2813,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.619,
     "lng": 106.064,
     "coordinateLevel": "景区",
-    "coordinateLabel": "镇北堡"
+    "coordinateLabel": "镇北堡",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-177",
@@ -2301,7 +2829,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 43.884,
     "lng": 88.13,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天山天池"
+    "coordinateLabel": "天山天池",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-178",
@@ -2314,7 +2845,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 42.951,
     "lng": 89.216,
     "coordinateLevel": "景区",
-    "coordinateLabel": "葡萄沟"
+    "coordinateLabel": "葡萄沟",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-179",
@@ -2327,7 +2861,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 48.704,
     "lng": 87.033,
     "coordinateLevel": "景区",
-    "coordinateLabel": "喀纳斯"
+    "coordinateLabel": "喀纳斯",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-180",
@@ -2340,7 +2877,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 43.235,
     "lng": 84.251,
     "coordinateLevel": "景区",
-    "coordinateLabel": "那拉提"
+    "coordinateLabel": "那拉提",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-181",
@@ -2353,7 +2893,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 47.209,
     "lng": 89.837,
     "coordinateLevel": "景区",
-    "coordinateLabel": "可可托海"
+    "coordinateLabel": "可可托海",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-182",
@@ -2366,7 +2909,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.161,
     "lng": 77.258,
     "coordinateLevel": "景区",
-    "coordinateLabel": "金湖杨"
+    "coordinateLabel": "金湖杨",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-183",
@@ -2379,7 +2925,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 43.488,
     "lng": 87.47,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天山大峡谷"
+    "coordinateLabel": "天山大峡谷",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "新疆-184",
@@ -2392,7 +2941,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 41.993,
     "lng": 87.01,
     "coordinateLevel": "景区",
-    "coordinateLabel": "博斯腾湖"
+    "coordinateLabel": "博斯腾湖",
+    "sourceKey": "mct-official-5a",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "河北-217",
@@ -2407,7 +2959,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.685,
     "lng": 117.245,
     "coordinateLevel": "景区",
-    "coordinateLabel": "金山岭长城景区"
+    "coordinateLabel": "金山岭长城景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "山西-218",
@@ -2422,7 +2978,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.665,
     "lng": 111.173,
     "coordinateLevel": "景区",
-    "coordinateLabel": "云丘山景区"
+    "coordinateLabel": "云丘山景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "江苏-219",
@@ -2437,7 +2997,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.298,
     "lng": 118.228,
     "coordinateLevel": "景区",
-    "coordinateLabel": "洪泽湖湿地景区"
+    "coordinateLabel": "洪泽湖湿地景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "浙江-220",
@@ -2452,7 +3016,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.785,
     "lng": 120.05,
     "coordinateLevel": "景区",
-    "coordinateLabel": "刘伯温故里景区"
+    "coordinateLabel": "刘伯温故里景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "安徽-221",
@@ -2467,7 +3035,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.672,
     "lng": 118.488,
     "coordinateLevel": "景区",
-    "coordinateLabel": "长江采石矶文化生态旅游区"
+    "coordinateLabel": "长江采石矶文化生态旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "福建-222",
@@ -2482,7 +3054,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.067,
     "lng": 119.129,
     "coordinateLevel": "景区",
-    "coordinateLabel": "湄洲岛妈祖文化旅游区"
+    "coordinateLabel": "湄洲岛妈祖文化旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "江西-223",
@@ -2497,7 +3073,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.179,
     "lng": 115.57,
     "coordinateLevel": "景区",
-    "coordinateLabel": "庐山西海景区"
+    "coordinateLabel": "庐山西海景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "山东-224",
@@ -2512,7 +3092,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.79,
     "lng": 118.45,
     "coordinateLevel": "景区",
-    "coordinateLabel": "萤火虫水洞·地下大峡谷旅游区"
+    "coordinateLabel": "萤火虫水洞·地下大峡谷旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "湖北-225",
@@ -2527,7 +3111,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.294,
     "lng": 108.932,
     "coordinateLevel": "景区",
-    "coordinateLabel": "腾龙洞景区"
+    "coordinateLabel": "腾龙洞景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "湖南-226",
@@ -2542,7 +3130,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.804,
     "lng": 111.432,
     "coordinateLevel": "景区",
-    "coordinateLabel": "桃花源旅游区"
+    "coordinateLabel": "桃花源旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "广东-227",
@@ -2557,7 +3149,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.284,
     "lng": 112.566,
     "coordinateLevel": "景区",
-    "coordinateLabel": "开平碉楼文化旅游区"
+    "coordinateLabel": "开平碉楼文化旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "广西-228",
@@ -2572,7 +3168,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 21.025,
     "lng": 109.107,
     "coordinateLevel": "景区",
-    "coordinateLabel": "涠洲岛南湾鳄鱼山景区"
+    "coordinateLabel": "涠洲岛南湾鳄鱼山景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "重庆-229",
@@ -2587,7 +3187,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.335,
     "lng": 108.74,
     "coordinateLevel": "景区",
-    "coordinateLabel": "濯水景区"
+    "coordinateLabel": "濯水景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "四川-230",
@@ -2602,7 +3206,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.613,
     "lng": 106.801,
     "coordinateLevel": "景区",
-    "coordinateLabel": "光雾山旅游景区"
+    "coordinateLabel": "光雾山旅游景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "四川-231",
@@ -2617,7 +3225,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.453,
     "lng": 100.349,
     "coordinateLevel": "景区",
-    "coordinateLabel": "稻城亚丁旅游景区"
+    "coordinateLabel": "稻城亚丁旅游景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "贵州-232",
@@ -2632,7 +3244,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.442,
     "lng": 105.928,
     "coordinateLevel": "景区",
-    "coordinateLabel": "赤水丹霞旅游区"
+    "coordinateLabel": "赤水丹霞旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "云南-233",
@@ -2647,7 +3263,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.118,
     "lng": 104.125,
     "coordinateLevel": "景区",
-    "coordinateLabel": "普者黑旅游景区"
+    "coordinateLabel": "普者黑旅游景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "陕西-234",
@@ -2662,7 +3282,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.298,
     "lng": 108.963,
     "coordinateLevel": "景区",
-    "coordinateLabel": "大明宫旅游景区"
+    "coordinateLabel": "大明宫旅游景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "甘肃-235",
@@ -2677,7 +3301,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.78,
     "lng": 103.309,
     "coordinateLevel": "景区",
-    "coordinateLabel": "炳灵寺世界文化遗产旅游区"
+    "coordinateLabel": "炳灵寺世界文化遗产旅游区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "青海-236",
@@ -2692,7 +3320,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 38.177,
     "lng": 100.245,
     "coordinateLevel": "景区",
-    "coordinateLabel": "阿咪东索景区"
+    "coordinateLabel": "阿咪东索景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "新疆-237",
@@ -2707,7 +3339,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 46.002,
     "lng": 85.733,
     "coordinateLevel": "景区",
-    "coordinateLabel": "世界魔鬼城景区"
+    "coordinateLabel": "世界魔鬼城景区",
+    "sourceKey": "mct-2020-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html"
   },
   {
     "id": "新疆-238",
@@ -2722,7 +3358,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 44.583,
     "lng": 81.167,
     "coordinateLevel": "景区",
-    "coordinateLabel": "赛里木湖景区"
+    "coordinateLabel": "赛里木湖景区",
+    "sourceKey": "mct-2021-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202105/t20210512_924422.html"
   },
   {
     "id": "新疆生产建设兵团-239",
@@ -2737,7 +3377,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 40.542,
     "lng": 81.281,
     "coordinateLevel": "景区",
-    "coordinateLabel": "塔克拉玛干·三五九旅文化旅游区"
+    "coordinateLabel": "塔克拉玛干·三五九旅文化旅游区",
+    "sourceKey": "mct-2021-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202105/t20210512_924422.html"
   },
   {
     "id": "上海-240",
@@ -2752,7 +3396,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.226,
     "lng": 121.475,
     "coordinateLevel": "景区",
-    "coordinateLabel": "中国共产党一大·二大·四大纪念馆景区"
+    "coordinateLabel": "中国共产党一大·二大·四大纪念馆景区",
+    "sourceKey": "mct-2021-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202106/t20210611_925193.html"
   },
   {
     "id": "湖南-241",
@@ -2767,7 +3415,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.336,
     "lng": 109.598,
     "coordinateLevel": "景区",
-    "coordinateLabel": "矮寨·十八洞·德夯大峡谷景区"
+    "coordinateLabel": "矮寨·十八洞·德夯大峡谷景区",
+    "sourceKey": "mct-2021-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202106/t20210611_925193.html"
   },
   {
     "id": "陕西-242",
@@ -2782,7 +3434,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.142,
     "lng": 110.444,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄河壶口瀑布旅游区"
+    "coordinateLabel": "黄河壶口瀑布旅游区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "浙江-243",
@@ -2797,7 +3453,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.853,
     "lng": 121.131,
     "coordinateLevel": "景区",
-    "coordinateLabel": "台州府城文化旅游区"
+    "coordinateLabel": "台州府城文化旅游区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "江西-244",
@@ -2812,7 +3472,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.087,
     "lng": 115.404,
     "coordinateLevel": "景区",
-    "coordinateLabel": "三百山景区"
+    "coordinateLabel": "三百山景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "山东-245",
@@ -2827,7 +3491,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.708,
     "lng": 117.128,
     "coordinateLevel": "景区",
-    "coordinateLabel": "微山湖旅游区"
+    "coordinateLabel": "微山湖旅游区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "河南-246",
@@ -2842,7 +3510,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.811,
     "lng": 114.085,
     "coordinateLevel": "景区",
-    "coordinateLabel": "鸡公山景区"
+    "coordinateLabel": "鸡公山景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "湖北-247",
@@ -2857,7 +3529,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.878,
     "lng": 111.286,
     "coordinateLevel": "景区",
-    "coordinateLabel": "三峡大瀑布景区"
+    "coordinateLabel": "三峡大瀑布景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "广西-248",
@@ -2872,7 +3548,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.244,
     "lng": 111.197,
     "coordinateLevel": "景区",
-    "coordinateLabel": "黄姚古镇景区"
+    "coordinateLabel": "黄姚古镇景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "重庆-249",
@@ -2887,7 +3567,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.045,
     "lng": 109.571,
     "coordinateLevel": "景区",
-    "coordinateLabel": "白帝城·瞿塘峡景区"
+    "coordinateLabel": "白帝城·瞿塘峡景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "四川-250",
@@ -2902,7 +3586,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.508,
     "lng": 103.624,
     "coordinateLevel": "景区",
-    "coordinateLabel": "安仁古镇景区"
+    "coordinateLabel": "安仁古镇景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "贵州-251",
@@ -2917,7 +3605,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 26.78,
     "lng": 105.894,
     "coordinateLevel": "景区",
-    "coordinateLabel": "织金洞景区"
+    "coordinateLabel": "织金洞景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "甘肃-252",
@@ -2932,7 +3624,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.918,
     "lng": 104.343,
     "coordinateLevel": "景区",
-    "coordinateLabel": "官鹅沟景区"
+    "coordinateLabel": "官鹅沟景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "新疆-253",
@@ -2947,7 +3643,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 43.831,
     "lng": 89.772,
     "coordinateLevel": "景区",
-    "coordinateLabel": "江布拉克景区"
+    "coordinateLabel": "江布拉克景区",
+    "sourceKey": "mct-2022-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html"
   },
   {
     "id": "北京-254",
@@ -2962,7 +3662,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.901,
     "lng": 116.665,
     "coordinateLevel": "景区",
-    "coordinateLabel": "北京（通州）大运河文化旅游景区"
+    "coordinateLabel": "北京（通州）大运河文化旅游景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "河北-255",
@@ -2977,7 +3681,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.605,
     "lng": 118.18,
     "coordinateLevel": "景区",
-    "coordinateLabel": "南湖·开滦旅游景区"
+    "coordinateLabel": "南湖·开滦旅游景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "内蒙古-256",
@@ -2992,7 +3700,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 49.353,
     "lng": 119.758,
     "coordinateLevel": "景区",
-    "coordinateLabel": "呼伦贝尔大草原·莫尔格勒河景区"
+    "coordinateLabel": "呼伦贝尔大草原·莫尔格勒河景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "辽宁-257",
@@ -3007,7 +3719,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 41.297,
     "lng": 125.402,
     "coordinateLevel": "景区",
-    "coordinateLabel": "五女山景区"
+    "coordinateLabel": "五女山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "吉林-258",
@@ -3022,7 +3738,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 45.236,
     "lng": 124.254,
     "coordinateLevel": "景区",
-    "coordinateLabel": "前郭查干湖景区"
+    "coordinateLabel": "前郭查干湖景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "上海-259",
@@ -3037,7 +3757,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.738,
     "lng": 121.258,
     "coordinateLevel": "景区",
-    "coordinateLabel": "西沙明珠湖景区"
+    "coordinateLabel": "西沙明珠湖景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "江苏-260",
@@ -3052,7 +3776,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.761,
     "lng": 119.487,
     "coordinateLevel": "景区",
-    "coordinateLabel": "连岛景区"
+    "coordinateLabel": "连岛景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "浙江-261",
@@ -3067,7 +3795,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 28.096,
     "lng": 119.475,
     "coordinateLevel": "景区",
-    "coordinateLabel": "云和梯田景区"
+    "coordinateLabel": "云和梯田景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "安徽-262",
@@ -3082,7 +3814,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 32.309,
     "lng": 118.296,
     "coordinateLevel": "景区",
-    "coordinateLabel": "琅琊山景区"
+    "coordinateLabel": "琅琊山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "福建-263",
@@ -3097,7 +3833,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 24.448,
     "lng": 118.104,
     "coordinateLevel": "景区",
-    "coordinateLabel": "厦门园林植物园景区"
+    "coordinateLabel": "厦门园林植物园景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "山东-264",
@@ -3112,7 +3852,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.06,
     "lng": 120.387,
     "coordinateLevel": "景区",
-    "coordinateLabel": "奥帆海洋文化旅游区"
+    "coordinateLabel": "奥帆海洋文化旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "河南-265",
@@ -3127,7 +3871,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 33.732,
     "lng": 114.883,
     "coordinateLevel": "景区",
-    "coordinateLabel": "太昊伏羲陵文化旅游区"
+    "coordinateLabel": "太昊伏羲陵文化旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "湖北-266",
@@ -3142,7 +3890,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.169,
     "lng": 112.629,
     "coordinateLevel": "景区",
-    "coordinateLabel": "明显陵文化旅游景区"
+    "coordinateLabel": "明显陵文化旅游景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "湖南-267",
@@ -3157,7 +3909,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 27.948,
     "lng": 109.599,
     "coordinateLevel": "景区",
-    "coordinateLabel": "凤凰古城旅游区"
+    "coordinateLabel": "凤凰古城旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "广西-268",
@@ -3172,7 +3928,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.794,
     "lng": 109.613,
     "coordinateLevel": "景区",
-    "coordinateLabel": "程阳八寨景区"
+    "coordinateLabel": "程阳八寨景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "海南-269",
@@ -3187,7 +3947,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 18.298,
     "lng": 109.346,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天涯海角游览区"
+    "coordinateLabel": "天涯海角游览区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "重庆-270",
@@ -3202,7 +3966,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.68,
     "lng": 107.596,
     "coordinateLevel": "景区",
-    "coordinateLabel": "武陵山大裂谷景区"
+    "coordinateLabel": "武陵山大裂谷景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "四川-271",
@@ -3217,7 +3985,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.103,
     "lng": 102.902,
     "coordinateLevel": "景区",
-    "coordinateLabel": "四姑娘山景区"
+    "coordinateLabel": "四姑娘山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "云南-272",
@@ -3232,7 +4004,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.018,
     "lng": 98.457,
     "coordinateLevel": "景区",
-    "coordinateLabel": "和顺古镇景区"
+    "coordinateLabel": "和顺古镇景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "陕西-273",
@@ -3247,7 +4023,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.821,
     "lng": 110.256,
     "coordinateLevel": "景区",
-    "coordinateLabel": "延川黄河乾坤湾景区"
+    "coordinateLabel": "延川黄河乾坤湾景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "宁夏-274",
@@ -3262,7 +4042,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.892,
     "lng": 105.999,
     "coordinateLevel": "景区",
-    "coordinateLabel": "青铜峡黄河大峡谷旅游区"
+    "coordinateLabel": "青铜峡黄河大峡谷旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
   },
   {
     "id": "河北-275",
@@ -3277,7 +4061,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.617,
     "lng": 115.69,
     "coordinateLevel": "景区",
-    "coordinateLabel": "衡水湖旅游景区"
+    "coordinateLabel": "衡水湖旅游景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "山西-276",
@@ -3292,7 +4080,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 37.708,
     "lng": 112.436,
     "coordinateLevel": "景区",
-    "coordinateLabel": "晋祠天龙山景区"
+    "coordinateLabel": "晋祠天龙山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "内蒙古-277",
@@ -3307,7 +4099,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 39.668,
     "lng": 111.174,
     "coordinateLevel": "景区",
-    "coordinateLabel": "老牛湾黄河大峡谷旅游区"
+    "coordinateLabel": "老牛湾黄河大峡谷旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "吉林-278",
@@ -3322,7 +4118,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 45.51,
     "lng": 124.292,
     "coordinateLevel": "景区",
-    "coordinateLabel": "大安嫩江湾旅游区"
+    "coordinateLabel": "大安嫩江湾旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "黑龙江-279",
@@ -3337,7 +4137,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 47.21,
     "lng": 124.243,
     "coordinateLevel": "景区",
-    "coordinateLabel": "扎龙生态旅游区"
+    "coordinateLabel": "扎龙生态旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "浙江-280",
@@ -3352,7 +4156,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.208,
     "lng": 119.615,
     "coordinateLevel": "景区",
-    "coordinateLabel": "双龙风景旅游区"
+    "coordinateLabel": "双龙风景旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "山东-281",
@@ -3367,7 +4175,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 36.804,
     "lng": 117.85,
     "coordinateLevel": "景区",
-    "coordinateLabel": "周村古商城景区"
+    "coordinateLabel": "周村古商城景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "江西-282",
@@ -3382,7 +4194,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 29.353,
     "lng": 118.127,
     "coordinateLevel": "景区",
-    "coordinateLabel": "篁岭景区"
+    "coordinateLabel": "篁岭景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "河南-283",
@@ -3397,7 +4213,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.526,
     "lng": 113.617,
     "coordinateLevel": "景区",
-    "coordinateLabel": "宝泉旅游区"
+    "coordinateLabel": "宝泉旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "湖北-284",
@@ -3412,7 +4232,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 31.163,
     "lng": 115.114,
     "coordinateLevel": "景区",
-    "coordinateLabel": "麻城龟峰山景区"
+    "coordinateLabel": "麻城龟峰山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "广东-285",
@@ -3427,7 +4251,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 23.789,
     "lng": 114.564,
     "coordinateLevel": "景区",
-    "coordinateLabel": "万绿湖风景区"
+    "coordinateLabel": "万绿湖风景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "福建-286",
@@ -3442,7 +4270,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.721,
     "lng": 116.754,
     "coordinateLevel": "景区",
-    "coordinateLabel": "冠豸山景区"
+    "coordinateLabel": "冠豸山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "广西-287",
@@ -3457,7 +4289,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 22.258,
     "lng": 107.019,
     "coordinateLevel": "景区",
-    "coordinateLabel": "花山岩画景区"
+    "coordinateLabel": "花山岩画景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "四川-288",
@@ -3472,7 +4308,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 30.312,
     "lng": 103.209,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天台山景区"
+    "coordinateLabel": "天台山景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "贵州-289",
@@ -3487,7 +4327,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 25.031,
     "lng": 104.895,
     "coordinateLevel": "景区",
-    "coordinateLabel": "万峰林景区"
+    "coordinateLabel": "万峰林景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "陕西-290",
@@ -3502,7 +4346,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.577,
     "lng": 108.216,
     "coordinateLevel": "景区",
-    "coordinateLabel": "乾陵景区"
+    "coordinateLabel": "乾陵景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "甘肃-291",
@@ -3517,7 +4365,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 34.998,
     "lng": 103.454,
     "coordinateLevel": "景区",
-    "coordinateLabel": "冶力关旅游区"
+    "coordinateLabel": "冶力关旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "宁夏-292",
@@ -3532,7 +4384,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 35.669,
     "lng": 106.193,
     "coordinateLevel": "景区",
-    "coordinateLabel": "六盘山红军长征旅游区"
+    "coordinateLabel": "六盘山红军长征旅游区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "新疆-293",
@@ -3547,7 +4403,11 @@ window.CHINA_5A_ATTRACTIONS = [
     "lat": 41.76,
     "lng": 80.13,
     "coordinateLevel": "景区",
-    "coordinateLabel": "天山托木尔景区"
+    "coordinateLabel": "天山托木尔景区",
+    "sourceKey": "mct-2024-announcements",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending",
+    "sourceUrl": "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html"
   },
   {
     "id": "台湾-185",
@@ -3560,7 +4420,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.54849,
     "coordinateLevel": "景区",
     "coordinateLabel": "台北故宫",
-    "basis": "对标5A：台湾代表性博物馆与国际级文化地标"
+    "basis": "对标5A：台湾代表性博物馆与国际级文化地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-186",
@@ -3573,7 +4436,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.56447,
     "coordinateLevel": "景区",
     "coordinateLabel": "台北101",
-    "basis": "对标5A：台湾代表性城市地标"
+    "basis": "对标5A：台湾代表性城市地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-187",
@@ -3586,7 +4452,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.52183,
     "coordinateLevel": "景区",
     "coordinateLabel": "中正纪念堂",
-    "basis": "对标5A：台湾代表性历史文化地标"
+    "basis": "对标5A：台湾代表性历史文化地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-188",
@@ -3599,7 +4468,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.56374,
     "coordinateLevel": "景区",
     "coordinateLabel": "阳明山",
-    "basis": "对标5A：国家公园级自然景区"
+    "basis": "对标5A：国家公园级自然景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-189",
@@ -3612,7 +4484,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.69003,
     "coordinateLevel": "景区",
     "coordinateLabel": "野柳",
-    "basis": "对标5A：北海岸及观音山国家风景区代表性景点"
+    "basis": "对标5A：北海岸及观音山国家风景区代表性景点",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-190",
@@ -3625,7 +4500,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.62147,
     "coordinateLevel": "景区",
     "coordinateLabel": "太鲁阁",
-    "basis": "对标5A：国家公园级峡谷景观"
+    "basis": "对标5A：国家公园级峡谷景观",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-191",
@@ -3638,7 +4516,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 120.91592,
     "coordinateLevel": "景区",
     "coordinateLabel": "日月潭",
-    "basis": "对标5A：台湾交通部观光署国家风景区"
+    "basis": "对标5A：台湾交通部观光署国家风景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-192",
@@ -3651,7 +4532,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 120.80503,
     "coordinateLevel": "景区",
     "coordinateLabel": "阿里山",
-    "basis": "对标5A：台湾交通部观光署国家风景区"
+    "basis": "对标5A：台湾交通部观光署国家风景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-193",
@@ -3664,7 +4548,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 120.95725,
     "coordinateLevel": "景区",
     "coordinateLabel": "玉山",
-    "basis": "对标5A：国家公园级高山景区"
+    "basis": "对标5A：国家公园级高山景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-194",
@@ -3677,7 +4564,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 120.77975,
     "coordinateLevel": "景区",
     "coordinateLabel": "垦丁",
-    "basis": "对标5A：国家公园级海岸景区"
+    "basis": "对标5A：国家公园级海岸景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-195",
@@ -3690,7 +4580,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 119.57932,
     "coordinateLevel": "景区",
     "coordinateLabel": "澎湖",
-    "basis": "对标5A：台湾交通部观光署国家风景区"
+    "basis": "对标5A：台湾交通部观光署国家风景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-196",
@@ -3703,7 +4596,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.41138,
     "coordinateLevel": "景区",
     "coordinateLabel": "三仙台",
-    "basis": "对标5A：台湾交通部观光署国家风景区代表性景点"
+    "basis": "对标5A：台湾交通部观光署国家风景区代表性景点",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-197",
@@ -3716,7 +4612,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.84519,
     "coordinateLevel": "景区",
     "coordinateLabel": "九份",
-    "basis": "对标5A：台湾代表性历史街区与山城景观"
+    "basis": "对标5A：台湾代表性历史街区与山城景观",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-198",
@@ -3729,7 +4628,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 120.44544,
     "coordinateLevel": "景区",
     "coordinateLabel": "佛光山",
-    "basis": "对标5A：台湾代表性宗教文化景区"
+    "basis": "对标5A：台湾代表性宗教文化景区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-199",
@@ -3742,7 +4644,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 120.16044,
     "coordinateLevel": "景区",
     "coordinateLabel": "安平古堡",
-    "basis": "对标5A：台湾代表性历史遗迹"
+    "basis": "对标5A：台湾代表性历史遗迹",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "台湾-200",
@@ -3755,7 +4660,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 121.43265,
     "coordinateLevel": "景区",
     "coordinateLabel": "红毛城",
-    "basis": "对标5A：台湾代表性历史建筑群"
+    "basis": "对标5A：台湾代表性历史建筑群",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-201",
@@ -3768,7 +4676,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.14553,
     "coordinateLevel": "景区",
     "coordinateLabel": "太平山顶",
-    "basis": "对标5A：香港旅发局重点城市景观地标"
+    "basis": "对标5A：香港旅发局重点城市景观地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-202",
@@ -3781,7 +4692,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.17417,
     "coordinateLevel": "景区",
     "coordinateLabel": "维多利亚港",
-    "basis": "对标5A：香港代表性海港景观"
+    "basis": "对标5A：香港代表性海港景观",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-203",
@@ -3794,7 +4708,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.90501,
     "coordinateLevel": "景区",
     "coordinateLabel": "天坛大佛",
-    "basis": "对标5A：香港旅发局重点宗教文化地标"
+    "basis": "对标5A：香港旅发局重点宗教文化地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-204",
@@ -3807,7 +4724,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.04125,
     "coordinateLevel": "景区",
     "coordinateLabel": "香港迪士尼",
-    "basis": "对标5A：国际级主题乐园"
+    "basis": "对标5A：国际级主题乐园",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-205",
@@ -3820,7 +4740,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.17503,
     "coordinateLevel": "景区",
     "coordinateLabel": "海洋公园",
-    "basis": "对标5A：香港代表性主题公园"
+    "basis": "对标5A：香港代表性主题公园",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-206",
@@ -3833,7 +4756,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.3491,
     "coordinateLevel": "景区",
     "coordinateLabel": "香港地质公园",
-    "basis": "对标5A：联合国教科文组织世界地质公园"
+    "basis": "对标5A：联合国教科文组织世界地质公园",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-207",
@@ -3846,7 +4772,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.19379,
     "coordinateLevel": "景区",
     "coordinateLabel": "黄大仙祠",
-    "basis": "对标5A：香港代表性宗教文化景点"
+    "basis": "对标5A：香港代表性宗教文化景点",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "香港-208",
@@ -3859,7 +4788,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 114.15627,
     "coordinateLevel": "景区",
     "coordinateLabel": "西九文化区",
-    "basis": "对标5A：香港代表性文化博物馆片区"
+    "basis": "对标5A：香港代表性文化博物馆片区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-209",
@@ -3872,7 +4804,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.54092,
     "coordinateLevel": "景区",
     "coordinateLabel": "大三巴",
-    "basis": "对标5A：澳门政府旅游局世界遗产核心片区"
+    "basis": "对标5A：澳门政府旅游局世界遗产核心片区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-210",
@@ -3885,7 +4820,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.53188,
     "coordinateLevel": "景区",
     "coordinateLabel": "妈阁庙",
-    "basis": "对标5A：澳门世界遗产代表性宗教建筑"
+    "basis": "对标5A：澳门世界遗产代表性宗教建筑",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-211",
@@ -3898,7 +4836,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.54998,
     "coordinateLevel": "景区",
     "coordinateLabel": "东望洋灯塔",
-    "basis": "对标5A：澳门世界遗产代表性历史地标"
+    "basis": "对标5A：澳门世界遗产代表性历史地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-212",
@@ -3911,7 +4852,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.53647,
     "coordinateLevel": "景区",
     "coordinateLabel": "澳门旅游塔",
-    "basis": "对标5A：澳门政府旅游局重点现代地标"
+    "basis": "对标5A：澳门政府旅游局重点现代地标",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-213",
@@ -3924,7 +4868,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.56183,
     "coordinateLevel": "景区",
     "coordinateLabel": "威尼斯人澳门",
-    "basis": "对标5A：澳门代表性综合旅游度假区"
+    "basis": "对标5A：澳门代表性综合旅游度假区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-214",
@@ -3937,7 +4884,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.55853,
     "coordinateLevel": "景区",
     "coordinateLabel": "龙环葡韵",
-    "basis": "对标5A：澳门代表性历史住宅博物馆片区"
+    "basis": "对标5A：澳门代表性历史住宅博物馆片区",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-215",
@@ -3950,7 +4900,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.57516,
     "coordinateLevel": "景区",
     "coordinateLabel": "黑沙海滩",
-    "basis": "对标5A：澳门代表性自然休闲景点"
+    "basis": "对标5A：澳门代表性自然休闲景点",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   },
   {
     "id": "澳门-216",
@@ -3963,7 +4916,10 @@ window.CHINA_5A_ATTRACTIONS = [
     "lng": 113.55806,
     "coordinateLevel": "景区",
     "coordinateLabel": "澳门大熊猫馆",
-    "basis": "对标5A：澳门政府旅游局家庭与生态游重点景点"
+    "basis": "对标5A：澳门政府旅游局家庭与生态游重点景点",
+    "sourceKey": "peer-curated",
+    "dataUpdated": "2026-06",
+    "coordinateAuditStatus": "pending"
   }
 ];
 window.CHINA_5A_META = {
@@ -3983,6 +4939,6 @@ window.CHINA_5A_META = {
     2022,
     2024
   ],
-  "source": "China-5A-tourist-attraction.md + MCT official 5A announcements 2020-2024 + peer-5A manual additions",
-  "generatedAt": "2026-05-21T05:46:08.666Z"
+  "source": "China-5A-tourist-attraction.md + recent official announcement source index + peer-5A manual additions",
+  "generatedAt": "2026-06-14T03:22:05.445Z"
 };

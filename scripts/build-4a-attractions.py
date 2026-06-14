@@ -20,6 +20,7 @@ OUT_FILE = ROOT / "data" / "attractions-4a.js"
 WIKI_4A_URL = "https://zh.wikipedia.org/wiki/%E5%9B%BD%E5%AE%B64A%E7%BA%A7%E6%97%85%E6%B8%B8%E6%99%AF%E5%8C%BA"
 CITY_GEO_URL = "https://raw.githubusercontent.com/88250/city-geo/master/data.json"
 USER_AGENT = "ChinaTravelMap/1.0 (https://github.com/marksui/China-Travel-Map)"
+DATA_UPDATED = "2026-06"
 
 
 MANUAL_LOCATION_OVERRIDES = {
@@ -265,6 +266,8 @@ def build_rows(html: str, city_geo: list[dict]) -> list[dict]:
                 "rating": "official4A",
                 "ratingLabel": "国家4A",
                 "basis": "开放名录：国家4A级旅游景区",
+                "sourceKey": "open-4a-list",
+                "dataUpdated": DATA_UPDATED,
                 "province": province,
                 "city": location,
                 "name": name,
@@ -273,12 +276,21 @@ def build_rows(html: str, city_geo: list[dict]) -> list[dict]:
                 "lng": round(lng, 6),
                 "coordinateLevel": coordinate_level,
                 "coordinateLabel": coordinate_label,
+                "coordinateAuditStatus": coordinate_audit_status(coordinate_level),
             }
             if year is None:
                 row.pop("year")
             rows.append(row)
 
     return rows
+
+
+def coordinate_audit_status(level: str) -> str:
+    if level == "景区":
+        return "corrected"
+    if level == "区县":
+        return "review"
+    return "pending"
 
 
 def write_js(rows: list[dict]) -> None:

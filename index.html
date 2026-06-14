@@ -19,7 +19,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260525-01" />
+    <link rel="stylesheet" href="styles.css?v=20260613-11" />
   </head>
   <body class="control-panel-closed">
     <div class="app-shell">
@@ -57,6 +57,14 @@
           <button class="nav-button" id="toggleDistribution" type="button" aria-expanded="false">
             <i data-lucide="map" aria-hidden="true"></i>
             <span data-i18n="mapGuide">地图说明</span>
+          </button>
+          <button class="nav-button" id="toggleImageReview" type="button" aria-expanded="false">
+            <i data-lucide="image" aria-hidden="true"></i>
+            <span data-i18n="imageReview">图片审核</span>
+          </button>
+          <button class="nav-button" id="toggleMaintenance" type="button" aria-expanded="false">
+            <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+            <span data-i18n="maintenancePanel">维护</span>
           </button>
           <select class="language-select" id="languageSelect" aria-label="语言" data-i18n-aria-label="language">
             <option value="zh-CN">简体</option>
@@ -121,6 +129,29 @@
             </div>
           </div>
           <div class="panel-heading compact">
+            <strong data-i18n="trustMetrics">可信度概览</strong>
+            <span id="trustMetricCaption">-</span>
+          </div>
+          <div class="trust-metrics" aria-label="可信度概览" data-i18n-aria-label="trustMetrics">
+            <div>
+              <span id="trustExactStat">0</span>
+              <small data-i18n="trustExact">精确坐标</small>
+            </div>
+            <div>
+              <span id="trustApproxStat">0</span>
+              <small data-i18n="trustApprox">参考坐标</small>
+            </div>
+            <div>
+              <span id="trustImageStat">0</span>
+              <small data-i18n="trustImages">本地图片</small>
+            </div>
+            <div>
+              <span id="trustReviewStat">0</span>
+              <small data-i18n="trustReviewed">审核记录</small>
+            </div>
+          </div>
+          <div class="trust-progress" id="trustProgressList" aria-label="可信度进度" data-i18n-aria-label="trustProgressTitle"></div>
+          <div class="panel-heading compact">
             <strong data-i18n="regionalHeat">地区热度</strong>
             <span data-i18n="clickToFilter">点击可筛选</span>
           </div>
@@ -137,6 +168,8 @@
             src="assets/images/fallback.jpg"
             alt="慕田峪长城全景"
             data-i18n-alt="featureAlt"
+            loading="lazy"
+            decoding="async"
           />
           <figcaption>
             <span data-i18n="featureCaption">慕田峪长城全景</span>
@@ -187,6 +220,50 @@
               <button type="button" data-rating-filter="official4A" aria-pressed="false" data-i18n="levelOfficial4A">4A</button>
               <button class="active" type="button" data-rating-filter="peer5A" aria-pressed="true" data-i18n="levelPeer5A">对标</button>
             </div>
+            <p class="filter-hint hidden" id="fourANotice" data-i18n="fourANotice">4A 点位较密，请选择省份、搜索景点或放大地图后显示。</p>
+          </div>
+          <div class="field-grid">
+            <label class="field-label" for="categorySelect" data-i18n="categoryLabel">类型</label>
+            <select id="categorySelect"></select>
+          </div>
+          <div class="field-grid">
+            <label class="field-label" for="themeSelect" data-i18n="themeLabel">主题</label>
+            <select id="themeSelect"></select>
+          </div>
+          <div class="field-grid">
+            <label class="field-label" for="seasonSelect" data-i18n="seasonLabel">季节</label>
+            <select id="seasonSelect"></select>
+          </div>
+        </section>
+
+        <section class="inspiration-panel" aria-label="旅行灵感" data-i18n-aria-label="inspirationAria">
+          <div class="panel-heading compact">
+            <strong data-i18n="inspirationTitle">旅行灵感</strong>
+            <span id="inspirationCaption">-</span>
+          </div>
+          <div class="inspiration-actions">
+            <button class="text-button" id="randomAttraction" type="button">
+              <i data-lucide="shuffle" aria-hidden="true"></i>
+              <span data-i18n="randomAttraction">随机发现</span>
+            </button>
+            <button class="text-button" id="randomRegion" type="button">
+              <i data-lucide="map-pin" aria-hidden="true"></i>
+              <span data-i18n="randomRegion">随机地区</span>
+            </button>
+            <button class="text-button" id="buildRoute" type="button">
+              <i data-lucide="route" aria-hidden="true"></i>
+              <span data-i18n="buildRoute">生成路线</span>
+            </button>
+          </div>
+          <div class="inspiration-route" id="inspirationRoute">
+            <p class="empty-state" data-i18n="routeEmpty">选择主题或季节后生成一条路线</p>
+          </div>
+          <div class="favorites-block">
+            <div class="panel-heading compact">
+              <strong data-i18n="favoritesTitle">收藏清单</strong>
+              <span id="favoriteCount">0</span>
+            </div>
+            <div class="favorite-list" id="favoriteList"></div>
           </div>
         </section>
 
@@ -211,12 +288,15 @@
         <p class="eyebrow" id="detailProvince">选择景点</p>
         <h2 id="detailName">在地图或列表中选择一个景点</h2>
         <p class="detail-description" id="detailDescription"></p>
+        <div class="detail-trust-checks" id="detailTrustChecks" aria-live="polite" hidden></div>
         <figure class="detail-visual">
           <img
             id="detailImage"
             src="assets/images/fallback.jpg"
             alt="景点图片"
             data-i18n-alt="scenicImageAlt"
+            loading="lazy"
+            decoding="async"
           />
           <figcaption>
             <a
@@ -234,8 +314,24 @@
             <dd id="detailYear">-</dd>
           </div>
           <div>
+            <dt data-i18n="coordinatePrecision">坐标精度</dt>
+            <dd id="detailCoordinatePrecision">-</dd>
+          </div>
+          <div>
+            <dt data-i18n="dataSource">数据来源</dt>
+            <dd id="detailDataSource">-</dd>
+          </div>
+          <div>
+            <dt data-i18n="dataUpdated">更新时间</dt>
+            <dd id="detailDataUpdated">-</dd>
+          </div>
+          <div>
+            <dt data-i18n="auditStatus">校正状态</dt>
+            <dd id="detailAuditStatus">-</dd>
+          </div>
+          <div>
             <dt data-i18n="footprint">占地范围</dt>
-            <dd id="detailPrecision">-</dd>
+            <dd id="detailFootprint">-</dd>
           </div>
         </dl>
         <div class="detail-actions">
@@ -246,6 +342,10 @@
           <button class="text-button" id="filterProvince" type="button" disabled>
             <i data-lucide="list-filter" aria-hidden="true"></i>
             <span data-i18n="sameRegion">同地区景点</span>
+          </button>
+          <button class="text-button" id="toggleFavorite" type="button" disabled aria-pressed="false">
+            <i data-lucide="star" aria-hidden="true"></i>
+            <span data-i18n="favorite">收藏</span>
           </button>
         </div>
         <section class="related-section" aria-label="同地区景点" data-i18n-aria-label="sameRegion">
@@ -259,6 +359,156 @@
           大陆 5A 数据以用户提供的
           <span>China-5A-tourist-attraction.md</span> 为基础，并补充文旅部 2020-2024 官方公告；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。
         </p>
+      </aside>
+
+      <aside class="review-panel collapsed" id="imageReviewPanel" aria-label="图片审核" data-i18n-aria-label="imageReview">
+        <div class="panel-heading">
+          <div>
+            <strong data-i18n="imageReview">图片审核</strong>
+            <span id="reviewSummary">-</span>
+          </div>
+          <button class="icon-button panel-icon" id="closeImageReview" type="button" aria-label="关闭图片审核" data-i18n-aria-label="closeImageReview">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="review-toolbar">
+          <input id="reviewSearch" type="search" autocomplete="off" placeholder="搜索景点" data-i18n-placeholder="reviewSearchPlaceholder" />
+          <select id="reviewFilter" aria-label="图片审核状态" data-i18n-aria-label="reviewFilter"></select>
+        </div>
+        <div class="review-body">
+          <div class="review-list" id="reviewList"></div>
+          <section class="review-preview" id="reviewPreview" aria-live="polite">
+            <p class="empty-state" data-i18n="reviewNoSelection">选择一张图片开始审核</p>
+          </section>
+        </div>
+        <div class="review-note-row">
+          <input id="reviewNote" type="text" placeholder="备注或替换文件名" data-i18n-placeholder="reviewNotePlaceholder" />
+        </div>
+        <div class="review-actions">
+          <button class="text-button primary" id="reviewKeep" type="button">
+            <i data-lucide="check" aria-hidden="true"></i>
+            <span data-i18n="reviewKeep">保留</span>
+          </button>
+          <button class="text-button" id="reviewReplace" type="button">
+            <i data-lucide="replace" aria-hidden="true"></i>
+            <span data-i18n="reviewReplace">替换</span>
+          </button>
+          <button class="text-button" id="reviewDelete" type="button">
+            <i data-lucide="trash-2" aria-hidden="true"></i>
+            <span data-i18n="reviewDelete">删除</span>
+          </button>
+          <button class="text-button" id="reviewMissing" type="button">
+            <i data-lucide="image-off" aria-hidden="true"></i>
+            <span data-i18n="reviewMissing">缺图</span>
+          </button>
+          <button class="text-button" id="reviewExport" type="button">
+            <i data-lucide="download" aria-hidden="true"></i>
+            <span data-i18n="reviewExport">导出</span>
+          </button>
+          <button class="text-button" id="maintenanceExport" type="button">
+            <i data-lucide="file-json" aria-hidden="true"></i>
+            <span data-i18n="maintenanceExport">维护导出</span>
+          </button>
+          <label class="text-button import-button" for="reviewImportInput">
+            <i data-lucide="upload" aria-hidden="true"></i>
+            <span data-i18n="reviewImport">导入</span>
+          </label>
+          <input class="visually-hidden" id="reviewImportInput" type="file" accept="application/json,.json" />
+        </div>
+        <p class="review-apply-hint" data-i18n="reviewApplyHint">导出维护包后可用 scripts/apply-maintenance-package.py 一次写入审核记录和维护覆盖。</p>
+      </aside>
+
+      <aside class="maintenance-panel collapsed" id="maintenancePanel" aria-label="维护面板" data-i18n-aria-label="maintenancePanel">
+        <div class="panel-heading">
+          <div>
+            <strong data-i18n="maintenancePanel">维护</strong>
+            <span id="maintenanceSummary">0 条覆盖</span>
+          </div>
+          <button class="icon-button panel-icon" id="closeMaintenance" type="button" aria-label="关闭维护面板" data-i18n-aria-label="closeMaintenance">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="maintenance-current">
+          <small data-i18n="maintenanceSelected">当前景点</small>
+          <strong id="maintenanceSelectedName" data-i18n="noSelection">暂无选择</strong>
+        </div>
+        <section class="maintenance-queue" aria-label="维护队列" data-i18n-aria-label="maintenanceQueueTitle">
+          <div class="panel-heading compact">
+            <strong data-i18n="maintenanceQueueTitle">维护队列</strong>
+            <span id="maintenanceQueueSummary">-</span>
+          </div>
+          <div class="maintenance-queue-list" id="maintenanceQueueList"></div>
+        </section>
+        <div class="maintenance-form">
+          <div class="maintenance-grid two">
+            <label>
+              <span data-i18n="maintenanceLatitude">纬度</span>
+              <input id="maintenanceLat" type="number" step="0.000001" inputmode="decimal" />
+            </label>
+            <label>
+              <span data-i18n="maintenanceLongitude">经度</span>
+              <input id="maintenanceLng" type="number" step="0.000001" inputmode="decimal" />
+            </label>
+          </div>
+          <label>
+            <span data-i18n="coordinatePrecision">坐标精度</span>
+            <select id="maintenanceCoordinateLevel"></select>
+          </label>
+          <label>
+            <span data-i18n="maintenanceCoordinateLabel">坐标备注</span>
+            <input id="maintenanceCoordinateLabel" type="text" autocomplete="off" />
+          </label>
+          <div class="maintenance-grid two">
+            <label>
+              <span data-i18n="categoryLabel">类型</span>
+              <select id="maintenanceCategory"></select>
+            </label>
+            <label>
+              <span data-i18n="dataSource">数据来源</span>
+              <select id="maintenanceSourceKey"></select>
+            </label>
+          </div>
+          <label>
+            <span data-i18n="dataUpdated">更新时间</span>
+            <input id="maintenanceDataUpdated" type="text" autocomplete="off" />
+          </label>
+          <div class="maintenance-check-block">
+            <span data-i18n="themeLabel">主题</span>
+            <div class="maintenance-checks" id="maintenanceThemes"></div>
+          </div>
+          <div class="maintenance-check-block">
+            <span data-i18n="seasonLabel">季节</span>
+            <div class="maintenance-checks" id="maintenanceSeasons"></div>
+          </div>
+          <label>
+            <span data-i18n="maintenanceNote">维护备注</span>
+            <textarea id="maintenanceNote" rows="3"></textarea>
+          </label>
+        </div>
+        <div class="maintenance-actions">
+          <button class="text-button primary" id="maintenanceSave" type="button">
+            <i data-lucide="save" aria-hidden="true"></i>
+            <span data-i18n="maintenanceSave">保存覆盖</span>
+          </button>
+          <button class="text-button" id="maintenanceDelete" type="button">
+            <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+            <span data-i18n="maintenanceDelete">恢复原始</span>
+          </button>
+          <button class="text-button" id="maintenanceExportOverrides" type="button">
+            <i data-lucide="download" aria-hidden="true"></i>
+            <span data-i18n="maintenanceExportOverrides">导出覆盖</span>
+          </button>
+          <button class="text-button" id="maintenanceExportAudit" type="button">
+            <i data-lucide="clipboard-list" aria-hidden="true"></i>
+            <span data-i18n="maintenanceExportAudit">导出审计</span>
+          </button>
+          <label class="text-button import-button" for="maintenanceImportInput">
+            <i data-lucide="upload" aria-hidden="true"></i>
+            <span data-i18n="maintenanceImport">导入覆盖</span>
+          </label>
+          <input class="visually-hidden" id="maintenanceImportInput" type="file" accept="application/json,.json" />
+        </div>
+        <p class="review-apply-hint" data-i18n="maintenanceApplyHint">导出覆盖或维护包后，可用 scripts/apply-maintenance-package.py 统一写入静态数据文件。</p>
       </aside>
 
       <div class="about-backdrop hidden" id="aboutDialog" aria-hidden="true">
@@ -277,6 +527,14 @@
               <p data-i18n="aboutDataBody">大陆 5A 景区依据公开公告与本地整理数据维护；台港澳景点作为对标展示。</p>
             </article>
             <article>
+              <strong data-i18n="aboutCoordinateTitle">坐标</strong>
+              <p data-i18n="aboutCoordinateBody">5A 优先使用景区坐标；4A 初始点位多为区县或城市参考坐标，页面会明确标识精度。</p>
+            </article>
+            <article>
+              <strong data-i18n="aboutImageTitle">图片</strong>
+              <p data-i18n="aboutImageBody">本地插图保留来源；缺图和疑似错图可通过审核面板继续记录和替换。</p>
+            </article>
+            <article>
               <strong data-i18n="aboutOpenTitle">开放</strong>
               <p data-i18n="aboutOpenBody">项目以静态网页和本地数据文件组织，方便学习、审阅、复用和继续补充。</p>
             </article>
@@ -286,6 +544,11 @@
             <p data-i18n="aboutDisclaimerBody">
               景点评级、边界、图片和坐标会随官方公告、开放地图和图片授权变化而变化，本页面仅供浏览参考，不构成官方发布、出行承诺或商业建议。
             </p>
+          </article>
+          <article class="source-index-block">
+            <strong data-i18n="aboutSourceTitle">来源索引</strong>
+            <p data-i18n="aboutSourceBody">来源、授权和更新时间集中记录在本地数据文件中，详情页会显示当前景点采用的来源。</p>
+            <div class="source-index-list" id="sourceIndexList"></div>
           </article>
           <footer class="about-credit">
             <span data-i18n="aboutCredit">Made by marksui</span>
@@ -298,11 +561,14 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="data/attractions.js?v=20260521-15"></script>
-    <script src="data/attractions-4a.js?v=20260525-01"></script>
+    <script src="data/attractions.js?v=20260613-03"></script>
+    <script src="data/attractions-4a.js?v=20260613-02"></script>
     <script src="data/attraction-names.js?v=20260521-15"></script>
     <script src="data/attraction-images.js?v=20260525-02"></script>
     <script src="data/attraction-images-4a.js?v=20260525-01"></script>
-    <script src="app.js?v=20260525-02"></script>
+    <script src="data/source-index.js?v=20260613-02"></script>
+    <script src="data/image-review-decisions.js?v=20260613-01"></script>
+    <script src="data/maintenance-overrides.js?v=20260613-01"></script>
+    <script src="app.js?v=20260613-14"></script>
   </body>
 </html>

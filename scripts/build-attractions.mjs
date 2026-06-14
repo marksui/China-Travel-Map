@@ -6,6 +6,7 @@ import vm from "node:vm";
 const sourcePath =
   process.argv[2] || "/Users/mark/Downloads/China-5A-tourist-attraction.md";
 const outputPath = path.resolve("data/attractions.js");
+const dataUpdated = "2026-06";
 
 const provinceCenters = {
   北京: [39.9042, 116.4074],
@@ -773,10 +774,67 @@ const rows = [...officialRows, ...peerAttractions].map((entry, index) => {
 
   return {
     id: `${provinceSlug(entry.province)}-${String(index + 1).padStart(3, "0")}`,
+    sourceKey: sourceKeyFor(entry),
+    sourceUrl: entry.sourceUrl || sourceUrlFor(entry),
+    dataUpdated,
+    coordinateAuditStatus: coordinateAuditStatusKey(coordinates.coordinateLevel),
     ...entry,
     ...coordinates,
   };
 });
+
+function sourceKeyFor(entry) {
+  if (entry.rating === "peer5A") return "peer-curated";
+  const annualSourceKey = `mct-${entry.year}-announcements`;
+  if (entry.rating === "official5A" && [2020, 2021, 2022, 2024].includes(Number(entry.year))) return annualSourceKey;
+  return "mct-official-5a";
+}
+
+function sourceUrlFor(entry) {
+  if (entry.rating !== "official5A") return undefined;
+  if (Number(entry.year) === 2020) return "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202012/t20201230_920356.html";
+  if (Number(entry.year) === 2022) return "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202207/t20220715_934688.html";
+  if (Number(entry.year) === 2021) {
+    return ["赛里木湖景区", "塔克拉玛干·三五九旅文化旅游区"].some((name) => String(entry.displayName || entry.name || "").includes(name))
+      ? "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202105/t20210512_924422.html"
+      : "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202106/t20210611_925193.html";
+  }
+  if (Number(entry.year) === 2024) {
+    const firstBatch = [
+      "北京（通州）大运河文化旅游景区",
+      "南湖·开滦旅游景区",
+      "呼伦贝尔大草原·莫尔格勒河景区",
+      "五女山景区",
+      "前郭查干湖景区",
+      "西沙明珠湖景区",
+      "连岛景区",
+      "云和梯田景区",
+      "琅琊山景区",
+      "厦门园林植物园景区",
+      "奥帆海洋文化旅游区",
+      "太昊伏羲陵文化旅游区",
+      "明显陵文化旅游景区",
+      "凤凰古城旅游区",
+      "程阳八寨景区",
+      "天涯海角游览区",
+      "武陵山大裂谷景区",
+      "四姑娘山景区",
+      "和顺古镇景区",
+      "延川黄河乾坤湾景区",
+      "青铜峡黄河大峡谷旅游区",
+    ];
+    return firstBatch.some((name) => String(entry.displayName || entry.name || "").includes(name))
+      ? "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202402/t20240206_951222.html"
+      : "https://zwgk.mct.gov.cn/zfxxgkml/zykf/202412/t20241227_957450.html";
+  }
+  return undefined;
+}
+
+function coordinateAuditStatusKey(level) {
+  if (level === "景区") return "corrected";
+  if (level === "区县") return "review";
+  return "pending";
+}
 
 const years = [...new Set(rows.map((row) => row.year).filter(Number.isFinite))].sort((a, b) => a - b);
 const provinces = [...new Set(rows.map((row) => row.province))];

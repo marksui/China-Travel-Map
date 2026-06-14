@@ -476,7 +476,7 @@ def compressed_url(url: str, args: argparse.Namespace) -> str:
     return f"https://images.weserv.nl/?url={quote(source, safe=':/?=&%')}&w={args.width}&output=jpg&q={args.quality}"
 
 
-def commons_redirect_url(file_name: str | None, width: int = 960) -> str | None:
+def commons_redirect_url(file_name: str | None, width: int = 900) -> str | None:
     if not file_name:
         return None
     return f"https://commons.wikimedia.org/wiki/Special:Redirect/file/{quote(file_name)}?width={width}"

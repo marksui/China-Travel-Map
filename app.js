@@ -14,6 +14,9 @@ const meta = {
 };
 const localImages = { ...(window.CHINA_5A_IMAGES || {}), ...(window.CHINA_4A_IMAGES || {}) };
 const localizedAttractionNames = window.CHINA_5A_ATTRACTION_NAMES || {};
+const sourceIndex = window.CHINA_TRAVEL_SOURCE_INDEX || {};
+const seededReviewDecisions = window.CHINA_IMAGE_REVIEW_DECISIONS || {};
+const seededMaintenanceOverrides = window.CHINA_MAINTENANCE_OVERRIDES || {};
 
 const highlightColor = "#b65345";
 const fallbackImage = localImages.fallback || {
@@ -26,6 +29,15 @@ const fallbackImage = localImages.fallback || {
 const allRegionsValue = "全部";
 const ratingFilterOrder = ["official5A", "official4A", "peer5A"];
 const defaultRatingFilters = ["official5A", "peer5A"];
+const categoryFilterOrder = ["all", "nature", "water", "heritage", "settlement", "museum", "religious", "red", "leisure", "other"];
+const themeFilterOrder = ["all", "nature", "culture", "family", "ancient", "red", "water"];
+const seasonFilterOrder = ["all", "spring", "summer", "autumn", "winter"];
+const coordinateLevelOptions = ["景区", "区县", "城市"];
+const fourAZoomThreshold = 6;
+const reviewStorageKey = "china-travel-map-image-review-v1";
+const favoritesStorageKey = "china-travel-map-favorites-v1";
+const maintenanceStorageKey = "china-travel-map-maintenance-overrides-v1";
+const reviewActionValues = new Set(["keep", "replace", "delete", "missing"]);
 const languages = {
   "zh-CN": { htmlLang: "zh-CN" },
   "zh-TW": { htmlLang: "zh-Hant" },
@@ -99,6 +111,18 @@ const translations = {
     levelOfficial5A: "5A",
     levelOfficial4A: "4A",
     levelPeer5A: "对标",
+    fourANotice: "4A 点位较密，请选择省份、搜索景点或放大地图后显示。",
+    categoryLabel: "类型",
+    categoryAll: "全部类型",
+    categoryNature: "山岳自然",
+    categoryWater: "湖海湿地",
+    categoryHeritage: "古迹建筑",
+    categorySettlement: "古镇村落",
+    categoryMuseum: "博物馆展陈",
+    categoryReligious: "寺庙石窟",
+    categoryRed: "红色旅游",
+    categoryLeisure: "休闲乐园",
+    categoryOther: "其他",
     allRegions: "全部地区",
     nationwide: "全国",
     resultCount: "{count} 个景点",
@@ -113,6 +137,22 @@ const translations = {
     scenicImageAlt: "景点图片",
     rating: "评级",
     basis: "依据",
+    coordinatePrecision: "坐标精度",
+    coordinateExact: "精确坐标",
+    coordinateDistrict: "区县参考",
+    coordinateCity: "城市参考",
+    coordinateApproxNote: "参考点，并非景区真实入口或边界中心",
+    dataSource: "数据来源",
+    dataUpdated: "更新时间",
+    auditStatus: "校正状态",
+    auditDone: "已校正",
+    auditPartial: "需复核",
+    auditPending: "待校正",
+    trustMetrics: "可信度概览",
+    trustExact: "精确坐标",
+    trustApprox: "参考坐标",
+    trustImages: "本地图片",
+    trustReviewed: "审核记录",
     footprint: "占地范围",
     focus: "定位",
     sameRegion: "同地区景点",
@@ -131,6 +171,39 @@ const translations = {
     imageSourcePrefix: "图片来源：",
     imageUnavailable: "暂无可靠图片，正在补图",
     fallbackImageCaption: "通用景区占位图（慕田峪长城全景）",
+    imageReview: "图片审核",
+    closeImageReview: "关闭图片审核",
+    reviewSearchPlaceholder: "搜索景点",
+    reviewFilter: "图片审核状态",
+    reviewAll: "全部图片",
+    reviewMissingOnly: "缺图",
+    reviewSuspiciousOnly: "疑似错图",
+    reviewWithImage: "已有图片",
+    reviewFlagged: "已标记",
+    reviewNoSelection: "选择一张图片开始审核",
+    reviewNotePlaceholder: "备注或替换文件名",
+    reviewKeep: "保留",
+    reviewReplace: "替换",
+    reviewDelete: "删除",
+    reviewMissing: "缺图",
+    reviewSuspicious: "疑似",
+    reviewExport: "导出",
+    reviewImport: "导入",
+    reviewImported: "审核记录已导入",
+    reviewImportError: "导入失败，请检查 JSON",
+    reviewApplyHint: "导出维护包后可用 scripts/apply-maintenance-package.py 一次写入审核记录和维护覆盖。",
+    reviewSummary: "{count} 项 · {decisions} 条记录",
+    reviewNoMatches: "没有匹配的审核项",
+    reviewSource: "来源",
+    reviewDecision: "当前记录",
+    reviewNoImage: "暂无本地图",
+    reviewExported: "审核记录已导出",
+    aboutCoordinateTitle: "坐标",
+    aboutCoordinateBody: "5A 优先使用景区坐标；4A 初始点位多为区县或城市参考坐标，页面会明确标识精度。",
+    aboutImageTitle: "图片",
+    aboutImageBody: "本地插图保留来源；缺图和疑似错图可通过审核面板继续记录和替换。",
+    aboutSourceTitle: "来源索引",
+    aboutSourceBody: "来源、授权和更新时间集中记录在本地数据文件中，详情页会显示当前景点采用的来源。",
     sourceNote:
       '大陆 5A 数据以用户提供的 <span>China-5A-tourist-attraction.md</span> 为基础，并补充文旅部 2020-2024 官方公告；4A 名录来自开放列表，坐标采用 city-geo 行政参考点；台港澳为对标 5A 手动补充；可用面边界来自 OpenStreetMap；地图底图 © OpenStreetMap。',
   },
@@ -195,6 +268,22 @@ const translations = {
     scenicImageAlt: "景點圖片",
     rating: "評級",
     basis: "依據",
+    coordinatePrecision: "座標精度",
+    coordinateExact: "精確座標",
+    coordinateDistrict: "區縣參考",
+    coordinateCity: "城市參考",
+    coordinateApproxNote: "參考點，並非景區真實入口或邊界中心",
+    dataSource: "資料來源",
+    dataUpdated: "更新時間",
+    auditStatus: "校正狀態",
+    auditDone: "已校正",
+    auditPartial: "需複核",
+    auditPending: "待校正",
+    trustMetrics: "可信度概覽",
+    trustExact: "精確座標",
+    trustApprox: "參考座標",
+    trustImages: "本地圖片",
+    trustReviewed: "審核記錄",
     footprint: "占地範圍",
     focus: "定位",
     sameRegion: "同地區景點",
@@ -212,6 +301,39 @@ const translations = {
     osmBoundary: "OSM 面邊界",
     imageSourcePrefix: "圖片來源：",
     fallbackImageCaption: "通用景區占位圖（慕田峪長城全景）",
+    imageReview: "圖片審核",
+    closeImageReview: "關閉圖片審核",
+    reviewSearchPlaceholder: "搜尋景點",
+    reviewFilter: "圖片審核狀態",
+    reviewAll: "全部圖片",
+    reviewMissingOnly: "缺圖",
+    reviewSuspiciousOnly: "疑似錯圖",
+    reviewWithImage: "已有圖片",
+    reviewFlagged: "已標記",
+    reviewNoSelection: "選擇一張圖片開始審核",
+    reviewNotePlaceholder: "備註或替換檔名",
+    reviewKeep: "保留",
+    reviewReplace: "替換",
+    reviewDelete: "刪除",
+    reviewMissing: "缺圖",
+    reviewSuspicious: "疑似",
+    reviewExport: "匯出",
+    reviewImport: "匯入",
+    reviewImported: "審核記錄已匯入",
+    reviewImportError: "匯入失敗，請檢查 JSON",
+    reviewApplyHint: "匯出維護包後可用 scripts/apply-maintenance-package.py 一次寫入審核記錄和維護覆蓋。",
+    reviewSummary: "{count} 項 · {decisions} 條記錄",
+    reviewNoMatches: "沒有符合的審核項",
+    reviewSource: "來源",
+    reviewDecision: "目前記錄",
+    reviewNoImage: "暫無本地圖",
+    reviewExported: "審核記錄已匯出",
+    aboutCoordinateTitle: "座標",
+    aboutCoordinateBody: "5A 優先使用景區座標；4A 初始點位多為區縣或城市參考座標，頁面會明確標識精度。",
+    aboutImageTitle: "圖片",
+    aboutImageBody: "本地插圖保留來源；缺圖和疑似錯圖可透過審核面板繼續記錄和替換。",
+    aboutSourceTitle: "來源索引",
+    aboutSourceBody: "來源、授權和更新時間集中記錄在本地資料檔中，詳情頁會顯示目前景點採用的來源。",
     sourceNote:
       '大陸 5A 資料以使用者提供的 <span>China-5A-tourist-attraction.md</span> 為基礎，並補充文旅部 2020-2024 官方公告；4A 名錄來自開放列表，座標採用 city-geo 行政參考點；臺港澳為對標 5A 手動補充；可用面邊界來自 OpenStreetMap；地圖底圖 © OpenStreetMap。',
   },
@@ -263,6 +385,18 @@ const translations = {
     levelOfficial5A: "5A",
     levelOfficial4A: "4A",
     levelPeer5A: "Peer",
+    fourANotice: "4A points are dense. Select a region, search, or zoom in to show them.",
+    categoryLabel: "Type",
+    categoryAll: "All types",
+    categoryNature: "Mountains & nature",
+    categoryWater: "Lakes & wetlands",
+    categoryHeritage: "Heritage",
+    categorySettlement: "Old towns",
+    categoryMuseum: "Museums",
+    categoryReligious: "Temples & grottoes",
+    categoryRed: "Red tourism",
+    categoryLeisure: "Leisure parks",
+    categoryOther: "Other",
     allRegions: "All regions",
     nationwide: "Nationwide",
     resultCount: "{count} attractions",
@@ -277,6 +411,22 @@ const translations = {
     scenicImageAlt: "Attraction image",
     rating: "Rating",
     basis: "Basis",
+    coordinatePrecision: "Coordinate precision",
+    coordinateExact: "Exact point",
+    coordinateDistrict: "District reference",
+    coordinateCity: "City reference",
+    coordinateApproxNote: "Reference point, not the actual entrance or boundary center",
+    dataSource: "Data source",
+    dataUpdated: "Updated",
+    auditStatus: "Correction status",
+    auditDone: "Corrected",
+    auditPartial: "Needs review",
+    auditPending: "Pending correction",
+    trustMetrics: "Trust overview",
+    trustExact: "Exact coordinates",
+    trustApprox: "Reference points",
+    trustImages: "Local images",
+    trustReviewed: "Review records",
     footprint: "Footprint",
     focus: "Focus",
     sameRegion: "Same region",
@@ -294,6 +444,39 @@ const translations = {
     osmBoundary: "OSM polygon",
     imageSourcePrefix: "Image source: ",
     fallbackImageCaption: "generic scenic placeholder (Mutianyu Great Wall panorama)",
+    imageReview: "Image review",
+    closeImageReview: "Close image review",
+    reviewSearchPlaceholder: "Search attractions",
+    reviewFilter: "Image review status",
+    reviewAll: "All images",
+    reviewMissingOnly: "Missing",
+    reviewSuspiciousOnly: "Suspicious",
+    reviewWithImage: "Has image",
+    reviewFlagged: "Flagged",
+    reviewNoSelection: "Select an image to review",
+    reviewNotePlaceholder: "Note or replacement filename",
+    reviewKeep: "Keep",
+    reviewReplace: "Replace",
+    reviewDelete: "Delete",
+    reviewMissing: "Missing",
+    reviewSuspicious: "Suspicious",
+    reviewExport: "Export",
+    reviewImport: "Import",
+    reviewImported: "Review records imported",
+    reviewImportError: "Import failed; check the JSON",
+    reviewApplyHint: "After exporting a maintenance package, run scripts/apply-maintenance-package.py to write review decisions and maintenance overrides.",
+    reviewSummary: "{count} items · {decisions} records",
+    reviewNoMatches: "No matching review items",
+    reviewSource: "Source",
+    reviewDecision: "Current record",
+    reviewNoImage: "No local image",
+    reviewExported: "Review records exported",
+    aboutCoordinateTitle: "Coordinates",
+    aboutCoordinateBody: "5A points prefer scenic-area coordinates; many 4A points start as district or city references, and their precision is labeled.",
+    aboutImageTitle: "Images",
+    aboutImageBody: "Local illustrations keep attribution; missing or suspicious images can be recorded and replaced through the review panel.",
+    aboutSourceTitle: "Source index",
+    aboutSourceBody: "Sources, licensing notes, and update dates are recorded in local data files; each detail view shows the source used for that attraction.",
     sourceNote:
       'Mainland 5A data is based on the user-provided <span>China-5A-tourist-attraction.md</span>, with 2020-2024 Ministry of Culture and Tourism announcements added; 4A data comes from an open list and uses city-geo administrative reference points; Taiwan, Hong Kong, and Macao peer sites were added manually; available polygons come from OpenStreetMap; basemap © OpenStreetMap.',
   },
@@ -358,6 +541,22 @@ const translations = {
     scenicImageAlt: "명소 이미지",
     rating: "등급",
     basis: "근거",
+    coordinatePrecision: "좌표 정밀도",
+    coordinateExact: "정확한 좌표",
+    coordinateDistrict: "구/현 기준",
+    coordinateCity: "도시 기준",
+    coordinateApproxNote: "참조 지점이며 실제 입구나 경계 중심이 아닙니다",
+    dataSource: "데이터 출처",
+    dataUpdated: "업데이트",
+    auditStatus: "보정 상태",
+    auditDone: "보정됨",
+    auditPartial: "검토 필요",
+    auditPending: "보정 대기",
+    trustMetrics: "신뢰도 개요",
+    trustExact: "정확한 좌표",
+    trustApprox: "참조 좌표",
+    trustImages: "로컬 이미지",
+    trustReviewed: "검토 기록",
     footprint: "점유 범위",
     focus: "이동",
     sameRegion: "같은 지역 명소",
@@ -375,6 +574,39 @@ const translations = {
     osmBoundary: "OSM 면 경계",
     imageSourcePrefix: "이미지 출처: ",
     fallbackImageCaption: "공통 명소 대체 이미지(무톈위 만리장성 전경)",
+    imageReview: "이미지 검토",
+    closeImageReview: "이미지 검토 닫기",
+    reviewSearchPlaceholder: "명소 검색",
+    reviewFilter: "이미지 검토 상태",
+    reviewAll: "전체 이미지",
+    reviewMissingOnly: "이미지 없음",
+    reviewSuspiciousOnly: "의심 이미지",
+    reviewWithImage: "이미지 있음",
+    reviewFlagged: "표시됨",
+    reviewNoSelection: "이미지를 선택해 검토하세요",
+    reviewNotePlaceholder: "메모 또는 대체 파일명",
+    reviewKeep: "유지",
+    reviewReplace: "교체",
+    reviewDelete: "삭제",
+    reviewMissing: "없음",
+    reviewSuspicious: "의심",
+    reviewExport: "내보내기",
+    reviewImport: "가져오기",
+    reviewImported: "검토 기록을 가져왔습니다",
+    reviewImportError: "가져오기 실패: JSON을 확인하세요",
+    reviewApplyHint: "내보낸 뒤 scripts/apply-image-review.py로 data/image-review-decisions.js에 기록할 수 있습니다.",
+    reviewSummary: "{count}개 항목 · {decisions}개 기록",
+    reviewNoMatches: "일치하는 검토 항목이 없습니다",
+    reviewSource: "출처",
+    reviewDecision: "현재 기록",
+    reviewNoImage: "로컬 이미지 없음",
+    reviewExported: "검토 기록을 내보냈습니다",
+    aboutCoordinateTitle: "좌표",
+    aboutCoordinateBody: "5A는 가능한 한 관광지 좌표를 사용하고, 많은 4A 초기 지점은 구/현 또는 도시 참조 좌표이며 정밀도를 표시합니다.",
+    aboutImageTitle: "이미지",
+    aboutImageBody: "로컬 이미지는 출처를 보존하며, 누락되거나 의심스러운 이미지는 검토 패널에서 기록하고 교체할 수 있습니다.",
+    aboutSourceTitle: "출처 색인",
+    aboutSourceBody: "출처, 라이선스 메모, 업데이트 날짜는 로컬 데이터 파일에 기록되며 상세 화면에서 해당 출처를 표시합니다.",
     sourceNote:
       '중국 본토 5A 데이터는 사용자가 제공한 <span>China-5A-tourist-attraction.md</span>를 기반으로 하며 2020-2024년 문화여유부 공식 공고를 보완했습니다. 4A 명단은 공개 목록과 city-geo 행정 기준 좌표를 사용했습니다. 대만, 홍콩, 마카오 준 5A 명소는 수동으로 보완했으며, 사용 가능한 면 경계는 OpenStreetMap, 배경 지도는 © OpenStreetMap입니다.',
   },
@@ -439,6 +671,22 @@ const translations = {
     scenicImageAlt: "観光地画像",
     rating: "等級",
     basis: "根拠",
+    coordinatePrecision: "座標精度",
+    coordinateExact: "正確な座標",
+    coordinateDistrict: "区県参照",
+    coordinateCity: "都市参照",
+    coordinateApproxNote: "参照点であり、実際の入口や境界中心ではありません",
+    dataSource: "データ出典",
+    dataUpdated: "更新日",
+    auditStatus: "補正状況",
+    auditDone: "補正済み",
+    auditPartial: "要確認",
+    auditPending: "補正待ち",
+    trustMetrics: "信頼性概要",
+    trustExact: "正確な座標",
+    trustApprox: "参照座標",
+    trustImages: "ローカル画像",
+    trustReviewed: "レビュー記録",
     footprint: "範囲",
     focus: "移動",
     sameRegion: "同じ地域の観光地",
@@ -456,6 +704,39 @@ const translations = {
     osmBoundary: "OSM 面境界",
     imageSourcePrefix: "画像出典: ",
     fallbackImageCaption: "共通の観光地プレースホルダー（慕田峪長城の全景）",
+    imageReview: "画像レビュー",
+    closeImageReview: "画像レビューを閉じる",
+    reviewSearchPlaceholder: "観光地を検索",
+    reviewFilter: "画像レビュー状態",
+    reviewAll: "すべての画像",
+    reviewMissingOnly: "画像なし",
+    reviewSuspiciousOnly: "疑わしい画像",
+    reviewWithImage: "画像あり",
+    reviewFlagged: "記録あり",
+    reviewNoSelection: "画像を選択してレビュー",
+    reviewNotePlaceholder: "メモまたは差し替えファイル名",
+    reviewKeep: "保持",
+    reviewReplace: "差し替え",
+    reviewDelete: "削除",
+    reviewMissing: "画像なし",
+    reviewSuspicious: "疑わしい",
+    reviewExport: "エクスポート",
+    reviewImport: "インポート",
+    reviewImported: "レビュー記録をインポートしました",
+    reviewImportError: "インポートに失敗しました。JSON を確認してください",
+    reviewApplyHint: "エクスポート後、scripts/apply-image-review.py で data/image-review-decisions.js に書き込めます。",
+    reviewSummary: "{count} 件 · {decisions} 件の記録",
+    reviewNoMatches: "一致するレビュー項目がありません",
+    reviewSource: "出典",
+    reviewDecision: "現在の記録",
+    reviewNoImage: "ローカル画像なし",
+    reviewExported: "レビュー記録をエクスポートしました",
+    aboutCoordinateTitle: "座標",
+    aboutCoordinateBody: "5A は観光地座標を優先し、多くの 4A 初期点は区県または都市の参照座標として精度を表示します。",
+    aboutImageTitle: "画像",
+    aboutImageBody: "ローカル画像は出典を保持し、欠落や疑わしい画像はレビュー画面で記録・差し替えできます。",
+    aboutSourceTitle: "出典索引",
+    aboutSourceBody: "出典、ライセンスメモ、更新日はローカルデータファイルに記録し、詳細画面で使用中の出典を表示します。",
     sourceNote:
       '中国本土 5A データはユーザー提供の <span>China-5A-tourist-attraction.md</span> を基に、2020-2024 年の文化観光部公式公告を補足しています。4A 名簿は公開リストと city-geo の行政参照座標を使用しています。台湾、香港、マカオの準 5A は手動で追加しました。利用可能な面境界は OpenStreetMap、背景地図は © OpenStreetMap です。',
   },
@@ -520,6 +801,22 @@ const translations = {
     scenicImageAlt: "ภาพแหล่งท่องเที่ยว",
     rating: "ระดับ",
     basis: "หลักเกณฑ์",
+    coordinatePrecision: "ความแม่นยำพิกัด",
+    coordinateExact: "พิกัดแม่นยำ",
+    coordinateDistrict: "อ้างอิงเขต/อำเภอ",
+    coordinateCity: "อ้างอิงเมือง",
+    coordinateApproxNote: "เป็นจุดอ้างอิง ไม่ใช่ทางเข้าหรือศูนย์กลางขอบเขตจริง",
+    dataSource: "แหล่งข้อมูล",
+    dataUpdated: "อัปเดต",
+    auditStatus: "สถานะแก้พิกัด",
+    auditDone: "แก้ไขแล้ว",
+    auditPartial: "ต้องตรวจทาน",
+    auditPending: "รอแก้ไข",
+    trustMetrics: "ภาพรวมความน่าเชื่อถือ",
+    trustExact: "พิกัดแม่นยำ",
+    trustApprox: "พิกัดอ้างอิง",
+    trustImages: "รูปในเครื่อง",
+    trustReviewed: "บันทึกตรวจทาน",
     footprint: "ขอบเขตพื้นที่",
     focus: "โฟกัส",
     sameRegion: "ภูมิภาคเดียวกัน",
@@ -537,6 +834,39 @@ const translations = {
     osmBoundary: "ขอบเขตพื้นที่ OSM",
     imageSourcePrefix: "ที่มาภาพ: ",
     fallbackImageCaption: "ภาพตัวอย่างทั่วไป (พาโนรามากำแพงเมืองจีนมู่เถียนยวี่)",
+    imageReview: "ตรวจทานรูปภาพ",
+    closeImageReview: "ปิดการตรวจทานรูปภาพ",
+    reviewSearchPlaceholder: "ค้นหาแหล่งท่องเที่ยว",
+    reviewFilter: "สถานะตรวจทานรูปภาพ",
+    reviewAll: "รูปทั้งหมด",
+    reviewMissingOnly: "ไม่มีรูป",
+    reviewSuspiciousOnly: "รูปน่าสงสัย",
+    reviewWithImage: "มีรูป",
+    reviewFlagged: "มีบันทึก",
+    reviewNoSelection: "เลือกรูปเพื่อเริ่มตรวจทาน",
+    reviewNotePlaceholder: "หมายเหตุหรือชื่อไฟล์แทนที่",
+    reviewKeep: "เก็บไว้",
+    reviewReplace: "แทนที่",
+    reviewDelete: "ลบ",
+    reviewMissing: "ไม่มีรูป",
+    reviewSuspicious: "น่าสงสัย",
+    reviewExport: "ส่งออก",
+    reviewImport: "นำเข้า",
+    reviewImported: "นำเข้าบันทึกตรวจทานแล้ว",
+    reviewImportError: "นำเข้าไม่สำเร็จ โปรดตรวจสอบ JSON",
+    reviewApplyHint: "หลังส่งออก ใช้ scripts/apply-image-review.py เพื่อเขียน data/image-review-decisions.js",
+    reviewSummary: "{count} รายการ · {decisions} บันทึก",
+    reviewNoMatches: "ไม่มีรายการตรวจทานที่ตรงกัน",
+    reviewSource: "ที่มา",
+    reviewDecision: "บันทึกปัจจุบัน",
+    reviewNoImage: "ไม่มีรูปในเครื่อง",
+    reviewExported: "ส่งออกบันทึกตรวจทานแล้ว",
+    aboutCoordinateTitle: "พิกัด",
+    aboutCoordinateBody: "5A ใช้พิกัดแหล่งท่องเที่ยวเป็นหลัก ส่วน 4A จำนวนมากเริ่มจากพิกัดอ้างอิงเขตหรือเมืองและจะแสดงระดับความแม่นยำ",
+    aboutImageTitle: "รูปภาพ",
+    aboutImageBody: "รูปในเครื่องเก็บเครดิตแหล่งที่มาไว้ และสามารถบันทึก/แทนที่รูปที่ขาดหรือน่าสงสัยในแผงตรวจทาน",
+    aboutSourceTitle: "ดัชนีแหล่งที่มา",
+    aboutSourceBody: "แหล่งที่มา หมายเหตุใบอนุญาต และวันที่อัปเดตบันทึกในไฟล์ข้อมูลในเครื่อง และหน้าแสดงรายละเอียดจะบอกแหล่งที่ใช้",
     sourceNote:
       'ข้อมูล 5A ของจีนแผ่นดินใหญ่อ้างอิงจากไฟล์ <span>China-5A-tourist-attraction.md</span> ที่ผู้ใช้ให้มา และเพิ่มประกาศทางการของกระทรวงวัฒนธรรมและการท่องเที่ยวปี 2020-2024; ข้อมูล 4A มาจากรายการเปิดและใช้จุดอ้างอิงเขตปกครองจาก city-geo; แหล่งเทียบเท่าในไต้หวัน ฮ่องกง และมาเก๊าเพิ่มด้วยตนเอง; ขอบเขตพื้นที่ที่มีมาจาก OpenStreetMap; แผนที่พื้นฐาน © OpenStreetMap.',
   },
@@ -602,6 +932,22 @@ const translations = {
     scenicImageAlt: "Imagen de la atracción",
     rating: "Calificación",
     basis: "Base",
+    coordinatePrecision: "Precisión de coordenadas",
+    coordinateExact: "Coordenada exacta",
+    coordinateDistrict: "Referencia de distrito",
+    coordinateCity: "Referencia de ciudad",
+    coordinateApproxNote: "Punto de referencia, no entrada real ni centro del límite",
+    dataSource: "Fuente de datos",
+    dataUpdated: "Actualizado",
+    auditStatus: "Estado de corrección",
+    auditDone: "Corregido",
+    auditPartial: "Requiere revisión",
+    auditPending: "Pendiente",
+    trustMetrics: "Resumen de confianza",
+    trustExact: "Coordenadas exactas",
+    trustApprox: "Puntos de referencia",
+    trustImages: "Imágenes locales",
+    trustReviewed: "Registros revisados",
     footprint: "Área",
     focus: "Centrar",
     sameRegion: "Misma región",
@@ -619,6 +965,39 @@ const translations = {
     osmBoundary: "Polígono OSM",
     imageSourcePrefix: "Fuente de imagen: ",
     fallbackImageCaption: "marcador visual genérico (panorama de la Gran Muralla de Mutianyu)",
+    imageReview: "Revisión de imágenes",
+    closeImageReview: "Cerrar revisión de imágenes",
+    reviewSearchPlaceholder: "Buscar atracciones",
+    reviewFilter: "Estado de revisión",
+    reviewAll: "Todas las imágenes",
+    reviewMissingOnly: "Sin imagen",
+    reviewSuspiciousOnly: "Sospechosa",
+    reviewWithImage: "Con imagen",
+    reviewFlagged: "Marcada",
+    reviewNoSelection: "Selecciona una imagen para revisar",
+    reviewNotePlaceholder: "Nota o archivo de reemplazo",
+    reviewKeep: "Conservar",
+    reviewReplace: "Reemplazar",
+    reviewDelete: "Eliminar",
+    reviewMissing: "Sin imagen",
+    reviewSuspicious: "Sospechosa",
+    reviewExport: "Exportar",
+    reviewImport: "Importar",
+    reviewImported: "Registros de revisión importados",
+    reviewImportError: "Error al importar; revisa el JSON",
+    reviewApplyHint: "Tras exportar, usa scripts/apply-image-review.py para escribir data/image-review-decisions.js.",
+    reviewSummary: "{count} elementos · {decisions} registros",
+    reviewNoMatches: "No hay elementos de revisión coincidentes",
+    reviewSource: "Fuente",
+    reviewDecision: "Registro actual",
+    reviewNoImage: "Sin imagen local",
+    reviewExported: "Registros de revisión exportados",
+    aboutCoordinateTitle: "Coordenadas",
+    aboutCoordinateBody: "Los puntos 5A priorizan coordenadas de la zona escénica; muchos 4A empiezan como referencias de distrito o ciudad y muestran su precisión.",
+    aboutImageTitle: "Imágenes",
+    aboutImageBody: "Las imágenes locales conservan atribución; las faltantes o sospechosas pueden registrarse y reemplazarse desde el panel de revisión.",
+    aboutSourceTitle: "Índice de fuentes",
+    aboutSourceBody: "Fuentes, notas de licencia y fechas de actualización se registran en archivos locales; cada detalle muestra la fuente usada.",
     sourceNote:
       'Los datos 5A de China continental se basan en el archivo <span>China-5A-tourist-attraction.md</span> proporcionado por el usuario, con anuncios oficiales 2020-2024 del Ministerio de Cultura y Turismo añadidos; los datos 4A provienen de una lista abierta y usan puntos administrativos de city-geo; los sitios equivalentes de Taiwán, Hong Kong y Macao se añadieron manualmente; los polígonos disponibles provienen de OpenStreetMap; mapa base © OpenStreetMap.',
   },
@@ -684,6 +1063,22 @@ const translations = {
     scenicImageAlt: "Изображение достопримечательности",
     rating: "Рейтинг",
     basis: "Основание",
+    coordinatePrecision: "Точность координат",
+    coordinateExact: "Точные координаты",
+    coordinateDistrict: "Ориентир района",
+    coordinateCity: "Ориентир города",
+    coordinateApproxNote: "Справочная точка, не фактический вход или центр границы",
+    dataSource: "Источник данных",
+    dataUpdated: "Обновлено",
+    auditStatus: "Статус коррекции",
+    auditDone: "Исправлено",
+    auditPartial: "Нужна проверка",
+    auditPending: "Ожидает коррекции",
+    trustMetrics: "Обзор надежности",
+    trustExact: "Точные координаты",
+    trustApprox: "Справочные точки",
+    trustImages: "Локальные изображения",
+    trustReviewed: "Записи проверки",
     footprint: "Территория",
     focus: "Фокус",
     sameRegion: "Тот же регион",
@@ -701,6 +1096,39 @@ const translations = {
     osmBoundary: "Полигон OSM",
     imageSourcePrefix: "Источник изображения: ",
     fallbackImageCaption: "универсальное изображение-заглушка (панорама Великой Китайской стены Мутяньюй)",
+    imageReview: "Проверка изображений",
+    closeImageReview: "Закрыть проверку изображений",
+    reviewSearchPlaceholder: "Поиск мест",
+    reviewFilter: "Статус проверки изображений",
+    reviewAll: "Все изображения",
+    reviewMissingOnly: "Нет изображения",
+    reviewSuspiciousOnly: "Сомнительное",
+    reviewWithImage: "Есть изображение",
+    reviewFlagged: "Отмечено",
+    reviewNoSelection: "Выберите изображение для проверки",
+    reviewNotePlaceholder: "Заметка или файл замены",
+    reviewKeep: "Оставить",
+    reviewReplace: "Заменить",
+    reviewDelete: "Удалить",
+    reviewMissing: "Нет изображения",
+    reviewSuspicious: "Сомнительное",
+    reviewExport: "Экспорт",
+    reviewImport: "Импорт",
+    reviewImported: "Записи проверки импортированы",
+    reviewImportError: "Ошибка импорта, проверьте JSON",
+    reviewApplyHint: "После экспорта используйте scripts/apply-image-review.py для записи data/image-review-decisions.js.",
+    reviewSummary: "{count} элементов · {decisions} записей",
+    reviewNoMatches: "Нет подходящих записей проверки",
+    reviewSource: "Источник",
+    reviewDecision: "Текущая запись",
+    reviewNoImage: "Нет локального изображения",
+    reviewExported: "Записи проверки экспортированы",
+    aboutCoordinateTitle: "Координаты",
+    aboutCoordinateBody: "Для 5A используются координаты объектов, где возможно; многие 4A начинаются как ориентиры района или города, и точность явно отмечена.",
+    aboutImageTitle: "Изображения",
+    aboutImageBody: "Локальные изображения сохраняют атрибуцию; отсутствующие или сомнительные можно записывать и заменять через панель проверки.",
+    aboutSourceTitle: "Индекс источников",
+    aboutSourceBody: "Источники, лицензии и даты обновления записаны в локальных файлах данных; в деталях показан источник для выбранного места.",
     sourceNote:
       'Данные 5A материкового Китая основаны на файле <span>China-5A-tourist-attraction.md</span>, предоставленном пользователем, и дополнены официальными объявлениями Министерства культуры и туризма за 2020-2024 годы; данные 4A взяты из открытого списка и используют административные опорные точки city-geo; аналоги Тайваня, Гонконга и Макао добавлены вручную; доступные полигоны взяты из OpenStreetMap; базовая карта © OpenStreetMap.',
   },
@@ -838,6 +1266,532 @@ const aboutTranslations = {
 };
 
 for (const [language, copy] of Object.entries(aboutTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const inspirationTranslations = {
+  "zh-CN": {
+    themeLabel: "主题",
+    themeAll: "全部主题",
+    themeNature: "自然山水",
+    themeCulture: "人文历史",
+    themeFamily: "亲子休闲",
+    themeAncient: "古建石窟",
+    themeRed: "红色记忆",
+    themeWater: "湖海湿地",
+    seasonLabel: "季节",
+    seasonAll: "全部季节",
+    seasonSpring: "春季",
+    seasonSummer: "夏季",
+    seasonAutumn: "秋季",
+    seasonWinter: "冬季",
+    inspirationAria: "旅行灵感",
+    inspirationTitle: "旅行灵感",
+    inspirationCaption: "{count} 个可发现景点",
+    randomAttraction: "随机发现",
+    randomRegion: "随机地区",
+    buildRoute: "生成路线",
+    routeEmpty: "选择主题或季节后生成一条路线",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "收藏清单",
+    favorite: "收藏",
+    unfavorite: "已收藏",
+    noFavorites: "还没有收藏",
+    maintenanceExport: "维护导出",
+    maintenanceExported: "维护包已导出",
+  },
+  "zh-TW": {
+    themeLabel: "主題",
+    themeAll: "全部主題",
+    themeNature: "自然山水",
+    themeCulture: "人文歷史",
+    themeFamily: "親子休閒",
+    themeAncient: "古建石窟",
+    themeRed: "紅色記憶",
+    themeWater: "湖海濕地",
+    seasonLabel: "季節",
+    seasonAll: "全部季節",
+    seasonSpring: "春季",
+    seasonSummer: "夏季",
+    seasonAutumn: "秋季",
+    seasonWinter: "冬季",
+    inspirationAria: "旅行靈感",
+    inspirationTitle: "旅行靈感",
+    inspirationCaption: "{count} 個可發現景點",
+    randomAttraction: "隨機發現",
+    randomRegion: "隨機地區",
+    buildRoute: "生成路線",
+    routeEmpty: "選擇主題或季節後生成一條路線",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "收藏清單",
+    favorite: "收藏",
+    unfavorite: "已收藏",
+    noFavorites: "還沒有收藏",
+    maintenanceExport: "維護匯出",
+    maintenanceExported: "維護包已匯出",
+  },
+  en: {
+    themeLabel: "Theme",
+    themeAll: "All themes",
+    themeNature: "Nature",
+    themeCulture: "Culture",
+    themeFamily: "Family",
+    themeAncient: "Ancient sites",
+    themeRed: "Red memory",
+    themeWater: "Water & wetlands",
+    seasonLabel: "Season",
+    seasonAll: "All seasons",
+    seasonSpring: "Spring",
+    seasonSummer: "Summer",
+    seasonAutumn: "Autumn",
+    seasonWinter: "Winter",
+    inspirationAria: "Travel inspiration",
+    inspirationTitle: "Travel Inspiration",
+    inspirationCaption: "{count} discoverable places",
+    randomAttraction: "Surprise me",
+    randomRegion: "Random region",
+    buildRoute: "Build route",
+    routeEmpty: "Pick a theme or season to build a route",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "Saved List",
+    favorite: "Save",
+    unfavorite: "Saved",
+    noFavorites: "No saved places yet",
+    maintenanceExport: "Maintenance export",
+    maintenanceExported: "Maintenance package exported",
+  },
+  ko: {
+    themeLabel: "테마",
+    themeAll: "전체 테마",
+    themeNature: "자연",
+    themeCulture: "인문 역사",
+    themeFamily: "가족 휴식",
+    themeAncient: "고건축·석굴",
+    themeRed: "혁명 역사",
+    themeWater: "호수·습지",
+    seasonLabel: "계절",
+    seasonAll: "전체 계절",
+    seasonSpring: "봄",
+    seasonSummer: "여름",
+    seasonAutumn: "가을",
+    seasonWinter: "겨울",
+    inspirationAria: "여행 영감",
+    inspirationTitle: "여행 영감",
+    inspirationCaption: "{count}곳 발견 가능",
+    randomAttraction: "랜덤 발견",
+    randomRegion: "랜덤 지역",
+    buildRoute: "루트 만들기",
+    routeEmpty: "테마나 계절을 선택해 루트를 만드세요",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "저장 목록",
+    favorite: "저장",
+    unfavorite: "저장됨",
+    noFavorites: "저장한 곳이 없습니다",
+    maintenanceExport: "관리 내보내기",
+    maintenanceExported: "관리 패키지를 내보냈습니다",
+  },
+  ja: {
+    themeLabel: "テーマ",
+    themeAll: "すべてのテーマ",
+    themeNature: "自然",
+    themeCulture: "文化・歴史",
+    themeFamily: "家族・休暇",
+    themeAncient: "古建築・石窟",
+    themeRed: "革命史跡",
+    themeWater: "湖・湿地",
+    seasonLabel: "季節",
+    seasonAll: "すべての季節",
+    seasonSpring: "春",
+    seasonSummer: "夏",
+    seasonAutumn: "秋",
+    seasonWinter: "冬",
+    inspirationAria: "旅行のヒント",
+    inspirationTitle: "旅行のヒント",
+    inspirationCaption: "{count} 件を発見できます",
+    randomAttraction: "ランダム発見",
+    randomRegion: "ランダム地域",
+    buildRoute: "ルート作成",
+    routeEmpty: "テーマまたは季節を選ぶとルートを作成できます",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "保存リスト",
+    favorite: "保存",
+    unfavorite: "保存済み",
+    noFavorites: "保存した場所はまだありません",
+    maintenanceExport: "管理エクスポート",
+    maintenanceExported: "管理パッケージをエクスポートしました",
+  },
+  th: {
+    themeLabel: "ธีม",
+    themeAll: "ทุกธีม",
+    themeNature: "ธรรมชาติ",
+    themeCulture: "วัฒนธรรม",
+    themeFamily: "ครอบครัว",
+    themeAncient: "โบราณสถาน",
+    themeRed: "ประวัติศาสตร์ปฏิวัติ",
+    themeWater: "น้ำและพื้นที่ชุ่มน้ำ",
+    seasonLabel: "ฤดูกาล",
+    seasonAll: "ทุกฤดูกาล",
+    seasonSpring: "ฤดูใบไม้ผลิ",
+    seasonSummer: "ฤดูร้อน",
+    seasonAutumn: "ฤดูใบไม้ร่วง",
+    seasonWinter: "ฤดูหนาว",
+    inspirationAria: "แรงบันดาลใจท่องเที่ยว",
+    inspirationTitle: "แรงบันดาลใจท่องเที่ยว",
+    inspirationCaption: "{count} สถานที่ให้ค้นพบ",
+    randomAttraction: "สุ่มค้นพบ",
+    randomRegion: "สุ่มภูมิภาค",
+    buildRoute: "สร้างเส้นทาง",
+    routeEmpty: "เลือกธีมหรือฤดูกาลเพื่อสร้างเส้นทาง",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "รายการบันทึก",
+    favorite: "บันทึก",
+    unfavorite: "บันทึกแล้ว",
+    noFavorites: "ยังไม่มีรายการบันทึก",
+    maintenanceExport: "ส่งออกสำหรับดูแลข้อมูล",
+    maintenanceExported: "ส่งออกแพ็กเกจดูแลข้อมูลแล้ว",
+  },
+  es: {
+    themeLabel: "Tema",
+    themeAll: "Todos los temas",
+    themeNature: "Naturaleza",
+    themeCulture: "Cultura e historia",
+    themeFamily: "Familia y ocio",
+    themeAncient: "Sitios antiguos",
+    themeRed: "Memoria roja",
+    themeWater: "Agua y humedales",
+    seasonLabel: "Temporada",
+    seasonAll: "Todas las temporadas",
+    seasonSpring: "Primavera",
+    seasonSummer: "Verano",
+    seasonAutumn: "Otoño",
+    seasonWinter: "Invierno",
+    inspirationAria: "Inspiración de viaje",
+    inspirationTitle: "Inspiración de viaje",
+    inspirationCaption: "{count} lugares por descubrir",
+    randomAttraction: "Descubrir al azar",
+    randomRegion: "Región al azar",
+    buildRoute: "Crear ruta",
+    routeEmpty: "Elige tema o temporada para crear una ruta",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "Lista guardada",
+    favorite: "Guardar",
+    unfavorite: "Guardado",
+    noFavorites: "Aún no hay guardados",
+    maintenanceExport: "Exportar mantenimiento",
+    maintenanceExported: "Paquete de mantenimiento exportado",
+  },
+  ru: {
+    themeLabel: "Тема",
+    themeAll: "Все темы",
+    themeNature: "Природа",
+    themeCulture: "Культура и история",
+    themeFamily: "Семейный отдых",
+    themeAncient: "Древние памятники",
+    themeRed: "Красная память",
+    themeWater: "Вода и болота",
+    seasonLabel: "Сезон",
+    seasonAll: "Все сезоны",
+    seasonSpring: "Весна",
+    seasonSummer: "Лето",
+    seasonAutumn: "Осень",
+    seasonWinter: "Зима",
+    inspirationAria: "Идеи для поездки",
+    inspirationTitle: "Идеи для поездки",
+    inspirationCaption: "{count} мест для открытия",
+    randomAttraction: "Случайное место",
+    randomRegion: "Случайный регион",
+    buildRoute: "Собрать маршрут",
+    routeEmpty: "Выберите тему или сезон, чтобы собрать маршрут",
+    routeTitle: "{theme} · {season}",
+    favoritesTitle: "Сохраненное",
+    favorite: "Сохранить",
+    unfavorite: "Сохранено",
+    noFavorites: "Пока нет сохраненных мест",
+    maintenanceExport: "Экспорт обслуживания",
+    maintenanceExported: "Пакет обслуживания экспортирован",
+  },
+};
+
+for (const [language, copy] of Object.entries(inspirationTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const routeInsightTranslations = {
+  "zh-CN": {
+    routeSummary: "约 {distance} 公里 · 跨 {regions} 个地区",
+    routeSummarySingleRegion: "约 {distance} 公里 · 同地区",
+    routeStart: "起点",
+    routeLegDistance: "距上一站约 {distance} 公里",
+  },
+  "zh-TW": {
+    routeSummary: "約 {distance} 公里 · 跨 {regions} 個地區",
+    routeSummarySingleRegion: "約 {distance} 公里 · 同地區",
+    routeStart: "起點",
+    routeLegDistance: "距上一站約 {distance} 公里",
+  },
+  en: {
+    routeSummary: "About {distance} km · {regions} regions",
+    routeSummarySingleRegion: "About {distance} km · same region",
+    routeStart: "Start",
+    routeLegDistance: "About {distance} km from previous",
+  },
+  ko: {
+    routeSummary: "약 {distance} km · {regions}개 지역",
+    routeSummarySingleRegion: "약 {distance} km · 같은 지역",
+    routeStart: "출발점",
+    routeLegDistance: "이전 지점에서 약 {distance} km",
+  },
+  ja: {
+    routeSummary: "約 {distance} km · {regions} 地域",
+    routeSummarySingleRegion: "約 {distance} km · 同一地域",
+    routeStart: "起点",
+    routeLegDistance: "前の地点から約 {distance} km",
+  },
+  th: {
+    routeSummary: "ประมาณ {distance} กม. · {regions} ภูมิภาค",
+    routeSummarySingleRegion: "ประมาณ {distance} กม. · ภูมิภาคเดียวกัน",
+    routeStart: "จุดเริ่มต้น",
+    routeLegDistance: "ประมาณ {distance} กม. จากจุดก่อนหน้า",
+  },
+  es: {
+    routeSummary: "Aprox. {distance} km · {regions} regiones",
+    routeSummarySingleRegion: "Aprox. {distance} km · misma región",
+    routeStart: "Inicio",
+    routeLegDistance: "Aprox. {distance} km desde la anterior",
+  },
+  ru: {
+    routeSummary: "Около {distance} км · {regions} регионов",
+    routeSummarySingleRegion: "Около {distance} км · один регион",
+    routeStart: "Старт",
+    routeLegDistance: "Около {distance} км от предыдущей",
+  },
+};
+
+for (const [language, copy] of Object.entries(routeInsightTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const maintenanceTranslations = {
+  "zh-CN": {
+    maintenancePanel: "维护",
+    closeMaintenance: "关闭维护面板",
+    maintenanceSelected: "当前景点",
+    maintenanceSummary: "{count} 条覆盖",
+    maintenanceQueueTitle: "维护队列",
+    maintenanceQueueSummary: "{count} 个待处理",
+    maintenanceQueueMissingImage: "缺图",
+    maintenanceQueueMissingImageDesc: "没有可靠本地插图",
+    maintenanceQueueSuspiciousImage: "疑似错图",
+    maintenanceQueueSuspiciousImageDesc: "命名或来源可能不匹配",
+    maintenanceQueueCityCoordinate: "城市坐标",
+    maintenanceQueueCityCoordinateDesc: "需要校正到景区点位",
+    maintenanceQueueDistrictCoordinate: "区县坐标",
+    maintenanceQueueDistrictCoordinateDesc: "需要进一步精确",
+    maintenanceQueueOverridden: "已有覆盖",
+    maintenanceQueueOverriddenDesc: "本地维护记录",
+    maintenanceLatitude: "纬度",
+    maintenanceLongitude: "经度",
+    maintenanceCoordinateLabel: "坐标备注",
+    maintenanceNote: "维护备注",
+    maintenanceSave: "保存覆盖",
+    maintenanceDelete: "恢复原始",
+    maintenanceExportOverrides: "导出覆盖",
+    maintenanceExportAudit: "导出审计",
+    maintenanceImport: "导入覆盖",
+    maintenanceSaved: "维护覆盖已保存",
+    maintenanceDeleted: "已恢复原始数据",
+    maintenanceImported: "维护覆盖已导入",
+    maintenanceImportError: "导入失败，请检查 JSON",
+    maintenanceOverridesExported: "维护覆盖已导出",
+    maintenanceAuditExported: "维护审计已导出",
+    maintenanceApplyHint: "导出覆盖或维护包后，可用 scripts/apply-maintenance-package.py 统一写入静态数据文件。",
+  },
+  en: {
+    maintenancePanel: "Maintenance",
+    closeMaintenance: "Close maintenance panel",
+    maintenanceSelected: "Selected place",
+    maintenanceSummary: "{count} overrides",
+    maintenanceQueueTitle: "Maintenance Queue",
+    maintenanceQueueSummary: "{count} need attention",
+    maintenanceQueueMissingImage: "Missing image",
+    maintenanceQueueMissingImageDesc: "No reliable local image",
+    maintenanceQueueSuspiciousImage: "Suspicious image",
+    maintenanceQueueSuspiciousImageDesc: "Name or source may not match",
+    maintenanceQueueCityCoordinate: "City coordinate",
+    maintenanceQueueCityCoordinateDesc: "Needs scenic-area correction",
+    maintenanceQueueDistrictCoordinate: "District coordinate",
+    maintenanceQueueDistrictCoordinateDesc: "Needs better precision",
+    maintenanceQueueOverridden: "Overrides",
+    maintenanceQueueOverriddenDesc: "Local maintenance records",
+    maintenanceLatitude: "Latitude",
+    maintenanceLongitude: "Longitude",
+    maintenanceCoordinateLabel: "Coordinate note",
+    maintenanceNote: "Maintenance note",
+    maintenanceSave: "Save override",
+    maintenanceDelete: "Restore original",
+    maintenanceExportOverrides: "Export overrides",
+    maintenanceExportAudit: "Export audit",
+    maintenanceImport: "Import overrides",
+    maintenanceSaved: "Maintenance override saved",
+    maintenanceDeleted: "Original data restored",
+    maintenanceImported: "Maintenance overrides imported",
+    maintenanceImportError: "Import failed. Check the JSON file",
+    maintenanceOverridesExported: "Maintenance overrides exported",
+    maintenanceAuditExported: "Maintenance audit exported",
+    maintenanceApplyHint: "After exporting overrides or a package, run scripts/apply-maintenance-package.py to update the static data files.",
+  },
+  "zh-TW": {
+    reviewApplyHint: "匯出維護包後可用 scripts/apply-maintenance-package.py 一次寫入審核記錄和維護覆蓋。",
+    maintenanceApplyHint: "匯出覆蓋或維護包後，可用 scripts/apply-maintenance-package.py 統一寫入靜態資料檔。",
+  },
+  ko: {
+    reviewApplyHint: "유지보수 패키지를 내보낸 뒤 scripts/apply-maintenance-package.py로 검토 기록과 유지보수 오버라이드를 한 번에 기록할 수 있습니다.",
+    maintenanceApplyHint: "오버라이드나 유지보수 패키지를 내보낸 뒤 scripts/apply-maintenance-package.py로 정적 데이터 파일을 갱신합니다.",
+  },
+  ja: {
+    reviewApplyHint: "メンテナンスパッケージを書き出した後、scripts/apply-maintenance-package.py で審査記録とメンテナンス上書きを一度に書き込めます。",
+    maintenanceApplyHint: "上書きまたはメンテナンスパッケージを書き出した後、scripts/apply-maintenance-package.py で静的データを更新します。",
+  },
+  th: {
+    reviewApplyHint: "หลังส่งออกแพ็กเกจดูแลข้อมูล ใช้ scripts/apply-maintenance-package.py เพื่อเขียนบันทึกตรวจรูปและข้อมูลแก้ไขพร้อมกัน",
+    maintenanceApplyHint: "หลังส่งออกข้อมูลแก้ไขหรือแพ็กเกจดูแลข้อมูล ใช้ scripts/apply-maintenance-package.py เพื่ออัปเดตไฟล์ข้อมูลสแตติก",
+  },
+  es: {
+    reviewApplyHint: "Tras exportar un paquete de mantenimiento, usa scripts/apply-maintenance-package.py para escribir las revisiones y las correcciones.",
+    maintenanceApplyHint: "Tras exportar correcciones o un paquete de mantenimiento, usa scripts/apply-maintenance-package.py para actualizar los datos estáticos.",
+  },
+  ru: {
+    reviewApplyHint: "После экспорта пакета обслуживания используйте scripts/apply-maintenance-package.py, чтобы записать проверки изображений и правки обслуживания.",
+    maintenanceApplyHint: "После экспорта правок или пакета обслуживания используйте scripts/apply-maintenance-package.py для обновления статических данных.",
+  },
+};
+
+for (const [language, copy] of Object.entries(maintenanceTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const qualityTranslations = {
+  "zh-CN": {
+    trustProgressTitle: "可信度进度",
+    trustCoordinateProgress: "坐标精确率",
+    trustImageProgress: "图片覆盖率",
+    trustSourceProgress: "来源覆盖率",
+    trustReviewProgress: "审核覆盖率",
+  },
+  "zh-TW": {
+    trustProgressTitle: "可信度進度",
+    trustCoordinateProgress: "座標精確率",
+    trustImageProgress: "圖片覆蓋率",
+    trustSourceProgress: "來源覆蓋率",
+    trustReviewProgress: "審核覆蓋率",
+  },
+  en: {
+    trustProgressTitle: "Trust Progress",
+    trustCoordinateProgress: "Exact coordinates",
+    trustImageProgress: "Image coverage",
+    trustSourceProgress: "Source coverage",
+    trustReviewProgress: "Review coverage",
+  },
+  ko: {
+    trustProgressTitle: "신뢰도 진행률",
+    trustCoordinateProgress: "정확 좌표율",
+    trustImageProgress: "이미지 적용률",
+    trustSourceProgress: "출처 적용률",
+    trustReviewProgress: "검토 적용률",
+  },
+  ja: {
+    trustProgressTitle: "信頼性の進捗",
+    trustCoordinateProgress: "正確な座標率",
+    trustImageProgress: "画像カバー率",
+    trustSourceProgress: "出典カバー率",
+    trustReviewProgress: "確認カバー率",
+  },
+  th: {
+    trustProgressTitle: "ความคืบหน้าความน่าเชื่อถือ",
+    trustCoordinateProgress: "พิกัดแม่นยำ",
+    trustImageProgress: "ความครอบคลุมรูป",
+    trustSourceProgress: "ความครอบคลุมแหล่งที่มา",
+    trustReviewProgress: "ความครอบคลุมการตรวจ",
+  },
+  es: {
+    trustProgressTitle: "Progreso de confianza",
+    trustCoordinateProgress: "Coordenadas exactas",
+    trustImageProgress: "Cobertura de imágenes",
+    trustSourceProgress: "Cobertura de fuentes",
+    trustReviewProgress: "Cobertura de revisión",
+  },
+  ru: {
+    trustProgressTitle: "Прогресс доверия",
+    trustCoordinateProgress: "Точные координаты",
+    trustImageProgress: "Покрытие изображений",
+    trustSourceProgress: "Покрытие источников",
+    trustReviewProgress: "Покрытие проверок",
+  },
+};
+
+for (const [language, copy] of Object.entries(qualityTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const actionableQualityTranslations = {
+  "zh-CN": {
+    reviewUnreviewedOnly: "未审核",
+    maintenanceQueueUnknownSource: "未知来源",
+    maintenanceQueueUnknownSourceDesc: "数据来源字段未能匹配来源索引",
+  },
+  "zh-TW": {
+    reviewUnreviewedOnly: "未審核",
+    maintenanceQueueUnknownSource: "未知來源",
+    maintenanceQueueUnknownSourceDesc: "資料來源欄位未能匹配來源索引",
+  },
+  en: {
+    reviewUnreviewedOnly: "Unreviewed",
+    maintenanceQueueUnknownSource: "Unknown source",
+    maintenanceQueueUnknownSourceDesc: "Source key does not match the source index",
+  },
+  ko: {
+    reviewUnreviewedOnly: "미검토",
+    maintenanceQueueUnknownSource: "알 수 없는 출처",
+    maintenanceQueueUnknownSourceDesc: "출처 키가 출처 색인과 일치하지 않음",
+  },
+  ja: {
+    reviewUnreviewedOnly: "未確認",
+    maintenanceQueueUnknownSource: "不明な出典",
+    maintenanceQueueUnknownSourceDesc: "出典キーが出典索引と一致しません",
+  },
+  th: {
+    reviewUnreviewedOnly: "ยังไม่ตรวจ",
+    maintenanceQueueUnknownSource: "ไม่ทราบแหล่งที่มา",
+    maintenanceQueueUnknownSourceDesc: "คีย์แหล่งที่มาไม่ตรงกับดัชนีแหล่งข้อมูล",
+  },
+  es: {
+    reviewUnreviewedOnly: "Sin revisar",
+    maintenanceQueueUnknownSource: "Fuente desconocida",
+    maintenanceQueueUnknownSourceDesc: "La clave de fuente no coincide con el índice",
+  },
+  ru: {
+    reviewUnreviewedOnly: "Не проверено",
+    maintenanceQueueUnknownSource: "Неизвестный источник",
+    maintenanceQueueUnknownSourceDesc: "Ключ источника не найден в индексе",
+  },
+};
+
+for (const [language, copy] of Object.entries(actionableQualityTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const detailTrustTranslations = {
+  "zh-CN": { reviewPending: "待审核" },
+  "zh-TW": { reviewPending: "待審核" },
+  en: { reviewPending: "Pending review" },
+  ko: { reviewPending: "검토 대기" },
+  ja: { reviewPending: "確認待ち" },
+  th: { reviewPending: "รอตรวจทาน" },
+  es: { reviewPending: "Pendiente de revisión" },
+  ru: { reviewPending: "Ожидает проверки" },
+};
+
+for (const [language, copy] of Object.entries(detailTrustTranslations)) {
   translations[language] = { ...(translations[language] || {}), ...copy };
 }
 
@@ -1186,6 +2140,8 @@ const descriptionPhrases = {
 const descriptionRules = [
   { category: "leisure", pattern: /迪士尼|乐园|樂園|海洋公园|海洋公園|欢乐|歡樂|影视|影視|温泉|溫泉|度假|环球|環球|方特/ },
   { category: "museum", pattern: /博物|纪念馆|紀念館|科技馆|科技館|展馆|展館|故宫|故宮/ },
+  { category: "red", pattern: /红色|紅色|革命|烈士|八路军|八路軍|新四军|新四軍|长征|長征|会址|會址|旧址|舊址|纪念园|紀念園/ },
+  { category: "religious", pattern: /寺|庙|廟|观|觀|宫|宮|祠|坛|壇|佛|道教|石窟|石刻|清真|塔/ },
   { category: "settlement", pattern: /古镇|古鎮|古村|老街|街区|街區|民俗|村|寨|土楼|土樓|部落/ },
   { category: "heritage", pattern: /古城|园林|園林|府|宫|宮|城墙|城牆|陵|庙|廟|寺|祠|坛|壇|塔|楼|樓|关|關|窟|石刻|遗址|遺址|古堡|长城|長城|布达拉|布達拉|莫高窟|中正纪念堂|中正紀念堂/ },
   { category: "water", pattern: /湖|潭|海|湾|灣|港|江|河|溪|瀑|泉|湿地|濕地|岛|島|海岸|漂流|水/ },
@@ -1196,18 +2152,34 @@ const chinaBounds = L.latLngBounds([18, 73], [54, 135]);
 const state = {
   search: "",
   province: allRegionsValue,
+  category: "all",
+  theme: "all",
+  season: "all",
   ratingFilters: new Set(defaultRatingFilters),
   language: resolveInitialLanguage(),
   selectedId: null,
+  routeIds: [],
+  favoriteIds: loadFavoriteIds(),
   distributionOpen: false,
   controlOpen: false,
   aboutOpen: false,
+  imageReviewOpen: false,
+  maintenanceOpen: false,
+  reviewFilter: "all",
+  reviewSearch: "",
+  reviewSelectedId: null,
+  reviewDecisions: loadReviewDecisions(),
+  maintenanceOverrides: loadMaintenanceOverrides(),
 };
 
 const els = {
   searchInput: document.querySelector("#searchInput"),
   clearSearch: document.querySelector("#clearSearch"),
   provinceSelect: document.querySelector("#provinceSelect"),
+  categorySelect: document.querySelector("#categorySelect"),
+  themeSelect: document.querySelector("#themeSelect"),
+  seasonSelect: document.querySelector("#seasonSelect"),
+  fourANotice: document.querySelector("#fourANotice"),
   ratingFilterButtons: [...document.querySelectorAll("[data-rating-filter]")],
   attractionList: document.querySelector("#attractionList"),
   resultCount: document.querySelector("#resultCount"),
@@ -1221,33 +2193,91 @@ const els = {
   aboutDialog: document.querySelector("#aboutDialog"),
   closeAbout: document.querySelector("#closeAbout"),
   resetFilters: document.querySelector("#resetFilters"),
+  randomAttraction: document.querySelector("#randomAttraction"),
+  randomRegion: document.querySelector("#randomRegion"),
+  buildRoute: document.querySelector("#buildRoute"),
+  inspirationCaption: document.querySelector("#inspirationCaption"),
+  inspirationRoute: document.querySelector("#inspirationRoute"),
+  favoriteCount: document.querySelector("#favoriteCount"),
+  favoriteList: document.querySelector("#favoriteList"),
   toggleControlPanel: document.querySelector("#toggleControlPanel"),
   closeControlPanel: document.querySelector("#closeControlPanel"),
   fitFiltered: document.querySelector("#fitFiltered"),
   toggleDistribution: document.querySelector("#toggleDistribution"),
   closeLegend: document.querySelector("#closeLegend"),
   distributionPanel: document.querySelector("#distributionPanel"),
+  toggleImageReview: document.querySelector("#toggleImageReview"),
+  toggleMaintenance: document.querySelector("#toggleMaintenance"),
+  closeImageReview: document.querySelector("#closeImageReview"),
+  imageReviewPanel: document.querySelector("#imageReviewPanel"),
+  reviewSearch: document.querySelector("#reviewSearch"),
+  reviewFilter: document.querySelector("#reviewFilter"),
+  reviewSummary: document.querySelector("#reviewSummary"),
+  reviewList: document.querySelector("#reviewList"),
+  reviewPreview: document.querySelector("#reviewPreview"),
+  reviewNote: document.querySelector("#reviewNote"),
+  reviewKeep: document.querySelector("#reviewKeep"),
+  reviewReplace: document.querySelector("#reviewReplace"),
+  reviewDelete: document.querySelector("#reviewDelete"),
+  reviewMissing: document.querySelector("#reviewMissing"),
+  reviewExport: document.querySelector("#reviewExport"),
+  maintenanceExport: document.querySelector("#maintenanceExport"),
+  reviewImportInput: document.querySelector("#reviewImportInput"),
+  closeMaintenance: document.querySelector("#closeMaintenance"),
+  maintenancePanel: document.querySelector("#maintenancePanel"),
+  maintenanceSummary: document.querySelector("#maintenanceSummary"),
+  maintenanceSelectedName: document.querySelector("#maintenanceSelectedName"),
+  maintenanceQueueSummary: document.querySelector("#maintenanceQueueSummary"),
+  maintenanceQueueList: document.querySelector("#maintenanceQueueList"),
+  maintenanceLat: document.querySelector("#maintenanceLat"),
+  maintenanceLng: document.querySelector("#maintenanceLng"),
+  maintenanceCoordinateLevel: document.querySelector("#maintenanceCoordinateLevel"),
+  maintenanceCoordinateLabel: document.querySelector("#maintenanceCoordinateLabel"),
+  maintenanceCategory: document.querySelector("#maintenanceCategory"),
+  maintenanceSourceKey: document.querySelector("#maintenanceSourceKey"),
+  maintenanceDataUpdated: document.querySelector("#maintenanceDataUpdated"),
+  maintenanceThemes: document.querySelector("#maintenanceThemes"),
+  maintenanceSeasons: document.querySelector("#maintenanceSeasons"),
+  maintenanceNote: document.querySelector("#maintenanceNote"),
+  maintenanceSave: document.querySelector("#maintenanceSave"),
+  maintenanceDelete: document.querySelector("#maintenanceDelete"),
+  maintenanceExportOverrides: document.querySelector("#maintenanceExportOverrides"),
+  maintenanceExportAudit: document.querySelector("#maintenanceExportAudit"),
+  maintenanceImportInput: document.querySelector("#maintenanceImportInput"),
   provinceBars: document.querySelector("#provinceBars"),
   distributionCaption: document.querySelector("#distributionCaption"),
   legendOfficialStat: document.querySelector("#legendOfficialStat"),
   legendOfficial4AStat: document.querySelector("#legendOfficial4AStat"),
   legendPeerStat: document.querySelector("#legendPeerStat"),
   legendRegionStat: document.querySelector("#legendRegionStat"),
+  trustMetricCaption: document.querySelector("#trustMetricCaption"),
+  trustExactStat: document.querySelector("#trustExactStat"),
+  trustApproxStat: document.querySelector("#trustApproxStat"),
+  trustImageStat: document.querySelector("#trustImageStat"),
+  trustReviewStat: document.querySelector("#trustReviewStat"),
+  trustProgressList: document.querySelector("#trustProgressList"),
   detailPanel: document.querySelector("#detailPanel"),
   closeDetail: document.querySelector("#closeDetail"),
   detailProvince: document.querySelector("#detailProvince"),
   detailName: document.querySelector("#detailName"),
   detailDescription: document.querySelector("#detailDescription"),
+  detailTrustChecks: document.querySelector("#detailTrustChecks"),
   detailImage: document.querySelector("#detailImage"),
   detailVisual: document.querySelector(".detail-visual"),
   detailImageLink: document.querySelector("#detailImageLink"),
   detailYear: document.querySelector("#detailYear"),
-  detailPrecision: document.querySelector("#detailPrecision"),
-  detailPrecisionRow: document.querySelector("#detailPrecision")?.closest("div"),
+  detailCoordinatePrecision: document.querySelector("#detailCoordinatePrecision"),
+  detailDataSource: document.querySelector("#detailDataSource"),
+  detailDataUpdated: document.querySelector("#detailDataUpdated"),
+  detailAuditStatus: document.querySelector("#detailAuditStatus"),
+  detailFootprint: document.querySelector("#detailFootprint"),
+  detailFootprintRow: document.querySelector("#detailFootprint")?.closest("div"),
   focusSelected: document.querySelector("#focusSelected"),
   filterProvince: document.querySelector("#filterProvince"),
+  toggleFavorite: document.querySelector("#toggleFavorite"),
   relatedList: document.querySelector("#relatedList"),
   relatedCaption: document.querySelector("#relatedCaption"),
+  sourceIndexList: document.querySelector("#sourceIndexList"),
 };
 
 const map = L.map("map", {
@@ -1262,6 +2292,9 @@ const map = L.map("map", {
 map.createPane("footprintPane");
 map.getPane("footprintPane").style.zIndex = 420;
 map.getPane("footprintPane").style.pointerEvents = "none";
+map.createPane("routePane");
+map.getPane("routePane").style.zIndex = 610;
+map.getPane("routePane").style.pointerEvents = "none";
 
 L.control.zoom({ position: "topright" }).addTo(map);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -1285,22 +2318,38 @@ const markerLayer =
     : L.layerGroup();
 
 markerLayer.addTo(map);
+const routeLayer = L.layerGroup().addTo(map);
 
 const markersById = new Map();
 const attractionsById = new Map(attractions.map((item) => [item.id, item]));
+const originalAttractionsById = new Map(attractions.map((item) => [item.id, { ...item }]));
+const attractionCategoryCache = new Map();
+const attractionThemeCache = new Map();
+const attractionSeasonCache = new Map();
+const attractionSearchAliasCache = new Map();
 const footprintCache = new Map();
 const correctedCentersById = new Map();
 const selectionLayer = L.layerGroup().addTo(map);
 let activeFootprintRequest = 0;
 
 function init() {
+  applyMaintenanceOverridesToAttractions();
+  hydrateAttractionTrustMetadata();
   applyLanguage();
   renderBaseStats();
   populateProvinceSelect();
+  populateCategorySelect();
+  populateThemeSelect();
+  populateSeasonSelect();
+  populateReviewFilter();
+  populateMaintenanceSelects();
+  renderSourceIndex();
   bindEvents();
   syncRatingFilterButtons();
   syncControlPanel();
   syncDistributionPanel();
+  syncImageReviewPanel();
+  syncMaintenancePanel();
   render();
   fitTo(getFilteredAttractions());
 
@@ -1325,6 +2374,79 @@ function populateProvinceSelect() {
     ),
   ].join("");
   els.provinceSelect.value = state.province;
+}
+
+function hydrateAttractionTrustMetadata() {
+  attractions.forEach((item) => {
+    item.sourceKey = item.sourceKey || attractionSourceKey(item);
+    item.dataUpdated = item.dataUpdated || sourceUpdatedAt(sourceIndex.sources?.[item.sourceKey]);
+    item.coordinateAuditStatus = item.coordinateAuditStatus || coordinateAuditStatusKey(item);
+  });
+}
+
+function populateCategorySelect() {
+  if (!els.categorySelect) return;
+  els.categorySelect.innerHTML = categoryFilterOrder
+    .map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(categoryLabel(category))}</option>`)
+    .join("");
+  els.categorySelect.value = state.category;
+}
+
+function populateThemeSelect() {
+  if (!els.themeSelect) return;
+  els.themeSelect.innerHTML = themeFilterOrder
+    .map((theme) => `<option value="${escapeHtml(theme)}">${escapeHtml(themeLabel(theme))}</option>`)
+    .join("");
+  els.themeSelect.value = state.theme;
+}
+
+function populateSeasonSelect() {
+  if (!els.seasonSelect) return;
+  els.seasonSelect.innerHTML = seasonFilterOrder
+    .map((season) => `<option value="${escapeHtml(season)}">${escapeHtml(seasonLabel(season))}</option>`)
+    .join("");
+  els.seasonSelect.value = state.season;
+}
+
+function populateReviewFilter() {
+  if (!els.reviewFilter) return;
+  const filters = [
+    ["all", t("reviewAll")],
+    ["unreviewed", t("reviewUnreviewedOnly")],
+    ["missing", t("reviewMissingOnly")],
+    ["suspicious", t("reviewSuspiciousOnly")],
+    ["withImage", t("reviewWithImage")],
+    ["flagged", t("reviewFlagged")],
+  ];
+  els.reviewFilter.innerHTML = filters
+    .map(([value, label]) => `<option value="${escapeHtml(value)}">${escapeHtml(label)}</option>`)
+    .join("");
+  els.reviewFilter.value = state.reviewFilter;
+}
+
+function renderSourceIndex() {
+  if (!els.sourceIndexList) return;
+  const sources = sourceIndex.sources || {};
+  const announcementSourceKeys = Object.values(sourceIndex.officialAnnouncementSources || {}).flat();
+  const sourceKeys = [...new Set(["mct-official-5a", ...announcementSourceKeys, "open-4a-list", "city-geo", "openstreetmap"])];
+  els.sourceIndexList.innerHTML = sourceKeys
+    .filter((key) => sources[key])
+    .map((key) => {
+      const source = sources[key];
+      const href = sourceHref(source);
+      const label = sourceLabel(source);
+      const metaText = [source.type, source.updatedAt || sourceIndex.updatedAt].filter(Boolean).join(" · ");
+      const title = href
+        ? `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`
+        : `<span>${escapeHtml(label)}</span>`;
+      return `
+        <div>
+          ${title}
+          <small>${escapeHtml(metaText)}</small>
+        </div>
+      `;
+    })
+    .join("");
 }
 
 function bindEvents() {
@@ -1354,11 +2476,13 @@ function bindEvents() {
 
   els.searchInput.addEventListener("input", (event) => {
     state.search = event.target.value.trim();
+    state.routeIds = [];
     render();
   });
 
   els.clearSearch.addEventListener("click", () => {
     state.search = "";
+    state.routeIds = [];
     els.searchInput.value = "";
     render();
     els.searchInput.focus();
@@ -1366,6 +2490,28 @@ function bindEvents() {
 
   els.provinceSelect.addEventListener("change", (event) => {
     state.province = event.target.value;
+    state.routeIds = [];
+    render();
+    fitTo(getFilteredAttractions());
+  });
+
+  els.categorySelect.addEventListener("change", (event) => {
+    state.category = event.target.value;
+    state.routeIds = [];
+    render();
+    fitTo(getFilteredAttractions());
+  });
+
+  els.themeSelect.addEventListener("change", (event) => {
+    state.theme = event.target.value;
+    state.routeIds = [];
+    render();
+    fitTo(getFilteredAttractions());
+  });
+
+  els.seasonSelect.addEventListener("change", (event) => {
+    state.season = event.target.value;
+    state.routeIds = [];
     render();
     fitTo(getFilteredAttractions());
   });
@@ -1373,6 +2519,7 @@ function bindEvents() {
   els.ratingFilterButtons.forEach((button) => {
     button.addEventListener("click", () => {
       toggleRatingFilter(button.dataset.ratingFilter);
+      state.routeIds = [];
       render();
       fitTo(getFilteredAttractions());
     });
@@ -1381,12 +2528,28 @@ function bindEvents() {
   els.resetFilters.addEventListener("click", () => {
     state.search = "";
     state.province = allRegionsValue;
+    state.category = "all";
+    state.theme = "all";
+    state.season = "all";
+    state.routeIds = [];
     state.ratingFilters = new Set(defaultRatingFilters);
     els.searchInput.value = "";
     els.provinceSelect.value = allRegionsValue;
+    els.categorySelect.value = state.category;
+    els.themeSelect.value = state.theme;
+    els.seasonSelect.value = state.season;
     syncRatingFilterButtons();
     render();
     fitTo(getFilteredAttractions());
+  });
+
+  els.randomAttraction?.addEventListener("click", () => randomSelectAttraction());
+  els.randomRegion?.addEventListener("click", () => randomSelectRegion());
+
+  els.buildRoute?.addEventListener("click", () => {
+    buildInspirationRoute();
+    const routeItems = routeAttractions();
+    if (routeItems.length) fitTo(routeItems);
   });
 
   els.toggleControlPanel.addEventListener("click", () => {
@@ -1407,6 +2570,55 @@ function bindEvents() {
     setDistributionOpen(false);
   });
 
+  els.toggleImageReview.addEventListener("click", () => {
+    setImageReviewOpen(!state.imageReviewOpen);
+  });
+
+  els.closeImageReview.addEventListener("click", () => {
+    setImageReviewOpen(false);
+  });
+
+  els.toggleMaintenance?.addEventListener("click", () => {
+    setMaintenanceOpen(!state.maintenanceOpen);
+  });
+
+  els.closeMaintenance?.addEventListener("click", () => {
+    setMaintenanceOpen(false);
+  });
+
+  els.reviewSearch.addEventListener("input", (event) => {
+    state.reviewSearch = event.target.value.trim();
+    renderImageReview();
+  });
+
+  els.reviewFilter.addEventListener("change", (event) => {
+    state.reviewFilter = event.target.value;
+    renderImageReview();
+  });
+
+  els.reviewKeep.addEventListener("click", () => recordReviewDecision("keep"));
+  els.reviewReplace.addEventListener("click", () => recordReviewDecision("replace"));
+  els.reviewDelete.addEventListener("click", () => recordReviewDecision("delete"));
+  els.reviewMissing.addEventListener("click", () => recordReviewDecision("missing"));
+  els.reviewExport.addEventListener("click", exportReviewDecisions);
+  els.maintenanceExport?.addEventListener("click", exportMaintenancePackage);
+  els.reviewImportInput?.addEventListener("change", importReviewDecisions);
+  els.maintenanceSave?.addEventListener("click", saveSelectedMaintenanceOverride);
+  els.maintenanceDelete?.addEventListener("click", deleteSelectedMaintenanceOverride);
+  els.maintenanceExportOverrides?.addEventListener("click", exportMaintenanceOverrides);
+  els.maintenanceExportAudit?.addEventListener("click", exportMaintenanceAuditReport);
+  els.maintenanceImportInput?.addEventListener("change", importMaintenanceOverrides);
+  els.maintenanceQueueList?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-maintenance-queue]");
+    if (!button || button.disabled) return;
+    jumpToMaintenanceQueue(button.dataset.maintenanceQueue);
+  });
+  els.trustProgressList?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-trust-action]");
+    if (!button || button.disabled) return;
+    handleTrustProgressAction(button.dataset.trustAction);
+  });
+
   els.closeDetail.addEventListener("click", () => selectAttraction(null));
 
   els.focusSelected.addEventListener("click", () => {
@@ -1420,21 +2632,35 @@ function bindEvents() {
     const selected = getSelected();
     if (!selected) return;
     state.province = selected.province;
+    state.routeIds = [];
     els.provinceSelect.value = selected.province;
     render();
     fitTo(getFilteredAttractions());
+  });
+
+  els.toggleFavorite?.addEventListener("click", () => {
+    const selected = getSelected();
+    if (selected) toggleFavorite(selected.id);
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
       if (state.aboutOpen) {
         setAboutOpen(false);
+      } else if (state.maintenanceOpen) {
+        setMaintenanceOpen(false);
+      } else if (state.imageReviewOpen) {
+        setImageReviewOpen(false);
       } else if (getSelected()) {
         selectAttraction(null);
       } else if (state.distributionOpen) {
         setDistributionOpen(false);
       }
     }
+  });
+
+  map.on("zoomend", () => {
+    render();
   });
 }
 
@@ -1444,6 +2670,12 @@ function setLanguage(language) {
 
   applyLanguage();
   populateProvinceSelect();
+  populateCategorySelect();
+  populateThemeSelect();
+  populateSeasonSelect();
+  populateReviewFilter();
+  populateMaintenanceSelects();
+  renderSourceIndex();
   render();
 }
 
@@ -1471,6 +2703,10 @@ function applyLanguage() {
     els.languageSelect.value = state.language;
   }
   syncControlPanel();
+  syncImageReviewPanel();
+  syncMaintenancePanel();
+  renderImageReview();
+  renderMaintenancePanel();
 }
 
 function setAboutOpen(open) {
@@ -1513,6 +2749,42 @@ function syncDistributionPanel() {
   els.toggleDistribution.classList.toggle("active", state.distributionOpen);
 }
 
+function setImageReviewOpen(open) {
+  state.imageReviewOpen = open;
+  if (open && state.maintenanceOpen) {
+    setMaintenanceOpen(false);
+  }
+  syncImageReviewPanel();
+  if (open) {
+    renderImageReview();
+  }
+}
+
+function syncImageReviewPanel() {
+  if (!els.imageReviewPanel) return;
+  els.imageReviewPanel.classList.toggle("collapsed", !state.imageReviewOpen);
+  els.toggleImageReview.setAttribute("aria-expanded", String(state.imageReviewOpen));
+  els.toggleImageReview.classList.toggle("active", state.imageReviewOpen);
+}
+
+function setMaintenanceOpen(open) {
+  state.maintenanceOpen = open;
+  if (open && state.imageReviewOpen) {
+    setImageReviewOpen(false);
+  }
+  syncMaintenancePanel();
+  if (open) {
+    renderMaintenancePanel();
+  }
+}
+
+function syncMaintenancePanel() {
+  if (!els.maintenancePanel) return;
+  els.maintenancePanel.classList.toggle("collapsed", !state.maintenanceOpen);
+  els.toggleMaintenance?.setAttribute("aria-expanded", String(state.maintenanceOpen));
+  els.toggleMaintenance?.classList.toggle("active", state.maintenanceOpen);
+}
+
 function toggleRatingFilter(rating) {
   if (!ratingFilterOrder.includes(rating)) return;
   const nextFilters = new Set(state.ratingFilters);
@@ -1535,11 +2807,21 @@ function syncRatingFilterButtons() {
 
 function render() {
   const filtered = getFilteredAttractions();
+  syncFourANotice();
   updateSummary(filtered);
   renderList(filtered);
   renderMarkers(filtered);
+  renderRouteMap();
   renderDistribution(filtered);
+  renderTrustMetrics(filtered);
+  renderInspiration(filtered);
   syncActiveMapMarker(getSelected());
+  if (state.imageReviewOpen) {
+    renderImageReview();
+  }
+  if (state.maintenanceOpen) {
+    renderMaintenancePanel();
+  }
 
   if (state.selectedId && !filtered.some((item) => item.id === state.selectedId)) {
     selectAttraction(null, { skipRender: true });
@@ -1554,14 +2836,20 @@ function render() {
 
 function getFilteredAttractions() {
   const query = normalize(state.search);
+  const canShowFourA = canShowFourAResults(query);
   return attractions.filter((item) => {
     const matchesProvince = state.province === allRegionsValue || item.province === state.province;
     const matchesRating = state.ratingFilters.has(item.rating);
+    const matchesCategory = state.category === "all" || attractionCategory(item) === state.category;
+    const matchesTheme = state.theme === "all" || attractionThemes(item).includes(state.theme);
+    const matchesSeason = state.season === "all" || attractionSeasons(item).includes(state.season);
+    const matchesFourAContext = item.rating !== "official4A" || canShowFourA;
     const searchable = normalize(
       [
         item.name,
         item.displayName,
         item.city,
+        ...searchAliases(item),
         displayAttractionName(item),
         attractionLocationLabel(item),
         ...Object.values(localizedAttractionNames[item.id] || {}),
@@ -1572,18 +2860,35 @@ function getFilteredAttractions() {
         item.ratingLabel || "",
         ratingMeta(item),
         ratingDetail(item),
+        ...attractionThemes(item).map(themeLabel),
+        ...attractionSeasons(item).map(seasonLabel),
       ].join(" "),
     );
     const matchesSearch = !query || searchable.includes(query);
-    return matchesProvince && matchesRating && matchesSearch;
+    return matchesProvince && matchesRating && matchesCategory && matchesTheme && matchesSeason && matchesFourAContext && matchesSearch;
   });
+}
+
+function canShowFourAResults(query = normalize(state.search)) {
+  return state.province !== allRegionsValue || Boolean(query) || map.getZoom() >= fourAZoomThreshold;
+}
+
+function syncFourANotice() {
+  const shouldShow = state.ratingFilters.has("official4A") && !canShowFourAResults();
+  els.fourANotice?.classList.toggle("hidden", !shouldShow);
 }
 
 function updateSummary(filtered) {
   els.visibleStat.textContent = String(filtered.length);
   els.resultCount.textContent = t("resultCount", { count: filtered.length });
   const provinceText = state.province === allRegionsValue ? t("nationwide") : regionName(state.province);
-  els.filterSubtitle.textContent = t("filterSubtitle", { region: provinceText, levels: activeLevelSummary() });
+  const activeExtras = [
+    state.category === "all" ? "" : categoryLabel(state.category),
+    state.theme === "all" ? "" : themeLabel(state.theme),
+    state.season === "all" ? "" : seasonLabel(state.season),
+  ].filter(Boolean);
+  const typeText = activeExtras.length ? ` · ${activeExtras.join(" · ")}` : "";
+  els.filterSubtitle.textContent = t("filterSubtitle", { region: provinceText, levels: `${activeLevelSummary()}${typeText}` });
 }
 
 function activeLevelSummary() {
@@ -1607,7 +2912,10 @@ function renderList(items) {
                 <span class="card-name">${escapeHtml(displayAttractionName(item))}</span>
                 <span class="card-meta">${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(ratingMeta(item))}</span>
               </span>
-              <span class="year-badge">${escapeHtml(ratingBadge(item))}</span>
+              <span class="card-badges">
+                <span class="year-badge">${escapeHtml(ratingBadge(item))}</span>
+                <span class="precision-badge ${escapeHtml(coordinatePrecisionClass(item))}">${escapeHtml(coordinatePrecisionShort(item))}</span>
+              </span>
             </span>
           </button>
         </li>
@@ -1637,12 +2945,56 @@ function renderMarkers(items) {
     marker.bindPopup(
       `<strong>${escapeHtml(displayAttractionName(item))}</strong><br>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(
         ratingMeta(item),
-      )}`,
+      )}<br>${escapeHtml(t("coordinatePrecision"))}: ${escapeHtml(coordinatePrecisionText(item))}`,
     );
 
     marker.on("click", () => selectAttraction(item));
     markersById.set(item.id, marker);
     markerLayer.addLayer(marker);
+  });
+}
+
+function renderRouteMap() {
+  routeLayer.clearLayers();
+  const items = routeAttractions().filter((item) => markersById.has(item.id));
+  if (items.length < 2) return;
+
+  const latLngs = items.map((item) => getAttractionLatLng(item));
+  L.polyline(latLngs, {
+    pane: "routePane",
+    color: "#ffffff",
+    weight: 9,
+    opacity: 0.92,
+    interactive: false,
+    lineCap: "round",
+    lineJoin: "round",
+  }).addTo(routeLayer);
+  L.polyline(latLngs, {
+    pane: "routePane",
+    color: highlightColor,
+    weight: 4,
+    opacity: 0.78,
+    interactive: false,
+    lineCap: "round",
+    lineJoin: "round",
+  }).addTo(routeLayer);
+
+  items.forEach((item, index) => {
+    L.marker(getAttractionLatLng(item), {
+      pane: "routePane",
+      interactive: false,
+      keyboard: false,
+      icon: routeStopIcon(index + 1),
+    }).addTo(routeLayer);
+  });
+}
+
+function routeStopIcon(index) {
+  return L.divIcon({
+    className: "route-stop-marker",
+    html: `<span>${escapeHtml(index)}</span>`,
+    iconSize: [28, 28],
+    iconAnchor: [14, 14],
   });
 }
 
@@ -1691,11 +3043,313 @@ function renderDistribution(items) {
   });
 }
 
+function renderTrustMetrics(items) {
+  if (!els.trustExactStat) return;
+  const exactCount = items.filter((item) => coordinatePrecisionClass(item) === "precision-exact").length;
+  const approximateCount = items.length - exactCount;
+  const imageCount = items.filter((item) => hasReliableAttractionImage(item)).length;
+  const reviewCount = items.filter((item) => state.reviewDecisions[item.id]).length;
+  els.trustExactStat.textContent = String(exactCount);
+  els.trustApproxStat.textContent = String(approximateCount);
+  els.trustImageStat.textContent = String(imageCount);
+  els.trustReviewStat.textContent = String(reviewCount);
+  if (els.trustMetricCaption) {
+    els.trustMetricCaption.textContent = t("resultCount", { count: items.length });
+  }
+  renderTrustProgress(items, { exactCount, imageCount, reviewCount });
+}
+
+function renderTrustProgress(items, counts) {
+  if (!els.trustProgressList) return;
+  const total = items.length;
+  const sourceCount = items.filter(hasKnownAttractionSource).length;
+  const rows = [
+    { label: t("trustCoordinateProgress"), count: counts.exactCount, total, action: "coordinate" },
+    { label: t("trustImageProgress"), count: counts.imageCount, total, action: "missingImage" },
+    { label: t("trustSourceProgress"), count: sourceCount, total, action: "unknownSource" },
+    { label: t("trustReviewProgress"), count: counts.reviewCount, total, action: "unreviewed" },
+  ];
+  els.trustProgressList.innerHTML = rows.map(renderTrustProgressRow).join("");
+}
+
+function renderTrustProgressRow(row) {
+  const value = percent(row.count, row.total);
+  const disabled = row.count >= row.total ? " disabled" : "";
+  return `
+    <button class="trust-progress-row" type="button" data-trust-action="${escapeHtml(row.action)}"${disabled}>
+      <span class="trust-progress-label">${escapeHtml(row.label)}</span>
+      <strong class="trust-progress-value">${value}%</strong>
+      <span class="trust-progress-track" aria-hidden="true">
+        <span class="trust-progress-fill" style="width: ${value}%"></span>
+      </span>
+      <small>${escapeHtml(row.count)} / ${escapeHtml(row.total)}</small>
+    </button>
+  `;
+}
+
+function hasKnownAttractionSource(item) {
+  return Boolean(sourceIndex.sources?.[attractionSourceKey(item)]);
+}
+
+function percent(count, total) {
+  return total ? Math.round((count / total) * 100) : 0;
+}
+
+function handleTrustProgressAction(action) {
+  if (action === "unreviewed") {
+    state.reviewFilter = "unreviewed";
+    if (els.reviewFilter) els.reviewFilter.value = state.reviewFilter;
+    setImageReviewOpen(true);
+    renderImageReview();
+    return;
+  }
+
+  const queueKey = action === "coordinate" ? nextCoordinateMaintenanceQueue() : action;
+  if (!maintenanceQueueItems(queueKey).length) return;
+  setMaintenanceOpen(true);
+  jumpToMaintenanceQueue(queueKey);
+}
+
+function nextCoordinateMaintenanceQueue() {
+  return maintenanceQueueItems("cityCoordinate").length ? "cityCoordinate" : "districtCoordinate";
+}
+
+function renderInspiration(items) {
+  if (els.inspirationCaption) {
+    els.inspirationCaption.textContent = t("inspirationCaption", { count: items.length });
+  }
+  renderInspirationRoute();
+  renderFavorites();
+}
+
+function renderInspirationRoute() {
+  if (!els.inspirationRoute) return;
+  const routeItems = routeAttractions();
+  if (!routeItems.length) {
+    els.inspirationRoute.innerHTML = `<p class="empty-state">${escapeHtml(t("routeEmpty"))}</p>`;
+    return;
+  }
+
+  const theme = state.theme === "all" ? themeLabel(routeDominantTheme(routeItems)) : themeLabel(state.theme);
+  const season = state.season === "all" ? seasonLabel(routeDominantSeason(routeItems)) : seasonLabel(state.season);
+  const summary = routeSummary(routeItems);
+  els.inspirationRoute.innerHTML = `
+    <div class="route-heading">
+      <span>
+        <strong>${escapeHtml(t("routeTitle", { theme, season }))}</strong>
+        <small>${escapeHtml(summary)}</small>
+      </span>
+      <span>${escapeHtml(t("resultCount", { count: routeItems.length }))}</span>
+    </div>
+    <ol class="route-list">
+      ${routeItems
+        .map(
+          (item, index) => `
+            <li>
+              <button class="related-item route-item" type="button" data-id="${escapeHtml(item.id)}">
+                <span class="route-index">${index + 1}</span>
+                <span>
+                  <strong>${escapeHtml(displayAttractionName(item))}</strong>
+                  <span>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(themeLabel(attractionThemes(item)[0]))}</span>
+                  <span class="route-step-meta">${escapeHtml(routeStepMeta(routeItems, index))}</span>
+                </span>
+              </button>
+            </li>
+          `,
+        )
+        .join("")}
+    </ol>
+  `;
+  els.inspirationRoute.querySelectorAll("[data-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = attractionsById.get(button.dataset.id);
+      if (item) {
+        selectAttraction(item);
+        focusAttraction(item, true);
+      }
+    });
+  });
+}
+
+function renderFavorites() {
+  if (!els.favoriteList) return;
+  const items = favoriteAttractions();
+  els.favoriteCount.textContent = String(items.length);
+  if (!items.length) {
+    els.favoriteList.innerHTML = `<p class="empty-state">${escapeHtml(t("noFavorites"))}</p>`;
+    return;
+  }
+
+  els.favoriteList.innerHTML = items
+    .slice(0, 8)
+    .map(
+      (item) => `
+        <button class="related-item favorite-item" type="button" data-id="${escapeHtml(item.id)}">
+          <strong>${escapeHtml(displayAttractionName(item))}</strong>
+          <span>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(ratingBadge(item))}</span>
+        </button>
+      `,
+    )
+    .join("");
+  els.favoriteList.querySelectorAll("[data-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const item = attractionsById.get(button.dataset.id);
+      if (item) {
+        selectAttraction(item);
+        focusAttraction(item, true);
+      }
+    });
+  });
+}
+
+function randomSelectAttraction() {
+  const items = getFilteredAttractions();
+  if (!items.length) return;
+  const item = items[Math.floor(Math.random() * items.length)];
+  selectAttraction(item);
+  focusAttraction(item, true);
+}
+
+function randomSelectRegion() {
+  const items = getRegionCandidateAttractions();
+  const provinceCounts = countBy(items, (item) => item.province).filter((item) => item.count > 0);
+  if (!provinceCounts.length) return;
+  const weighted = provinceCounts.flatMap((item) => Array(Math.max(1, Math.min(8, Math.ceil(Math.sqrt(item.count))))).fill(item.key));
+  const province = weighted[Math.floor(Math.random() * weighted.length)] || provinceCounts[0].key;
+  state.search = "";
+  state.province = province;
+  state.routeIds = [];
+  state.selectedId = null;
+  els.searchInput.value = "";
+  els.provinceSelect.value = province;
+  render();
+  fitTo(getFilteredAttractions());
+}
+
+function getRegionCandidateAttractions() {
+  return attractions.filter((item) => {
+    const matchesRating = state.ratingFilters.has(item.rating);
+    const matchesCategory = state.category === "all" || attractionCategory(item) === state.category;
+    const matchesTheme = state.theme === "all" || attractionThemes(item).includes(state.theme);
+    const matchesSeason = state.season === "all" || attractionSeasons(item).includes(state.season);
+    return matchesRating && matchesCategory && matchesTheme && matchesSeason;
+  });
+}
+
+function buildInspirationRoute() {
+  const items = getFilteredAttractions();
+  state.routeIds = pickRouteItems(items).map((item) => item.id);
+  renderInspiration(items);
+  renderRouteMap();
+}
+
+function pickRouteItems(items) {
+  const routeTheme = state.theme === "all" ? bestThemeForItems(items) : state.theme;
+  const routeSeason = state.season === "all" ? bestSeasonForItems(items) : state.season;
+  const preferred = items.filter((item) => attractionThemes(item).includes(routeTheme) && attractionSeasons(item).includes(routeSeason));
+  const pool = preferred.length >= 3 ? preferred : items;
+  const selected = pool
+    .slice()
+    .sort((a, b) => routeSortScore(b, routeTheme, routeSeason) - routeSortScore(a, routeTheme, routeSeason))
+    .slice(0, Math.min(6, Math.max(3, pool.length)));
+  return orderRouteByDistance(selected);
+}
+
+function routeSortScore(item, routeTheme, routeSeason) {
+  return (
+    (item.rating === "official5A" ? 8 : item.rating === "peer5A" ? 5 : 3) +
+    (item.coordinateLevel === "景区" ? 3 : 0) +
+    (hasReliableAttractionImage(item) ? 2 : 0) +
+    (attractionThemes(item).includes(routeTheme) ? 2 : 0) +
+    (attractionSeasons(item).includes(routeSeason) ? 1 : 0)
+  );
+}
+
+function orderRouteByDistance(items) {
+  if (items.length < 3) return items;
+  const remaining = items.slice();
+  const ordered = [remaining.shift()];
+  while (remaining.length) {
+    const current = ordered[ordered.length - 1];
+    const nextIndex = nearestRouteItemIndex(current, remaining);
+    ordered.push(remaining.splice(nextIndex, 1)[0]);
+  }
+  return ordered;
+}
+
+function nearestRouteItemIndex(current, candidates) {
+  let bestIndex = 0;
+  let bestDistance = Number.POSITIVE_INFINITY;
+  candidates.forEach((candidate, index) => {
+    const distance = haversineKm(getAttractionLatLng(current), getAttractionLatLng(candidate));
+    if (distance < bestDistance) {
+      bestDistance = distance;
+      bestIndex = index;
+    }
+  });
+  return bestIndex;
+}
+
+function routeAttractions() {
+  return state.routeIds.map((id) => attractionsById.get(id)).filter(Boolean);
+}
+
+function routeSummary(items) {
+  const distance = Math.round(routeDistanceKm(items));
+  const regions = unique(items.map((item) => item.province)).length;
+  const key = regions > 1 ? "routeSummary" : "routeSummarySingleRegion";
+  return t(key, { distance: formatRouteDistance(distance), regions });
+}
+
+function routeStepMeta(items, index) {
+  if (index === 0) return t("routeStart");
+  const distance = Math.round(haversineKm(getAttractionLatLng(items[index - 1]), getAttractionLatLng(items[index])));
+  return t("routeLegDistance", { distance: formatRouteDistance(distance) });
+}
+
+function routeDistanceKm(items) {
+  if (items.length < 2) return 0;
+  return items.slice(1).reduce((total, item, index) => {
+    const previous = items[index];
+    return total + haversineKm(getAttractionLatLng(previous), getAttractionLatLng(item));
+  }, 0);
+}
+
+function formatRouteDistance(distance) {
+  if (distance >= 1000) return String(Math.round(distance / 10) * 10);
+  if (distance >= 100) return String(Math.round(distance / 5) * 5);
+  return String(distance);
+}
+
+function routeDominantTheme(items) {
+  return bestByCount(items.flatMap(attractionThemes), "culture");
+}
+
+function routeDominantSeason(items) {
+  return bestByCount(items.flatMap(attractionSeasons), "autumn");
+}
+
+function bestThemeForItems(items) {
+  return bestByCount(items.flatMap(attractionThemes).filter((theme) => theme !== "all"), "culture");
+}
+
+function bestSeasonForItems(items) {
+  return bestByCount(items.flatMap(attractionSeasons).filter((season) => season !== "all"), "autumn");
+}
+
+function bestByCount(values, fallback) {
+  const counts = countBy(values, (value) => value).sort((a, b) => b.count - a.count);
+  return counts[0]?.key || fallback;
+}
+
 function selectAttraction(item, options = {}) {
   state.selectedId = item?.id || null;
   renderDetail(item || null);
   syncActiveListItem();
   syncActiveMapMarker(item || null);
+  if (state.maintenanceOpen) {
+    renderMaintenancePanel();
+  }
 
   if (!options.skipRender) {
     renderList(getFilteredAttractions());
@@ -1709,9 +3363,16 @@ function renderDetail(item) {
   els.detailName.textContent = hasItem ? displayAttractionName(item) : t("noSelectionTitle");
   els.detailDescription.textContent = hasItem ? attractionDescription(item) : "";
   els.detailYear.textContent = hasItem ? ratingDetail(item) : "-";
+  setDetailTrustChecks(item);
+  setCoordinatePrecisionDetail(item);
+  setTrustDetail(item);
   setFootprintDetail(null);
   els.focusSelected.disabled = !hasItem;
   els.filterProvince.disabled = !hasItem;
+  if (els.toggleFavorite) {
+    els.toggleFavorite.disabled = !hasItem;
+    syncFavoriteButton(item);
+  }
 
   if (!hasItem) {
     setDetailImage(fallbackImage, t("scenicImageAlt"));
@@ -1767,6 +3428,122 @@ function attractionDescription(item) {
 function attractionDescriptionCategory(item) {
   const text = [item.name, item.coordinateLabel].filter(Boolean).join(" ");
   return descriptionRules.find((rule) => rule.pattern.test(text))?.category || "default";
+}
+
+function attractionCategory(item) {
+  if (attractionCategoryCache.has(item.id)) return attractionCategoryCache.get(item.id);
+  const override = item.categoryOverride;
+  const category = override && categoryFilterOrder.includes(override) ? override : attractionDescriptionCategory(item);
+  const resolved = category === "default" ? "other" : category;
+  attractionCategoryCache.set(item.id, resolved);
+  return resolved;
+}
+
+function categoryLabel(category) {
+  const labels = {
+    all: t("categoryAll"),
+    nature: t("categoryNature"),
+    water: t("categoryWater"),
+    heritage: t("categoryHeritage"),
+    settlement: t("categorySettlement"),
+    museum: t("categoryMuseum"),
+    religious: t("categoryReligious"),
+    red: t("categoryRed"),
+    leisure: t("categoryLeisure"),
+    other: t("categoryOther"),
+  };
+  return labels[category] || category;
+}
+
+function attractionThemes(item) {
+  if (attractionThemeCache.has(item.id)) return attractionThemeCache.get(item.id);
+  if (Array.isArray(item.themeOverride) && item.themeOverride.length) {
+    const result = item.themeOverride.filter((theme) => themeFilterOrder.includes(theme) && theme !== "all");
+    attractionThemeCache.set(item.id, result);
+    return result;
+  }
+  const category = attractionCategory(item);
+  const text = attractionTagText(item);
+  const themes = new Set();
+
+  if (["nature", "water"].includes(category) || /山|峰|岭|嶺|峡|峽|谷|草原|森林|沙|丹霞|地质|地質|洞|湖|海|瀑|湿地|濕地|岛|島/.test(text)) {
+    themes.add("nature");
+  }
+  if (["heritage", "museum", "settlement", "religious"].includes(category) || /古|遗址|遺址|博物|园林|園林|石窟|石刻|寺|庙|廟|宫|宮|城|楼|樓|陵|祠/.test(text)) {
+    themes.add("culture");
+  }
+  if (category === "leisure" || /乐园|樂園|迪士尼|欢乐|歡樂|海洋公园|海洋公園|动物园|動物園|植物园|植物園|度假|温泉|溫泉|影视|影視/.test(text)) {
+    themes.add("family");
+  }
+  if (["heritage", "religious", "settlement"].includes(category) || /古城|古镇|古鎮|古村|园林|園林|石窟|石刻|寺|庙|廟|宫|宮|陵|遗址|遺址|长城|長城|土楼|土樓|牌坊|关|關/.test(text)) {
+    themes.add("ancient");
+  }
+  if (category === "red" || /红色|紅色|革命|烈士|长征|長征|旧址|舊址|会址|會址|纪念|紀念/.test(text)) {
+    themes.add("red");
+  }
+  if (category === "water" || /湖|海|江|河|溪|泉|瀑|湾|灣|港|湿地|濕地|岛|島|水/.test(text)) {
+    themes.add("water");
+  }
+
+  if (!themes.size) themes.add(category === "other" ? "culture" : category);
+  const result = [...themes].filter((theme) => themeFilterOrder.includes(theme));
+  attractionThemeCache.set(item.id, result);
+  return result;
+}
+
+function attractionSeasons(item) {
+  if (attractionSeasonCache.has(item.id)) return attractionSeasonCache.get(item.id);
+  if (Array.isArray(item.seasonOverride) && item.seasonOverride.length) {
+    const result = item.seasonOverride.filter((season) => seasonFilterOrder.includes(season) && season !== "all");
+    attractionSeasonCache.set(item.id, result);
+    return result;
+  }
+  const text = attractionTagText(item);
+  const themes = attractionThemes(item);
+  const seasons = new Set();
+
+  if (/花|樱|櫻|杜鹃|杜鵑|桃|梅|茶|园林|園林|古镇|古鎮|湿地|濕地|春/.test(text)) seasons.add("spring");
+  if (/湖|海|岛|島|水|瀑|峡|峽|漂流|森林|草原|避暑|乐园|樂園|夏/.test(text) || themes.includes("water")) seasons.add("summer");
+  if (/山|峰|岭|嶺|长城|長城|梯田|胡杨|胡楊|枫|楓|红叶|紅葉|古城|古镇|古鎮|秋/.test(text) || themes.includes("ancient")) seasons.add("autumn");
+  if (/雪|冰|温泉|溫泉|雾凇|霧凇|长白山|長白山|哈尔滨|哈爾濱|冬/.test(text)) seasons.add("winter");
+
+  if (!seasons.size) {
+    seasons.add("spring");
+    seasons.add("autumn");
+    if (themes.includes("nature") || themes.includes("water") || themes.includes("family")) seasons.add("summer");
+  }
+
+  const result = [...seasons].filter((season) => seasonFilterOrder.includes(season));
+  attractionSeasonCache.set(item.id, result);
+  return result;
+}
+
+function attractionTagText(item) {
+  return [item.name, item.displayName, item.coordinateLabel, item.city, item.province].filter(Boolean).join(" ");
+}
+
+function themeLabel(theme) {
+  const labels = {
+    all: t("themeAll"),
+    nature: t("themeNature"),
+    culture: t("themeCulture"),
+    family: t("themeFamily"),
+    ancient: t("themeAncient"),
+    red: t("themeRed"),
+    water: t("themeWater"),
+  };
+  return labels[theme] || theme;
+}
+
+function seasonLabel(season) {
+  const labels = {
+    all: t("seasonAll"),
+    spring: t("seasonSpring"),
+    summer: t("seasonSummer"),
+    autumn: t("seasonAutumn"),
+    winter: t("seasonWinter"),
+  };
+  return labels[season] || season;
 }
 
 function syncActiveListItem() {
@@ -2101,11 +3878,172 @@ function normalizeLatLngPair(center) {
   return Number.isFinite(lat) && Number.isFinite(lng) ? [lat, lng] : null;
 }
 
+function setCoordinatePrecisionDetail(item) {
+  if (!els.detailCoordinatePrecision) return;
+  if (!item) {
+    els.detailCoordinatePrecision.textContent = "-";
+    els.detailCoordinatePrecision.className = "";
+    return;
+  }
+  const note = coordinatePrecisionNote(item);
+  els.detailCoordinatePrecision.innerHTML = `
+    <span class="precision-badge ${escapeHtml(coordinatePrecisionClass(item))}">${escapeHtml(coordinatePrecisionText(item))}</span>
+    ${note ? `<span class="precision-note">${escapeHtml(note)}</span>` : ""}
+  `;
+}
+
+function setDetailTrustChecks(item) {
+  if (!els.detailTrustChecks) return;
+  if (!item) {
+    els.detailTrustChecks.hidden = true;
+    els.detailTrustChecks.innerHTML = "";
+    return;
+  }
+
+  els.detailTrustChecks.hidden = false;
+  els.detailTrustChecks.setAttribute("aria-label", t("trustMetrics"));
+  els.detailTrustChecks.innerHTML = detailTrustChecks(item)
+    .map(
+      (check) => `
+        <div class="detail-trust-chip ${escapeHtml(check.tone)}">
+          <span>${escapeHtml(check.label)}</span>
+          <strong>${escapeHtml(check.value)}</strong>
+        </div>
+      `,
+    )
+    .join("");
+}
+
+function detailTrustChecks(item) {
+  const precisionClass = coordinatePrecisionClass(item);
+  const image = effectiveAttractionImage(item);
+  const hasImage = isReliableImage(image);
+  const knownSource = hasKnownAttractionSource(item);
+  const decision = state.reviewDecisions[item.id];
+  return [
+    {
+      label: t("coordinatePrecision"),
+      value: coordinatePrecisionText(item),
+      tone: precisionClass === "precision-exact" ? "good" : precisionClass === "precision-district" ? "warn" : "bad",
+    },
+    {
+      label: t("trustImages"),
+      value: hasImage ? t("reviewWithImage") : t("reviewNoImage"),
+      tone: hasImage ? "good" : "bad",
+    },
+    {
+      label: t("dataSource"),
+      value: knownSource ? sourceLabel(attractionSource(item)) : t("maintenanceQueueUnknownSource"),
+      tone: knownSource ? "good" : "bad",
+    },
+    {
+      label: t("imageReview"),
+      value: decision ? reviewStatusLabel(decision.action) : t("reviewPending"),
+      tone: decision ? (decision.action === "delete" || decision.action === "missing" ? "warn" : "good") : "warn",
+    },
+  ];
+}
+
+function setTrustDetail(item) {
+  if (!els.detailDataSource || !els.detailDataUpdated || !els.detailAuditStatus) return;
+  if (!item) {
+    els.detailDataSource.textContent = "-";
+    els.detailDataUpdated.textContent = "-";
+    els.detailAuditStatus.textContent = "-";
+    return;
+  }
+
+  const source = attractionSource(item);
+  const href = sourceHref(source, item);
+  const label = sourceLabel(source);
+  const note = sourceNote(source);
+  els.detailDataSource.innerHTML = `
+    ${href ? `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>` : escapeHtml(label)}
+    ${note ? `<span class="precision-note">${escapeHtml(note)}</span>` : ""}
+  `;
+  els.detailDataUpdated.textContent = item.dataUpdated || sourceUpdatedAt(source);
+  els.detailAuditStatus.innerHTML = `
+    <span class="precision-badge ${escapeHtml(coordinatePrecisionClass(item))}">${escapeHtml(coordinateAuditStatusText(item))}</span>
+  `;
+}
+
+function coordinatePrecisionText(item) {
+  if (item.coordinateLevel === "景区") return t("coordinateExact");
+  if (item.coordinateLevel === "区县") return t("coordinateDistrict");
+  if (item.coordinateLevel === "城市") return t("coordinateCity");
+  return item.coordinateLevel || t("coordinateCity");
+}
+
+function coordinatePrecisionShort(item) {
+  if (item.coordinateLevel === "景区") return t("coordinateExact");
+  if (item.coordinateLevel === "区县") return t("coordinateDistrict");
+  if (item.coordinateLevel === "城市") return t("coordinateCity");
+  return item.coordinateLevel || t("coordinateCity");
+}
+
+function coordinatePrecisionNote(item) {
+  return item.coordinateLevel === "景区" ? "" : t("coordinateApproxNote");
+}
+
+function coordinatePrecisionClass(item) {
+  if (item.coordinateLevel === "景区") return "precision-exact";
+  if (item.coordinateLevel === "区县") return "precision-district";
+  return "precision-city";
+}
+
+function coordinateAuditStatusText(item) {
+  const labels = {
+    corrected: t("auditDone"),
+    review: t("auditPartial"),
+    pending: t("auditPending"),
+  };
+  return labels[coordinateAuditStatusKey(item)] || labels.pending;
+}
+
+function coordinateAuditStatusKey(item) {
+  if (item.coordinateLevel === "景区") return "corrected";
+  if (item.coordinateLevel === "区县") return "review";
+  return "pending";
+}
+
+function attractionSource(item) {
+  const key = attractionSourceKey(item);
+  return sourceIndex.sources?.[key] || {};
+}
+
+function attractionSourceKey(item) {
+  if (item.sourceKey) return item.sourceKey;
+  const annualOfficialKey = `mct-${item.year}-announcements`;
+  if (item.rating === "official5A" && sourceIndex.sources?.[annualOfficialKey]) return annualOfficialKey;
+  if (isOfficial4AAttraction(item)) return "open-4a-list";
+  if (isPeerAttraction(item)) return "peer-curated";
+  if (Number(item.year) >= 2024) return "mct-2024-announcements";
+  return "mct-official-5a";
+}
+
+function sourceLabel(source) {
+  return source?.label?.[state.language] || source?.label?.["zh-CN"] || source?.label?.en || source?.name || "-";
+}
+
+function sourceNote(source) {
+  if (source?.note?.[state.language]) return source.note[state.language];
+  if (state.language === "zh-CN" || state.language === "zh-TW") return source?.note?.["zh-CN"] || "";
+  return source?.note?.en || "";
+}
+
+function sourceHref(source, item) {
+  return item?.sourceUrl || source?.url || source?.urls?.[0] || "";
+}
+
+function sourceUpdatedAt(source) {
+  return source?.updatedAt || sourceIndex.updatedAt || sourceIndex.datasetVersion || "-";
+}
+
 function setFootprintDetail(label) {
   const hasLabel = Boolean(label);
-  els.detailPrecision.textContent = hasLabel ? label : "";
-  if (els.detailPrecisionRow) {
-    els.detailPrecisionRow.hidden = !hasLabel;
+  els.detailFootprint.textContent = hasLabel ? label : "";
+  if (els.detailFootprintRow) {
+    els.detailFootprintRow.hidden = !hasLabel;
   }
 }
 
@@ -2127,9 +4065,9 @@ function clearFootprint() {
 }
 
 function estimateFootprintRadius(item) {
-  if (item.coordinateLevel === "景区") return 10;
-  if (item.coordinateLevel === "城市") return 12;
-  return 14;
+  if (item.coordinateLevel === "景区") return 8;
+  if (item.coordinateLevel === "区县") return 14;
+  return 18;
 }
 
 function focusAttraction(item, openPopup = false) {
@@ -2182,9 +4120,10 @@ function isDesktopLayout() {
 
 function markerIcon(item, active = item.id === state.selectedId) {
   const ratingClass = ratingMarkerClass(item);
+  const precisionClass = coordinatePrecisionClass(item);
   return L.divIcon({
-    className: `map-marker-shell ${ratingClass}${active ? " selected" : ""}`,
-    html: `<div class="map-marker ${ratingClass}"><span>${escapeHtml(ratingBadge(item))}</span></div>`,
+    className: `map-marker-shell ${ratingClass} ${precisionClass}${active ? " selected" : ""}`,
+    html: `<div class="map-marker ${ratingClass} ${precisionClass}"><span>${escapeHtml(ratingBadge(item))}</span></div>`,
     iconSize: [34, 34],
     iconAnchor: [17, 33],
     popupAnchor: [0, -28],
@@ -2199,9 +4138,10 @@ function clusterIcon(cluster) {
   const ratingClass = clusterRatingClass(childItems);
   const count = cluster.getChildCount();
   const size = count >= 100 ? 50 : count >= 20 ? 46 : 42;
+  const composition = clusterCompositionStyle(childItems, ratingClass);
   return L.divIcon({
     className: `map-cluster-shell ${ratingClass}`,
-    html: `<div class="map-cluster ${ratingClass}"><span>${count}</span></div>`,
+    html: `<div class="map-cluster ${ratingClass}"${composition ? ` style="${composition}"` : ""}><span>${count}</span></div>`,
     iconSize: [size, size],
     iconAnchor: [size / 2, size / 2],
   });
@@ -2220,11 +4160,32 @@ function clusterRatingClass(items) {
   return "mixed";
 }
 
+function clusterCompositionStyle(items, ratingClass) {
+  if (ratingClass !== "mixed" || !items.length) return "";
+  const total = items.length;
+  const fiveA = items.filter((item) => item.rating === "official5A").length;
+  const fourA = items.filter((item) => item.rating === "official4A").length;
+  const peer = Math.max(0, total - fiveA - fourA);
+  const fiveEnd = (fiveA / total) * 100;
+  const fourEnd = fiveEnd + (fourA / total) * 100;
+  const peerEnd = fourEnd + (peer / total) * 100;
+  return [
+    "background: conic-gradient(",
+    `var(--marker-5a) 0 ${fiveEnd.toFixed(2)}%, `,
+    `var(--marker-4a) ${fiveEnd.toFixed(2)}% ${fourEnd.toFixed(2)}%, `,
+    `var(--marker-peer) ${fourEnd.toFixed(2)}% ${peerEnd.toFixed(2)}%)`,
+  ].join("");
+}
+
 function getSelected() {
   return attractions.find((item) => item.id === state.selectedId) || null;
 }
 
 function getAttractionLatLng(item) {
+  const override = state.maintenanceOverrides[item.id];
+  if (Number.isFinite(Number(override?.lat)) && Number.isFinite(Number(override?.lng))) {
+    return [item.lat, item.lng];
+  }
   return correctedCentersById.get(item.id) || [item.lat, item.lng];
 }
 
@@ -2584,8 +4545,7 @@ function toTraditionalName(value) {
 }
 
 function loadDetailImage(item) {
-  const image = localImages[item.id];
-  setDetailImage(isReliableImage(image) ? image : null, displayAttractionName(item));
+  setDetailImage(effectiveAttractionImage(item), displayAttractionName(item));
 }
 
 function setDetailImage(image, alt) {
@@ -2610,8 +4570,49 @@ function isReliableImage(image) {
   );
 }
 
+function effectiveAttractionImage(item) {
+  const decision = state.reviewDecisions[item.id];
+  if (decisionHidesImage(decision)) return null;
+  if (decision?.action === "replace" && isLocalImageUrl(decision.replacementUrl)) {
+    return {
+      url: decision.replacementUrl,
+      pageUrl: decision.pageUrl || "#",
+      caption: decision.note || localImages[item.id]?.caption || "",
+    };
+  }
+  const image = localImages[item.id];
+  return isReliableImage(image) ? image : null;
+}
+
+function hasReliableAttractionImage(item) {
+  return isReliableImage(effectiveAttractionImage(item));
+}
+
+function decisionHidesImage(decision) {
+  return decision?.action === "missing" || decision?.action === "delete";
+}
+
 function isLocalImageUrl(url) {
   return String(url || "").startsWith("assets/images/");
+}
+
+function isSuspiciousImage(item, image) {
+  if (!isReliableImage(image)) return false;
+  const text = normalize([image.url, image.pageUrl, image.caption].filter(Boolean).join(" "));
+  const suspiciousTerms = ["panoramio", "selfie", "collage", "montage", "logo", "map", "diagram", "包含", "拼图", "合成", "自拍"];
+  if (suspiciousTerms.some((term) => text.includes(normalize(term)))) return true;
+  const tokens = imageMatchTokens(item);
+  return tokens.length > 0 && !tokens.some((token) => text.includes(token));
+}
+
+function imageMatchTokens(item) {
+  const cleanName = String(item.name || "")
+    .replace(/[（(].*?[）)]/g, "")
+    .replace(/旅游景区|旅游区|风景名胜区|风景区|景区|公园|博物院|博物馆|文化园区|度假区|示范区|保护区/g, " ")
+    .replace(/[·—/,-]/g, " ");
+  return unique([cleanName, item.coordinateLabel, ...cleanName.split(/\s+/)])
+    .map((value) => normalize(value))
+    .filter((value) => value.length >= 2);
 }
 
 function localizeImageCaption(caption) {
@@ -2628,6 +4629,922 @@ function localizeImageCaption(caption) {
   return rawCaption
     .replace(/^图片来源：/, t("imageSourcePrefix"))
     .replace(/通用景区占位图（慕田峪长城全景）/g, t("fallbackImageCaption"));
+}
+
+function loadFavoriteIds() {
+  try {
+    const ids = JSON.parse(window.localStorage.getItem(favoritesStorageKey) || "[]");
+    return new Set(Array.isArray(ids) ? ids : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveFavoriteIds() {
+  window.localStorage.setItem(favoritesStorageKey, JSON.stringify([...state.favoriteIds]));
+}
+
+function toggleFavorite(id) {
+  if (state.favoriteIds.has(id)) {
+    state.favoriteIds.delete(id);
+  } else {
+    state.favoriteIds.add(id);
+  }
+  saveFavoriteIds();
+  syncFavoriteButton(getSelected());
+  renderInspiration(getFilteredAttractions());
+}
+
+function favoriteAttractions() {
+  return [...state.favoriteIds].map((id) => attractionsById.get(id)).filter(Boolean);
+}
+
+function syncFavoriteButton(item) {
+  if (!els.toggleFavorite) return;
+  const active = Boolean(item && state.favoriteIds.has(item.id));
+  els.toggleFavorite.classList.toggle("active", active);
+  els.toggleFavorite.setAttribute("aria-pressed", String(active));
+  const label = els.toggleFavorite.querySelector("span");
+  if (label) {
+    label.textContent = active ? t("unfavorite") : t("favorite");
+  }
+}
+
+function loadReviewDecisions() {
+  try {
+    const localDecisions = JSON.parse(window.localStorage.getItem(reviewStorageKey) || "{}");
+    return { ...seededReviewDecisions, ...localDecisions };
+  } catch {
+    return { ...seededReviewDecisions };
+  }
+}
+
+function saveReviewDecisions() {
+  window.localStorage.setItem(reviewStorageKey, JSON.stringify(state.reviewDecisions));
+}
+
+function loadMaintenanceOverrides() {
+  try {
+    const localOverrides = JSON.parse(window.localStorage.getItem(maintenanceStorageKey) || "{}");
+    return normalizeMaintenanceOverrides({ ...seededMaintenanceOverrides, ...localOverrides });
+  } catch {
+    return normalizeMaintenanceOverrides(seededMaintenanceOverrides);
+  }
+}
+
+function saveMaintenanceOverrides() {
+  window.localStorage.setItem(maintenanceStorageKey, JSON.stringify(state.maintenanceOverrides));
+}
+
+function normalizeMaintenanceOverrides(payload) {
+  const rows = Array.isArray(payload) ? payload : Object.entries(payload || {}).map(([id, row]) => ({ id, ...(row || {}) }));
+  return rows.reduce((acc, row) => {
+    const normalized = normalizeMaintenanceOverride(row);
+    if (normalized) acc[normalized.id] = normalized;
+    return acc;
+  }, {});
+}
+
+function normalizeMaintenanceOverride(row) {
+  if (!row || typeof row !== "object") return null;
+  const id = String(row.id || "").trim();
+  if (!id) return null;
+
+  const normalized = {
+    id,
+    name: stringField(row.name),
+    displayName: stringField(row.displayName),
+    province: stringField(row.province),
+    city: stringField(row.city),
+    updatedAt: stringField(row.updatedAt) || new Date().toISOString(),
+  };
+  const lat = Number(row.lat);
+  const lng = Number(row.lng);
+  if (Number.isFinite(lat) && lat >= -90 && lat <= 90 && Number.isFinite(lng) && lng >= -180 && lng <= 180) {
+    normalized.lat = roundCoordinate(lat);
+    normalized.lng = roundCoordinate(lng);
+  }
+  if (coordinateLevelOptions.includes(row.coordinateLevel)) normalized.coordinateLevel = row.coordinateLevel;
+  if (stringField(row.coordinateLabel)) normalized.coordinateLabel = stringField(row.coordinateLabel);
+  if (categoryFilterOrder.includes(row.categoryOverride || row.category)) {
+    const category = row.categoryOverride || row.category;
+    if (category !== "all") normalized.categoryOverride = category;
+  }
+  const themes = normalizeChoiceArray(row.themeOverride || row.themes, themeFilterOrder);
+  if (themes.length) normalized.themeOverride = themes;
+  const seasons = normalizeChoiceArray(row.seasonOverride || row.seasons, seasonFilterOrder);
+  if (seasons.length) normalized.seasonOverride = seasons;
+  const sourceKey = stringField(row.sourceKey);
+  if (!sourceKey || sourceIndex.sources?.[sourceKey]) normalized.sourceKey = sourceKey;
+  if (stringField(row.dataUpdated)) normalized.dataUpdated = stringField(row.dataUpdated);
+  if (stringField(row.note || row.maintenanceNote)) normalized.note = stringField(row.note || row.maintenanceNote);
+
+  return hasMaintenanceOverride(normalized) ? normalized : null;
+}
+
+function hasMaintenanceOverride(row) {
+  return [
+    "lat",
+    "lng",
+    "coordinateLevel",
+    "coordinateLabel",
+    "categoryOverride",
+    "themeOverride",
+    "seasonOverride",
+    "sourceKey",
+    "dataUpdated",
+    "note",
+  ].some((key) => Array.isArray(row[key]) ? row[key].length : row[key]);
+}
+
+function normalizeChoiceArray(value, allowed) {
+  const rows = Array.isArray(value) ? value : String(value || "").split(/[,，\s]+/);
+  return unique(rows.map((item) => String(item || "").trim()).filter((item) => allowed.includes(item) && item !== "all"));
+}
+
+function stringField(value) {
+  return String(value || "").trim();
+}
+
+function roundCoordinate(value) {
+  return Number(value.toFixed(6));
+}
+
+function applyMaintenanceOverridesToAttractions() {
+  attractions.forEach((item) => {
+    const original = originalAttractionsById.get(item.id);
+    if (!original) return;
+    Object.keys(item).forEach((key) => {
+      if (!(key in original)) delete item[key];
+    });
+    Object.assign(item, original);
+
+    const override = state.maintenanceOverrides[item.id];
+    if (!override) return;
+    if (Number.isFinite(Number(override.lat)) && Number.isFinite(Number(override.lng))) {
+      item.lat = Number(override.lat);
+      item.lng = Number(override.lng);
+    }
+    if (override.coordinateLevel) item.coordinateLevel = override.coordinateLevel;
+    if (override.coordinateLabel) item.coordinateLabel = override.coordinateLabel;
+    if (override.categoryOverride) item.categoryOverride = override.categoryOverride;
+    if (Array.isArray(override.themeOverride)) item.themeOverride = [...override.themeOverride];
+    if (Array.isArray(override.seasonOverride)) item.seasonOverride = [...override.seasonOverride];
+    if (override.sourceKey) item.sourceKey = override.sourceKey;
+    if (override.dataUpdated) item.dataUpdated = override.dataUpdated;
+    if (override.note) item.maintenanceNote = override.note;
+  });
+  clearAttractionDerivedCaches();
+}
+
+function clearAttractionDerivedCaches() {
+  attractionCategoryCache.clear();
+  attractionThemeCache.clear();
+  attractionSeasonCache.clear();
+  attractionSearchAliasCache.clear();
+}
+
+function populateMaintenanceSelects() {
+  if (!els.maintenancePanel) return;
+  if (els.maintenanceCoordinateLevel) {
+    els.maintenanceCoordinateLevel.innerHTML = coordinateLevelOptions
+      .map((level) => `<option value="${escapeHtml(level)}">${escapeHtml(coordinateLevelLabel(level))}</option>`)
+      .join("");
+  }
+  if (els.maintenanceCategory) {
+    els.maintenanceCategory.innerHTML = categoryFilterOrder
+      .filter((category) => category !== "all")
+      .map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(categoryLabel(category))}</option>`)
+      .join("");
+  }
+  if (els.maintenanceSourceKey) {
+    els.maintenanceSourceKey.innerHTML = Object.entries(sourceIndex.sources || {})
+      .map(([key, source]) => `<option value="${escapeHtml(key)}">${escapeHtml(sourceLabel(source))}</option>`)
+      .join("");
+  }
+  renderMaintenanceChecks(els.maintenanceThemes, themeFilterOrder.filter((theme) => theme !== "all"), "maintenance-theme", themeLabel);
+  renderMaintenanceChecks(els.maintenanceSeasons, seasonFilterOrder.filter((season) => season !== "all"), "maintenance-season", seasonLabel);
+}
+
+function renderMaintenanceChecks(container, values, name, labeler) {
+  if (!container) return;
+  container.innerHTML = values
+    .map(
+      (value) => `
+        <label class="maintenance-check">
+          <input type="checkbox" name="${escapeHtml(name)}" value="${escapeHtml(value)}" />
+          <span>${escapeHtml(labeler(value))}</span>
+        </label>
+      `,
+    )
+    .join("");
+}
+
+function coordinateLevelLabel(level) {
+  if (level === "景区") return t("coordinateExact");
+  if (level === "区县") return t("coordinateDistrict");
+  return t("coordinateCity");
+}
+
+function renderMaintenancePanel() {
+  if (!els.maintenancePanel) return;
+  const item = getSelected();
+  const overrideCount = Object.keys(state.maintenanceOverrides).length;
+  els.maintenanceSummary.textContent = t("maintenanceSummary", { count: overrideCount });
+  renderMaintenanceQueue(item);
+  setMaintenanceControlsDisabled(!item);
+
+  if (!item) {
+    els.maintenanceSelectedName.textContent = t("noSelection");
+    fillMaintenanceForm(null);
+    return;
+  }
+
+  els.maintenanceSelectedName.textContent = `${displayAttractionName(item)} · ${attractionLocationLabel(item)}`;
+  fillMaintenanceForm(item);
+}
+
+function renderMaintenanceQueue(selectedItem = getSelected()) {
+  if (!els.maintenanceQueueList) return;
+  const definitions = maintenanceQueueDefinitions();
+  const actionableIds = new Set(
+    ["missingImage", "suspiciousImage", "cityCoordinate", "districtCoordinate", "unknownSource"]
+      .flatMap((key) => maintenanceQueueItems(key))
+      .map((item) => item.id),
+  );
+  if (els.maintenanceQueueSummary) {
+    els.maintenanceQueueSummary.textContent = t("maintenanceQueueSummary", { count: actionableIds.size });
+  }
+
+  els.maintenanceQueueList.innerHTML = definitions
+    .map((definition) => {
+      const items = maintenanceQueueItems(definition.key);
+      const active = selectedItem && items.some((item) => item.id === selectedItem.id) ? " active" : "";
+      return `
+        <button class="maintenance-queue-item${active}" type="button" data-maintenance-queue="${escapeHtml(definition.key)}" ${
+          items.length ? "" : "disabled"
+        } onclick="window.CHINA_MAINTENANCE_QUEUE_JUMP?.('${escapeHtml(definition.key)}')">
+          <span>
+            <strong>${escapeHtml(definition.label)}</strong>
+            <small>${escapeHtml(definition.description)}</small>
+          </span>
+          <em>${items.length}</em>
+        </button>
+      `;
+    })
+    .join("");
+
+}
+
+function maintenanceQueueDefinitions() {
+  return [
+    {
+      key: "missingImage",
+      label: t("maintenanceQueueMissingImage"),
+      description: t("maintenanceQueueMissingImageDesc"),
+    },
+    {
+      key: "suspiciousImage",
+      label: t("maintenanceQueueSuspiciousImage"),
+      description: t("maintenanceQueueSuspiciousImageDesc"),
+    },
+    {
+      key: "cityCoordinate",
+      label: t("maintenanceQueueCityCoordinate"),
+      description: t("maintenanceQueueCityCoordinateDesc"),
+    },
+    {
+      key: "districtCoordinate",
+      label: t("maintenanceQueueDistrictCoordinate"),
+      description: t("maintenanceQueueDistrictCoordinateDesc"),
+    },
+    {
+      key: "unknownSource",
+      label: t("maintenanceQueueUnknownSource"),
+      description: t("maintenanceQueueUnknownSourceDesc"),
+    },
+    {
+      key: "overridden",
+      label: t("maintenanceQueueOverridden"),
+      description: t("maintenanceQueueOverriddenDesc"),
+    },
+  ];
+}
+
+function maintenanceQueueItems(key) {
+  const items = {
+    missingImage: () => attractions.filter((item) => !hasReliableAttractionImage(item)),
+    suspiciousImage: () => attractions.filter((item) => isSuspiciousImage(item, localImages[item.id])),
+    cityCoordinate: () => attractions.filter((item) => coordinatePrecisionClass(item) === "precision-city"),
+    districtCoordinate: () => attractions.filter((item) => coordinatePrecisionClass(item) === "precision-district"),
+    unknownSource: () => attractions.filter((item) => !hasKnownAttractionSource(item)),
+    overridden: () => attractions.filter((item) => state.maintenanceOverrides[item.id]),
+  }[key];
+  return items ? items().sort(maintenanceQueueSort) : [];
+}
+
+function maintenanceQueueSort(a, b) {
+  return ratingFilterOrder.indexOf(a.rating) - ratingFilterOrder.indexOf(b.rating) || a.province.localeCompare(b.province, "zh-CN") || a.name.localeCompare(b.name, "zh-CN");
+}
+
+function jumpToMaintenanceQueue(key) {
+  const items = maintenanceQueueItems(key);
+  if (!items.length) return;
+  const currentIndex = items.findIndex((item) => item.id === state.selectedId);
+  const item = items[(currentIndex + 1) % items.length] || items[0];
+  showAttractionForMaintenance(item);
+}
+
+function showAttractionForMaintenance(item) {
+  state.search = "";
+  state.province = item.province;
+  state.category = "all";
+  state.theme = "all";
+  state.season = "all";
+  state.ratingFilters = new Set([...state.ratingFilters, item.rating]);
+  state.selectedId = item.id;
+
+  if (els.searchInput) els.searchInput.value = "";
+  if (els.provinceSelect) els.provinceSelect.value = item.province;
+  if (els.categorySelect) els.categorySelect.value = "all";
+  if (els.themeSelect) els.themeSelect.value = "all";
+  if (els.seasonSelect) els.seasonSelect.value = "all";
+  syncRatingFilterButtons();
+  render();
+  focusAttraction(item, true);
+}
+
+window.CHINA_MAINTENANCE_QUEUE_JUMP = jumpToMaintenanceQueue;
+
+function fillMaintenanceForm(item) {
+  const fieldValues = item
+    ? {
+        lat: item.lat,
+        lng: item.lng,
+        coordinateLevel: item.coordinateLevel || "城市",
+        coordinateLabel: item.coordinateLabel || "",
+        category: attractionCategory(item),
+        sourceKey: attractionSourceKey(item),
+        dataUpdated: item.dataUpdated || sourceUpdatedAt(attractionSource(item)),
+        themes: attractionThemes(item),
+        seasons: attractionSeasons(item),
+        note: item.maintenanceNote || state.maintenanceOverrides[item.id]?.note || "",
+      }
+    : {
+        lat: "",
+        lng: "",
+        coordinateLevel: "城市",
+        coordinateLabel: "",
+        category: "other",
+        sourceKey: "",
+        dataUpdated: "",
+        themes: [],
+        seasons: [],
+        note: "",
+      };
+
+  if (els.maintenanceLat) els.maintenanceLat.value = fieldValues.lat;
+  if (els.maintenanceLng) els.maintenanceLng.value = fieldValues.lng;
+  if (els.maintenanceCoordinateLevel) els.maintenanceCoordinateLevel.value = fieldValues.coordinateLevel;
+  if (els.maintenanceCoordinateLabel) els.maintenanceCoordinateLabel.value = fieldValues.coordinateLabel;
+  if (els.maintenanceCategory) els.maintenanceCategory.value = fieldValues.category;
+  if (els.maintenanceSourceKey) els.maintenanceSourceKey.value = fieldValues.sourceKey;
+  if (els.maintenanceDataUpdated) els.maintenanceDataUpdated.value = fieldValues.dataUpdated;
+  if (els.maintenanceNote) els.maintenanceNote.value = fieldValues.note;
+  setCheckedValues(els.maintenanceThemes, fieldValues.themes);
+  setCheckedValues(els.maintenanceSeasons, fieldValues.seasons);
+}
+
+function setCheckedValues(container, values) {
+  const selected = new Set(values);
+  container?.querySelectorAll("input[type='checkbox']").forEach((input) => {
+    input.checked = selected.has(input.value);
+  });
+}
+
+function setMaintenanceControlsDisabled(disabled) {
+  [
+    els.maintenanceLat,
+    els.maintenanceLng,
+    els.maintenanceCoordinateLevel,
+    els.maintenanceCoordinateLabel,
+    els.maintenanceCategory,
+    els.maintenanceSourceKey,
+    els.maintenanceDataUpdated,
+    els.maintenanceNote,
+    els.maintenanceSave,
+    els.maintenanceDelete,
+  ].forEach((control) => {
+    if (control) control.disabled = disabled;
+  });
+  els.maintenanceThemes?.querySelectorAll("input").forEach((input) => {
+    input.disabled = disabled;
+  });
+  els.maintenanceSeasons?.querySelectorAll("input").forEach((input) => {
+    input.disabled = disabled;
+  });
+}
+
+function saveSelectedMaintenanceOverride() {
+  const item = getSelected();
+  if (!item) return;
+  const override = normalizeMaintenanceOverride({
+    id: item.id,
+    name: item.name,
+    displayName: displayAttractionName(item),
+    province: item.province,
+    city: item.city || "",
+    lat: els.maintenanceLat?.value,
+    lng: els.maintenanceLng?.value,
+    coordinateLevel: els.maintenanceCoordinateLevel?.value,
+    coordinateLabel: els.maintenanceCoordinateLabel?.value,
+    categoryOverride: els.maintenanceCategory?.value,
+    themeOverride: checkedMaintenanceValues(els.maintenanceThemes),
+    seasonOverride: checkedMaintenanceValues(els.maintenanceSeasons),
+    sourceKey: els.maintenanceSourceKey?.value,
+    dataUpdated: els.maintenanceDataUpdated?.value,
+    note: els.maintenanceNote?.value,
+    updatedAt: new Date().toISOString(),
+  });
+  if (!override) return;
+  state.maintenanceOverrides[item.id] = override;
+  commitMaintenanceOverrides(t("maintenanceSaved"), item.id);
+}
+
+function deleteSelectedMaintenanceOverride() {
+  const item = getSelected();
+  if (!item) return;
+  delete state.maintenanceOverrides[item.id];
+  commitMaintenanceOverrides(t("maintenanceDeleted"), item.id);
+}
+
+function checkedMaintenanceValues(container) {
+  return [...(container?.querySelectorAll("input[type='checkbox']:checked") || [])].map((input) => input.value);
+}
+
+function commitMaintenanceOverrides(message, selectedId = state.selectedId) {
+  saveMaintenanceOverrides();
+  correctedCentersById.delete(selectedId);
+  applyMaintenanceOverridesToAttractions();
+  hydrateAttractionTrustMetadata();
+  state.selectedId = selectedId && attractionsById.has(selectedId) ? selectedId : null;
+  render();
+  if (els.maintenanceSummary) els.maintenanceSummary.textContent = message;
+}
+
+function exportMaintenanceOverrides() {
+  const rows = Object.values(state.maintenanceOverrides);
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    datasetVersion: sourceIndex.datasetVersion || "",
+    count: rows.length,
+    overrides: rows,
+  };
+  downloadJson(payload, "maintenance-overrides.json");
+  if (els.maintenanceSummary) {
+    els.maintenanceSummary.textContent = t("maintenanceOverridesExported");
+  }
+}
+
+function exportMaintenanceAuditReport() {
+  const payload = buildMaintenanceAuditReport(20);
+  downloadJson(payload, "maintenance-audit.json");
+  if (els.maintenanceSummary) {
+    els.maintenanceSummary.textContent = t("maintenanceAuditExported");
+  }
+}
+
+function buildMaintenanceAuditReport(limit = 20) {
+  const rows = attractions.map((item) => {
+    const image = effectiveAttractionImage(item);
+    const hasImage = hasReliableAttractionImage(item);
+    const suspicious = isSuspiciousImage(item, image);
+    const sourceKey = attractionSourceKey(item);
+    return {
+      item,
+      image,
+      hasImage,
+      suspicious,
+      sourceKey,
+      hasKnownSource: Boolean(sourceIndex.sources?.[sourceKey]),
+      hasReviewDecision: Boolean(state.reviewDecisions[item.id]),
+      hasMaintenanceOverride: Boolean(state.maintenanceOverrides[item.id]),
+    };
+  });
+  const missingImages = rows.filter((row) => !row.hasImage);
+  const suspiciousImages = rows.filter((row) => row.suspicious);
+  const cityCoordinates = rows.filter((row) => coordinatePrecisionClass(row.item) === "precision-city");
+  const districtCoordinates = rows.filter((row) => coordinatePrecisionClass(row.item) === "precision-district");
+  const unknownSources = rows.filter((row) => !row.hasKnownSource);
+  const maintenanceRows = rows.filter((row) => row.hasMaintenanceOverride);
+  const counts = {
+    attractions: attractions.length,
+    ...prefixCountKeys(countObject(rows, (row) => row.item.rating || "unknown"), "rating."),
+    exactCoordinates: rows.filter((row) => coordinatePrecisionClass(row.item) === "precision-exact").length,
+    districtCoordinates: districtCoordinates.length,
+    cityCoordinates: cityCoordinates.length,
+    reliableImages: rows.filter((row) => row.hasImage).length,
+    missingImages: missingImages.length,
+    suspiciousImages: suspiciousImages.length,
+    reviewDecisions: Object.keys(state.reviewDecisions).length,
+    maintenanceOverrides: Object.keys(state.maintenanceOverrides).length,
+    unknownSources: unknownSources.length,
+  };
+
+  return {
+    generatedAt: new Date().toISOString(),
+    datasetVersion: sourceIndex.datasetVersion || "",
+    updatedAt: sourceIndex.updatedAt || "",
+    maintainer: sourceIndex.maintainer || "",
+    counts,
+    quality: buildQualityMetrics(counts),
+    coordinateLevels: countObject(rows, (row) => row.item.coordinateLevel || "unknown"),
+    sources: countObject(rows, (row) => row.sourceKey || "unknown"),
+    reviewActions: countObject(Object.values(state.reviewDecisions), (row) => row.action || "unknown"),
+    provinceWorkload: maintenanceProvinceWorkload(rows).slice(0, limit),
+    queues: {
+      missingImages: maintenanceAuditSampleRows(missingImages, limit),
+      suspiciousImages: maintenanceAuditSampleRows(suspiciousImages, limit),
+      cityCoordinates: maintenanceAuditSampleRows(cityCoordinates, limit),
+      districtCoordinates: maintenanceAuditSampleRows(districtCoordinates, limit),
+      unknownSources: maintenanceAuditSampleRows(unknownSources, limit),
+      maintenanceOverrides: maintenanceAuditSampleRows(maintenanceRows, limit),
+    },
+  };
+}
+
+function maintenanceAuditSampleRows(rows, limit) {
+  return rows.slice(0, limit).map((row) => ({
+    ...maintenanceAttractionRecord(row.item),
+    sourceKey: row.sourceKey,
+    imageUrl: row.image?.url || "",
+    hasImage: row.hasImage,
+    suspicious: row.suspicious,
+    hasReviewDecision: row.hasReviewDecision,
+    hasMaintenanceOverride: row.hasMaintenanceOverride,
+  }));
+}
+
+function maintenanceProvinceWorkload(rows) {
+  const byProvince = new Map();
+  rows.forEach((row) => {
+    const province = row.item.province || "unknown";
+    const entry =
+      byProvince.get(province) ||
+      {
+        province,
+        missingImages: 0,
+        suspiciousImages: 0,
+        cityCoordinates: 0,
+        districtCoordinates: 0,
+        unknownSources: 0,
+        workload: 0,
+      };
+    if (!row.hasImage) entry.missingImages += 1;
+    if (row.suspicious) entry.suspiciousImages += 1;
+    if (row.item.coordinateLevel === "城市") entry.cityCoordinates += 1;
+    if (row.item.coordinateLevel === "区县") entry.districtCoordinates += 1;
+    if (!row.hasKnownSource) entry.unknownSources += 1;
+    entry.workload =
+      entry.missingImages + entry.suspiciousImages + entry.cityCoordinates + entry.districtCoordinates + entry.unknownSources;
+    byProvince.set(province, entry);
+  });
+  return [...byProvince.values()].sort((a, b) => b.workload - a.workload || a.province.localeCompare(b.province, "zh-CN"));
+}
+
+function countObject(items, getKey) {
+  return countBy(items, getKey)
+    .sort((a, b) => b.count - a.count || String(a.key).localeCompare(String(b.key), "zh-CN"))
+    .reduce((acc, item) => {
+      acc[item.key] = item.count;
+      return acc;
+    }, {});
+}
+
+function prefixCountKeys(object, prefix) {
+  return Object.fromEntries(Object.entries(object).map(([key, value]) => [`${prefix}${key}`, value]));
+}
+
+function buildQualityMetrics(counts) {
+  const total = counts.attractions || 0;
+  return {
+    coordinateExactRate: percent(counts.exactCoordinates, total),
+    imageCoverageRate: percent(counts.reliableImages, total),
+    sourceCoverageRate: percent(total - counts.unknownSources, total),
+    reviewCoverageRate: percent(counts.reviewDecisions, total),
+  };
+}
+
+async function importMaintenanceOverrides(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  try {
+    const payload = JSON.parse(await file.text());
+    const rows = payload.overrides || payload.maintenanceOverrides || payload;
+    const incoming = normalizeMaintenanceOverrides(rows);
+    state.maintenanceOverrides = { ...state.maintenanceOverrides, ...incoming };
+    commitMaintenanceOverrides(t("maintenanceImported"));
+  } catch {
+    if (els.maintenanceSummary) {
+      els.maintenanceSummary.textContent = t("maintenanceImportError");
+    }
+  } finally {
+    event.target.value = "";
+  }
+}
+
+function renderImageReview() {
+  if (!els.reviewList || !state.imageReviewOpen) return;
+  const items = getReviewItems();
+  const decisions = Object.keys(state.reviewDecisions).length;
+  els.reviewSummary.textContent = t("reviewSummary", { count: items.length, decisions });
+
+  if (!items.length) {
+    state.reviewSelectedId = null;
+    els.reviewList.innerHTML = `<div class="empty-state">${escapeHtml(t("reviewNoMatches"))}</div>`;
+    els.reviewPreview.innerHTML = `<p class="empty-state">${escapeHtml(t("reviewNoSelection"))}</p>`;
+    syncReviewButtons();
+    return;
+  }
+
+  if (!state.reviewSelectedId || !items.some((item) => item.id === state.reviewSelectedId)) {
+    state.reviewSelectedId = items[0].id;
+  }
+
+  els.reviewList.innerHTML = items
+    .slice(0, 180)
+    .map((item) => {
+      const image = localImages[item.id];
+      const decision = state.reviewDecisions[item.id];
+      const active = item.id === state.reviewSelectedId ? " active" : "";
+      const status = decision ? decision.action : !isReliableImage(image) ? "missing" : isSuspiciousImage(item, image) ? "suspicious" : "image";
+      return `
+        <button class="review-list-item${active}" type="button" data-id="${escapeHtml(item.id)}">
+          <span>
+            <strong>${escapeHtml(displayAttractionName(item))}</strong>
+            <small>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(ratingBadge(item))}</small>
+          </span>
+          <em class="review-status ${escapeHtml(status)}">${escapeHtml(reviewStatusLabel(status))}</em>
+        </button>
+      `;
+    })
+    .join("");
+
+  els.reviewList.querySelectorAll("[data-id]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.reviewSelectedId = button.dataset.id;
+      renderImageReview();
+    });
+  });
+
+  renderReviewPreview(attractionsById.get(state.reviewSelectedId));
+  syncReviewButtons();
+}
+
+function getReviewItems() {
+  const query = normalize(state.reviewSearch);
+  return attractions
+    .filter((item) => {
+      const image = localImages[item.id];
+      const decision = state.reviewDecisions[item.id];
+      if (state.reviewFilter === "unreviewed" && decision) return false;
+      if (state.reviewFilter === "missing" && isReliableImage(image) && !decisionHidesImage(decision)) return false;
+      if (state.reviewFilter === "suspicious" && !isSuspiciousImage(item, image)) return false;
+      if (state.reviewFilter === "withImage" && (!isReliableImage(image) || decisionHidesImage(decision))) return false;
+      if (state.reviewFilter === "flagged" && !decision) return false;
+      if (!query) return true;
+      const searchable = normalize(
+        [
+          item.id,
+          item.name,
+          item.displayName,
+          item.city,
+          item.province,
+          displayAttractionName(item),
+          attractionLocationLabel(item),
+          ...searchAliases(item),
+        ].join(" "),
+      );
+      return searchable.includes(query);
+    })
+    .sort((a, b) => reviewSortScore(a) - reviewSortScore(b));
+}
+
+function reviewSortScore(item) {
+  const image = localImages[item.id];
+  const decision = state.reviewDecisions[item.id];
+  if (decision?.action === "delete" || decision?.action === "replace" || decision?.action === "missing") return 0;
+  if (!isReliableImage(image)) return 1;
+  if (isSuspiciousImage(item, image)) return 2;
+  if (decision?.action === "keep") return 3;
+  return 4;
+}
+
+function renderReviewPreview(item) {
+  if (!item) {
+    els.reviewPreview.innerHTML = `<p class="empty-state">${escapeHtml(t("reviewNoSelection"))}</p>`;
+    return;
+  }
+  const image = localImages[item.id];
+  const hasImage = isReliableImage(image);
+  const decision = state.reviewDecisions[item.id];
+  els.reviewNote.value = decision?.note || "";
+  els.reviewPreview.innerHTML = `
+    <div class="review-preview-header">
+      <p class="eyebrow">${escapeHtml(attractionLocationLabel(item))}</p>
+      <h3>${escapeHtml(displayAttractionName(item))}</h3>
+      <span class="precision-badge ${escapeHtml(coordinatePrecisionClass(item))}">${escapeHtml(coordinatePrecisionText(item))}</span>
+    </div>
+    ${
+      hasImage
+        ? `<img src="${escapeHtml(image.url)}" alt="${escapeHtml(displayAttractionName(item))}" loading="lazy" decoding="async" />`
+        : `<div class="review-image-missing">${escapeHtml(t("reviewNoImage"))}</div>`
+    }
+    <dl class="review-meta">
+      <div><dt>ID</dt><dd>${escapeHtml(item.id)}</dd></div>
+      <div><dt>${escapeHtml(t("rating"))}</dt><dd>${escapeHtml(ratingMeta(item))}</dd></div>
+      <div><dt>${escapeHtml(t("dataSource"))}</dt><dd>${escapeHtml(sourceLabel(attractionSource(item)))}</dd></div>
+      <div><dt>${escapeHtml(t("reviewSource"))}</dt><dd>${
+        hasImage
+          ? `<a href="${escapeHtml(image.pageUrl || "#")}" target="_blank" rel="noreferrer">${escapeHtml(localizeImageCaption(image.caption))}</a>`
+          : escapeHtml(t("reviewNoImage"))
+      }</dd></div>
+      <div><dt>${escapeHtml(t("reviewDecision"))}</dt><dd>${escapeHtml(decision ? reviewStatusLabel(decision.action) : "-")}</dd></div>
+    </dl>
+  `;
+}
+
+function syncReviewButtons() {
+  const disabled = !state.reviewSelectedId;
+  [els.reviewKeep, els.reviewReplace, els.reviewDelete, els.reviewMissing, els.reviewExport].forEach((button) => {
+    if (button) button.disabled = button === els.reviewExport ? false : disabled;
+  });
+}
+
+function recordReviewDecision(action) {
+  const item = attractionsById.get(state.reviewSelectedId);
+  if (!item) return;
+  const image = localImages[item.id];
+  const note = els.reviewNote.value.trim();
+  state.reviewDecisions[item.id] = {
+    id: item.id,
+    name: item.name,
+    displayName: displayAttractionName(item),
+    province: item.province,
+    city: item.city || "",
+    action,
+    note,
+    imageUrl: image?.url || "",
+    pageUrl: image?.pageUrl || "",
+    replacementUrl: replacementUrlFromNote(note),
+    updatedAt: new Date().toISOString(),
+  };
+  saveReviewDecisions();
+  renderImageReview();
+}
+
+function exportReviewDecisions() {
+  const rows = Object.values(state.reviewDecisions);
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    count: rows.length,
+    decisions: rows,
+  };
+  downloadJson(payload, "image-review-decisions.json");
+  els.reviewSummary.textContent = t("reviewExported");
+}
+
+function exportMaintenancePackage() {
+  const missingImages = attractions.filter((item) => !hasReliableAttractionImage(item));
+  const suspiciousImages = attractions.filter((item) => isSuspiciousImage(item, localImages[item.id]));
+  const coordinateLevels = countBy(attractions, (item) => item.coordinateLevel || "unknown").reduce((acc, item) => {
+    acc[item.key] = item.count;
+    return acc;
+  }, {});
+  const coordinateAudit = countBy(attractions, coordinateAuditStatusKey).reduce((acc, item) => {
+    acc[item.key] = item.count;
+    return acc;
+  }, {});
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    datasetVersion: sourceIndex.datasetVersion || "",
+    counts: {
+      attractions: attractions.length,
+      missingImages: missingImages.length,
+      suspiciousImages: suspiciousImages.length,
+      reviewDecisions: Object.keys(state.reviewDecisions).length,
+      maintenanceOverrides: Object.keys(state.maintenanceOverrides).length,
+      favorites: state.favoriteIds.size,
+    },
+    coordinateLevels,
+    coordinateAudit,
+    sources: sourceIndex.sources || {},
+    reviewDecisions: state.reviewDecisions,
+    maintenanceOverrides: state.maintenanceOverrides,
+    favorites: favoriteAttractions().map(maintenanceAttractionRecord),
+    missingImages: missingImages.slice(0, 500).map(maintenanceAttractionRecord),
+    suspiciousImages: suspiciousImages.slice(0, 500).map(maintenanceAttractionRecord),
+    attractions: attractions.map((item) => ({
+      ...maintenanceAttractionRecord(item),
+      dataUpdated: item.dataUpdated || sourceUpdatedAt(attractionSource(item)),
+      coordinateAuditStatus: coordinateAuditStatusKey(item),
+      category: attractionCategory(item),
+      themes: attractionThemes(item),
+      seasons: attractionSeasons(item),
+      hasImage: hasReliableAttractionImage(item),
+      reviewAction: state.reviewDecisions[item.id]?.action || "",
+    })),
+  };
+  downloadJson(payload, "china-travel-map-maintenance.json");
+  if (els.reviewSummary) {
+    els.reviewSummary.textContent = t("maintenanceExported");
+  }
+}
+
+function maintenanceAttractionRecord(item) {
+  return {
+    id: item.id,
+    name: item.name,
+    displayName: displayAttractionName(item),
+    province: item.province,
+    city: item.city || "",
+    rating: item.rating,
+    coordinateLevel: item.coordinateLevel,
+    coordinateLabel: item.coordinateLabel,
+    sourceKey: attractionSourceKey(item),
+    sourceUrl: item.sourceUrl || sourceHref(attractionSource(item), item),
+    lat: item.lat,
+    lng: item.lng,
+    hasMaintenanceOverride: Boolean(state.maintenanceOverrides[item.id]),
+  };
+}
+
+function downloadJson(payload, filename) {
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  URL.revokeObjectURL(url);
+}
+
+async function importReviewDecisions(event) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+  try {
+    const payload = JSON.parse(await file.text());
+    const imported = normalizeReviewPayload(payload);
+    state.reviewDecisions = { ...state.reviewDecisions, ...imported };
+    saveReviewDecisions();
+    renderImageReview();
+    render();
+    els.reviewSummary.textContent = t("reviewImported");
+  } catch {
+    els.reviewSummary.textContent = t("reviewImportError");
+  } finally {
+    event.target.value = "";
+  }
+}
+
+function normalizeReviewPayload(payload) {
+  const raw = payload?.decisions || payload;
+  const rows = Array.isArray(raw) ? raw : Object.values(raw || {});
+  return rows.reduce((decisions, row) => {
+    if (!row || !reviewActionValues.has(row.action) || !row.id) return decisions;
+    const note = String(row.note || "").trim();
+    decisions[row.id] = {
+      id: row.id,
+      name: row.name || row.displayName || "",
+      displayName: row.displayName || row.name || "",
+      province: row.province || "",
+      city: row.city || "",
+      action: row.action,
+      note,
+      imageUrl: row.imageUrl || "",
+      pageUrl: row.pageUrl || "",
+      replacementUrl: row.replacementUrl || replacementUrlFromNote(note),
+      updatedAt: row.updatedAt || new Date().toISOString(),
+    };
+    return decisions;
+  }, {});
+}
+
+function replacementUrlFromNote(note) {
+  const value = String(note || "").trim().replace(/\\/g, "/");
+  return isLocalImageUrl(value) && /\.(jpe?g|png|webp)$/i.test(value) ? value : "";
+}
+
+function reviewStatusLabel(status) {
+  const labels = {
+    image: t("reviewWithImage"),
+    missing: t("reviewMissing"),
+    suspicious: t("reviewSuspicious"),
+    keep: t("reviewKeep"),
+    replace: t("reviewReplace"),
+    delete: t("reviewDelete"),
+  };
+  return labels[status] || status;
 }
 
 function countBy(items, getKey) {
@@ -2659,6 +5576,147 @@ function regionName(region) {
 
 function regionSearchNames(region) {
   return unique([region, ...Object.values(provinceNames).map((names) => names[region])].filter(Boolean));
+}
+
+function searchAliases(item) {
+  if (attractionSearchAliasCache.has(item.id)) return attractionSearchAliasCache.get(item.id);
+  const aliases = unique([
+    ...(Object.values(localizedAttractionNames[item.id] || {})),
+    ...semanticSearchAliases(item),
+    ...roughPinyinAlias([item.name, item.displayName, item.coordinateLabel].filter(Boolean).join(" ")),
+  ].filter(Boolean));
+  attractionSearchAliasCache.set(item.id, aliases);
+  return aliases;
+}
+
+function semanticSearchAliases(item) {
+  const text = [item.name, item.displayName, item.coordinateLabel, item.province, item.city].filter(Boolean).join(" ");
+  const aliases = [];
+  const rules = [
+    [/泰山/, "taishan tai shan mount tai"],
+    [/黄山|黃山/, "huangshan huang shan yellow mountain"],
+    [/华山|華山/, "huashan hua shan mount hua"],
+    [/衡山/, "hengshan heng shan"],
+    [/恒山|恆山/, "hengshan heng shan"],
+    [/嵩山|少林/, "songshan song shan shaolin"],
+    [/长城|長城|八达岭|八達嶺|慕田峪|居庸关|司马台|司馬台/, "greatwall great wall changcheng"],
+    [/故宫|故宮|紫禁城/, "forbidden city gugong palace museum"],
+    [/天坛|天壇/, "temple of heaven tiantan"],
+    [/颐和园|頤和園/, "summer palace yiheyuan"],
+    [/孔庙|孔廟|孔府|孔林|曲阜|国子监|國子監/, "confucius kongmiao kong miao qufu"],
+    [/西湖/, "west lake xihu"],
+    [/九寨沟|九寨溝/, "jiuzhaigou jiu zhai gou"],
+    [/张家界|張家界/, "zhangjiajie zhang jia jie"],
+    [/兵马俑|兵馬俑|秦始皇/, "terracotta warriors bingmayong"],
+    [/龙门石窟|龍門石窟/, "longmen grottoes longmen shiku"],
+    [/大足石刻/, "dazu rock carvings dazu shike"],
+    [/布达拉|布達拉/, "potala palace budala"],
+    [/莫高窟|敦煌/, "mogao caves dunhuang"],
+  ];
+  rules.forEach(([pattern, alias]) => {
+    if (pattern.test(text)) aliases.push(alias);
+  });
+  return aliases;
+}
+
+function roughPinyinAlias(value) {
+  const map = {
+    北: "bei",
+    京: "jing",
+    上: "shang",
+    海: "hai",
+    天: "tian",
+    津: "jin",
+    重: "chong",
+    庆: "qing",
+    廣: "guang",
+    广: "guang",
+    东: "dong",
+    東: "dong",
+    西: "xi",
+    南: "nan",
+    河: "he",
+    山: "shan",
+    湖: "hu",
+    江: "jiang",
+    浙: "zhe",
+    安: "an",
+    徽: "hui",
+    福: "fu",
+    建: "jian",
+    云: "yun",
+    雲: "yun",
+    贵: "gui",
+    貴: "gui",
+    州: "zhou",
+    四: "si",
+    川: "chuan",
+    陕: "shan",
+    陝: "shan",
+    甘: "gan",
+    肃: "su",
+    肅: "su",
+    青: "qing",
+    宁: "ning",
+    寧: "ning",
+    新: "xin",
+    疆: "jiang",
+    泰: "tai",
+    黄: "huang",
+    黃: "huang",
+    华: "hua",
+    華: "hua",
+    衡: "heng",
+    恒: "heng",
+    恆: "heng",
+    嵩: "song",
+    长: "chang",
+    長: "chang",
+    城: "cheng",
+    故: "gu",
+    宫: "gong",
+    宮: "gong",
+    坛: "tan",
+    壇: "tan",
+    颐: "yi",
+    頤: "yi",
+    和: "he",
+    园: "yuan",
+    園: "yuan",
+    孔: "kong",
+    庙: "miao",
+    廟: "miao",
+    府: "fu",
+    林: "lin",
+    曲: "qu",
+    阜: "fu",
+    国: "guo",
+    國: "guo",
+    子: "zi",
+    监: "jian",
+    監: "jian",
+    九: "jiu",
+    寨: "zhai",
+    沟: "gou",
+    溝: "gou",
+    张: "zhang",
+    張: "zhang",
+    家: "jia",
+    界: "jie",
+    龙: "long",
+    龍: "long",
+    门: "men",
+    門: "men",
+    石: "shi",
+    窟: "ku",
+    大: "da",
+    足: "zu",
+    刻: "ke",
+  };
+  const parts = [...String(value || "")]
+    .map((char) => map[char])
+    .filter(Boolean);
+  return parts.length ? unique([parts.join(""), parts.join(" ")]) : [];
 }
 
 function osmLanguageHeader() {
