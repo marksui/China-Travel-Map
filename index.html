@@ -19,7 +19,7 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
     />
-    <link rel="stylesheet" href="styles.css?v=20260613-11" />
+    <link rel="stylesheet" href="styles.css?v=20260616-05" />
   </head>
   <body class="control-panel-closed">
     <div class="app-shell">
@@ -36,12 +36,16 @@
             id="searchInput"
             type="search"
             autocomplete="off"
+            aria-autocomplete="list"
+            aria-controls="searchSuggestions"
+            aria-expanded="false"
             placeholder="搜索景点或地区"
             data-i18n-placeholder="searchPlaceholder"
           />
           <button class="icon-button ghost" id="clearSearch" type="button" aria-label="清空搜索" data-i18n-aria-label="clearSearch">
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
+          <div class="search-suggestions" id="searchSuggestions" role="listbox" aria-label="搜索建议" data-i18n-aria-label="searchSuggestions" hidden></div>
         </div>
         <div class="nav-center" aria-label="地图定位">
           <button class="nav-button fit-button" id="fitFiltered" type="button">
@@ -60,7 +64,7 @@
           </button>
           <button class="nav-button" id="toggleImageReview" type="button" aria-expanded="false">
             <i data-lucide="image" aria-hidden="true"></i>
-            <span data-i18n="imageReview">图片审核</span>
+            <span data-i18n="imageReview">图片维护</span>
           </button>
           <button class="nav-button" id="toggleMaintenance" type="button" aria-expanded="false">
             <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
@@ -128,6 +132,26 @@
               <p><strong data-i18n="selectedRangeTitle">选中范围</strong><span data-i18n="selectedRangeDesc">点击景点后优先显示 OSM 面边界；没有面边界时只保留选中点</span></p>
             </div>
           </div>
+          <div class="precision-legend" aria-label="坐标精度" data-i18n-aria-label="coordinatePrecision">
+            <div class="precision-legend-heading">
+              <strong data-i18n="coordinatePrecision">坐标精度</strong>
+              <span data-i18n="precisionLegendDesc">地图点越透明，坐标越偏参考性质；详情页会显示具体精度。</span>
+            </div>
+            <div class="precision-scale">
+              <span>
+                <i class="precision-sample precision-exact" aria-hidden="true"></i>
+                <small data-i18n="coordinateExact">精确坐标</small>
+              </span>
+              <span>
+                <i class="precision-sample precision-district" aria-hidden="true"></i>
+                <small data-i18n="coordinateDistrict">区县参考</small>
+              </span>
+              <span>
+                <i class="precision-sample precision-city" aria-hidden="true"></i>
+                <small data-i18n="coordinateCity">城市参考</small>
+              </span>
+            </div>
+          </div>
           <div class="panel-heading compact">
             <strong data-i18n="trustMetrics">可信度概览</strong>
             <span id="trustMetricCaption">-</span>
@@ -147,7 +171,7 @@
             </div>
             <div>
               <span id="trustReviewStat">0</span>
-              <small data-i18n="trustReviewed">审核记录</small>
+              <small data-i18n="trustReviewed">维护记录</small>
             </div>
           </div>
           <div class="trust-progress" id="trustProgressList" aria-label="可信度进度" data-i18n-aria-label="trustProgressTitle"></div>
@@ -361,24 +385,25 @@
         </p>
       </aside>
 
-      <aside class="review-panel collapsed" id="imageReviewPanel" aria-label="图片审核" data-i18n-aria-label="imageReview">
+      <aside class="review-panel collapsed" id="imageReviewPanel" aria-label="图片维护" data-i18n-aria-label="imageReview">
         <div class="panel-heading">
           <div>
-            <strong data-i18n="imageReview">图片审核</strong>
+            <strong data-i18n="imageReview">图片维护</strong>
             <span id="reviewSummary">-</span>
           </div>
-          <button class="icon-button panel-icon" id="closeImageReview" type="button" aria-label="关闭图片审核" data-i18n-aria-label="closeImageReview">
+          <button class="icon-button panel-icon" id="closeImageReview" type="button" aria-label="关闭图片维护" data-i18n-aria-label="closeImageReview">
             <i data-lucide="x" aria-hidden="true"></i>
           </button>
         </div>
         <div class="review-toolbar">
           <input id="reviewSearch" type="search" autocomplete="off" placeholder="搜索景点" data-i18n-placeholder="reviewSearchPlaceholder" />
-          <select id="reviewFilter" aria-label="图片审核状态" data-i18n-aria-label="reviewFilter"></select>
+          <select id="reviewFilter" aria-label="图片维护状态" data-i18n-aria-label="reviewFilter"></select>
         </div>
+        <div class="review-quick-stats" id="reviewQuickStats" aria-label="图片维护队列" data-i18n-aria-label="reviewQueueOverview"></div>
         <div class="review-body">
           <div class="review-list" id="reviewList"></div>
           <section class="review-preview" id="reviewPreview" aria-live="polite">
-            <p class="empty-state" data-i18n="reviewNoSelection">选择一张图片开始审核</p>
+            <p class="empty-state" data-i18n="reviewNoSelection">选择一张图片开始维护</p>
           </section>
         </div>
         <div class="review-note-row">
@@ -415,7 +440,7 @@
           </label>
           <input class="visually-hidden" id="reviewImportInput" type="file" accept="application/json,.json" />
         </div>
-        <p class="review-apply-hint" data-i18n="reviewApplyHint">导出维护包后可用 scripts/apply-maintenance-package.py 一次写入审核记录和维护覆盖。</p>
+        <p class="review-apply-hint" data-i18n="reviewApplyHint">导出维护包后可用 scripts/apply-maintenance-package.py 一次写入图片维护记录和维护覆盖。</p>
       </aside>
 
       <aside class="maintenance-panel collapsed" id="maintenancePanel" aria-label="维护面板" data-i18n-aria-label="maintenancePanel">
@@ -500,7 +525,7 @@
           </button>
           <button class="text-button" id="maintenanceExportAudit" type="button">
             <i data-lucide="clipboard-list" aria-hidden="true"></i>
-            <span data-i18n="maintenanceExportAudit">导出审计</span>
+            <span data-i18n="maintenanceExportAudit">导出检查</span>
           </button>
           <label class="text-button import-button" for="maintenanceImportInput">
             <i data-lucide="upload" aria-hidden="true"></i>
@@ -532,7 +557,7 @@
             </article>
             <article>
               <strong data-i18n="aboutImageTitle">图片</strong>
-              <p data-i18n="aboutImageBody">本地插图保留来源；缺图和疑似错图可通过审核面板继续记录和替换。</p>
+              <p data-i18n="aboutImageBody">本地插图保留来源；缺图和疑似错图可通过图片维护面板继续记录和替换。</p>
             </article>
             <article>
               <strong data-i18n="aboutOpenTitle">开放</strong>
@@ -556,6 +581,9 @@
           </footer>
         </section>
       </div>
+      <div class="toast-viewport" aria-live="polite" aria-atomic="true">
+        <p class="toast-message" id="toastMessage" role="status" hidden></p>
+      </div>
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -566,9 +594,10 @@
     <script src="data/attraction-names.js?v=20260521-15"></script>
     <script src="data/attraction-images.js?v=20260525-02"></script>
     <script src="data/attraction-images-4a.js?v=20260525-01"></script>
+    <script src="data/image-quality-flags.js?v=20260619-01"></script>
     <script src="data/source-index.js?v=20260613-02"></script>
     <script src="data/image-review-decisions.js?v=20260613-01"></script>
     <script src="data/maintenance-overrides.js?v=20260613-01"></script>
-    <script src="app.js?v=20260613-14"></script>
+    <script src="app.js?v=20260616-05"></script>
   </body>
 </html>

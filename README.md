@@ -14,6 +14,41 @@
 node scripts/audit-maintenance.mjs --out maintenance-audit.json
 ```
 
+扫描本地图片里尺寸过小、来源词可疑或名称匹配弱的候选：
+```bash
+node scripts/find-suspicious-images.mjs --limit 80
+```
+
+最快补 4A 本地图（只用 4A 维基表里的直接页面主图，失败就跳过，适合先快速铺底）：
+```bash
+python scripts/build-4a-images.py --quick --quiet-missing
+```
+
+极速补 4A 本地图（批量维基百科主图，会尝试更多标题变体，适合 quick 后补漏）：
+```bash
+python scripts/build-4a-images.py --fast --no-wikidata-title-images --quiet-missing
+```
+
+平衡快扫 4A 本地图（再加一轮 Wikidata P18 标题主图，命中略多但会慢一些）：
+```bash
+python scripts/build-4a-images.py --fast --quiet-missing
+```
+
+扩展快扫 4A 本地图（在极速模式上追加每个景点 1 次 Wikimedia Commons 精确查询，适合想多补几张时跑）：
+```bash
+python scripts/build-4a-images.py --fast --fast-commons --no-wikidata-title-images --quiet-missing
+```
+
+分类快扫 4A 本地图（尝试 Wikidata/Commons 精确分类里的实拍图，速度快、命中取决于是否有分类）：
+```bash
+python scripts/build-4a-images.py --fast --commons-categories --no-wikidata-title-images --quiet-missing
+```
+
+Openverse 快速补漏（跳过维基/Commons 深搜，只查第一个强匹配开放图片查询，适合按省份分批跑）：
+```bash
+python scripts/build-4a-images.py --openverse-quick --province 山东 --quiet-missing
+```
+
 导出完整待处理队列表格：
 ```bash
 node scripts/audit-maintenance.mjs --csv-dir maintenance-queues
@@ -31,12 +66,12 @@ python scripts/maintenance-csv-to-package.py maintenance-queues --out china-trav
 python scripts/apply-maintenance-package.py china-travel-map-maintenance.json --dry-run
 ```
 
-报告会同时输出 `quality.coordinateExactRate`、`quality.imageCoverageRate`、`quality.sourceCoverageRate`、`quality.reviewCoverageRate`，方便跟踪坐标、图片、来源和审核覆盖率。
+报告会同时输出 `quality.coordinateExactRate`、`quality.imageCoverageRate`、`quality.sourceCoverageRate`、`quality.reviewCoverageRate`，方便跟踪坐标、图片、来源和维护覆盖率。
 
-也可以在页面维护面板里点击“导出审计”下载同类报告。
-右下角“可信度概览”的进度条可直接跳到缺图、坐标、来源或未审核图片队列。
+也可以在页面维护面板里点击“导出检查”下载同类报告。
+右下角“可信度概览”的进度条可直接跳到缺图、坐标、来源或未处理图片队列。
 
-应用前端导出的维护包，同时写入图片审核记录和维护覆盖：
+应用前端导出的维护包，同时写入图片维护记录和维护覆盖：
 
 ```bash
 python scripts/apply-maintenance-package.py china-travel-map-maintenance.json

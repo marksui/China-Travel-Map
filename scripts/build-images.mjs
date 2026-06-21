@@ -3,6 +3,26 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import vm from "node:vm";
 
+if (process.argv.includes("--help") || process.argv.includes("-h")) {
+  console.log(`Usage: node scripts/build-images.mjs [options]
+
+Options:
+  --targets <ids>              Comma-separated attraction ids or item numbers to update
+  --from <n> --to <n>          Update an item-number range
+  --limit <n>                  Process the first n attractions
+  --force                      Redownload even when a trusted local image exists
+  --allow-fallback-replacement Allow fallback to replace an existing local image
+  --metadata-only              Rebuild metadata without downloading new images
+  --wiki-only                  Use Wikipedia/Wikimedia candidates only
+  --openverse-only             Use Openverse candidates only
+  --compress-downloads         Download through the compression proxy
+  --image-width <px>           Target downloaded image width, default 960
+  --image-quality <n>          Target downloaded image quality, default 76
+  --help, -h                   Show this help
+`);
+  process.exit(0);
+}
+
 const outDir = path.resolve("assets/images");
 const tmpDir = path.join(outDir, ".tmp");
 const manifestPath = path.resolve("data/attraction-images.js");
@@ -21,6 +41,7 @@ const openverseAllLicenses = process.argv.includes("--openverse-all-licenses");
 const artistic = process.argv.includes("--artistic");
 const compressDownloads = process.argv.includes("--compress-downloads");
 const wikiFirst = !process.argv.includes("--no-wiki-first");
+const allowFallbackReplacement = process.argv.includes("--allow-fallback-replacement");
 const targetArg = getArg("--targets");
 const targetSelection = parseTargets(targetArg);
 const hasTargetSelection = targetSelection.ids.size > 0 || targetSelection.numbers.size > 0;
@@ -334,6 +355,14 @@ const rejectedTerms = [
   "group photo",
   "family photo",
   "portrait",
+  "han qinhu",
+  "han_qinhu",
+  "han-qinhu",
+  "韓擒虎",
+  "韩擒虎",
+  "明人画韩擒虎",
+  "双洎河",
+  "shuangji river",
   "liam",
   "isaac",
   "julia",
@@ -438,7 +467,7 @@ const selected = hasTargetSelection
     ? attractions.slice(0, maxItems)
     : attractions;
 const partialUpdate = hasTargetSelection || hasDownloadRange;
-const manifest = partialUpdate ? loadPreviousManifest() : {};
+const manifest = loadPreviousManifest();
 const attributionRows = [];
 const previousSources = loadPreviousSources();
 
@@ -451,6 +480,7 @@ for (const [index, attraction] of selected.entries()) {
   const fileName = imageRelativePaths.get(attraction.id) || legacyFileName;
   const imageUrl = `assets/images/${fileName}`;
   const outputPath = path.join(outDir, fileName);
+  const previousManifestEntry = manifest[attraction.id];
   const existingFile = await fileExists(outputPath);
   const shouldDownload = !hasDownloadRange || (itemNumber >= fromItem && (!toItem || itemNumber <= toItem));
   const previousSource = trustedPreviousSource(
@@ -492,6 +522,26 @@ for (const [index, attraction] of selected.entries()) {
     (metadataOnly && shouldDownload ? await findImage(attraction) : previousSource) ||
     (shouldDownload ? await findImage(attraction) : null) ||
     fallbackSource;
+
+  if (
+    finalSource.id === "fallback" &&
+    !allowFallbackReplacement &&
+    previousManifestEntry?.url?.startsWith("assets/images/") &&
+    !previousManifestEntry.url.includes("fallback") &&
+    (await fileExists(path.join(process.cwd(), previousManifestEntry.url)))
+  ) {
+    manifest[attraction.id] = previousManifestEntry;
+    attributionRows.push({
+      attraction: attraction.name,
+      fileName: previousManifestEntry.url.replace(/^assets\/images\//, ""),
+      ...fallbackSource,
+      title: "preserved existing local image",
+      fallback: false,
+    });
+    console.log(`${index + 1}/${selected.length} ${attraction.name} -> preserved existing local image`);
+    continue;
+  }
+
   manifest[attraction.id] = {
     url: finalSource.id === "fallback" ? fallbackLocal : imageUrl,
     pageUrl: finalSource.pageUrl,
@@ -867,6 +917,7 @@ function isAllowed(candidate) {
     candidate.pageUrl,
     candidate.text,
   ].join(" "));
+  if (isKnownPersonPage(candidate)) return false;
   if (isGenericCameraTitle(candidate.title)) return false;
   if (rejectedTerms.some((term) => text.includes(normalizeText(term)))) return false;
   if (candidate.width && candidate.height) {
@@ -875,6 +926,15 @@ function isAllowed(candidate) {
     if (ratio < 0.75 || ratio > 2.6) return false;
   }
   return true;
+}
+
+function isKnownPersonPage(candidate) {
+  const title = normalizeText(candidate.title || "");
+  const pageUrl = String(candidate.pageUrl || "");
+  return (
+    title === normalizeText("邓小平") ||
+    pageUrl === "https://zh.wikipedia.org/wiki/%E9%82%93%E5%B0%8F%E5%B9%B3"
+  );
 }
 
 function scoreCandidate(candidate, attraction, query = "") {

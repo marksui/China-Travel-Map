@@ -14,41 +14,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "北京-4A-0005",
-    "province": "北京",
-    "city": "昌平区",
-    "name": "温都水城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0006",
-    "province": "北京",
-    "city": "昌平区",
-    "name": "银山塔林",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0007",
-    "province": "北京",
-    "city": "昌平区",
-    "name": "乐多港假日广场",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0009",
-    "province": "北京",
-    "city": "朝阳区",
-    "name": "中国紫檀博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0010",
-    "province": "北京",
-    "city": "朝阳区",
-    "name": "元大都城垣遗址公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "北京-4A-0012",
     "province": "北京",
     "city": "朝阳区",
@@ -60,41 +25,6 @@
     "province": "北京",
     "city": "大兴区",
     "name": "绿野晴川野生动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0015",
-    "province": "北京",
-    "city": "东城区",
-    "name": "龙潭公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0016",
-    "province": "北京",
-    "city": "东城区",
-    "name": "明城墙遗址公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0020",
-    "province": "北京",
-    "city": "房山区",
-    "name": "石花洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0021",
-    "province": "北京",
-    "city": "房山区",
-    "name": "周口店遗址博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0022",
-    "province": "北京",
-    "city": "房山区",
-    "name": "房山十渡风景名胜区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -112,94 +42,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "北京-4A-0026",
-    "province": "北京",
-    "city": "丰台区",
-    "name": "北宫国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "北京-4A-0027",
     "province": "北京",
     "city": "丰台区",
     "name": "世界花卉大观园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0028",
-    "province": "北京",
-    "city": "丰台区",
-    "name": "中国人民抗日战争纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0029",
-    "province": "北京",
-    "city": "丰台区",
-    "name": "北京汽车博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0030",
-    "province": "北京",
-    "city": "丰台区",
-    "name": "北京园博园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0031",
-    "province": "北京",
-    "city": "丰台区",
-    "name": "中国园林博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0033",
-    "province": "北京",
-    "city": "海淀区",
-    "name": "香山公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0034",
-    "province": "北京",
-    "city": "海淀区",
-    "name": "中央广播电视塔",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0037",
-    "province": "北京",
-    "city": "海淀区",
-    "name": "凤凰岭",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0039",
-    "province": "北京",
-    "city": "怀柔区",
-    "name": "雁栖湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0040",
-    "province": "北京",
-    "city": "怀柔区",
-    "name": "青龙峡旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0041",
-    "province": "北京",
-    "city": "怀柔区",
-    "name": "北京黄花城水长城旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0043",
-    "province": "北京",
-    "city": "门头沟区",
-    "name": "戒台寺",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -259,31 +105,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "北京-4A-0054",
-    "province": "北京",
-    "city": "平谷区",
-    "name": "京东大峡谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "北京-4A-0055",
     "province": "北京",
     "city": "平谷区",
     "name": "渔阳国际滑雪场",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0056",
-    "province": "北京",
-    "city": "石景山区",
-    "name": "八大处公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0057",
-    "province": "北京",
-    "city": "石景山区",
-    "name": "石景山游乐园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -308,52 +133,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "北京-4A-0064",
-    "province": "北京",
-    "city": "西城区",
-    "name": "北京动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0065",
-    "province": "北京",
-    "city": "西城区",
-    "name": "北京海洋馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0066",
-    "province": "北京",
-    "city": "西城区",
-    "name": "景山公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0069",
-    "province": "北京",
-    "city": "西城区",
-    "name": "北京天文馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0071",
-    "province": "北京",
-    "city": "延庆区",
-    "name": "八达岭水关长城景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "北京-4A-0072",
     "province": "北京",
     "city": "延庆区",
     "name": "延庆百里山水画廊景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "北京-4A-0073",
-    "province": "北京",
-    "city": "延庆区",
-    "name": "野鸭湖国家湿地公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -364,24 +147,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "北京-4A-0075",
-    "province": "北京",
-    "city": "延庆区",
-    "name": "北京世园公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "天津-4A-0078",
     "province": "天津",
     "city": "滨海新区",
     "name": "天津极地海洋世界",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "天津-4A-0079",
-    "province": "天津",
-    "city": "滨海新区",
-    "name": "天津港文化旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -403,20 +172,6 @@
     "province": "天津",
     "city": "东丽区",
     "name": "天津欢乐谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "天津-4A-0090",
-    "province": "天津",
-    "city": "河西区",
-    "name": "天塔湖风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "天津-4A-0092",
-    "province": "天津",
-    "city": "蓟州区",
-    "name": "黄崖关",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -595,20 +350,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河北-4A-0124",
-    "province": "河北",
-    "city": "石家庄市",
-    "name": "石家庄苍岩山景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河北-4A-0125",
-    "province": "河北",
-    "city": "石家庄市",
-    "name": "赵州桥",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河北-4A-0126",
     "province": "河北",
     "city": "石家庄市",
@@ -623,13 +364,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河北-4A-0128",
-    "province": "河北",
-    "city": "石家庄市",
-    "name": "华北军区烈士陵园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河北-4A-0129",
     "province": "河北",
     "city": "石家庄市",
@@ -641,27 +375,6 @@
     "province": "河北",
     "city": "石家庄市",
     "name": "棋盘山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河北-4A-0131",
-    "province": "河北",
-    "city": "石家庄市",
-    "name": "正定隆兴寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河北-4A-0132",
-    "province": "河北",
-    "city": "石家庄市",
-    "name": "正定荣国府",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河北-4A-0133",
-    "province": "河北",
-    "city": "石家庄市",
-    "name": "天山海世界",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -798,13 +511,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河北-4A-0154",
-    "province": "河北",
-    "city": "张家口市",
-    "name": "大境门",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河北-4A-0155",
     "province": "河北",
     "city": "张家口市",
@@ -914,13 +620,6 @@
     "province": "河北",
     "city": "张家口市",
     "name": "沙城酒文化博览园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河北-4A-0171",
-    "province": "河北",
-    "city": "张家口市",
-    "name": "蔚州博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -1694,13 +1393,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山西-4A-0285",
-    "province": "山西",
-    "city": "太原市",
-    "name": "蒙山景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山西-4A-0286",
     "province": "山西",
     "city": "太原市",
@@ -1712,13 +1404,6 @@
     "province": "山西",
     "city": "太原市",
     "name": "清徐县宝源老醋坊景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山西-4A-0288",
-    "province": "山西",
-    "city": "太原市",
-    "name": "中国煤炭博物馆煤海探秘景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -1764,13 +1449,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山西-4A-0295",
-    "province": "山西",
-    "city": "大同市",
-    "name": "灵丘县平型关大捷景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山西-4A-0296",
     "province": "山西",
     "city": "大同市",
@@ -1785,38 +1463,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山西-4A-0298",
-    "province": "山西",
-    "city": "大同市",
-    "name": "平城区大同古城墙景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山西-4A-0299",
     "province": "山西",
     "city": "大同市",
     "name": "云冈区晋华宫井下探秘游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山西-4A-0300",
-    "province": "山西",
-    "city": "大同市",
-    "name": "浑源县北岳恒山景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山西-4A-0301",
-    "province": "山西",
-    "city": "大同市",
-    "name": "平城区善化寺景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山西-4A-0302",
-    "province": "山西",
-    "city": "大同市",
-    "name": "平城区华严寺景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -1841,13 +1491,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山西-4A-0307",
-    "province": "山西",
-    "city": "朔州市",
-    "name": "朔城区崇福寺景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山西-4A-0308",
     "province": "山西",
     "city": "朔州市",
@@ -1866,13 +1509,6 @@
     "province": "山西",
     "city": "忻州市",
     "name": "繁峙县憨山文化旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山西-4A-0311",
-    "province": "山西",
-    "city": "忻州市",
-    "name": "偏关县老牛湾景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -2793,13 +2429,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "内蒙古-4A-0443",
-    "province": "内蒙古",
-    "city": "呼和浩特市",
-    "name": "昭君博物院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "内蒙古-4A-0444",
     "province": "内蒙古",
     "city": "呼和浩特市",
@@ -2828,20 +2457,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "内蒙古-4A-0449",
-    "province": "内蒙古",
-    "city": "呼和浩特市",
-    "name": "大召",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "内蒙古-4A-0450",
-    "province": "内蒙古",
-    "city": "呼和浩特市",
-    "name": "内蒙古博物院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "内蒙古-4A-0451",
     "province": "内蒙古",
     "city": "呼和浩特市",
@@ -2860,13 +2475,6 @@
     "province": "内蒙古",
     "city": "呼和浩特市",
     "name": "南山旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "内蒙古-4A-0454",
-    "province": "内蒙古",
-    "city": "呼和浩特市",
-    "name": "乌兰夫纪念馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -3059,13 +2667,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "内蒙古-4A-0485",
-    "province": "内蒙古",
-    "city": "呼伦贝尔市",
-    "name": "诺干湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "内蒙古-4A-0486",
     "province": "内蒙古",
     "city": "呼伦贝尔市",
@@ -3147,13 +2748,6 @@
     "province": "内蒙古",
     "city": "兴安盟",
     "name": "乌兰毛都草原",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "内蒙古-4A-0499",
-    "province": "内蒙古",
-    "city": "兴安盟",
-    "name": "察尔森水库",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -3906,31 +3500,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "辽宁-4A-0611",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "沈阳故宫",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "辽宁-4A-0612",
     "province": "辽宁",
     "city": "沈阳市",
     "name": "沈阳科学宫",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0613",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "张学良旧居",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0614",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "“九·一八”历史博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -3948,13 +3521,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "辽宁-4A-0617",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "清昭陵（北陵公园）",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "辽宁-4A-0618",
     "province": "辽宁",
     "city": "沈阳市",
@@ -3969,31 +3535,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "辽宁-4A-0620",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "沈阳铁路陈列馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "辽宁-4A-0621",
     "province": "辽宁",
     "city": "沈阳市",
     "name": "沈阳科学技术馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0622",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "沈阳棋盘山国际风景旅游开发区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0623",
-    "province": "辽宁",
-    "city": "沈阳市",
-    "name": "清福陵（东陵公园）",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -4053,27 +3598,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "辽宁-4A-0632",
-    "province": "辽宁",
-    "city": "大连市",
-    "name": "大连森林动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0633",
-    "province": "辽宁",
-    "city": "大连市",
-    "name": "大连博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0634",
-    "province": "辽宁",
-    "city": "大连市",
-    "name": "大连自然博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "辽宁-4A-0635",
     "province": "辽宁",
     "city": "大连市",
@@ -4120,20 +3644,6 @@
     "province": "辽宁",
     "city": "大连市",
     "name": "大连英歌石植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0642",
-    "province": "辽宁",
-    "city": "大连市",
-    "name": "旅顺监狱旧址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0643",
-    "province": "辽宁",
-    "city": "大连市",
-    "name": "大连大黑山",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -4221,13 +3731,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "辽宁-4A-0656",
-    "province": "辽宁",
-    "city": "鞍山市",
-    "name": "玉佛苑",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "辽宁-4A-0657",
     "province": "辽宁",
     "city": "鞍山市",
@@ -4309,13 +3812,6 @@
     "province": "辽宁",
     "city": "鞍山市",
     "name": "千山老院子",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "辽宁-4A-0669",
-    "province": "辽宁",
-    "city": "抚顺市",
-    "name": "抚顺市雷锋纪念馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -4795,13 +4291,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "辽宁-4A-0738",
-    "province": "辽宁",
-    "city": "朝阳市",
-    "name": "朝阳凤凰山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "辽宁-4A-0739",
     "province": "辽宁",
     "city": "朝阳市",
@@ -4998,13 +4487,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "吉林-4A-0767",
-    "province": "吉林",
-    "city": "长春市",
-    "name": "孔子文化园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "吉林-4A-0768",
     "province": "吉林",
     "city": "长春市",
@@ -5044,13 +4526,6 @@
     "province": "吉林",
     "city": "长春市",
     "name": "凯撒森林温泉旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "吉林-4A-0774",
-    "province": "吉林",
-    "city": "长春市",
-    "name": "吉林省自然博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5138,24 +4613,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "吉林-4A-0787",
-    "province": "吉林",
-    "city": "吉林市",
-    "name": "松花湖风景名胜区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "吉林-4A-0788",
     "province": "吉林",
     "city": "吉林市",
     "name": "圣鑫葡萄酒庄园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "吉林-4A-0789",
-    "province": "吉林",
-    "city": "吉林市",
-    "name": "吉林市博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5170,13 +4631,6 @@
     "province": "吉林",
     "city": "吉林市",
     "name": "朱雀山国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "吉林-4A-0792",
-    "province": "吉林",
-    "city": "吉林市",
-    "name": "北山风景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5278,13 +4732,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "吉林-4A-0807",
-    "province": "吉林",
-    "city": "通化市",
-    "name": "杨靖宇烈士陵园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "吉林-4A-0808",
     "province": "吉林",
     "city": "通化市",
@@ -5303,13 +4750,6 @@
     "province": "吉林",
     "city": "通化市",
     "name": "佟佳江旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "吉林-4A-0811",
-    "province": "吉林",
-    "city": "通化市",
-    "name": "吉林龙湾景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5380,13 +4820,6 @@
     "province": "吉林",
     "city": "白山市",
     "name": "千年崖城风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "吉林-4A-0822",
-    "province": "吉林",
-    "city": "白山市",
-    "name": "四保临江纪念馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5488,24 +4921,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "吉林-4A-0837",
-    "province": "吉林",
-    "city": "延边朝鲜族自治州",
-    "name": "延边博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "吉林-4A-0838",
     "province": "吉林",
     "city": "延边朝鲜族自治州",
     "name": "梦都美民俗旅游度假村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "吉林-4A-0839",
-    "province": "吉林",
-    "city": "延边朝鲜族自治州",
-    "name": "延吉帽儿山（恐龙）文化旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5614,13 +5033,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "黑龙江-4A-0855",
-    "province": "黑龙江",
-    "city": "哈尔滨市",
-    "name": "中央欧陆风情旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "黑龙江-4A-0856",
     "province": "黑龙江",
     "city": "哈尔滨市",
@@ -5649,13 +5061,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "黑龙江-4A-0860",
-    "province": "黑龙江",
-    "city": "哈尔滨市",
-    "name": "亚布力滑雪旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "黑龙江-4A-0861",
     "province": "黑龙江",
     "city": "哈尔滨市",
@@ -5681,13 +5086,6 @@
     "province": "黑龙江",
     "city": "哈尔滨市",
     "name": "百年哈啤文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "黑龙江-4A-0865",
-    "province": "黑龙江",
-    "city": "哈尔滨市",
-    "name": "侵华日军第七三一部队罪证陈列馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5726,13 +5124,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "黑龙江-4A-0871",
-    "province": "黑龙江",
-    "city": "哈尔滨市",
-    "name": "哈尔滨极地馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "黑龙江-4A-0872",
     "province": "黑龙江",
     "city": "哈尔滨市",
@@ -5744,20 +5135,6 @@
     "province": "黑龙江",
     "city": "哈尔滨市",
     "name": "融创乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "黑龙江-4A-0874",
-    "province": "黑龙江",
-    "city": "哈尔滨市",
-    "name": "哈尔滨建筑艺术馆（圣索非亚教堂）",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "黑龙江-4A-0875",
-    "province": "黑龙江",
-    "city": "哈尔滨市",
-    "name": "龙塔",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -5936,13 +5313,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "黑龙江-4A-0901",
-    "province": "黑龙江",
-    "city": "牡丹江市",
-    "name": "牡丹江市雪乡景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "黑龙江-4A-0902",
     "province": "黑龙江",
     "city": "牡丹江市",
@@ -6101,13 +5471,6 @@
     "province": "黑龙江",
     "city": "大庆市",
     "name": "铁人王进喜纪念馆景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "黑龙江-4A-0925",
-    "province": "黑龙江",
-    "city": "大庆市",
-    "name": "大庆博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6517,20 +5880,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-0986",
-    "province": "上海",
-    "city": "宝山区",
-    "name": "顾村公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-0987",
-    "province": "上海",
-    "city": "宝山区",
-    "name": "吴淞炮台湾湿地森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-0988",
     "province": "上海",
     "city": "宝山区",
@@ -6542,13 +5891,6 @@
     "province": "上海",
     "city": "宝山区",
     "name": "上海闻道园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-0990",
-    "province": "上海",
-    "city": "宝山区",
-    "name": "上海玻璃博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6587,13 +5929,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-0998",
-    "province": "上海",
-    "city": "奉贤区",
-    "name": "碧海金沙水上乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-0999",
     "province": "上海",
     "city": "奉贤区",
@@ -6608,59 +5943,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-1001",
-    "province": "上海",
-    "city": "虹口区",
-    "name": "上海上港邮轮城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1002",
-    "province": "上海",
-    "city": "虹口区",
-    "name": "上海犹太难民纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1003",
-    "province": "上海",
-    "city": "黄浦区",
-    "name": "上海博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1005",
-    "province": "上海",
-    "city": "黄浦区",
-    "name": "上海城市规划展示馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-1006",
     "province": "上海",
     "city": "黄浦区",
     "name": "上海杜莎夫人蜡像馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1007",
-    "province": "上海",
-    "city": "嘉定区",
-    "name": "古猗园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1008",
-    "province": "上海",
-    "city": "嘉定区",
-    "name": "上海嘉定州桥",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1009",
-    "province": "上海",
-    "city": "嘉定区",
-    "name": "南翔镇",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6675,20 +5961,6 @@
     "province": "上海",
     "city": "嘉定区",
     "name": "上海国际赛车场",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1012",
-    "province": "上海",
-    "city": "金山区",
-    "name": "枫泾古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1013",
-    "province": "上海",
-    "city": "金山区",
-    "name": "上海金山城市沙滩",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6720,34 +5992,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-1019",
-    "province": "上海",
-    "city": "闵行区",
-    "name": "召稼楼",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1020",
-    "province": "上海",
-    "city": "闵行区",
-    "name": "浦江郊野公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1021",
-    "province": "上海",
-    "city": "闵行区",
-    "name": "闵行文化公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1022",
-    "province": "上海",
-    "city": "闵行区",
-    "name": "七宝古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-1023",
     "province": "上海",
     "city": "浦东新区",
@@ -6755,24 +5999,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-1025",
-    "province": "上海",
-    "city": "浦东新区",
-    "name": "上海海洋水族馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-1026",
     "province": "上海",
     "city": "浦东新区",
     "name": "上海鲜花港",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1027",
-    "province": "上海",
-    "city": "浦东新区",
-    "name": "中国航海博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6801,13 +6031,6 @@
     "province": "上海",
     "city": "浦东新区",
     "name": "上海海昌海洋公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1033",
-    "province": "上海",
-    "city": "青浦区",
-    "name": "上海大观园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6846,45 +6069,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-1040",
-    "province": "上海",
-    "city": "松江区",
-    "name": "佘山国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-1042",
     "province": "上海",
     "city": "松江区",
     "name": "上海月湖雕塑公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1043",
-    "province": "上海",
-    "city": "松江区",
-    "name": "上海欢乐谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1044",
-    "province": "上海",
-    "city": "松江区",
-    "name": "辰山植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1045",
-    "province": "上海",
-    "city": "松江区",
-    "name": "上海影视乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1046",
-    "province": "上海",
-    "city": "松江区",
-    "name": "广富林文化公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6909,38 +6097,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "上海-4A-1050",
-    "province": "上海",
-    "city": "徐汇区",
-    "name": "上海植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1051",
-    "province": "上海",
-    "city": "徐汇区",
-    "name": "上海宋庆龄故居纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "上海-4A-1052",
     "province": "上海",
     "city": "徐汇区",
     "name": "徐家汇源",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1053",
-    "province": "上海",
-    "city": "徐汇区",
-    "name": "龙华烈士陵园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "上海-4A-1054",
-    "province": "上海",
-    "city": "杨浦区",
-    "name": "共青森林公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -6958,59 +6118,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1059",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "梅园新村纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1060",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "南京博物院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1061",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "红山森林动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1062",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "南京朝天宫",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1063",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "侵华日军南京大屠杀遇难同胞纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1064",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "阅江楼",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1067",
     "province": "江苏",
     "city": "南京市",
     "name": "南京市科技馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1068",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "阳山碑材",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7021,24 +6132,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1070",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "牛首山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1071",
     "province": "江苏",
     "city": "南京市",
     "name": "珍珠泉",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1073",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "高淳老街",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7063,13 +6160,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1077",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "大报恩寺遗址公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1078",
     "province": "江苏",
     "city": "南京市",
@@ -7084,13 +6174,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1080",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "莫愁湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1081",
     "province": "江苏",
     "city": "南京市",
@@ -7102,13 +6185,6 @@
     "province": "江苏",
     "city": "南京市",
     "name": "水墨大埝旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1083",
-    "province": "江苏",
-    "city": "南京市",
-    "name": "南京眼",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7140,31 +6216,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1089",
-    "province": "江苏",
-    "city": "无锡市",
-    "name": "蠡园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1090",
     "province": "江苏",
     "city": "无锡市",
     "name": "崇安寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1091",
-    "province": "江苏",
-    "city": "无锡市",
-    "name": "梅园横山风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1093",
-    "province": "江苏",
-    "city": "无锡市",
-    "name": "无锡博物院",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7203,13 +6258,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1099",
-    "province": "江苏",
-    "city": "无锡市",
-    "name": "清名桥古运河",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1100",
     "province": "江苏",
     "city": "无锡市",
@@ -7245,13 +6293,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1106",
-    "province": "江苏",
-    "city": "无锡市",
-    "name": "善卷风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1107",
     "province": "江苏",
     "city": "无锡市",
@@ -7280,13 +6321,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1111",
-    "province": "江苏",
-    "city": "无锡市",
-    "name": "张公洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1113",
     "province": "江苏",
     "city": "无锡市",
@@ -7298,13 +6332,6 @@
     "province": "江苏",
     "city": "徐州市",
     "name": "淮海战役纪念塔",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1115",
-    "province": "江苏",
-    "city": "徐州市",
-    "name": "汉文化景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7340,13 +6367,6 @@
     "province": "江苏",
     "city": "徐州市",
     "name": "龟山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1121",
-    "province": "江苏",
-    "city": "徐州市",
-    "name": "徐州博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7448,27 +6468,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1137",
-    "province": "江苏",
-    "city": "常州市",
-    "name": "常州天宁寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1138",
-    "province": "江苏",
-    "city": "常州市",
-    "name": "红梅公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1139",
-    "province": "江苏",
-    "city": "常州市",
-    "name": "常州博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1140",
     "province": "江苏",
     "city": "常州市",
@@ -7518,45 +6517,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1148",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "甪直古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1149",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "盘门",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1150",
     "province": "江苏",
     "city": "苏州市",
     "name": "苏州西山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1151",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "木渎古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1152",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "狮子林",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1153",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "网师园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7567,31 +6531,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1155",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "寒山寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1156",
     "province": "江苏",
     "city": "苏州市",
     "name": "白马涧生态园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1157",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "七里山塘",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1158",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "平江历史街区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7620,13 +6563,6 @@
     "province": "江苏",
     "city": "苏州市",
     "name": "江苏大阳山国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1163",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "天平山",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7686,24 +6622,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1172",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "千灯古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1173",
     "province": "江苏",
     "city": "苏州市",
     "name": "太仓市现代农业园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1174",
-    "province": "江苏",
-    "city": "苏州市",
-    "name": "沙溪古镇",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7760,20 +6682,6 @@
     "province": "江苏",
     "city": "苏州市",
     "name": "苏州乐园森林世界",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1183",
-    "province": "江苏",
-    "city": "南通市",
-    "name": "狼山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1184",
-    "province": "江苏",
-    "city": "南通市",
-    "name": "如皋市水绘园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7858,13 +6766,6 @@
     "province": "江苏",
     "city": "南通市",
     "name": "通海垦牧公司旧址景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1197",
-    "province": "江苏",
-    "city": "连云港市",
-    "name": "孔望山",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -7987,20 +6888,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1215",
-    "province": "江苏",
-    "city": "淮安市",
-    "name": "中国漕运博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1216",
-    "province": "江苏",
-    "city": "淮安市",
-    "name": "吴承恩故居",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1217",
     "province": "江苏",
     "city": "淮安市",
@@ -8064,13 +6951,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1226",
-    "province": "江苏",
-    "city": "淮安市",
-    "name": "明祖陵",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1227",
     "province": "江苏",
     "city": "淮安市",
@@ -8103,13 +6983,6 @@
     "province": "江苏",
     "city": "盐城市",
     "name": "大纵湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1233",
-    "province": "江苏",
-    "city": "盐城市",
-    "name": "新四军纪念馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8260,38 +7133,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1256",
-    "province": "江苏",
-    "city": "扬州市",
-    "name": "个园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1257",
-    "province": "江苏",
-    "city": "扬州市",
-    "name": "何园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1258",
-    "province": "江苏",
-    "city": "扬州市",
-    "name": "中国雕版印刷博物馆/扬州博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1259",
     "province": "江苏",
     "city": "扬州市",
     "name": "茱萸湾",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1260",
-    "province": "江苏",
-    "city": "扬州市",
-    "name": "东关历史文化旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8306,20 +7151,6 @@
     "province": "江苏",
     "city": "扬州市",
     "name": "汉陵苑",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1263",
-    "province": "江苏",
-    "city": "扬州市",
-    "name": "盂城驿",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1264",
-    "province": "江苏",
-    "city": "扬州市",
-    "name": "邵伯古镇",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8351,24 +7182,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江苏-4A-1270",
-    "province": "江苏",
-    "city": "镇江市",
-    "name": "镇江博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江苏-4A-1271",
     "province": "江苏",
     "city": "镇江市",
     "name": "镇江市南山风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1272",
-    "province": "江苏",
-    "city": "镇江市",
-    "name": "西津渡历史文化街区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8390,13 +7207,6 @@
     "province": "江苏",
     "city": "镇江市",
     "name": "江苏茶博园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1276",
-    "province": "江苏",
-    "city": "镇江市",
-    "name": "宝华山国家森林公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8446,13 +7256,6 @@
     "province": "江苏",
     "city": "泰州市",
     "name": "郑板桥•范仲淹纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江苏-4A-1284",
-    "province": "江苏",
-    "city": "泰州市",
-    "name": "李中水上森林",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8638,13 +7441,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1311",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "天目山风景名胜区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1312",
     "province": "浙江",
     "city": "杭州市",
@@ -8652,24 +7448,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1313",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "超山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1314",
     "province": "浙江",
     "city": "杭州市",
     "name": "玉皇山南基金小镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1315",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "清河坊",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8729,20 +7511,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1324",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "浙江美术馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1325",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "中国丝绸博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1326",
     "province": "浙江",
     "city": "杭州市",
@@ -8750,24 +7518,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1327",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "杭州宋城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1328",
     "province": "浙江",
     "city": "杭州市",
     "name": "浙旅院国际教育旅游体验区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1329",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "杭州长乔极地海洋公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8785,24 +7539,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1332",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "杭州东方文化园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1333",
     "province": "浙江",
     "city": "杭州市",
     "name": "径山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1334",
-    "province": "浙江",
-    "city": "杭州市",
-    "name": "良渚博物院",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8817,27 +7557,6 @@
     "province": "浙江",
     "city": "宁波市",
     "name": "阿拉的海水上乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1337",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "奉化博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1338",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "鸣鹤古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1339",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "中国港口博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8890,24 +7609,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1347",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "宁波帮博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1348",
     "province": "浙江",
     "city": "宁波市",
     "name": "宁波科学探索中心",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1349",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "宁波老外滩",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -8943,20 +7648,6 @@
     "province": "浙江",
     "city": "宁波市",
     "name": "宁波海洋世界",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1355",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "宁波博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1356",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "象山影视城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -9044,20 +7735,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1369",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "招宝山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1370",
-    "province": "浙江",
-    "city": "宁波市",
-    "name": "保国寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1371",
     "province": "浙江",
     "city": "温州市",
@@ -9090,13 +7767,6 @@
     "province": "浙江",
     "city": "温州市",
     "name": "中雁荡山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1376",
-    "province": "浙江",
-    "city": "温州市",
-    "name": "楠溪江风景名胜区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -9188,13 +7858,6 @@
     "province": "浙江",
     "city": "温州市",
     "name": "苏步青故里",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1390",
-    "province": "浙江",
-    "city": "温州市",
-    "name": "南麂列岛",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -9338,13 +8001,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1411",
-    "province": "浙江",
-    "city": "湖州市",
-    "name": "莫干山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1412",
     "province": "浙江",
     "city": "湖州市",
@@ -9401,13 +8057,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1420",
-    "province": "浙江",
-    "city": "嘉兴市",
-    "name": "海宁盐官观潮景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1421",
     "province": "浙江",
     "city": "嘉兴市",
@@ -9443,24 +8092,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1426",
-    "province": "浙江",
-    "city": "嘉兴市",
-    "name": "绮园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1427",
     "province": "浙江",
     "city": "嘉兴市",
     "name": "歌斐颂巧克力小镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1428",
-    "province": "浙江",
-    "city": "绍兴市",
-    "name": "绍兴柯岩风景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -9471,13 +8106,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1430",
-    "province": "浙江",
-    "city": "绍兴市",
-    "name": "绍兴市东湖风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1431",
     "province": "浙江",
     "city": "绍兴市",
@@ -9485,31 +8113,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "浙江-4A-1432",
-    "province": "浙江",
-    "city": "绍兴市",
-    "name": "新昌大佛寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1433",
-    "province": "浙江",
-    "city": "绍兴市",
-    "name": "西施故里",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "浙江-4A-1434",
     "province": "浙江",
     "city": "绍兴市",
     "name": "十九峰",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "浙江-4A-1435",
-    "province": "浙江",
-    "city": "绍兴市",
-    "name": "大禹陵",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -10087,27 +8694,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "安徽-4A-1519",
-    "province": "安徽",
-    "city": "合肥市",
-    "name": "安徽博物院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1520",
-    "province": "安徽",
-    "city": "合肥市",
-    "name": "合肥包公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1521",
-    "province": "安徽",
-    "city": "合肥市",
-    "name": "李鸿章故居陈列馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "安徽-4A-1522",
     "province": "安徽",
     "city": "合肥市",
@@ -10168,13 +8754,6 @@
     "province": "安徽",
     "city": "合肥市",
     "name": "冶父山风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1531",
-    "province": "安徽",
-    "city": "合肥市",
-    "name": "合肥滨湖国家森林公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -10252,13 +8831,6 @@
     "province": "安徽",
     "city": "合肥市",
     "name": "合肥融创乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1543",
-    "province": "安徽",
-    "city": "合肥市",
-    "name": "渡江战役纪念馆（安徽名人馆）",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -10360,13 +8932,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "安徽-4A-1558",
-    "province": "安徽",
-    "city": "亳州市",
-    "name": "花戏楼",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "安徽-4A-1559",
     "province": "安徽",
     "city": "亳州市",
@@ -10448,13 +9013,6 @@
     "province": "安徽",
     "city": "蚌埠市",
     "name": "花鼓灯嘉年华",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1573",
-    "province": "安徽",
-    "city": "蚌埠市",
-    "name": "蚌埠市博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -10542,13 +9100,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "安徽-4A-1586",
-    "province": "安徽",
-    "city": "淮南市",
-    "name": "八公山旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "安徽-4A-1587",
     "province": "安徽",
     "city": "淮南市",
@@ -10560,13 +9111,6 @@
     "province": "安徽",
     "city": "淮南市",
     "name": "淮南市天宝双遗文化园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1589",
-    "province": "安徽",
-    "city": "淮南市",
-    "name": "寿县古城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -10609,13 +9153,6 @@
     "province": "安徽",
     "city": "滁州市",
     "name": "凤阳县韭山洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1596",
-    "province": "安徽",
-    "city": "滁州市",
-    "name": "凤阳县明皇陵",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -11228,13 +9765,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "安徽-4A-1686",
-    "province": "安徽",
-    "city": "宣城市",
-    "name": "太极洞风景名胜区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "安徽-4A-1687",
     "province": "安徽",
     "city": "宣城市",
@@ -11386,13 +9916,6 @@
     "province": "安徽",
     "city": "池州市",
     "name": "秋浦河",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "安徽-4A-1709",
-    "province": "安徽",
-    "city": "池州市",
-    "name": "平天湖风景名胜区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -11592,13 +10115,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "安徽-4A-1738",
-    "province": "安徽",
-    "city": "黄山市",
-    "name": "太平湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "安徽-4A-1739",
     "province": "安徽",
     "city": "黄山市",
@@ -11659,20 +10175,6 @@
     "province": "福建",
     "city": "福州市",
     "name": "福州国家森林公园（福州植物园）",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1750",
-    "province": "福建",
-    "city": "福州市",
-    "name": "鼓山旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1751",
-    "province": "福建",
-    "city": "福州市",
-    "name": "船政文化景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -11746,13 +10248,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "福建-4A-1762",
-    "province": "福建",
-    "city": "福州市",
-    "name": "上下杭文化休闲旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "福建-4A-1763",
     "province": "福建",
     "city": "福州市",
@@ -11778,20 +10273,6 @@
     "province": "福建",
     "city": "厦门市",
     "name": "天竺山森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1767",
-    "province": "福建",
-    "city": "厦门市",
-    "name": "胡里山炮台",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1768",
-    "province": "福建",
-    "city": "厦门市",
-    "name": "厦门园林博览苑",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -11834,13 +10315,6 @@
     "province": "福建",
     "city": "厦门市",
     "name": "灵玲国际马戏城景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1775",
-    "province": "福建",
-    "city": "宁德市",
-    "name": "周宁县鲤鱼溪·九龙漈旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -11914,13 +10388,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "福建-4A-1786",
-    "province": "福建",
-    "city": "泉州市",
-    "name": "泉州开元寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "福建-4A-1787",
     "province": "福建",
     "city": "泉州市",
@@ -11956,13 +10423,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "福建-4A-1793",
-    "province": "福建",
-    "city": "泉州市",
-    "name": "泉州市博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "福建-4A-1794",
     "province": "福建",
     "city": "泉州市",
@@ -11974,13 +10434,6 @@
     "province": "福建",
     "city": "泉州市",
     "name": "五店市传统文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1796",
-    "province": "福建",
-    "city": "泉州市",
-    "name": "安平桥",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -12075,13 +10528,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "福建-4A-1810",
-    "province": "福建",
-    "city": "漳州市",
-    "name": "福建土楼（华安）旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "福建-4A-1811",
     "province": "福建",
     "city": "漳州市",
@@ -12121,13 +10567,6 @@
     "province": "福建",
     "city": "漳州市",
     "name": "高峰谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "福建-4A-1817",
-    "province": "福建",
-    "city": "漳州市",
-    "name": "天柱山欢乐大世界",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -12481,13 +10920,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江西-4A-1869",
-    "province": "江西",
-    "city": "南昌市",
-    "name": "新四军军部旧址陈列馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江西-4A-1870",
     "province": "江西",
     "city": "南昌市",
@@ -12506,13 +10938,6 @@
     "province": "江西",
     "city": "南昌市",
     "name": "怪石岭",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江西-4A-1873",
-    "province": "江西",
-    "city": "南昌市",
-    "name": "南昌绿地中心303观光厅",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -12537,13 +10962,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江西-4A-1877",
-    "province": "江西",
-    "city": "南昌市",
-    "name": "八一起义纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江西-4A-1878",
     "province": "江西",
     "city": "南昌市",
@@ -12558,13 +10976,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江西-4A-1880",
-    "province": "江西",
-    "city": "南昌市",
-    "name": "李渡烧酒作坊遗址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江西-4A-1881",
     "province": "江西",
     "city": "南昌市",
@@ -12576,13 +10987,6 @@
     "province": "江西",
     "city": "南昌市",
     "name": "汉代海昏侯国考古遗址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江西-4A-1883",
-    "province": "江西",
-    "city": "南昌市",
-    "name": "小平小道陈列馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -12604,13 +11008,6 @@
     "province": "江西",
     "city": "南昌市",
     "name": "原城纪·南昌城市文化街区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江西-4A-1887",
-    "province": "江西",
-    "city": "南昌市",
-    "name": "万寿宫历史文化街区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -13314,20 +11711,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "江西-4A-1989",
-    "province": "江西",
-    "city": "宜春市",
-    "name": "阁皂山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "江西-4A-1990",
-    "province": "江西",
-    "city": "宜春市",
-    "name": "天柱峰",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "江西-4A-1991",
     "province": "江西",
     "city": "宜春市",
@@ -13979,34 +12362,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2086",
-    "province": "山东",
-    "city": "济南市",
-    "name": "千佛山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2087",
-    "province": "山东",
-    "city": "济南市",
-    "name": "百脉泉",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2088",
-    "province": "山东",
-    "city": "济南市",
-    "name": "灵岩寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2089",
-    "province": "山东",
-    "city": "济南市",
-    "name": "金象山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2090",
     "province": "山东",
     "city": "济南市",
@@ -14035,24 +12390,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2094",
-    "province": "山东",
-    "city": "济南市",
-    "name": "朱家峪",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2095",
     "province": "山东",
     "city": "济南市",
     "name": "房干生态旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2096",
-    "province": "山东",
-    "city": "济南市",
-    "name": "莱芜战役纪念馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14140,13 +12481,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2109",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "青岛海滨风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2110",
     "province": "山东",
     "city": "青岛市",
@@ -14175,38 +12509,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2114",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "青岛啤酒博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2115",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "青岛电视塔",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2116",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "青岛老城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2117",
     "province": "山东",
     "city": "青岛市",
     "name": "青岛葡萄酒博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2118",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "青岛世界园艺博览园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14238,20 +12544,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2123",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "大珠山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2124",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "琅琊台风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2125",
     "province": "山东",
     "city": "青岛市",
@@ -14280,13 +12572,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2129",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "藏马山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2130",
     "province": "山东",
     "city": "青岛市",
@@ -14298,13 +12583,6 @@
     "province": "山东",
     "city": "青岛市",
     "name": "少海风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2132",
-    "province": "山东",
-    "city": "青岛市",
-    "name": "茶山风景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14347,13 +12625,6 @@
     "province": "山东",
     "city": "淄博市",
     "name": "鲁山溶洞群风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2139",
-    "province": "山东",
-    "city": "淄博市",
-    "name": "开元溶洞",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14588,13 +12859,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2173",
-    "province": "山东",
-    "city": "烟台市",
-    "name": "牟氏庄园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2174",
     "province": "山东",
     "city": "烟台市",
@@ -14606,13 +12870,6 @@
     "province": "山东",
     "city": "烟台市",
     "name": "烟台市养马岛旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2176",
-    "province": "山东",
-    "city": "烟台市",
-    "name": "张裕酒文化博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14648,13 +12905,6 @@
     "province": "山东",
     "city": "烟台市",
     "name": "白垩纪国家地质公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2182",
-    "province": "山东",
-    "city": "烟台市",
-    "name": "太虚宫",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14840,13 +13090,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2209",
-    "province": "山东",
-    "city": "潍坊市",
-    "name": "世界风筝公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2210",
     "province": "山东",
     "city": "潍坊市",
@@ -14872,13 +13115,6 @@
     "province": "山东",
     "city": "潍坊市",
     "name": "欢乐海沙滩",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2214",
-    "province": "山东",
-    "city": "济宁市",
-    "name": "孟庙孟府旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -14987,13 +13223,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2230",
-    "province": "山东",
-    "city": "济宁市",
-    "name": "宝相寺景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2231",
     "province": "山东",
     "city": "济宁市",
@@ -15015,27 +13244,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2234",
-    "province": "山东",
-    "city": "泰安市",
-    "name": "新甫山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2235",
-    "province": "山东",
-    "city": "泰安市",
-    "name": "东平湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2236",
-    "province": "山东",
-    "city": "泰安市",
-    "name": "泰山方特欢乐世界",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2237",
     "province": "山东",
     "city": "泰安市",
@@ -15050,24 +13258,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2239",
-    "province": "山东",
-    "city": "泰安市",
-    "name": "白佛山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2240",
     "province": "山东",
     "city": "泰安市",
     "name": "太阳部落景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2241",
-    "province": "山东",
-    "city": "泰安市",
-    "name": "天颐湖",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -15218,13 +13412,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2263",
-    "province": "山东",
-    "city": "日照市",
-    "name": "日照万平口海滨风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2264",
     "province": "山东",
     "city": "日照市",
@@ -15344,13 +13531,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2281",
-    "province": "山东",
-    "city": "临沂市",
-    "name": "沂南竹泉村旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2282",
     "province": "山东",
     "city": "临沂市",
@@ -15379,13 +13559,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2286",
-    "province": "山东",
-    "city": "临沂市",
-    "name": "临沂动植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2287",
     "province": "山东",
     "city": "临沂市",
@@ -15397,13 +13570,6 @@
     "province": "山东",
     "city": "临沂市",
     "name": "临沂市科技馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2289",
-    "province": "山东",
-    "city": "临沂市",
-    "name": "红石寨",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -15498,13 +13664,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2303",
-    "province": "山东",
-    "city": "德州市",
-    "name": "泉城欧乐堡梦幻世界",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2304",
     "province": "山东",
     "city": "德州市",
@@ -15558,13 +13717,6 @@
     "province": "山东",
     "city": "德州市",
     "name": "董子园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "山东-4A-2312",
-    "province": "山东",
-    "city": "聊城市",
-    "name": "东昌湖",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -15722,13 +13874,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "山东-4A-2335",
-    "province": "山东",
-    "city": "菏泽市",
-    "name": "曹州牡丹园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "山东-4A-2336",
     "province": "山东",
     "city": "菏泽市",
@@ -15768,13 +13913,6 @@
     "province": "河南",
     "city": "郑州市",
     "name": "中原福塔",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2342",
-    "province": "河南",
-    "city": "郑州市",
-    "name": "新郑黄帝故里景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -15848,27 +13986,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2353",
-    "province": "河南",
-    "city": "郑州市",
-    "name": "嵩阳书院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2354",
-    "province": "河南",
-    "city": "郑州市",
-    "name": "中岳庙",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2355",
-    "province": "河南",
-    "city": "郑州市",
-    "name": "观星台",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2356",
     "province": "河南",
     "city": "郑州市",
@@ -15880,13 +13997,6 @@
     "province": "河南",
     "city": "郑州市",
     "name": "郑州园博园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2358",
-    "province": "河南",
-    "city": "郑州市",
-    "name": "郑州黄河文化公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -15908,34 +14018,6 @@
     "province": "河南",
     "city": "郑州市",
     "name": "香堤湾·奥帕拉拉水公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2362",
-    "province": "河南",
-    "city": "开封市",
-    "name": "开封府",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2363",
-    "province": "河南",
-    "city": "开封市",
-    "name": "包公祠",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2364",
-    "province": "河南",
-    "city": "开封市",
-    "name": "龙亭公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2365",
-    "province": "河南",
-    "city": "开封市",
-    "name": "大相国寺",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -15978,13 +14060,6 @@
     "province": "河南",
     "city": "开封市",
     "name": "爱思嘉·农业嘉年华景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2372",
-    "province": "河南",
-    "city": "开封市",
-    "name": "开封城墙",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -16114,13 +14189,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2391",
-    "province": "河南",
-    "city": "洛阳市",
-    "name": "小浪底",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2392",
     "province": "河南",
     "city": "洛阳市",
@@ -16132,20 +14200,6 @@
     "province": "河南",
     "city": "洛阳市",
     "name": "二程文化园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2395",
-    "province": "河南",
-    "city": "洛阳市",
-    "name": "白马寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2396",
-    "province": "河南",
-    "city": "洛阳市",
-    "name": "关林",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -16188,13 +14242,6 @@
     "province": "河南",
     "city": "洛阳市",
     "name": "龙凤山古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2403",
-    "province": "河南",
-    "city": "洛阳市",
-    "name": "二里头夏都遗址博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -16324,13 +14371,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2422",
-    "province": "河南",
-    "city": "平顶山市",
-    "name": "叶县县衙",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2423",
     "province": "河南",
     "city": "新乡市",
@@ -16342,13 +14382,6 @@
     "province": "河南",
     "city": "新乡市",
     "name": "京华园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2425",
-    "province": "河南",
-    "city": "新乡市",
-    "name": "比干庙",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -16443,20 +14476,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2439",
-    "province": "河南",
-    "city": "焦作市",
-    "name": "嘉应观",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2440",
-    "province": "河南",
-    "city": "焦作市",
-    "name": "焦作影视城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2441",
     "province": "河南",
     "city": "焦作市",
@@ -16492,13 +14511,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2446",
-    "province": "河南",
-    "city": "安阳市",
-    "name": "岳飞庙",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2447",
     "province": "河南",
     "city": "安阳市",
@@ -16517,13 +14529,6 @@
     "province": "河南",
     "city": "安阳市",
     "name": "汤河国家湿地公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2450",
-    "province": "河南",
-    "city": "安阳市",
-    "name": "中国文字博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -16667,13 +14672,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2472",
-    "province": "河南",
-    "city": "三门峡市",
-    "name": "虢国博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2473",
     "province": "河南",
     "city": "三门峡市",
@@ -16720,13 +14718,6 @@
     "province": "河南",
     "city": "三门峡市",
     "name": "娘娘山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2480",
-    "province": "河南",
-    "city": "三门峡市",
-    "name": "函谷关",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -16856,13 +14847,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2500",
-    "province": "河南",
-    "city": "许昌市",
-    "name": "钧官窑址博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2501",
     "province": "河南",
     "city": "许昌市",
@@ -16940,13 +14924,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2513",
-    "province": "河南",
-    "city": "南阳市",
-    "name": "内乡县衙",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2514",
     "province": "河南",
     "city": "南阳市",
@@ -16986,13 +14963,6 @@
     "province": "河南",
     "city": "南阳市",
     "name": "方城德云山风情植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2520",
-    "province": "河南",
-    "city": "南阳市",
-    "name": "社旗山陕会馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -17304,13 +15274,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "河南-4A-2565",
-    "province": "河南",
-    "city": "驻马店市",
-    "name": "竹沟革命纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "河南-4A-2566",
     "province": "河南",
     "city": "驻马店市",
@@ -17385,13 +15348,6 @@
     "province": "河南",
     "city": "周口市",
     "name": "弦歌台",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "河南-4A-2577",
-    "province": "河南",
-    "city": "济源市",
-    "name": "王屋山",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -17493,41 +15449,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖北-4A-2593",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "武昌首义文化旅游区（辛亥革命博物馆，红楼，起义门）",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2594",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "武汉中国科学院武汉植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2595",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "武汉市博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2596",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "中国地质大学逸夫博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2597",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "武汉市革命博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖北-4A-2598",
     "province": "湖北",
     "city": "武汉市",
@@ -17605,13 +15526,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖北-4A-2609",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "中山舰旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖北-4A-2610",
     "province": "湖北",
     "city": "武汉市",
@@ -17672,13 +15586,6 @@
     "province": "湖北",
     "city": "武汉市",
     "name": "梁湖漫乡",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2619",
-    "province": "湖北",
-    "city": "武汉市",
-    "name": "盘龙城国家考古遗址",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -17955,13 +15862,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖北-4A-2659",
-    "province": "湖北",
-    "city": "宜昌市",
-    "name": "宜昌博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖北-4A-2660",
     "province": "湖北",
     "city": "宜昌市",
@@ -18036,13 +15936,6 @@
     "province": "湖北",
     "city": "黄石市",
     "name": "龙凤山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2671",
-    "province": "湖北",
-    "city": "黄石市",
-    "name": "铜绿山国家考古遗址公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -18267,13 +16160,6 @@
     "province": "湖北",
     "city": "十堰市",
     "name": "沧浪山国家森林公园旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2704",
-    "province": "湖北",
-    "city": "荆州市",
-    "name": "荆州博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -18603,13 +16489,6 @@
     "province": "湖北",
     "city": "黄冈市",
     "name": "天台山景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖北-4A-2753",
-    "province": "湖北",
-    "city": "黄冈市",
-    "name": "遗爱湖",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -19159,27 +17038,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖南-4A-2832",
-    "province": "湖南",
-    "city": "长沙市",
-    "name": "湖南省博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2833",
-    "province": "湖南",
-    "city": "长沙市",
-    "name": "天心阁",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2834",
-    "province": "湖南",
-    "city": "长沙市",
-    "name": "雷锋纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖南-4A-2835",
     "province": "湖南",
     "city": "长沙市",
@@ -19201,13 +17059,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖南-4A-2838",
-    "province": "湖南",
-    "city": "长沙市",
-    "name": "靖港古镇景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖南-4A-2839",
     "province": "湖南",
     "city": "长沙市",
@@ -19219,13 +17070,6 @@
     "province": "湖南",
     "city": "长沙市",
     "name": "长沙生态动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2841",
-    "province": "湖南",
-    "city": "长沙市",
-    "name": "湖南省森林植物园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -19299,13 +17143,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖南-4A-2852",
-    "province": "湖南",
-    "city": "长沙市",
-    "name": "铜官窑国家考古遗址公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖南-4A-2853",
     "province": "湖南",
     "city": "长沙市",
@@ -19362,13 +17199,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖南-4A-2861",
-    "province": "湖南",
-    "city": "衡阳市",
-    "name": "石鼓书院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖南-4A-2862",
     "province": "湖南",
     "city": "衡阳市",
@@ -19408,13 +17238,6 @@
     "province": "湖南",
     "city": "衡阳市",
     "name": "湘南学联纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2868",
-    "province": "湖南",
-    "city": "衡阳市",
-    "name": "回雁峰",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -19614,13 +17437,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖南-4A-2897",
-    "province": "湖南",
-    "city": "岳阳市",
-    "name": "张谷英村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖南-4A-2898",
     "province": "湖南",
     "city": "岳阳市",
@@ -19761,24 +17577,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "湖南-4A-2918",
-    "province": "湖南",
-    "city": "张家界市",
-    "name": "黄龙洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "湖南-4A-2919",
     "province": "湖南",
     "city": "张家界市",
     "name": "江垭温泉度假村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2920",
-    "province": "湖南",
-    "city": "张家界市",
-    "name": "宝峰湖",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -19800,13 +17602,6 @@
     "province": "湖南",
     "city": "张家界市",
     "name": "龙王洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2924",
-    "province": "湖南",
-    "city": "张家界市",
-    "name": "张家界大峡谷",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -19835,13 +17630,6 @@
     "province": "湖南",
     "city": "张家界市",
     "name": "中国工农红军第二方面军长征出发地",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "湖南-4A-2929",
-    "province": "湖南",
-    "city": "怀化市",
-    "name": "抗日胜利芷江洽降旧址",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20412,87 +18200,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3011",
-    "province": "广东",
-    "city": "广州市",
-    "name": "中山纪念堂",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3012",
-    "province": "广东",
-    "city": "广州市",
-    "name": "番禺莲花山旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3013",
-    "province": "广东",
-    "city": "广州市",
-    "name": "宝墨园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3014",
-    "province": "广东",
-    "city": "广州市",
-    "name": "黄花岗公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3015",
-    "province": "广东",
-    "city": "广州市",
-    "name": "南越王博物院（王墓展区）",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3016",
     "province": "广东",
     "city": "广州市",
     "name": "从化碧水湾温泉度假村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3017",
-    "province": "广东",
-    "city": "广州市",
-    "name": "越秀公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3018",
-    "province": "广东",
-    "city": "广州市",
-    "name": "陈家祠旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3019",
-    "province": "广东",
-    "city": "广州市",
-    "name": "中国科学院华南植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3020",
-    "province": "广东",
-    "city": "广州市",
-    "name": "广州起义烈士陵园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3021",
-    "province": "广东",
-    "city": "广州市",
-    "name": "广州动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3022",
-    "province": "广东",
-    "city": "广州市",
-    "name": "广东科学中心",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20510,38 +18221,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3025",
-    "province": "广东",
-    "city": "广州市",
-    "name": "南海神庙景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3026",
     "province": "广东",
     "city": "广州市",
     "name": "正佳广场商贸旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3027",
-    "province": "广东",
-    "city": "广州市",
-    "name": "白水寨旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3028",
-    "province": "广东",
-    "city": "广州市",
-    "name": "岭南印象园旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3029",
-    "province": "广东",
-    "city": "广州市",
-    "name": "大湾区中央湿地公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20552,45 +18235,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3031",
-    "province": "广东",
-    "city": "广州市",
-    "name": "南沙天后宫",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3032",
-    "province": "广东",
-    "city": "广州市",
-    "name": "北京路文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3033",
-    "province": "广东",
-    "city": "广州市",
-    "name": "沙湾古镇景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3034",
     "province": "广东",
     "city": "广州市",
     "name": "神农草堂中医药博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3035",
-    "province": "广东",
-    "city": "广州市",
-    "name": "西关永庆坊旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3036",
-    "province": "广东",
-    "city": "广州市",
-    "name": "石门国家森林公园景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20601,45 +18249,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3038",
-    "province": "广东",
-    "city": "广州市",
-    "name": "毛泽东同志主办农民运动讲习所旧址纪念馆旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3039",
-    "province": "广东",
-    "city": "广州市",
-    "name": "广州起义纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3040",
-    "province": "广东",
-    "city": "广州市",
-    "name": "黄埔军校旧址纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3041",
     "province": "广东",
     "city": "广州市",
     "name": "广州融创文旅城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3042",
-    "province": "广东",
-    "city": "广州市",
-    "name": "广州城市规划展览中心",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3043",
-    "province": "广东",
-    "city": "广州市",
-    "name": "余荫山房",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20664,20 +18277,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3047",
-    "province": "广东",
-    "city": "广州市",
-    "name": "帽峰山森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3048",
-    "province": "广东",
-    "city": "深圳市",
-    "name": "仙湖植物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3049",
     "province": "广东",
     "city": "深圳市",
@@ -20689,27 +18288,6 @@
     "province": "广东",
     "city": "深圳市",
     "name": "观澜山水田园农庄景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3051",
-    "province": "广东",
-    "city": "深圳市",
-    "name": "深圳市野生动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3052",
-    "province": "广东",
-    "city": "深圳市",
-    "name": "青青世界旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3053",
-    "province": "广东",
-    "city": "深圳市",
-    "name": "东部华侨城旅游度假区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20734,13 +18312,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3057",
-    "province": "广东",
-    "city": "珠海市",
-    "name": "圆明新园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3058",
     "province": "广东",
     "city": "珠海市",
@@ -20755,31 +18326,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3060",
-    "province": "广东",
-    "city": "珠海市",
-    "name": "东澳岛旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3061",
-    "province": "广东",
-    "city": "珠海市",
-    "name": "外伶仃岛旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3062",
     "province": "广东",
     "city": "珠海市",
     "name": "汤臣倍健透明工厂景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3063",
-    "province": "广东",
-    "city": "珠海市",
-    "name": "桂山岛风景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20794,13 +18344,6 @@
     "province": "广东",
     "city": "汕头市",
     "name": "中海龙虎滩旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3066",
-    "province": "广东",
-    "city": "汕头市",
-    "name": "南澳岛生态旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20853,20 +18396,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3074",
-    "province": "广东",
-    "city": "佛山市",
-    "name": "清晖园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3075",
-    "province": "广东",
-    "city": "佛山市",
-    "name": "南风古灶旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3076",
     "province": "广东",
     "city": "佛山市",
@@ -20885,13 +18414,6 @@
     "province": "广东",
     "city": "佛山市",
     "name": "顺德罗浮宫国际家具艺术博览中心景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3079",
-    "province": "广东",
-    "city": "佛山市",
-    "name": "祖庙博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -20955,13 +18477,6 @@
     "province": "广东",
     "city": "韶关市",
     "name": "曹溪温泉假日度假村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3089",
-    "province": "广东",
-    "city": "韶关市",
-    "name": "广东大峡谷景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -21119,13 +18634,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3112",
-    "province": "广东",
-    "city": "梅州市",
-    "name": "灵光寺旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3113",
     "province": "广东",
     "city": "梅州市",
@@ -21154,13 +18662,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3117",
-    "province": "广东",
-    "city": "梅州市",
-    "name": "五指石风景名胜区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3118",
     "province": "广东",
     "city": "梅州市",
@@ -21179,13 +18680,6 @@
     "province": "广东",
     "city": "梅州市",
     "name": "熙和湾客乡文化产业园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3121",
-    "province": "广东",
-    "city": "梅州市",
-    "name": "张弼士故居旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -21336,13 +18830,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3143",
-    "province": "广东",
-    "city": "东莞市",
-    "name": "鸦片战争博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3144",
     "province": "广东",
     "city": "东莞市",
@@ -21385,31 +18872,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3150",
-    "province": "广东",
-    "city": "东莞市",
-    "name": "广东东江纵队旧址景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3151",
     "province": "广东",
     "city": "东莞市",
     "name": "清溪银瓶山森林公园景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3152",
-    "province": "广东",
-    "city": "东莞市",
-    "name": "南社村和塘尾村古建筑群景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3153",
-    "province": "广东",
-    "city": "东莞市",
-    "name": "可园博物馆景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -21466,13 +18932,6 @@
     "province": "广东",
     "city": "江门市",
     "name": "金山温泉旅游度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3162",
-    "province": "广东",
-    "city": "江门市",
-    "name": "圭峰山风景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -21714,13 +19173,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3197",
-    "province": "广东",
-    "city": "肇庆市",
-    "name": "德庆学宫景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3198",
     "province": "广东",
     "city": "肇庆市",
@@ -21910,20 +19362,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广东-4A-3225",
-    "province": "广东",
-    "city": "潮州市",
-    "name": "韩文公祠",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广东-4A-3226",
-    "province": "广东",
-    "city": "潮州市",
-    "name": "广济桥文物旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广东-4A-3227",
     "province": "广东",
     "city": "潮州市",
@@ -22015,24 +19453,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广西-4A-3240",
-    "province": "广西",
-    "city": "南宁市",
-    "name": "广西壮族自治区博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广西-4A-3241",
     "province": "广西",
     "city": "南宁市",
     "name": "会展·东博文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广西-4A-3242",
-    "province": "广西",
-    "city": "南宁市",
-    "name": "广西民族博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -22330,13 +19754,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "广西-4A-3285",
-    "province": "广西",
-    "city": "柳州市",
-    "name": "柳州龙潭景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "广西-4A-3286",
     "province": "广西",
     "city": "柳州市",
@@ -22362,13 +19779,6 @@
     "province": "广西",
     "city": "柳州市",
     "name": "柳州城市规划展览馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "广西-4A-3290",
-    "province": "广西",
-    "city": "柳州市",
-    "name": "柳州博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24325,13 +21735,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "海南-4A-3570",
-    "province": "海南",
-    "city": "海口市",
-    "name": "中国雷琼海口火山群世界地质公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "海南-4A-3571",
     "province": "海南",
     "city": "海口市",
@@ -24346,13 +21749,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "海南-4A-3573",
-    "province": "海南",
-    "city": "海口市",
-    "name": "海南省博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "海南-4A-3574",
     "province": "海南",
     "city": "海口市",
@@ -24364,34 +21760,6 @@
     "province": "海南",
     "city": "海口市",
     "name": "海口骑楼",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "海南-4A-3576",
-    "province": "海南",
-    "city": "海口市",
-    "name": "海瑞文化公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "海南-4A-3577",
-    "province": "海南",
-    "city": "海口市",
-    "name": "东寨港红树林旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "海南-4A-3578",
-    "province": "海南",
-    "city": "三亚市",
-    "name": "亚龙湾热带天堂森林旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "海南-4A-3579",
-    "province": "海南",
-    "city": "三亚市",
-    "name": "鹿回头",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24430,20 +21798,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "海南-4A-3585",
-    "province": "海南",
-    "city": "三亚市",
-    "name": "三亚国际免税城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "海南-4A-3586",
-    "province": "海南",
-    "city": "儋州市",
-    "name": "东坡文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "海南-4A-3587",
     "province": "海南",
     "city": "儋州市",
@@ -24472,13 +21826,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "海南-4A-3591",
-    "province": "海南",
-    "city": "文昌市",
-    "name": "宋氏祖居",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "海南-4A-3592",
     "province": "海南",
     "city": "文昌市",
@@ -24490,13 +21837,6 @@
     "province": "海南",
     "city": "琼海市",
     "name": "博鳌亚洲论坛永久会址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "海南-4A-3594",
-    "province": "海南",
-    "city": "琼海市",
-    "name": "中国（海南）南海博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24570,13 +21910,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "海南-4A-3605",
-    "province": "海南",
-    "city": "陵水黎族自治县",
-    "name": "南湾猴岛生态景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "海南-4A-3606",
     "province": "海南",
     "city": "陵水黎族自治县",
@@ -24591,13 +21924,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "海南-4A-3608",
-    "province": "海南",
-    "city": "保亭黎族苗族自治县",
-    "name": "七仙岭温泉国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "海南-4A-3609",
     "province": "海南",
     "city": "保亭黎族苗族自治县",
@@ -24609,20 +21935,6 @@
     "province": "海南",
     "city": "琼中黎族苗族自治县",
     "name": "百花岭热带雨林文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3611",
-    "province": "重庆",
-    "city": "万州区",
-    "name": "万州大瀑布",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3612",
-    "province": "重庆",
-    "city": "万州区",
-    "name": "重庆三峡移民纪念馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24647,13 +21959,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3616",
-    "province": "重庆",
-    "city": "涪陵区",
-    "name": "白鹤梁",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3617",
     "province": "重庆",
     "city": "涪陵区",
@@ -24668,13 +21973,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3619",
-    "province": "重庆",
-    "city": "涪陵区",
-    "name": "816工程景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3620",
     "province": "重庆",
     "city": "涪陵区",
@@ -24682,52 +21980,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3621",
-    "province": "重庆",
-    "city": "渝中区",
-    "name": "重庆人民大礼堂及人民广场",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3622",
-    "province": "重庆",
-    "city": "渝中区",
-    "name": "红岩革命纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3623",
-    "province": "重庆",
-    "city": "渝中区",
-    "name": "重庆湖广会馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3624",
-    "province": "重庆",
-    "city": "渝中区",
-    "name": "中国三峡博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3625",
-    "province": "重庆",
-    "city": "渝中区",
-    "name": "洪崖洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3626",
     "province": "重庆",
     "city": "渝中区",
     "name": "中国民主党派历史陈列馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3627",
-    "province": "重庆",
-    "city": "渝中区",
-    "name": "重庆长江索道",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24759,20 +22015,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3632",
-    "province": "重庆",
-    "city": "沙坪坝区",
-    "name": "歌乐山烈士陵园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3633",
-    "province": "重庆",
-    "city": "沙坪坝区",
-    "name": "磁器口古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3634",
     "province": "重庆",
     "city": "沙坪坝区",
@@ -24784,13 +22026,6 @@
     "province": "重庆",
     "city": "九龙坡区",
     "name": "海兰云天温泉度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3636",
-    "province": "重庆",
-    "city": "九龙坡区",
-    "name": "重庆动物园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24812,13 +22047,6 @@
     "province": "重庆",
     "city": "九龙坡区",
     "name": "周君记火锅食品工业旅游体验园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3640",
-    "province": "重庆",
-    "city": "九龙坡区",
-    "name": "重庆建川博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -24857,20 +22085,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3646",
-    "province": "重庆",
-    "city": "北碚区",
-    "name": "缙云山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3647",
-    "province": "重庆",
-    "city": "北碚区",
-    "name": "北泉风景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3648",
     "province": "重庆",
     "city": "北碚区",
@@ -24882,13 +22096,6 @@
     "province": "重庆",
     "city": "北碚区",
     "name": "金刀峡",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3650",
-    "province": "重庆",
-    "city": "北碚区",
-    "name": "重庆自然博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25025,31 +22232,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3670",
-    "province": "重庆",
-    "city": "长寿区",
-    "name": "长寿湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3671",
     "province": "重庆",
     "city": "长寿区",
     "name": "菩提古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3672",
-    "province": "重庆",
-    "city": "长寿区",
-    "name": "菩提山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3673",
-    "province": "重庆",
-    "city": "江津区",
-    "name": "聂荣臻元帅陈列馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25074,24 +22260,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3677",
-    "province": "重庆",
-    "city": "江津区",
-    "name": "中山古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3678",
     "province": "重庆",
     "city": "江津区",
     "name": "聂荣臻故里",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3679",
-    "province": "重庆",
-    "city": "合川区",
-    "name": "钓鱼城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25176,13 +22348,6 @@
     "province": "重庆",
     "city": "潼南区",
     "name": "潼南大佛寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3692",
-    "province": "重庆",
-    "city": "潼南区",
-    "name": "双江古镇",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25319,38 +22484,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "重庆-4A-3712",
-    "province": "重庆",
-    "city": "两江新区",
-    "name": "重庆科技馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3713",
-    "province": "重庆",
-    "city": "两江新区",
-    "name": "观音桥商圈都市旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "重庆-4A-3714",
     "province": "重庆",
     "city": "两江新区",
     "name": "铁山坪森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3715",
-    "province": "重庆",
-    "city": "两江新区",
-    "name": "重庆园博园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "重庆-4A-3716",
-    "province": "重庆",
-    "city": "两江新区",
-    "name": "两江国际影视城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25760,45 +22897,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "四川-4A-3775",
-    "province": "四川",
-    "city": "成都市",
-    "name": "成都武侯祠博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3776",
-    "province": "四川",
-    "city": "成都市",
-    "name": "杜甫草堂",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3777",
-    "province": "四川",
-    "city": "成都市",
-    "name": "成都大熊猫繁育研究基地",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3778",
-    "province": "四川",
-    "city": "成都市",
-    "name": "洛带古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "四川-4A-3779",
     "province": "四川",
     "city": "成都市",
     "name": "宝光桂湖文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3780",
-    "province": "四川",
-    "city": "成都市",
-    "name": "黄龙溪旅游区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25813,13 +22915,6 @@
     "province": "四川",
     "city": "成都市",
     "name": "平乐古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3783",
-    "province": "四川",
-    "city": "成都市",
-    "name": "金沙遗址博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -25904,13 +22999,6 @@
     "province": "四川",
     "city": "成都市",
     "name": "东郊记忆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3796",
-    "province": "四川",
-    "city": "成都市",
-    "name": "望丛祠",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -26082,31 +23170,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "四川-4A-3821",
-    "province": "四川",
-    "city": "自贡市",
-    "name": "自贡恐龙博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3822",
-    "province": "四川",
-    "city": "自贡市",
-    "name": "荣县大佛文化旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "四川-4A-3823",
     "province": "四川",
     "city": "自贡市",
     "name": "仙市古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3824",
-    "province": "四川",
-    "city": "自贡市",
-    "name": "燊海井",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -26215,13 +23282,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "四川-4A-3840",
-    "province": "四川",
-    "city": "德阳市",
-    "name": "三星堆博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "四川-4A-3841",
     "province": "四川",
     "city": "德阳市",
@@ -26264,13 +23324,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "四川-4A-3847",
-    "province": "四川",
-    "city": "绵阳市",
-    "name": "窦圌山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "四川-4A-3848",
     "province": "四川",
     "city": "绵阳市",
@@ -26282,13 +23335,6 @@
     "province": "四川",
     "city": "绵阳市",
     "name": "七曲山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3850",
-    "province": "四川",
-    "city": "绵阳市",
-    "name": "平武报恩寺",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -26390,24 +23436,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "四川-4A-3865",
-    "province": "四川",
-    "city": "广元市",
-    "name": "皇泽寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "四川-4A-3866",
     "province": "四川",
     "city": "广元市",
     "name": "曾家山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "四川-4A-3867",
-    "province": "四川",
-    "city": "广元市",
-    "name": "昭化古城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -28091,20 +25123,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "贵州-4A-4108",
-    "province": "贵州",
-    "city": "贵阳市",
-    "name": "黔灵山公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4109",
-    "province": "贵州",
-    "city": "贵阳市",
-    "name": "天河潭",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "贵州-4A-4110",
     "province": "贵州",
     "city": "贵阳市",
@@ -28245,31 +25263,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "贵州-4A-4130",
-    "province": "贵州",
-    "city": "贵阳市",
-    "name": "贵州省地质博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "贵州-4A-4131",
     "province": "贵州",
     "city": "贵安新区",
     "name": "云漫湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4132",
-    "province": "贵州",
-    "city": "遵义市",
-    "name": "遵义会议会址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4133",
-    "province": "贵州",
-    "city": "遵义市",
-    "name": "娄山关",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -28315,13 +25312,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "贵州-4A-4140",
-    "province": "贵州",
-    "city": "遵义市",
-    "name": "四渡赤水纪念馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "贵州-4A-4141",
     "province": "贵州",
     "city": "遵义市",
@@ -28333,13 +25323,6 @@
     "province": "贵州",
     "city": "遵义市",
     "name": "中国丹霞谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4143",
-    "province": "贵州",
-    "city": "遵义市",
-    "name": "海龙屯",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -28389,13 +25372,6 @@
     "province": "贵州",
     "city": "遵义市",
     "name": "中国酒文化城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4151",
-    "province": "贵州",
-    "city": "遵义市",
-    "name": "茅台酒镇旅游景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -28508,13 +25484,6 @@
     "province": "贵州",
     "city": "六盘水市",
     "name": "妥乐古银杏旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4168",
-    "province": "贵州",
-    "city": "六盘水市",
-    "name": "乌蒙大草原",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -28690,13 +25659,6 @@
     "province": "贵州",
     "city": "毕节市",
     "name": "大方奢香古镇景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "贵州-4A-4194",
-    "province": "贵州",
-    "city": "毕节市",
-    "name": "阿西里西韭菜坪旅游景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -29197,27 +26159,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "云南-4A-4266",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "九乡风景名胜区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4267",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "云南民族村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4268",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "昆明市西山森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "云南-4A-4269",
     "province": "云南",
     "city": "昆明市",
@@ -29225,38 +26166,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "云南-4A-4270",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "昆明金殿景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4271",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "昆明官渡古镇",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "云南-4A-4272",
     "province": "云南",
     "city": "昆明市",
     "name": "云南野生动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4273",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "昆明轿子山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4274",
-    "province": "云南",
-    "city": "昆明市",
-    "name": "昆明市翠湖·讲武堂景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -29421,20 +26334,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "云南-4A-4298",
-    "province": "云南",
-    "city": "曲靖市",
-    "name": "罗平九龙瀑布群景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4299",
-    "province": "云南",
-    "city": "曲靖市",
-    "name": "珠江源",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "云南-4A-4300",
     "province": "云南",
     "city": "曲靖市",
@@ -29446,13 +26345,6 @@
     "province": "云南",
     "city": "曲靖市",
     "name": "凤凰谷生命文化主题公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4302",
-    "province": "云南",
-    "city": "曲靖市",
-    "name": "曲靖会泽大海草山",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -29568,13 +26460,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "云南-4A-4319",
-    "province": "云南",
-    "city": "玉溪市",
-    "name": "澄江帽天山寒武纪世界自然遗产旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "云南-4A-4320",
     "province": "云南",
     "city": "玉溪市",
@@ -29635,13 +26520,6 @@
     "province": "云南",
     "city": "保山市",
     "name": "保山腾冲市原乡栖花岭景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "云南-4A-4329",
-    "province": "云南",
-    "city": "保山市",
-    "name": "保山腾冲市滇西抗战纪念馆（国殇墓园）景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -30688,27 +27566,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "西藏-4A-4479",
-    "province": "西藏",
-    "city": "拉萨市",
-    "name": "西藏博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4480",
-    "province": "西藏",
-    "city": "拉萨市",
-    "name": "罗布林卡",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4481",
-    "province": "西藏",
-    "city": "拉萨市",
-    "name": "哲蚌寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "西藏-4A-4482",
     "province": "西藏",
     "city": "拉萨市",
@@ -30772,24 +27629,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "西藏-4A-4491",
-    "province": "西藏",
-    "city": "日喀则市",
-    "name": "萨迦寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "西藏-4A-4492",
     "province": "西藏",
     "city": "日喀则市",
     "name": "萨迦古城",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4493",
-    "province": "西藏",
-    "city": "日喀则市",
-    "name": "珠穆朗玛峰国家级自然保护区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -30835,38 +27678,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "西藏-4A-4500",
-    "province": "西藏",
-    "city": "阿里地区",
-    "name": "玛旁雍错",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4501",
-    "province": "西藏",
-    "city": "阿里地区",
-    "name": "班公湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "西藏-4A-4502",
     "province": "西藏",
     "city": "阿里地区",
     "name": "古格文化遗址公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4503",
-    "province": "西藏",
-    "city": "山南市",
-    "name": "桑耶寺",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4504",
-    "province": "西藏",
-    "city": "山南市",
-    "name": "昌珠寺",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -30881,13 +27696,6 @@
     "province": "西藏",
     "city": "山南市",
     "name": "羊卓雍错",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4507",
-    "province": "西藏",
-    "city": "山南市",
-    "name": "雍布拉康",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -30947,13 +27755,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "西藏-4A-4516",
-    "province": "西藏",
-    "city": "林芝市",
-    "name": "鲁朗",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "西藏-4A-4517",
     "province": "西藏",
     "city": "林芝市",
@@ -30972,13 +27773,6 @@
     "province": "西藏",
     "city": "林芝市",
     "name": "世界柏树王园林",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "西藏-4A-4520",
-    "province": "西藏",
-    "city": "林芝市",
-    "name": "米堆冰川",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -31017,24 +27811,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "陕西-4A-4526",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "半坡博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "陕西-4A-4527",
     "province": "陕西",
     "city": "西安市",
     "name": "白鹿仓主题乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4528",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "西安博物院",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -31084,20 +27864,6 @@
     "province": "陕西",
     "city": "西安市",
     "name": "王顺山国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4536",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "大唐西市博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4537",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "广仁寺",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -31157,20 +27923,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "陕西-4A-4546",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "陕西历史博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4547",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "陕西自然博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "陕西-4A-4548",
     "province": "陕西",
     "city": "西安市",
@@ -31182,13 +27934,6 @@
     "province": "陕西",
     "city": "西安市",
     "name": "翠华山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4550",
-    "province": "陕西",
-    "city": "西安市",
-    "name": "关中民俗艺术博物院",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -31364,13 +28109,6 @@
     "province": "陕西",
     "city": "宝鸡市",
     "name": "千湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4576",
-    "province": "陕西",
-    "city": "咸阳市",
-    "name": "乾陵博物馆",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -31651,20 +28389,6 @@
     "province": "陕西",
     "city": "延安市",
     "name": "劳山国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4617",
-    "province": "陕西",
-    "city": "延安市",
-    "name": "甘泉大峡谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "陕西-4A-4618",
-    "province": "陕西",
-    "city": "延安市",
-    "name": "南泥湾",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -32382,31 +29106,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "甘肃-4A-4721",
-    "province": "甘肃",
-    "city": "白银市",
-    "name": "黄河石林",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4722",
-    "province": "甘肃",
-    "city": "白银市",
-    "name": "会宁红军会师旧址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "甘肃-4A-4723",
     "province": "甘肃",
     "city": "白银市",
     "name": "靖远县水岸三合旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4724",
-    "province": "甘肃",
-    "city": "天水市",
-    "name": "伏羲庙",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -32428,13 +29131,6 @@
     "province": "甘肃",
     "city": "天水市",
     "name": "青鹃山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4728",
-    "province": "甘肃",
-    "city": "天水市",
-    "name": "水帘洞石窟",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -32480,31 +29176,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "甘肃-4A-4735",
-    "province": "甘肃",
-    "city": "武威市",
-    "name": "雷台景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4736",
-    "province": "甘肃",
-    "city": "武威市",
-    "name": "武威文庙",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "甘肃-4A-4737",
     "province": "甘肃",
     "city": "武威市",
     "name": "神州荒漠野生动物园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4738",
-    "province": "甘肃",
-    "city": "武威市",
-    "name": "天梯山石窟",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -32547,13 +29222,6 @@
     "province": "甘肃",
     "city": "武威市",
     "name": "沙井文化民俗旅游景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4745",
-    "province": "甘肃",
-    "city": "张掖市",
-    "name": "张掖大佛寺",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -32774,13 +29442,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "甘肃-4A-4777",
-    "province": "甘肃",
-    "city": "酒泉市",
-    "name": "敦煌世界地质公园-雅丹景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "甘肃-4A-4778",
     "province": "甘肃",
     "city": "酒泉市",
@@ -32823,13 +29484,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "甘肃-4A-4784",
-    "province": "甘肃",
-    "city": "酒泉市",
-    "name": "锁阳城遗址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "甘肃-4A-4785",
     "province": "甘肃",
     "city": "酒泉市",
@@ -32848,13 +29502,6 @@
     "province": "甘肃",
     "city": "酒泉市",
     "name": "玉泽湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "甘肃-4A-4788",
-    "province": "甘肃",
-    "city": "酒泉市",
-    "name": "酒泉卫星发射中心",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33390,13 +30037,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "青海-4A-4865",
-    "province": "青海",
-    "city": "西宁市",
-    "name": "青海省博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "青海-4A-4866",
     "province": "青海",
     "city": "西宁市",
@@ -33408,13 +30048,6 @@
     "province": "青海",
     "city": "西宁市",
     "name": "老爷山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "青海-4A-4868",
-    "province": "青海",
-    "city": "西宁市",
-    "name": "丹噶尔古城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33464,13 +30097,6 @@
     "province": "青海",
     "city": "西宁市",
     "name": "青海多巴国家高原体育训练基地",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "青海-4A-4876",
-    "province": "青海",
-    "city": "西宁市",
-    "name": "日月山",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33572,13 +30198,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "青海-4A-4891",
-    "province": "青海",
-    "city": "海北藏族自治州",
-    "name": "金银滩-原子城景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "青海-4A-4892",
     "province": "青海",
     "city": "海北藏族自治州",
@@ -33611,13 +30230,6 @@
     "province": "青海",
     "city": "海北藏族自治州",
     "name": "达玉民俗村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "青海-4A-4897",
-    "province": "青海",
-    "city": "黄南藏族自治州",
-    "name": "热贡国家级历史文化名城旅游区（老街、郭麻日古堡，梧桐村，隆务寺）",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33691,13 +30303,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "青海-4A-4908",
-    "province": "青海",
-    "city": "海西蒙古族藏族自治州",
-    "name": "茶卡盐湖",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "青海-4A-4909",
     "province": "青海",
     "city": "海西蒙古族藏族自治州",
@@ -33716,13 +30321,6 @@
     "province": "青海",
     "city": "海西蒙古族藏族自治州",
     "name": "翡翠湖景区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "青海-4A-4912",
-    "province": "青海",
-    "city": "海西蒙古族藏族自治州",
-    "name": "察尔汗盐湖景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33751,20 +30349,6 @@
     "province": "宁夏",
     "city": "银川市",
     "name": "贺兰山国家森林公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "宁夏-4A-4917",
-    "province": "宁夏",
-    "city": "银川市",
-    "name": "贺兰山岩画",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "宁夏-4A-4918",
-    "province": "宁夏",
-    "city": "银川市",
-    "name": "西夏陵",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33838,13 +30422,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "宁夏-4A-4929",
-    "province": "宁夏",
-    "city": "石嘴山市",
-    "name": "北武当山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "宁夏-4A-4930",
     "province": "宁夏",
     "city": "石嘴山市",
@@ -33915,24 +30492,10 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "宁夏-4A-4940",
-    "province": "宁夏",
-    "city": "固原市",
-    "name": "须弥山",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "宁夏-4A-4941",
     "province": "宁夏",
     "city": "固原市",
     "name": "火石寨国家地质公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "宁夏-4A-4942",
-    "province": "宁夏",
-    "city": "固原市",
-    "name": "将台堡红军长征会师纪念园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -33954,34 +30517,6 @@
     "province": "宁夏",
     "city": "中卫市",
     "name": "寺口子风景旅游区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4946",
-    "province": "新疆",
-    "city": "乌鲁木齐市",
-    "name": "新疆国际大巴扎",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4947",
-    "province": "新疆",
-    "city": "乌鲁木齐市",
-    "name": "新疆维吾尔自治区博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4948",
-    "province": "新疆",
-    "city": "乌鲁木齐市",
-    "name": "水磨沟公园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4949",
-    "province": "新疆",
-    "city": "乌鲁木齐市",
-    "name": "乌鲁木齐市红山公园",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -34024,13 +30559,6 @@
     "province": "新疆",
     "city": "乌鲁木齐市",
     "name": "丝绸之路山地度假区",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4956",
-    "province": "新疆",
-    "city": "克拉玛依市",
-    "name": "克拉玛依河",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -34083,13 +30611,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "新疆-4A-4964",
-    "province": "新疆",
-    "city": "昌吉回族自治州",
-    "name": "千佛洞",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "新疆-4A-4965",
     "province": "新疆",
     "city": "昌吉回族自治州",
@@ -34132,13 +30653,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "新疆-4A-4971",
-    "province": "新疆",
-    "city": "吐鲁番市",
-    "name": "库木塔格沙漠",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "新疆-4A-4972",
     "province": "新疆",
     "city": "吐鲁番市",
@@ -34150,13 +30664,6 @@
     "province": "新疆",
     "city": "吐鲁番市",
     "name": "楼兰酒庄",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4974",
-    "province": "新疆",
-    "city": "吐鲁番市",
-    "name": "火焰山景区",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -34178,20 +30685,6 @@
     "province": "新疆",
     "city": "吐鲁番市",
     "name": "坎儿井乐园",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4978",
-    "province": "新疆",
-    "city": "吐鲁番市",
-    "name": "吐鲁番博物馆",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4979",
-    "province": "新疆",
-    "city": "吐鲁番市",
-    "name": "高昌故城",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -34234,13 +30727,6 @@
     "province": "新疆",
     "city": "哈密市",
     "name": "哈密市文博院",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-4986",
-    "province": "新疆",
-    "city": "哈密市",
-    "name": "巴里坤湖",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -34342,13 +30828,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "新疆-4A-5001",
-    "province": "新疆",
-    "city": "巴音郭楞蒙古自治州",
-    "name": "金沙滩",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "新疆-4A-5002",
     "province": "新疆",
     "city": "巴音郭楞蒙古自治州",
@@ -34374,20 +30853,6 @@
     "province": "新疆",
     "city": "巴音郭楞蒙古自治州",
     "name": "霍拉山丝路古村",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-5006",
-    "province": "新疆",
-    "city": "巴音郭楞蒙古自治州",
-    "name": "七个星佛寺遗址",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-5007",
-    "province": "新疆",
-    "city": "阿克苏地区",
-    "name": "多浪河",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
@@ -34461,13 +30926,6 @@
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {
-    "id": "新疆-4A-5018",
-    "province": "新疆",
-    "city": "阿克苏地区",
-    "name": "克孜尔石窟",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
     "id": "新疆-4A-5019",
     "province": "新疆",
     "city": "阿克苏地区",
@@ -34493,13 +30951,6 @@
     "province": "新疆",
     "city": "阿克苏地区",
     "name": "天山神秘大峡谷",
-    "reason": "not fetched yet or no reliable open image candidate"
-  },
-  {
-    "id": "新疆-4A-5023",
-    "province": "新疆",
-    "city": "阿克苏地区",
-    "name": "克孜尔尕哈烽燧",
     "reason": "not fetched yet or no reliable open image candidate"
   },
   {

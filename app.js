@@ -13,6 +13,7 @@ const meta = {
   fourA: fourAMeta,
 };
 const localImages = { ...(window.CHINA_5A_IMAGES || {}), ...(window.CHINA_4A_IMAGES || {}) };
+const imageQualityFlags = window.CHINA_IMAGE_QUALITY_FLAGS || {};
 const localizedAttractionNames = window.CHINA_5A_ATTRACTION_NAMES || {};
 const sourceIndex = window.CHINA_TRAVEL_SOURCE_INDEX || {};
 const seededReviewDecisions = window.CHINA_IMAGE_REVIEW_DECISIONS || {};
@@ -34,6 +35,7 @@ const themeFilterOrder = ["all", "nature", "culture", "family", "ancient", "red"
 const seasonFilterOrder = ["all", "spring", "summer", "autumn", "winter"];
 const coordinateLevelOptions = ["景区", "区县", "城市"];
 const fourAZoomThreshold = 6;
+const searchSuggestionLimit = 6;
 const reviewStorageKey = "china-travel-map-image-review-v1";
 const favoritesStorageKey = "china-travel-map-favorites-v1";
 const maintenanceStorageKey = "china-travel-map-maintenance-overrides-v1";
@@ -141,6 +143,7 @@ const translations = {
     coordinateExact: "精确坐标",
     coordinateDistrict: "区县参考",
     coordinateCity: "城市参考",
+    precisionLegendDesc: "地图点越透明，坐标越偏参考性质；详情页会显示具体精度。",
     coordinateApproxNote: "参考点，并非景区真实入口或边界中心",
     dataSource: "数据来源",
     dataUpdated: "更新时间",
@@ -152,7 +155,7 @@ const translations = {
     trustExact: "精确坐标",
     trustApprox: "参考坐标",
     trustImages: "本地图片",
-    trustReviewed: "审核记录",
+    trustReviewed: "维护记录",
     footprint: "占地范围",
     focus: "定位",
     sameRegion: "同地区景点",
@@ -171,16 +174,16 @@ const translations = {
     imageSourcePrefix: "图片来源：",
     imageUnavailable: "暂无可靠图片，正在补图",
     fallbackImageCaption: "通用景区占位图（慕田峪长城全景）",
-    imageReview: "图片审核",
-    closeImageReview: "关闭图片审核",
+    imageReview: "图片维护",
+    closeImageReview: "关闭图片维护",
     reviewSearchPlaceholder: "搜索景点",
-    reviewFilter: "图片审核状态",
+    reviewFilter: "图片维护状态",
     reviewAll: "全部图片",
     reviewMissingOnly: "缺图",
     reviewSuspiciousOnly: "疑似错图",
     reviewWithImage: "已有图片",
     reviewFlagged: "已标记",
-    reviewNoSelection: "选择一张图片开始审核",
+    reviewNoSelection: "选择一张图片开始维护",
     reviewNotePlaceholder: "备注或替换文件名",
     reviewKeep: "保留",
     reviewReplace: "替换",
@@ -189,19 +192,19 @@ const translations = {
     reviewSuspicious: "疑似",
     reviewExport: "导出",
     reviewImport: "导入",
-    reviewImported: "审核记录已导入",
+    reviewImported: "维护记录已导入",
     reviewImportError: "导入失败，请检查 JSON",
-    reviewApplyHint: "导出维护包后可用 scripts/apply-maintenance-package.py 一次写入审核记录和维护覆盖。",
+    reviewApplyHint: "导出维护包后可用 scripts/apply-maintenance-package.py 一次写入图片维护记录和维护覆盖。",
     reviewSummary: "{count} 项 · {decisions} 条记录",
-    reviewNoMatches: "没有匹配的审核项",
+    reviewNoMatches: "没有匹配的维护项",
     reviewSource: "来源",
     reviewDecision: "当前记录",
     reviewNoImage: "暂无本地图",
-    reviewExported: "审核记录已导出",
+    reviewExported: "维护记录已导出",
     aboutCoordinateTitle: "坐标",
     aboutCoordinateBody: "5A 优先使用景区坐标；4A 初始点位多为区县或城市参考坐标，页面会明确标识精度。",
     aboutImageTitle: "图片",
-    aboutImageBody: "本地插图保留来源；缺图和疑似错图可通过审核面板继续记录和替换。",
+    aboutImageBody: "本地插图保留来源；缺图和疑似错图可通过维护面板继续记录和替换。",
     aboutSourceTitle: "来源索引",
     aboutSourceBody: "来源、授权和更新时间集中记录在本地数据文件中，详情页会显示当前景点采用的来源。",
     sourceNote:
@@ -272,6 +275,7 @@ const translations = {
     coordinateExact: "精確座標",
     coordinateDistrict: "區縣參考",
     coordinateCity: "城市參考",
+    precisionLegendDesc: "地圖點越透明，座標越偏參考性質；詳情頁會顯示具體精度。",
     coordinateApproxNote: "參考點，並非景區真實入口或邊界中心",
     dataSource: "資料來源",
     dataUpdated: "更新時間",
@@ -283,7 +287,7 @@ const translations = {
     trustExact: "精確座標",
     trustApprox: "參考座標",
     trustImages: "本地圖片",
-    trustReviewed: "審核記錄",
+    trustReviewed: "維護記錄",
     footprint: "占地範圍",
     focus: "定位",
     sameRegion: "同地區景點",
@@ -301,16 +305,16 @@ const translations = {
     osmBoundary: "OSM 面邊界",
     imageSourcePrefix: "圖片來源：",
     fallbackImageCaption: "通用景區占位圖（慕田峪長城全景）",
-    imageReview: "圖片審核",
-    closeImageReview: "關閉圖片審核",
+    imageReview: "圖片維護",
+    closeImageReview: "關閉圖片維護",
     reviewSearchPlaceholder: "搜尋景點",
-    reviewFilter: "圖片審核狀態",
+    reviewFilter: "圖片維護狀態",
     reviewAll: "全部圖片",
     reviewMissingOnly: "缺圖",
     reviewSuspiciousOnly: "疑似錯圖",
     reviewWithImage: "已有圖片",
     reviewFlagged: "已標記",
-    reviewNoSelection: "選擇一張圖片開始審核",
+    reviewNoSelection: "選擇一張圖片開始維護",
     reviewNotePlaceholder: "備註或替換檔名",
     reviewKeep: "保留",
     reviewReplace: "替換",
@@ -319,19 +323,19 @@ const translations = {
     reviewSuspicious: "疑似",
     reviewExport: "匯出",
     reviewImport: "匯入",
-    reviewImported: "審核記錄已匯入",
+    reviewImported: "維護記錄已匯入",
     reviewImportError: "匯入失敗，請檢查 JSON",
-    reviewApplyHint: "匯出維護包後可用 scripts/apply-maintenance-package.py 一次寫入審核記錄和維護覆蓋。",
+    reviewApplyHint: "匯出維護包後可用 scripts/apply-maintenance-package.py 一次寫入圖片維護記錄和維護覆蓋。",
     reviewSummary: "{count} 項 · {decisions} 條記錄",
-    reviewNoMatches: "沒有符合的審核項",
+    reviewNoMatches: "沒有符合的維護項",
     reviewSource: "來源",
     reviewDecision: "目前記錄",
     reviewNoImage: "暫無本地圖",
-    reviewExported: "審核記錄已匯出",
+    reviewExported: "維護記錄已匯出",
     aboutCoordinateTitle: "座標",
     aboutCoordinateBody: "5A 優先使用景區座標；4A 初始點位多為區縣或城市參考座標，頁面會明確標識精度。",
     aboutImageTitle: "圖片",
-    aboutImageBody: "本地插圖保留來源；缺圖和疑似錯圖可透過審核面板繼續記錄和替換。",
+    aboutImageBody: "本地插圖保留來源；缺圖和疑似錯圖可透過維護面板繼續記錄和替換。",
     aboutSourceTitle: "來源索引",
     aboutSourceBody: "來源、授權和更新時間集中記錄在本地資料檔中，詳情頁會顯示目前景點採用的來源。",
     sourceNote:
@@ -415,6 +419,7 @@ const translations = {
     coordinateExact: "Exact point",
     coordinateDistrict: "District reference",
     coordinateCity: "City reference",
+    precisionLegendDesc: "The more transparent a marker is, the more reference-based its coordinate is; details show the exact precision.",
     coordinateApproxNote: "Reference point, not the actual entrance or boundary center",
     dataSource: "Data source",
     dataUpdated: "Updated",
@@ -545,6 +550,7 @@ const translations = {
     coordinateExact: "정확한 좌표",
     coordinateDistrict: "구/현 기준",
     coordinateCity: "도시 기준",
+    precisionLegendDesc: "마커가 투명할수록 좌표가 참고용에 가깝고, 상세 화면에 구체적인 정밀도가 표시됩니다.",
     coordinateApproxNote: "참조 지점이며 실제 입구나 경계 중심이 아닙니다",
     dataSource: "데이터 출처",
     dataUpdated: "업데이트",
@@ -675,6 +681,7 @@ const translations = {
     coordinateExact: "正確な座標",
     coordinateDistrict: "区県参照",
     coordinateCity: "都市参照",
+    precisionLegendDesc: "マーカーが透明なほど参照座標に近く、詳細で具体的な精度を確認できます。",
     coordinateApproxNote: "参照点であり、実際の入口や境界中心ではありません",
     dataSource: "データ出典",
     dataUpdated: "更新日",
@@ -805,6 +812,7 @@ const translations = {
     coordinateExact: "พิกัดแม่นยำ",
     coordinateDistrict: "อ้างอิงเขต/อำเภอ",
     coordinateCity: "อ้างอิงเมือง",
+    precisionLegendDesc: "หมุดยิ่งโปร่งใส พิกัดยิ่งเป็นข้อมูลอ้างอิง; หน้ารายละเอียดจะแสดงระดับความแม่นยำ",
     coordinateApproxNote: "เป็นจุดอ้างอิง ไม่ใช่ทางเข้าหรือศูนย์กลางขอบเขตจริง",
     dataSource: "แหล่งข้อมูล",
     dataUpdated: "อัปเดต",
@@ -936,6 +944,7 @@ const translations = {
     coordinateExact: "Coordenada exacta",
     coordinateDistrict: "Referencia de distrito",
     coordinateCity: "Referencia de ciudad",
+    precisionLegendDesc: "Cuanto más transparente es el punto, más referencial es la coordenada; los detalles muestran la precisión exacta.",
     coordinateApproxNote: "Punto de referencia, no entrada real ni centro del límite",
     dataSource: "Fuente de datos",
     dataUpdated: "Actualizado",
@@ -1067,6 +1076,7 @@ const translations = {
     coordinateExact: "Точные координаты",
     coordinateDistrict: "Ориентир района",
     coordinateCity: "Ориентир города",
+    precisionLegendDesc: "Чем прозрачнее метка, тем больше координата носит справочный характер; точность указана в деталях.",
     coordinateApproxNote: "Справочная точка, не фактический вход или центр границы",
     dataSource: "Источник данных",
     dataUpdated: "Обновлено",
@@ -1596,14 +1606,14 @@ const maintenanceTranslations = {
     maintenanceSave: "保存覆盖",
     maintenanceDelete: "恢复原始",
     maintenanceExportOverrides: "导出覆盖",
-    maintenanceExportAudit: "导出审计",
+    maintenanceExportAudit: "导出检查",
     maintenanceImport: "导入覆盖",
     maintenanceSaved: "维护覆盖已保存",
     maintenanceDeleted: "已恢复原始数据",
     maintenanceImported: "维护覆盖已导入",
     maintenanceImportError: "导入失败，请检查 JSON",
     maintenanceOverridesExported: "维护覆盖已导出",
-    maintenanceAuditExported: "维护审计已导出",
+    maintenanceAuditExported: "维护检查已导出",
     maintenanceApplyHint: "导出覆盖或维护包后，可用 scripts/apply-maintenance-package.py 统一写入静态数据文件。",
   },
   en: {
@@ -1630,43 +1640,173 @@ const maintenanceTranslations = {
     maintenanceSave: "Save override",
     maintenanceDelete: "Restore original",
     maintenanceExportOverrides: "Export overrides",
-    maintenanceExportAudit: "Export audit",
+    maintenanceExportAudit: "Export check",
     maintenanceImport: "Import overrides",
     maintenanceSaved: "Maintenance override saved",
     maintenanceDeleted: "Original data restored",
     maintenanceImported: "Maintenance overrides imported",
     maintenanceImportError: "Import failed. Check the JSON file",
     maintenanceOverridesExported: "Maintenance overrides exported",
-    maintenanceAuditExported: "Maintenance audit exported",
+    maintenanceAuditExported: "Maintenance check exported",
     maintenanceApplyHint: "After exporting overrides or a package, run scripts/apply-maintenance-package.py to update the static data files.",
   },
   "zh-TW": {
     reviewApplyHint: "匯出維護包後可用 scripts/apply-maintenance-package.py 一次寫入審核記錄和維護覆蓋。",
+    maintenanceExportAudit: "匯出檢查",
+    maintenanceAuditExported: "維護檢查已匯出",
     maintenanceApplyHint: "匯出覆蓋或維護包後，可用 scripts/apply-maintenance-package.py 統一寫入靜態資料檔。",
   },
   ko: {
     reviewApplyHint: "유지보수 패키지를 내보낸 뒤 scripts/apply-maintenance-package.py로 검토 기록과 유지보수 오버라이드를 한 번에 기록할 수 있습니다.",
+    maintenanceExportAudit: "검사 내보내기",
+    maintenanceAuditExported: "유지관리 검사를 내보냈습니다",
     maintenanceApplyHint: "오버라이드나 유지보수 패키지를 내보낸 뒤 scripts/apply-maintenance-package.py로 정적 데이터 파일을 갱신합니다.",
   },
   ja: {
     reviewApplyHint: "メンテナンスパッケージを書き出した後、scripts/apply-maintenance-package.py で審査記録とメンテナンス上書きを一度に書き込めます。",
+    maintenanceExportAudit: "チェックを書き出す",
+    maintenanceAuditExported: "メンテナンスチェックを書き出しました",
     maintenanceApplyHint: "上書きまたはメンテナンスパッケージを書き出した後、scripts/apply-maintenance-package.py で静的データを更新します。",
   },
   th: {
     reviewApplyHint: "หลังส่งออกแพ็กเกจดูแลข้อมูล ใช้ scripts/apply-maintenance-package.py เพื่อเขียนบันทึกตรวจรูปและข้อมูลแก้ไขพร้อมกัน",
+    maintenanceExportAudit: "ส่งออกการตรวจ",
+    maintenanceAuditExported: "ส่งออกการตรวจดูแลแล้ว",
     maintenanceApplyHint: "หลังส่งออกข้อมูลแก้ไขหรือแพ็กเกจดูแลข้อมูล ใช้ scripts/apply-maintenance-package.py เพื่ออัปเดตไฟล์ข้อมูลสแตติก",
   },
   es: {
     reviewApplyHint: "Tras exportar un paquete de mantenimiento, usa scripts/apply-maintenance-package.py para escribir las revisiones y las correcciones.",
+    maintenanceExportAudit: "Exportar chequeo",
+    maintenanceAuditExported: "Chequeo de mantenimiento exportado",
     maintenanceApplyHint: "Tras exportar correcciones o un paquete de mantenimiento, usa scripts/apply-maintenance-package.py para actualizar los datos estáticos.",
   },
   ru: {
     reviewApplyHint: "После экспорта пакета обслуживания используйте scripts/apply-maintenance-package.py, чтобы записать проверки изображений и правки обслуживания.",
+    maintenanceExportAudit: "Экспорт проверки",
+    maintenanceAuditExported: "Проверка обслуживания экспортирована",
     maintenanceApplyHint: "После экспорта правок или пакета обслуживания используйте scripts/apply-maintenance-package.py для обновления статических данных.",
   },
 };
 
 for (const [language, copy] of Object.entries(maintenanceTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const feedbackTranslations = {
+  "zh-CN": {
+    favoriteAdded: "已收藏：{name}",
+    favoriteRemoved: "已取消收藏：{name}",
+    reviewDecisionSaved: "已标记：{name} · {action}",
+  },
+  "zh-TW": {
+    favoriteAdded: "已收藏：{name}",
+    favoriteRemoved: "已取消收藏：{name}",
+    reviewDecisionSaved: "已標記：{name} · {action}",
+  },
+  en: {
+    favoriteAdded: "Saved: {name}",
+    favoriteRemoved: "Removed from saved: {name}",
+    reviewDecisionSaved: "Marked: {name} · {action}",
+  },
+  ko: {
+    favoriteAdded: "저장됨: {name}",
+    favoriteRemoved: "저장에서 제거됨: {name}",
+    reviewDecisionSaved: "표시됨: {name} · {action}",
+  },
+  ja: {
+    favoriteAdded: "保存しました：{name}",
+    favoriteRemoved: "保存を解除しました：{name}",
+    reviewDecisionSaved: "マークしました：{name} · {action}",
+  },
+  th: {
+    favoriteAdded: "บันทึกแล้ว: {name}",
+    favoriteRemoved: "นำออกจากรายการบันทึกแล้ว: {name}",
+    reviewDecisionSaved: "ทำเครื่องหมายแล้ว: {name} · {action}",
+  },
+  es: {
+    favoriteAdded: "Guardado: {name}",
+    favoriteRemoved: "Eliminado de guardados: {name}",
+    reviewDecisionSaved: "Marcado: {name} · {action}",
+  },
+  ru: {
+    favoriteAdded: "Сохранено: {name}",
+    favoriteRemoved: "Удалено из сохраненного: {name}",
+    reviewDecisionSaved: "Отмечено: {name} · {action}",
+  },
+};
+
+for (const [language, copy] of Object.entries(feedbackTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const searchExperienceTranslations = {
+  "zh-CN": {
+    searchSuggestions: "搜索建议",
+    searchSuggestionEmpty: "没有候选，试试景点名、城市名、拼音或英文别名",
+    noMatchesTitle: "没有找到匹配景点",
+    noMatchesBody: "可以换一个景点名、城市名、拼音或英文别名，也可以放宽当前筛选条件。",
+    noMatchesClearSearch: "清空搜索",
+    noMatchesResetFilters: "重置筛选",
+  },
+  "zh-TW": {
+    searchSuggestions: "搜尋建議",
+    searchSuggestionEmpty: "沒有候選，試試景點名、城市名、拼音或英文別名",
+    noMatchesTitle: "沒有找到符合景點",
+    noMatchesBody: "可以換一個景點名、城市名、拼音或英文別名，也可以放寬目前篩選條件。",
+    noMatchesClearSearch: "清除搜尋",
+    noMatchesResetFilters: "重置篩選",
+  },
+  en: {
+    searchSuggestions: "Search suggestions",
+    searchSuggestionEmpty: "No suggestions. Try an attraction, city, pinyin, or English alias",
+    noMatchesTitle: "No matching attractions",
+    noMatchesBody: "Try another attraction, city, pinyin, or English alias, or loosen the current filters.",
+    noMatchesClearSearch: "Clear search",
+    noMatchesResetFilters: "Reset filters",
+  },
+  ko: {
+    searchSuggestions: "검색 제안",
+    searchSuggestionEmpty: "제안이 없습니다. 명소, 도시, 병음 또는 영어 별명을 입력해 보세요",
+    noMatchesTitle: "일치하는 명소가 없습니다",
+    noMatchesBody: "다른 명소, 도시, 병음 또는 영어 별명을 입력하거나 현재 필터를 완화해 보세요.",
+    noMatchesClearSearch: "검색 지우기",
+    noMatchesResetFilters: "필터 초기화",
+  },
+  ja: {
+    searchSuggestions: "検索候補",
+    searchSuggestionEmpty: "候補がありません。観光地、都市、ピンイン、英語別名を試してください",
+    noMatchesTitle: "一致する観光地がありません",
+    noMatchesBody: "別の観光地、都市、ピンイン、英語別名を試すか、現在のフィルターを緩めてください。",
+    noMatchesClearSearch: "検索をクリア",
+    noMatchesResetFilters: "フィルターをリセット",
+  },
+  th: {
+    searchSuggestions: "คำแนะนำการค้นหา",
+    searchSuggestionEmpty: "ไม่พบคำแนะนำ ลองใช้ชื่อสถานที่ เมือง พินอิน หรือชื่อภาษาอังกฤษ",
+    noMatchesTitle: "ไม่พบแหล่งท่องเที่ยวที่ตรงกัน",
+    noMatchesBody: "ลองใช้ชื่อสถานที่ เมือง พินอิน หรือชื่อภาษาอังกฤษอื่น หรือผ่อนตัวกรองปัจจุบัน",
+    noMatchesClearSearch: "ล้างการค้นหา",
+    noMatchesResetFilters: "รีเซ็ตตัวกรอง",
+  },
+  es: {
+    searchSuggestions: "Sugerencias de búsqueda",
+    searchSuggestionEmpty: "Sin sugerencias. Prueba una atracción, ciudad, pinyin o alias en inglés",
+    noMatchesTitle: "No hay atracciones coincidentes",
+    noMatchesBody: "Prueba otra atracción, ciudad, pinyin o alias en inglés, o relaja los filtros actuales.",
+    noMatchesClearSearch: "Borrar búsqueda",
+    noMatchesResetFilters: "Restablecer filtros",
+  },
+  ru: {
+    searchSuggestions: "Поисковые подсказки",
+    searchSuggestionEmpty: "Нет подсказок. Попробуйте название, город, пиньинь или английский псевдоним",
+    noMatchesTitle: "Совпадений не найдено",
+    noMatchesBody: "Попробуйте другое место, город, пиньинь или английский псевдоним либо ослабьте фильтры.",
+    noMatchesClearSearch: "Очистить поиск",
+    noMatchesResetFilters: "Сбросить фильтры",
+  },
+};
+
+for (const [language, copy] of Object.entries(searchExperienceTranslations)) {
   translations[language] = { ...(translations[language] || {}), ...copy };
 }
 
@@ -1676,14 +1816,14 @@ const qualityTranslations = {
     trustCoordinateProgress: "坐标精确率",
     trustImageProgress: "图片覆盖率",
     trustSourceProgress: "来源覆盖率",
-    trustReviewProgress: "审核覆盖率",
+    trustReviewProgress: "维护覆盖率",
   },
   "zh-TW": {
     trustProgressTitle: "可信度進度",
     trustCoordinateProgress: "座標精確率",
     trustImageProgress: "圖片覆蓋率",
     trustSourceProgress: "來源覆蓋率",
-    trustReviewProgress: "審核覆蓋率",
+    trustReviewProgress: "維護覆蓋率",
   },
   en: {
     trustProgressTitle: "Trust Progress",
@@ -1735,12 +1875,12 @@ for (const [language, copy] of Object.entries(qualityTranslations)) {
 
 const actionableQualityTranslations = {
   "zh-CN": {
-    reviewUnreviewedOnly: "未审核",
+    reviewUnreviewedOnly: "未处理",
     maintenanceQueueUnknownSource: "未知来源",
     maintenanceQueueUnknownSourceDesc: "数据来源字段未能匹配来源索引",
   },
   "zh-TW": {
-    reviewUnreviewedOnly: "未審核",
+    reviewUnreviewedOnly: "未處理",
     maintenanceQueueUnknownSource: "未知來源",
     maintenanceQueueUnknownSourceDesc: "資料來源欄位未能匹配來源索引",
   },
@@ -1780,9 +1920,48 @@ for (const [language, copy] of Object.entries(actionableQualityTranslations)) {
   translations[language] = { ...(translations[language] || {}), ...copy };
 }
 
+const reviewQueueTranslations = {
+  "zh-CN": {
+    reviewQueueOverview: "图片维护队列",
+    reviewLowPrecision: "低精度",
+  },
+  "zh-TW": {
+    reviewQueueOverview: "圖片維護佇列",
+    reviewLowPrecision: "低精度",
+  },
+  en: {
+    reviewQueueOverview: "Image review queue",
+    reviewLowPrecision: "Low precision",
+  },
+  ko: {
+    reviewQueueOverview: "이미지 검토 대기열",
+    reviewLowPrecision: "낮은 정밀도",
+  },
+  ja: {
+    reviewQueueOverview: "画像レビューキュー",
+    reviewLowPrecision: "低精度",
+  },
+  th: {
+    reviewQueueOverview: "คิวตรวจทานรูปภาพ",
+    reviewLowPrecision: "ความแม่นยำต่ำ",
+  },
+  es: {
+    reviewQueueOverview: "Cola de revisión de imágenes",
+    reviewLowPrecision: "Baja precisión",
+  },
+  ru: {
+    reviewQueueOverview: "Очередь проверки изображений",
+    reviewLowPrecision: "Низкая точность",
+  },
+};
+
+for (const [language, copy] of Object.entries(reviewQueueTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
 const detailTrustTranslations = {
-  "zh-CN": { reviewPending: "待审核" },
-  "zh-TW": { reviewPending: "待審核" },
+  "zh-CN": { reviewPending: "待处理" },
+  "zh-TW": { reviewPending: "待處理" },
   en: { reviewPending: "Pending review" },
   ko: { reviewPending: "검토 대기" },
   ja: { reviewPending: "確認待ち" },
@@ -1792,6 +1971,161 @@ const detailTrustTranslations = {
 };
 
 for (const [language, copy] of Object.entries(detailTrustTranslations)) {
+  translations[language] = { ...(translations[language] || {}), ...copy };
+}
+
+const imageMaintenanceLanguageOverrides = {
+  "zh-CN": {
+    trustReviewed: "维护记录",
+    imageReview: "图片维护",
+    closeImageReview: "关闭图片维护",
+    reviewFilter: "图片维护状态",
+    reviewNoSelection: "选择一张图片开始维护",
+    reviewImported: "维护记录已导入",
+    reviewApplyHint: "导出维护包后可用 scripts/apply-maintenance-package.py 一次写入图片维护记录和维护覆盖。",
+    reviewNoMatches: "没有匹配的维护项",
+    reviewExported: "维护记录已导出",
+    aboutImageBody: "本地插图保留来源；缺图和疑似错图可通过图片维护面板继续记录和替换。",
+    trustReviewProgress: "维护覆盖率",
+    reviewUnreviewedOnly: "未处理",
+    reviewQueueOverview: "图片维护队列",
+    reviewPending: "待处理",
+    reviewDecisionSaved: "已记录：{name} · {action}",
+  },
+  "zh-TW": {
+    trustReviewed: "維護記錄",
+    imageReview: "圖片維護",
+    closeImageReview: "關閉圖片維護",
+    reviewFilter: "圖片維護狀態",
+    reviewNoSelection: "選擇一張圖片開始維護",
+    reviewImported: "維護記錄已匯入",
+    reviewApplyHint: "匯出維護包後可用 scripts/apply-maintenance-package.py 一次寫入圖片維護記錄和維護覆蓋。",
+    reviewNoMatches: "沒有符合的維護項",
+    reviewExported: "維護記錄已匯出",
+    aboutImageBody: "本地插圖保留來源；缺圖和疑似錯圖可透過圖片維護面板繼續記錄和替換。",
+    trustReviewProgress: "維護覆蓋率",
+    reviewUnreviewedOnly: "未處理",
+    reviewQueueOverview: "圖片維護佇列",
+    reviewPending: "待處理",
+    reviewDecisionSaved: "已記錄：{name} · {action}",
+  },
+  en: {
+    trustReviewed: "Maintenance records",
+    imageReview: "Image maintenance",
+    closeImageReview: "Close image maintenance",
+    reviewFilter: "Image maintenance status",
+    reviewNoSelection: "Select an image to maintain",
+    reviewImported: "Maintenance records imported",
+    reviewApplyHint:
+      "After exporting a maintenance package, run scripts/apply-maintenance-package.py to write image maintenance records and maintenance overrides.",
+    reviewNoMatches: "No matching maintenance items",
+    reviewExported: "Maintenance records exported",
+    aboutImageBody:
+      "Local illustrations keep attribution; missing or suspicious images can be recorded and replaced through the image maintenance panel.",
+    trustReviewProgress: "Maintenance coverage",
+    reviewUnreviewedOnly: "Unprocessed",
+    reviewQueueOverview: "Image maintenance queue",
+    reviewPending: "Pending action",
+    reviewDecisionSaved: "Recorded: {name} · {action}",
+  },
+  ko: {
+    trustReviewed: "유지관리 기록",
+    imageReview: "이미지 유지관리",
+    closeImageReview: "이미지 유지관리 닫기",
+    reviewFilter: "이미지 유지관리 상태",
+    reviewNoSelection: "유지관리할 이미지를 선택하세요",
+    reviewImported: "유지관리 기록을 가져왔습니다",
+    reviewApplyHint:
+      "유지관리 패키지를 내보낸 뒤 scripts/apply-maintenance-package.py로 이미지 유지관리 기록과 유지관리 덮어쓰기를 한 번에 기록할 수 있습니다.",
+    reviewNoMatches: "일치하는 유지관리 항목이 없습니다",
+    reviewExported: "유지관리 기록을 내보냈습니다",
+    aboutImageBody:
+      "로컬 이미지는 출처를 보존하며, 누락 또는 의심 이미지는 이미지 유지관리 패널에서 기록하고 교체할 수 있습니다.",
+    trustReviewProgress: "유지관리 적용률",
+    reviewUnreviewedOnly: "미처리",
+    reviewQueueOverview: "이미지 유지관리 대기열",
+    reviewPending: "처리 대기",
+    reviewDecisionSaved: "기록됨: {name} · {action}",
+  },
+  ja: {
+    trustReviewed: "メンテナンス記録",
+    imageReview: "画像メンテナンス",
+    closeImageReview: "画像メンテナンスを閉じる",
+    reviewFilter: "画像メンテナンス状態",
+    reviewNoSelection: "メンテナンスする画像を選択",
+    reviewImported: "メンテナンス記録をインポートしました",
+    reviewApplyHint:
+      "メンテナンスパッケージを書き出した後、scripts/apply-maintenance-package.py で画像メンテナンス記録とメンテナンス上書きを一度に書き込めます。",
+    reviewNoMatches: "一致するメンテナンス項目がありません",
+    reviewExported: "メンテナンス記録をエクスポートしました",
+    aboutImageBody:
+      "ローカル画像は出典を保持し、欠落または疑わしい画像は画像メンテナンスパネルで記録して差し替えられます。",
+    trustReviewProgress: "メンテナンス適用率",
+    reviewUnreviewedOnly: "未処理",
+    reviewQueueOverview: "画像メンテナンスキュー",
+    reviewPending: "処理待ち",
+    reviewDecisionSaved: "記録しました：{name} · {action}",
+  },
+  th: {
+    trustReviewed: "บันทึกดูแลรูปภาพ",
+    imageReview: "ดูแลรูปภาพ",
+    closeImageReview: "ปิดการดูแลรูปภาพ",
+    reviewFilter: "สถานะดูแลรูปภาพ",
+    reviewNoSelection: "เลือกรูปภาพเพื่อดูแล",
+    reviewImported: "นำเข้าบันทึกดูแลแล้ว",
+    reviewApplyHint:
+      "หลังส่งออกแพ็กเกจดูแลข้อมูล ใช้ scripts/apply-maintenance-package.py เพื่อเขียนบันทึกดูแลรูปภาพและข้อมูลแก้ไขพร้อมกัน",
+    reviewNoMatches: "ไม่มีรายการดูแลที่ตรงกัน",
+    reviewExported: "ส่งออกบันทึกดูแลแล้ว",
+    aboutImageBody:
+      "รูปภาพในเครื่องเก็บที่มาไว้ครบถ้วน รูปที่ขาดหายหรือน่าสงสัยสามารถบันทึกและแทนที่ผ่านแผงดูแลรูปภาพ",
+    trustReviewProgress: "ความครอบคลุมการดูแล",
+    reviewUnreviewedOnly: "ยังไม่จัดการ",
+    reviewQueueOverview: "คิวดูแลรูปภาพ",
+    reviewPending: "รอดำเนินการ",
+    reviewDecisionSaved: "บันทึกแล้ว: {name} · {action}",
+  },
+  es: {
+    trustReviewed: "Registros de mantenimiento",
+    imageReview: "Mantenimiento de imágenes",
+    closeImageReview: "Cerrar mantenimiento de imágenes",
+    reviewFilter: "Estado de mantenimiento de imágenes",
+    reviewNoSelection: "Selecciona una imagen para mantener",
+    reviewImported: "Registros de mantenimiento importados",
+    reviewApplyHint:
+      "Tras exportar un paquete de mantenimiento, usa scripts/apply-maintenance-package.py para escribir los registros de imagen y las correcciones.",
+    reviewNoMatches: "No hay elementos de mantenimiento coincidentes",
+    reviewExported: "Registros de mantenimiento exportados",
+    aboutImageBody:
+      "Las imágenes locales conservan atribución; las faltantes o sospechosas se pueden registrar y reemplazar desde el panel de mantenimiento.",
+    trustReviewProgress: "Cobertura de mantenimiento",
+    reviewUnreviewedOnly: "Sin procesar",
+    reviewQueueOverview: "Cola de mantenimiento de imágenes",
+    reviewPending: "Acción pendiente",
+    reviewDecisionSaved: "Registrado: {name} · {action}",
+  },
+  ru: {
+    trustReviewed: "Записи обслуживания",
+    imageReview: "Обслуживание изображений",
+    closeImageReview: "Закрыть обслуживание изображений",
+    reviewFilter: "Статус обслуживания изображений",
+    reviewNoSelection: "Выберите изображение для обслуживания",
+    reviewImported: "Записи обслуживания импортированы",
+    reviewApplyHint:
+      "После экспорта пакета обслуживания используйте scripts/apply-maintenance-package.py, чтобы записать обслуживание изображений и правки.",
+    reviewNoMatches: "Нет подходящих элементов обслуживания",
+    reviewExported: "Записи обслуживания экспортированы",
+    aboutImageBody:
+      "Локальные изображения сохраняют атрибуцию; отсутствующие или сомнительные изображения можно записывать и заменять через панель обслуживания.",
+    trustReviewProgress: "Покрытие обслуживания",
+    reviewUnreviewedOnly: "Не обработано",
+    reviewQueueOverview: "Очередь обслуживания изображений",
+    reviewPending: "Ожидает действия",
+    reviewDecisionSaved: "Записано: {name} · {action}",
+  },
+};
+
+for (const [language, copy] of Object.entries(imageMaintenanceLanguageOverrides)) {
   translations[language] = { ...(translations[language] || {}), ...copy };
 }
 
@@ -2212,6 +2546,7 @@ const els = {
   imageReviewPanel: document.querySelector("#imageReviewPanel"),
   reviewSearch: document.querySelector("#reviewSearch"),
   reviewFilter: document.querySelector("#reviewFilter"),
+  reviewQuickStats: document.querySelector("#reviewQuickStats"),
   reviewSummary: document.querySelector("#reviewSummary"),
   reviewList: document.querySelector("#reviewList"),
   reviewPreview: document.querySelector("#reviewPreview"),
@@ -2278,7 +2613,13 @@ const els = {
   relatedList: document.querySelector("#relatedList"),
   relatedCaption: document.querySelector("#relatedCaption"),
   sourceIndexList: document.querySelector("#sourceIndexList"),
+  toastMessage: document.querySelector("#toastMessage"),
+  searchSuggestions: document.querySelector("#searchSuggestions"),
 };
+
+let toastTimer = 0;
+let searchSuggestionIndex = -1;
+let currentSearchSuggestions = [];
 
 const map = L.map("map", {
   center: [35.8, 103.8],
@@ -2416,6 +2757,7 @@ function populateReviewFilter() {
     ["missing", t("reviewMissingOnly")],
     ["suspicious", t("reviewSuspiciousOnly")],
     ["withImage", t("reviewWithImage")],
+    ["lowPrecision", t("reviewLowPrecision")],
     ["flagged", t("reviewFlagged")],
   ];
   els.reviewFilter.innerHTML = filters
@@ -2433,20 +2775,209 @@ function renderSourceIndex() {
     .filter((key) => sources[key])
     .map((key) => {
       const source = sources[key];
-      const href = sourceHref(source);
+      const links = sourceUrls(source);
+      const href = links[0] || "";
       const label = sourceLabel(source);
+      const note = sourceNote(source);
       const metaText = [source.type, source.updatedAt || sourceIndex.updatedAt].filter(Boolean).join(" · ");
       const title = href
         ? `<a href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${escapeHtml(label)}</a>`
         : `<span>${escapeHtml(label)}</span>`;
+      const linkList =
+        links.length > 1
+          ? `<div class="source-index-links">${links
+              .map(
+                (url, index) =>
+                  `<a href="${escapeHtml(url)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(`${label} ${index + 1}`)}">${index + 1}</a>`,
+              )
+              .join("")}</div>`
+          : "";
       return `
-        <div>
-          ${title}
-          <small>${escapeHtml(metaText)}</small>
-        </div>
+        <article class="source-index-item">
+          <div class="source-index-main">
+            ${title}
+            <small>${escapeHtml(metaText)}</small>
+          </div>
+          ${note ? `<p>${escapeHtml(note)}</p>` : ""}
+          ${linkList}
+        </article>
       `;
     })
     .join("");
+}
+
+function renderSearchSuggestions() {
+  if (!els.searchSuggestions) return;
+  const query = normalize(state.search);
+  const isSearchFocused = document.activeElement === els.searchInput;
+  if (!query || !isSearchFocused) {
+    closeSearchSuggestions();
+    return;
+  }
+
+  const items = getSearchSuggestionItems(query);
+  currentSearchSuggestions = items;
+  searchSuggestionIndex = items.length ? Math.min(searchSuggestionIndex, items.length - 1) : -1;
+  els.searchSuggestions.hidden = false;
+  els.searchSuggestions.classList.add("show");
+  els.searchInput.setAttribute("aria-expanded", "true");
+
+  if (!items.length) {
+    els.searchSuggestions.innerHTML = `<p class="search-suggestion-empty">${escapeHtml(t("searchSuggestionEmpty"))}</p>`;
+    els.searchInput.removeAttribute("aria-activedescendant");
+    return;
+  }
+
+  els.searchSuggestions.innerHTML = items
+    .map(
+      (item, index) => `
+        <button class="search-suggestion" id="searchSuggestion-${index}" type="button" role="option" aria-selected="${
+          index === searchSuggestionIndex
+        }" data-id="${escapeHtml(item.id)}">
+          <span>
+            <strong>${escapeHtml(displayAttractionName(item))}</strong>
+            <small>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(ratingMeta(item))}</small>
+          </span>
+          <em>${escapeHtml(ratingBadge(item))}</em>
+        </button>
+      `,
+    )
+    .join("");
+
+  els.searchSuggestions.querySelectorAll("[data-id]").forEach((button, index) => {
+    button.addEventListener("mouseenter", () => {
+      searchSuggestionIndex = index;
+      syncActiveSearchSuggestion();
+    });
+    button.addEventListener("click", () => {
+      selectSearchSuggestion(currentSearchSuggestions[index]);
+    });
+  });
+  syncActiveSearchSuggestion();
+}
+
+function getSearchSuggestionItems(query) {
+  return attractions
+    .map((item) => ({
+      item,
+      score: searchSuggestionScore(item, query),
+    }))
+    .filter((row) => row.score > 0)
+    .sort(
+      (a, b) =>
+        b.score - a.score ||
+        ratingSuggestionRank(b.item) - ratingSuggestionRank(a.item) ||
+        displayAttractionName(a.item).localeCompare(displayAttractionName(b.item), "zh-CN"),
+    )
+    .slice(0, searchSuggestionLimit)
+    .map((row) => row.item);
+}
+
+function searchSuggestionScore(item, query) {
+  const names = normalize([displayAttractionName(item), item.name, item.displayName, ...Object.values(localizedAttractionNames[item.id] || {})].join(" "));
+  const location = normalize([attractionLocationLabel(item), item.city, item.province, ...regionSearchNames(item.province)].join(" "));
+  const aliases = normalize(searchAliases(item).join(" "));
+  let score = 0;
+  if (names === query) score = 150;
+  else if (names.startsWith(query)) score = 120;
+  else if (names.includes(query)) score = 96;
+  else if (location.includes(query)) score = 74;
+  else if (aliases.includes(query)) score = 66;
+  else if (attractionSearchText(item).includes(query)) score = 48;
+  if (!score) return 0;
+  if (coordinatePrecisionClass(item) === "precision-exact") score += 5;
+  return score + ratingSuggestionRank(item);
+}
+
+function ratingSuggestionRank(item) {
+  if (item.rating === "official5A") return 9;
+  if (item.rating === "peer5A") return 6;
+  return 3;
+}
+
+function handleSearchSuggestionKeydown(event) {
+  if (!state.search && event.key !== "Escape") return;
+  if (event.key === "Escape") {
+    closeSearchSuggestions();
+    return;
+  }
+  if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+    event.preventDefault();
+    if (els.searchSuggestions.hidden) {
+      renderSearchSuggestions();
+    }
+    moveSearchSuggestion(event.key === "ArrowDown" ? 1 : -1);
+    return;
+  }
+  if (event.key === "Enter" && !els.searchSuggestions.hidden && searchSuggestionIndex >= 0) {
+    event.preventDefault();
+    selectSearchSuggestion(currentSearchSuggestions[searchSuggestionIndex]);
+  }
+}
+
+function moveSearchSuggestion(delta) {
+  if (!currentSearchSuggestions.length) return;
+  const nextIndex = searchSuggestionIndex < 0 ? (delta > 0 ? 0 : currentSearchSuggestions.length - 1) : searchSuggestionIndex + delta;
+  searchSuggestionIndex = (nextIndex + currentSearchSuggestions.length) % currentSearchSuggestions.length;
+  syncActiveSearchSuggestion();
+}
+
+function syncActiveSearchSuggestion() {
+  if (!els.searchSuggestions) return;
+  els.searchSuggestions.querySelectorAll(".search-suggestion").forEach((button, index) => {
+    const active = index === searchSuggestionIndex;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+  if (searchSuggestionIndex >= 0) {
+    els.searchInput.setAttribute("aria-activedescendant", `searchSuggestion-${searchSuggestionIndex}`);
+  } else {
+    els.searchInput.removeAttribute("aria-activedescendant");
+  }
+}
+
+function closeSearchSuggestions() {
+  if (!els.searchSuggestions) return;
+  currentSearchSuggestions = [];
+  searchSuggestionIndex = -1;
+  els.searchSuggestions.classList.remove("show");
+  els.searchSuggestions.hidden = true;
+  els.searchInput.setAttribute("aria-expanded", "false");
+  els.searchInput.removeAttribute("aria-activedescendant");
+}
+
+function selectSearchSuggestion(item) {
+  if (!item) return;
+  const label = displayAttractionName(item);
+  state.search = label;
+  state.routeIds = [];
+  els.searchInput.value = label;
+  ensureSuggestionCanRender(item);
+  closeSearchSuggestions();
+  render();
+  selectAttraction(item, { skipRender: true });
+  focusAttraction(item, true);
+}
+
+function ensureSuggestionCanRender(item) {
+  state.ratingFilters.add(item.rating);
+  if (state.province !== allRegionsValue && item.province !== state.province) {
+    state.province = allRegionsValue;
+    els.provinceSelect.value = state.province;
+  }
+  if (state.category !== "all" && attractionCategory(item) !== state.category) {
+    state.category = "all";
+    els.categorySelect.value = state.category;
+  }
+  if (state.theme !== "all" && !attractionThemes(item).includes(state.theme)) {
+    state.theme = "all";
+    els.themeSelect.value = state.theme;
+  }
+  if (state.season !== "all" && !attractionSeasons(item).includes(state.season)) {
+    state.season = "all";
+    els.seasonSelect.value = state.season;
+  }
+  syncRatingFilterButtons();
 }
 
 function bindEvents() {
@@ -2477,14 +3008,27 @@ function bindEvents() {
   els.searchInput.addEventListener("input", (event) => {
     state.search = event.target.value.trim();
     state.routeIds = [];
+    searchSuggestionIndex = -1;
     render();
+    renderSearchSuggestions();
   });
 
+  els.searchInput.addEventListener("focus", () => {
+    renderSearchSuggestions();
+  });
+
+  els.searchInput.addEventListener("keydown", handleSearchSuggestionKeydown);
+
+  document.addEventListener("click", (event) => {
+    if (!event.target.closest(".search-shell")) {
+      closeSearchSuggestions();
+    }
+  });
+
+  els.attractionList.addEventListener("click", handleAttractionListClick);
+
   els.clearSearch.addEventListener("click", () => {
-    state.search = "";
-    state.routeIds = [];
-    els.searchInput.value = "";
-    render();
+    clearSearch();
     els.searchInput.focus();
   });
 
@@ -2526,21 +3070,7 @@ function bindEvents() {
   });
 
   els.resetFilters.addEventListener("click", () => {
-    state.search = "";
-    state.province = allRegionsValue;
-    state.category = "all";
-    state.theme = "all";
-    state.season = "all";
-    state.routeIds = [];
-    state.ratingFilters = new Set(defaultRatingFilters);
-    els.searchInput.value = "";
-    els.provinceSelect.value = allRegionsValue;
-    els.categorySelect.value = state.category;
-    els.themeSelect.value = state.theme;
-    els.seasonSelect.value = state.season;
-    syncRatingFilterButtons();
-    render();
-    fitTo(getFilteredAttractions());
+    resetFiltersToDefault();
   });
 
   els.randomAttraction?.addEventListener("click", () => randomSelectAttraction());
@@ -2576,6 +3106,14 @@ function bindEvents() {
 
   els.closeImageReview.addEventListener("click", () => {
     setImageReviewOpen(false);
+  });
+
+  els.reviewQuickStats?.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-review-filter]");
+    if (!button) return;
+    state.reviewFilter = button.dataset.reviewFilter;
+    if (els.reviewFilter) els.reviewFilter.value = state.reviewFilter;
+    renderImageReview();
   });
 
   els.toggleMaintenance?.addEventListener("click", () => {
@@ -2707,6 +3245,7 @@ function applyLanguage() {
   syncMaintenancePanel();
   renderImageReview();
   renderMaintenancePanel();
+  renderSearchSuggestions();
 }
 
 function setAboutOpen(open) {
@@ -2805,6 +3344,36 @@ function syncRatingFilterButtons() {
   });
 }
 
+function clearSearch(options = {}) {
+  state.search = "";
+  state.routeIds = [];
+  els.searchInput.value = "";
+  closeSearchSuggestions();
+  render();
+  if (options.fit !== false) {
+    fitTo(getFilteredAttractions());
+  }
+}
+
+function resetFiltersToDefault() {
+  state.search = "";
+  state.province = allRegionsValue;
+  state.category = "all";
+  state.theme = "all";
+  state.season = "all";
+  state.routeIds = [];
+  state.ratingFilters = new Set(defaultRatingFilters);
+  els.searchInput.value = "";
+  els.provinceSelect.value = allRegionsValue;
+  els.categorySelect.value = state.category;
+  els.themeSelect.value = state.theme;
+  els.seasonSelect.value = state.season;
+  closeSearchSuggestions();
+  syncRatingFilterButtons();
+  render();
+  fitTo(getFilteredAttractions());
+}
+
 function render() {
   const filtered = getFilteredAttractions();
   syncFourANotice();
@@ -2844,29 +3413,33 @@ function getFilteredAttractions() {
     const matchesTheme = state.theme === "all" || attractionThemes(item).includes(state.theme);
     const matchesSeason = state.season === "all" || attractionSeasons(item).includes(state.season);
     const matchesFourAContext = item.rating !== "official4A" || canShowFourA;
-    const searchable = normalize(
-      [
-        item.name,
-        item.displayName,
-        item.city,
-        ...searchAliases(item),
-        displayAttractionName(item),
-        attractionLocationLabel(item),
-        ...Object.values(localizedAttractionNames[item.id] || {}),
-        item.province,
-        ...regionSearchNames(item.province),
-        item.coordinateLabel,
-        item.coordinateLevel,
-        item.ratingLabel || "",
-        ratingMeta(item),
-        ratingDetail(item),
-        ...attractionThemes(item).map(themeLabel),
-        ...attractionSeasons(item).map(seasonLabel),
-      ].join(" "),
-    );
+    const searchable = attractionSearchText(item);
     const matchesSearch = !query || searchable.includes(query);
     return matchesProvince && matchesRating && matchesCategory && matchesTheme && matchesSeason && matchesFourAContext && matchesSearch;
   });
+}
+
+function attractionSearchText(item) {
+  return normalize(
+    [
+      item.name,
+      item.displayName,
+      item.city,
+      ...searchAliases(item),
+      displayAttractionName(item),
+      attractionLocationLabel(item),
+      ...Object.values(localizedAttractionNames[item.id] || {}),
+      item.province,
+      ...regionSearchNames(item.province),
+      item.coordinateLabel,
+      item.coordinateLevel,
+      item.ratingLabel || "",
+      ratingMeta(item),
+      ratingDetail(item),
+      ...attractionThemes(item).map(themeLabel),
+      ...attractionSeasons(item).map(seasonLabel),
+    ].join(" "),
+  );
 }
 
 function canShowFourAResults(query = normalize(state.search)) {
@@ -2897,7 +3470,8 @@ function activeLevelSummary() {
 
 function renderList(items) {
   if (!items.length) {
-    els.attractionList.innerHTML = `<li class="empty-state">${escapeHtml(t("noMatches"))}</li>`;
+    els.attractionList.innerHTML = renderNoResultsState();
+    refreshDynamicIcons();
     return;
   }
 
@@ -2922,13 +3496,54 @@ function renderList(items) {
       `;
     })
     .join("");
+}
 
-  els.attractionList.querySelectorAll("[data-id]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const item = attractions.find((attraction) => attraction.id === button.dataset.id);
-      selectAttraction(item);
-    });
-  });
+function renderNoResultsState() {
+  const hasSearch = Boolean(state.search);
+  return `
+    <li class="empty-state empty-state-rich">
+      <strong>${escapeHtml(t("noMatchesTitle"))}</strong>
+      <span>${escapeHtml(t("noMatchesBody"))}</span>
+      <div class="empty-actions">
+        ${
+          hasSearch
+            ? `<button class="text-button" type="button" data-empty-action="clear-search">
+                <i data-lucide="x" aria-hidden="true"></i>
+                <span>${escapeHtml(t("noMatchesClearSearch"))}</span>
+              </button>`
+            : ""
+        }
+        <button class="text-button primary" type="button" data-empty-action="reset-filters">
+          <i data-lucide="rotate-ccw" aria-hidden="true"></i>
+          <span>${escapeHtml(t("noMatchesResetFilters"))}</span>
+        </button>
+      </div>
+    </li>
+  `;
+}
+
+function handleAttractionListClick(event) {
+  const emptyAction = event.target.closest("[data-empty-action]");
+  if (emptyAction && els.attractionList.contains(emptyAction)) {
+    if (emptyAction.dataset.emptyAction === "clear-search") {
+      clearSearch();
+      els.searchInput.focus();
+      return;
+    }
+    resetFiltersToDefault();
+    return;
+  }
+
+  const itemButton = event.target.closest("[data-id]");
+  if (!itemButton || !els.attractionList.contains(itemButton)) return;
+  const item = attractions.find((attraction) => attraction.id === itemButton.dataset.id);
+  selectAttraction(item);
+}
+
+function refreshDynamicIcons() {
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
 function renderMarkers(items) {
@@ -4035,8 +4650,31 @@ function sourceHref(source, item) {
   return item?.sourceUrl || source?.url || source?.urls?.[0] || "";
 }
 
+function sourceUrls(source) {
+  return unique([source?.url, ...(source?.urls || [])].filter(Boolean));
+}
+
 function sourceUpdatedAt(source) {
   return source?.updatedAt || sourceIndex.updatedAt || sourceIndex.datasetVersion || "-";
+}
+
+function showToast(message, tone = "info") {
+  if (!els.toastMessage || !message) return;
+  window.clearTimeout(toastTimer);
+  els.toastMessage.hidden = false;
+  els.toastMessage.textContent = message;
+  els.toastMessage.dataset.tone = tone;
+  window.requestAnimationFrame(() => {
+    els.toastMessage.classList.add("show");
+  });
+  toastTimer = window.setTimeout(() => {
+    els.toastMessage.classList.remove("show");
+    window.setTimeout(() => {
+      if (!els.toastMessage.classList.contains("show")) {
+        els.toastMessage.hidden = true;
+      }
+    }, 180);
+  }, 2400);
 }
 
 function setFootprintDetail(label) {
@@ -4554,9 +5192,14 @@ function setDetailImage(image, alt) {
   els.detailVisual.classList.toggle("image-missing", !hasImage);
   els.detailVisual.dataset.placeholder = t("imageUnavailable");
   els.detailImage.dataset.fallback = hasImage ? "false" : "true";
-  els.detailImage.src = safeImage?.url || "";
+  if (safeImage?.url) {
+    els.detailImage.src = safeImage.url;
+  } else {
+    els.detailImage.removeAttribute("src");
+  }
   els.detailImage.alt = alt;
   els.detailImageLink.href = safeImage?.pageUrl || "#";
+  els.detailImageLink.toggleAttribute("aria-disabled", !hasImage);
   els.detailImageLink.textContent = hasImage ? localizeImageCaption(safeImage.caption) : t("imageUnavailable");
 }
 
@@ -4598,11 +5241,18 @@ function isLocalImageUrl(url) {
 
 function isSuspiciousImage(item, image) {
   if (!isReliableImage(image)) return false;
+  const qualityFlag = imageQualityFlags[item.id];
+  if (qualityFlag?.url && qualityFlag.url === image.url) return true;
   const text = normalize([image.url, image.pageUrl, image.caption].filter(Boolean).join(" "));
-  const suspiciousTerms = ["panoramio", "selfie", "collage", "montage", "logo", "map", "diagram", "包含", "拼图", "合成", "自拍"];
+  const suspiciousTerms = ["selfie", "collage", "montage", "logo", "map", "diagram", "包含", "拼图", "合成", "自拍"];
   if (suspiciousTerms.some((term) => text.includes(normalize(term)))) return true;
   const tokens = imageMatchTokens(item);
   return tokens.length > 0 && !tokens.some((token) => text.includes(token));
+}
+
+function imageQualityReasons(item, image) {
+  const qualityFlag = imageQualityFlags[item.id];
+  return qualityFlag?.url && qualityFlag.url === image?.url ? qualityFlag.reasons || [] : [];
 }
 
 function imageMatchTokens(item) {
@@ -4645,6 +5295,8 @@ function saveFavoriteIds() {
 }
 
 function toggleFavorite(id) {
+  const item = attractionsById.get(id);
+  const wasActive = state.favoriteIds.has(id);
   if (state.favoriteIds.has(id)) {
     state.favoriteIds.delete(id);
   } else {
@@ -4653,6 +5305,9 @@ function toggleFavorite(id) {
   saveFavoriteIds();
   syncFavoriteButton(getSelected());
   renderInspiration(getFilteredAttractions());
+  if (item) {
+    showToast(t(wasActive ? "favoriteRemoved" : "favoriteAdded", { name: displayAttractionName(item) }));
+  }
 }
 
 function favoriteAttractions() {
@@ -5090,6 +5745,7 @@ function commitMaintenanceOverrides(message, selectedId = state.selectedId) {
   state.selectedId = selectedId && attractionsById.has(selectedId) ? selectedId : null;
   render();
   if (els.maintenanceSummary) els.maintenanceSummary.textContent = message;
+  showToast(message);
 }
 
 function exportMaintenanceOverrides() {
@@ -5104,6 +5760,7 @@ function exportMaintenanceOverrides() {
   if (els.maintenanceSummary) {
     els.maintenanceSummary.textContent = t("maintenanceOverridesExported");
   }
+  showToast(t("maintenanceOverridesExported"));
 }
 
 function exportMaintenanceAuditReport() {
@@ -5112,6 +5769,7 @@ function exportMaintenanceAuditReport() {
   if (els.maintenanceSummary) {
     els.maintenanceSummary.textContent = t("maintenanceAuditExported");
   }
+  showToast(t("maintenanceAuditExported"));
 }
 
 function buildMaintenanceAuditReport(limit = 20) {
@@ -5180,6 +5838,7 @@ function maintenanceAuditSampleRows(rows, limit) {
     imageUrl: row.image?.url || "",
     hasImage: row.hasImage,
     suspicious: row.suspicious,
+    imageQualityReasons: imageQualityReasons(row.item, row.image),
     hasReviewDecision: row.hasReviewDecision,
     hasMaintenanceOverride: row.hasMaintenanceOverride,
   }));
@@ -5248,6 +5907,7 @@ async function importMaintenanceOverrides(event) {
     if (els.maintenanceSummary) {
       els.maintenanceSummary.textContent = t("maintenanceImportError");
     }
+    showToast(t("maintenanceImportError"), "error");
   } finally {
     event.target.value = "";
   }
@@ -5256,6 +5916,7 @@ async function importMaintenanceOverrides(event) {
 function renderImageReview() {
   if (!els.reviewList || !state.imageReviewOpen) return;
   const items = getReviewItems();
+  renderReviewQuickStats(reviewQueueStats());
   const decisions = Object.keys(state.reviewDecisions).length;
   els.reviewSummary.textContent = t("reviewSummary", { count: items.length, decisions });
 
@@ -5278,11 +5939,16 @@ function renderImageReview() {
       const decision = state.reviewDecisions[item.id];
       const active = item.id === state.reviewSelectedId ? " active" : "";
       const status = decision ? decision.action : !isReliableImage(image) ? "missing" : isSuspiciousImage(item, image) ? "suspicious" : "image";
+      const hasImage = isReliableImage(image) && !decisionHidesImage(decision);
       return `
         <button class="review-list-item${active}" type="button" data-id="${escapeHtml(item.id)}">
           <span>
             <strong>${escapeHtml(displayAttractionName(item))}</strong>
             <small>${escapeHtml(attractionLocationLabel(item))} · ${escapeHtml(ratingBadge(item))}</small>
+            <span class="review-list-tags">
+              <b class="review-mini-tag ${hasImage ? "image" : "missing"}">${escapeHtml(hasImage ? t("reviewWithImage") : t("reviewNoImage"))}</b>
+              <b class="review-mini-tag ${escapeHtml(coordinatePrecisionClass(item))}">${escapeHtml(coordinatePrecisionText(item))}</b>
+            </span>
           </span>
           <em class="review-status ${escapeHtml(status)}">${escapeHtml(reviewStatusLabel(status))}</em>
         </button>
@@ -5311,23 +5977,73 @@ function getReviewItems() {
       if (state.reviewFilter === "missing" && isReliableImage(image) && !decisionHidesImage(decision)) return false;
       if (state.reviewFilter === "suspicious" && !isSuspiciousImage(item, image)) return false;
       if (state.reviewFilter === "withImage" && (!isReliableImage(image) || decisionHidesImage(decision))) return false;
+      if (state.reviewFilter === "lowPrecision" && item.coordinateLevel === "景区") return false;
       if (state.reviewFilter === "flagged" && !decision) return false;
-      if (!query) return true;
-      const searchable = normalize(
-        [
-          item.id,
-          item.name,
-          item.displayName,
-          item.city,
-          item.province,
-          displayAttractionName(item),
-          attractionLocationLabel(item),
-          ...searchAliases(item),
-        ].join(" "),
-      );
-      return searchable.includes(query);
+      return matchesReviewQuery(item, query);
     })
     .sort((a, b) => reviewSortScore(a) - reviewSortScore(b));
+}
+
+function matchesReviewQuery(item, query) {
+  if (!query) return true;
+  const searchable = normalize(
+    [
+      item.id,
+      item.name,
+      item.displayName,
+      item.city,
+      item.province,
+      displayAttractionName(item),
+      attractionLocationLabel(item),
+      ...searchAliases(item),
+    ].join(" "),
+  );
+  return searchable.includes(query);
+}
+
+function reviewQueueStats() {
+  const query = normalize(state.reviewSearch);
+  const scopedItems = attractions.filter((item) => matchesReviewQuery(item, query));
+  return scopedItems.reduce(
+    (stats, item) => {
+      const image = localImages[item.id];
+      const decision = state.reviewDecisions[item.id];
+      const hasImage = isReliableImage(image) && !decisionHidesImage(decision);
+      stats.total += 1;
+      if (!decision) stats.unreviewed += 1;
+      if (!hasImage) stats.missing += 1;
+      if (isSuspiciousImage(item, image)) stats.suspicious += 1;
+      if (hasImage) stats.withImage += 1;
+      if (decision) stats.flagged += 1;
+      if (item.coordinateLevel !== "景区") stats.lowPrecision += 1;
+      return stats;
+    },
+    { total: 0, unreviewed: 0, missing: 0, suspicious: 0, withImage: 0, flagged: 0, lowPrecision: 0 },
+  );
+}
+
+function renderReviewQuickStats(stats) {
+  if (!els.reviewQuickStats) return;
+  const rows = [
+    { filter: "missing", label: t("reviewMissingOnly"), count: stats.missing },
+    { filter: "suspicious", label: t("reviewSuspiciousOnly"), count: stats.suspicious },
+    { filter: "unreviewed", label: t("reviewUnreviewedOnly"), count: stats.unreviewed },
+    { filter: "withImage", label: t("reviewWithImage"), count: stats.withImage },
+    { filter: "lowPrecision", label: t("reviewLowPrecision"), count: stats.lowPrecision },
+    { filter: "flagged", label: t("reviewFlagged"), count: stats.flagged },
+  ];
+  els.reviewQuickStats.innerHTML = rows
+    .map((row) => {
+      const active = state.reviewFilter === row.filter ? " active" : "";
+      const disabled = row.count ? "" : " disabled";
+      return `
+        <button class="review-quick-stat${active}" type="button" data-review-filter="${escapeHtml(row.filter)}" aria-pressed="${state.reviewFilter === row.filter}"${disabled}>
+          <span>${escapeHtml(row.label)}</span>
+          <strong>${escapeHtml(row.count)}</strong>
+        </button>
+      `;
+    })
+    .join("");
 }
 
 function reviewSortScore(item) {
@@ -5401,6 +6117,7 @@ function recordReviewDecision(action) {
   };
   saveReviewDecisions();
   renderImageReview();
+  showToast(t("reviewDecisionSaved", { name: displayAttractionName(item), action: reviewStatusLabel(action) }));
 }
 
 function exportReviewDecisions() {
@@ -5410,8 +6127,9 @@ function exportReviewDecisions() {
     count: rows.length,
     decisions: rows,
   };
-  downloadJson(payload, "image-review-decisions.json");
+  downloadJson(payload, "image-maintenance-records.json");
   els.reviewSummary.textContent = t("reviewExported");
+  showToast(t("reviewExported"));
 }
 
 function exportMaintenancePackage() {
@@ -5459,6 +6177,7 @@ function exportMaintenancePackage() {
   if (els.reviewSummary) {
     els.reviewSummary.textContent = t("maintenanceExported");
   }
+  showToast(t("maintenanceExported"));
 }
 
 function maintenanceAttractionRecord(item) {
@@ -5500,8 +6219,10 @@ async function importReviewDecisions(event) {
     renderImageReview();
     render();
     els.reviewSummary.textContent = t("reviewImported");
+    showToast(t("reviewImported"));
   } catch {
     els.reviewSummary.textContent = t("reviewImportError");
+    showToast(t("reviewImportError"), "error");
   } finally {
     event.target.value = "";
   }
