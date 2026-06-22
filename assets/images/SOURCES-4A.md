@@ -464,10 +464,27 @@
 | 广东-4A-3197 | 德庆学宫景区 | `assets/images/4A/广东/德庆学宫景区.jpg` | 图片来源：维基百科 · 德庆学宫 | [链接](https://zh.wikipedia.org/wiki/%E5%BE%B7%E5%BA%86%E5%AD%A6%E5%AE%AB) |
 | 广东-4A-3225 | 韩文公祠 | `assets/images/4A/广东/韩文公祠.jpg` | 图片来源：维基百科 · 韩文公祠 | [链接](https://zh.wikipedia.org/wiki/%E9%9F%A9%E6%96%87%E5%85%AC%E7%A5%A0) |
 | 广东-4A-3226 | 广济桥文物旅游景区 | `assets/images/4A/广东/广济桥文物旅游景区.jpg` | 图片来源：维基百科 · 广济桥 (潮州) | [链接](https://zh.wikipedia.org/wiki/%E5%B9%BF%E6%B5%8E%E6%A1%A5_(%E6%BD%AE%E5%B7%9E)) |
+| 广西-4A-3239 | 民歌湖 | `assets/images/4A/广西/民歌湖.jpg` | 图片来源：Openverse/flickr · 南宁民歌湖偶遇摄制组 | [链接](https://www.flickr.com/photos/32384318@N06/8602526203) |
 | 广西-4A-3240 | 广西壮族自治区博物馆 | `assets/images/4A/广西/广西壮族自治区博物馆.jpg` | 图片来源：维基百科 · 广西壮族自治区博物馆 | [链接](https://zh.wikipedia.org/wiki/%E5%B9%BF%E8%A5%BF%E5%A3%AE%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86) |
 | 广西-4A-3242 | 广西民族博物馆 | `assets/images/4A/广西/广西民族博物馆.jpg` | 图片来源：维基百科 · 广西民族博物馆 | [链接](https://zh.wikipedia.org/wiki/%E5%B9%BF%E8%A5%BF%E6%B0%91%E6%97%8F%E5%8D%9A%E7%89%A9%E9%A6%86) |
+| 广西-4A-3253 | 五象湖公园 | `assets/images/4A/广西/五象湖公园.jpg` | 图片来源：Openverse/wikimedia · 南宁五象湖公园 | [链接](https://commons.wikimedia.org/w/index.php?curid=126714557) |
+| 广西-4A-3273 | 九龙瀑布群 | `assets/images/4A/广西/九龙瀑布群.jpg` | 图片来源：Openverse/wikimedia · 九龙瀑布群-风光 (98591) | [链接](https://commons.wikimedia.org/w/index.php?curid=168281534) |
 | 广西-4A-3285 | 柳州龙潭景区 | `assets/images/4A/广西/柳州龙潭景区.jpg` | 图片来源：维基百科 · 龙潭公园 (柳州) | [链接](https://zh.wikipedia.org/wiki/%E9%BE%99%E6%BD%AD%E5%85%AC%E5%9B%AD_(%E6%9F%B3%E5%B7%9E)) |
+| 广西-4A-3288 | 马鹿山奇石博览园 | `assets/images/4A/广西/马鹿山奇石博览园.jpg` | 图片来源：Openverse/wikimedia · 柳州马鹿山奇石博览园 | [链接](https://commons.wikimedia.org/w/index.php?curid=126259983) |
 | 广西-4A-3290 | 柳州博物馆 | `assets/images/4A/广西/柳州博物馆.jpg` | 图片来源：维基百科 · 柳州博物馆 | [链接](https://zh.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86) |
+| 广西-4A-3300 | 柳州文庙 | `assets/images/4A/广西/柳州文庙.jpg` | 图片来源：Openverse/wikimedia · 柳州文庙 | [链接](https://commons.wikimedia.org/w/index.php?curid=126260018) |
+| 广西-4A-3331 | 冠岩景区 | `assets/images/4A/广西/冠岩景区.jpg` | 图片来源：Openverse/wikimedia · 桂林市冠岩景区景色 - panoramio (18) | [链接](https://commons.wikimedia.org/w/index.php?curid=53916268) |
+| 广西-4A-3333 | 穿山公园 | `assets/images/4A/广西/穿山公园.jpg` | 图片来源：Openverse/flickr · 1-7-桂林 穿山公园 月岩 穿山岩 寿佛塔-2560x1600高清壁纸 | [链接](https://www.flickr.com/photos/90409605@N05/8215085515) |
+| 广西-4A-3353 | 大圩古镇 | `assets/images/4A/广西/大圩古镇.jpg` | 图片来源：Openverse/flickr · GUANGXI DAXU old town -广西大圩古镇 | [链接](https://www.flickr.com/photos/49402562@N04/5383698048) |
+| 广西-4A-3355 | 古东瀑布 | `assets/images/4A/广西/古东瀑布.jpg` | 图片来源：Openverse/wikimedia · 桂林市古东瀑布群景区景色 - panoramio (19) | [链接](https://commons.wikimedia.org/w/index.php?curid=53916660) |
+| 广西-4A-3356 | 龙胜龙脊梯田 | `assets/images/4A/广西/龙胜龙脊梯田.jpg` | 图片来源：Openverse/flickr · 龙胜龙脊梯田 | [链接](https://www.flickr.com/photos/13523064@N03/3304873781) |
+| 广西-4A-3363 | 猫儿山 | `assets/images/4A/广西/猫儿山.jpg` | 图片来源：Openverse/flickr · 桂林猫儿山 | [链接](https://www.flickr.com/photos/56874363@N05/5467106976) |
+| 广西-4A-3372 | 八角寨 | `assets/images/4A/广西/八角寨.jpg` | 图片来源：Openverse/flickr · 广西八角寨 | [链接](https://www.flickr.com/photos/72947904@N04/7949593220) |
+| 广西-4A-3389 | 北海银滩 | `assets/images/4A/广西/北海银滩.jpg` | 图片来源：Openverse/wikimedia · 北海银滩胜景 - panoramio | [链接](https://commons.wikimedia.org/w/index.php?curid=54179631) |
+| 广西-4A-3396 | 汉闾文化园 | `assets/images/4A/广西/汉闾文化园.jpg` | 图片来源：Openverse/wikimedia · 汉闾文化园 3821 | [链接](https://commons.wikimedia.org/w/index.php?curid=68354202) |
+| 广西-4A-3458 | 通灵大峡谷 | `assets/images/4A/广西/通灵大峡谷.jpg` | 图片来源：Openverse/flickr · 通灵大峡谷 | [链接](https://www.flickr.com/photos/70975864@N00/7332307262) |
+| 广西-4A-3477 | 姑婆山 | `assets/images/4A/广西/姑婆山.jpg` | 图片来源：Openverse/flickr · 广西姑婆山 | [链接](https://www.flickr.com/photos/9394586@N04/1791006165) |
+| 广西-4A-3553 | 友谊关 | `assets/images/4A/广西/友谊关.jpg` | 图片来源：Openverse/wikimedia · 2011 广西 崇左 友谊关口岸 - panoramio | [链接](https://commons.wikimedia.org/w/index.php?curid=53619625) |
 | 海南-4A-3570 | 中国雷琼海口火山群世界地质公园 | `assets/images/4A/海南/中国雷琼海口火山群世界地质公园.jpg` | 图片来源：维基百科 · 海口石山火山群国家地质公园 | [链接](https://zh.wikipedia.org/wiki/%E6%B5%B7%E5%8F%A3%E7%9F%B3%E5%B1%B1%E7%81%AB%E5%B1%B1%E7%BE%A4%E5%9B%BD%E5%AE%B6%E5%9C%B0%E8%B4%A8%E5%85%AC%E5%9B%AD) |
 | 海南-4A-3573 | 海南省博物馆 | `assets/images/4A/海南/海南省博物馆.jpg` | 图片来源：维基百科 · 海南省博物馆 | [链接](https://zh.wikipedia.org/wiki/%E6%B5%B7%E5%8D%97%E7%9C%81%E5%8D%9A%E7%89%A9%E9%A6%86) |
 | 海南-4A-3576 | 海瑞文化公园 | `assets/images/4A/海南/海瑞文化公园.jpg` | 图片来源：维基百科 · 海瑞墓 | [链接](https://zh.wikipedia.org/wiki/%E6%B5%B7%E7%91%9E%E5%A2%93) |
@@ -593,6 +610,7 @@
 | 新疆-4A-4947 | 新疆维吾尔自治区博物馆 | `assets/images/4A/新疆/新疆维吾尔自治区博物馆.jpg` | 图片来源：维基百科 · 新疆维吾尔自治区博物馆 | [链接](https://zh.wikipedia.org/wiki/%E6%96%B0%E7%96%86%E7%BB%B4%E5%90%BE%E5%B0%94%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86) |
 | 新疆-4A-4948 | 水磨沟公园 | `assets/images/4A/新疆/水磨沟公园.jpg` | 图片来源：维基百科 · 水磨沟风景区 | [链接](https://zh.wikipedia.org/wiki/%E6%B0%B4%E7%A3%A8%E6%B2%9F%E9%A3%8E%E6%99%AF%E5%8C%BA) |
 | 新疆-4A-4949 | 乌鲁木齐市红山公园 | `assets/images/4A/新疆/乌鲁木齐市红山公园.jpg` | 图片来源：维基百科 · 乌鲁木齐市红山公园 | [链接](https://zh.wikipedia.org/wiki/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82%E7%BA%A2%E5%B1%B1%E5%85%AC%E5%9B%AD) |
+| 新疆-4A-4953 | 红光山 | `assets/images/4A/新疆/红光山.jpg` | 图片来源：Openverse/wikimedia · 乌鲁木齐市红光山钟楼 | [链接](https://commons.wikimedia.org/w/index.php?curid=106449180) |
 | 新疆-4A-4956 | 克拉玛依河 | `assets/images/4A/新疆/克拉玛依河.jpg` | 图片来源：维基百科 · 克拉玛依河 | [链接](https://zh.wikipedia.org/wiki/%E5%85%8B%E6%8B%89%E7%8E%9B%E4%BE%9D%E6%B2%B3) |
 | 新疆-4A-4964 | 千佛洞 | `assets/images/4A/新疆/千佛洞.jpg` | 图片来源：Openverse/flickr · 2009-06-17 南疆 库车 克孜尔千佛洞和鸠摩罗什像 | [链接](https://www.flickr.com/photos/28516485@N04/3636440688) |
 | 新疆-4A-4971 | 库木塔格沙漠 | `assets/images/4A/新疆/库木塔格沙漠.jpg` | 图片来源：维基百科 · 库姆塔格沙漠 (鄯善) | [链接](https://zh.wikipedia.org/wiki/%E5%BA%93%E5%A7%86%E5%A1%94%E6%A0%BC%E6%B2%99%E6%BC%A0_(%E9%84%AF%E5%96%84)) |
@@ -601,7 +619,13 @@
 | 新疆-4A-4979 | 高昌故城 | `assets/images/4A/新疆/高昌故城.jpg` | 图片来源：维基百科 · 高昌故城 | [链接](https://zh.wikipedia.org/wiki/%E9%AB%98%E6%98%8C%E6%95%85%E5%9F%8E) |
 | 新疆-4A-4986 | 巴里坤湖 | `assets/images/4A/新疆/巴里坤湖.jpg` | 图片来源：维基百科 · 巴里坤湖 | [链接](https://zh.wikipedia.org/wiki/%E5%B7%B4%E9%87%8C%E5%9D%A4%E6%B9%96) |
 | 新疆-4A-5001 | 金沙滩 | `assets/images/4A/新疆/金沙滩.jpg` | 图片来源：Openverse/wikimedia · 金沙滩Golden Sands China Xinjiang Urumqi Welcome you to tour the - panoramio - 罗布泊 (15) | [链接](https://commons.wikimedia.org/w/index.php?curid=52735643) |
+| 新疆-4A-5004 | 罗布人村寨 | `assets/images/4A/新疆/罗布人村寨.jpg` | 图片来源：Openverse/wikimedia · 罗布人村寨 沙漠泛舟 - panoramio | [链接](https://commons.wikimedia.org/w/index.php?curid=52577589) |
 | 新疆-4A-5006 | 七个星佛寺遗址 | `assets/images/4A/新疆/七个星佛寺遗址.jpg` | 图片来源：维基百科 · 七个星佛寺遗址 | [链接](https://zh.wikipedia.org/wiki/%E4%B8%83%E4%B8%AA%E6%98%9F%E4%BD%9B%E5%AF%BA%E9%81%97%E5%9D%80) |
 | 新疆-4A-5007 | 多浪河 | `assets/images/4A/新疆/多浪河.jpg` | 图片来源：Openverse/wikimedia · 多浪河公园，新疆维吾尔自治区阿克苏地区阿克苏市，中国 - panoramio (2) | [链接](https://commons.wikimedia.org/w/index.php?curid=60146158) |
 | 新疆-4A-5018 | 克孜尔石窟 | `assets/images/4A/新疆/克孜尔石窟.jpg` | 图片来源：维基百科 · 克孜尔千佛洞 | [链接](https://zh.wikipedia.org/wiki/%E5%85%8B%E5%AD%9C%E5%B0%94%E5%8D%83%E4%BD%9B%E6%B4%9E) |
+| 新疆-4A-5022 | 天山神秘大峡谷 | `assets/images/4A/新疆/天山神秘大峡谷.jpg` | 图片来源：Openverse/flickr · 天山神秘大峡谷 - Tian Shan Mysterious Grand Canyon | [链接](https://www.flickr.com/photos/40713859@N00/3007711405) |
 | 新疆-4A-5023 | 克孜尔尕哈烽燧 | `assets/images/4A/新疆/克孜尔尕哈烽燧.jpg` | 图片来源：维基百科 · 克孜尔尕哈烽燧 | [链接](https://zh.wikipedia.org/wiki/%E5%85%8B%E5%AD%9C%E5%B0%94%E5%B0%95%E5%93%88%E7%83%BD%E7%87%A7) |
+| 新疆-4A-5062 | 唐布拉 | `assets/images/4A/新疆/唐布拉.jpg` | 图片来源：Openverse/flickr · 花开唐布拉 | [链接](https://www.flickr.com/photos/39175099@N00/8909848271) |
+| 新疆-4A-5071 | 伊犁哈萨克自治州博物馆 | `assets/images/4A/新疆/伊犁哈萨克自治州博物馆.jpg` | 图片来源：Openverse/wikimedia · 伊犁哈萨克自治州博物馆 | [链接](https://commons.wikimedia.org/w/index.php?curid=176325382) |
+| 新疆-4A-5074 | 夏塔 | `assets/images/4A/新疆/夏塔.jpg` | 图片来源：Openverse/flickr · 新疆夏塔雪山 | [链接](https://www.flickr.com/photos/40460649@N07/21092871059) |
+| 新疆-4A-5086 | 桦林公园 | `assets/images/4A/新疆/桦林公园.jpg` | 图片来源：Openverse/wikimedia · File:阿勒泰桦林公园秋景 余华峰 - panoramio - 余华峰.jpg | [链接](https://commons.wikimedia.org/w/index.php?curid=50810762) |

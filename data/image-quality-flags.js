@@ -613,6 +613,13 @@ window.CHINA_IMAGE_QUALITY_FLAGS = {
       "extreme-aspect:900x364"
     ]
   },
+  "广西-4A-3363": {
+    "rating": "4A",
+    "url": "assets/images/4A/广西/猫儿山.jpg",
+    "reasons": [
+      "tiny-file:20581"
+    ]
+  },
   "西藏-4A-4503": {
     "rating": "4A",
     "url": "assets/images/4A/西藏/桑耶寺.jpg",

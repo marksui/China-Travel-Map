@@ -2300,6 +2300,11 @@ window.CHINA_4A_IMAGES = {
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E6%B5%8E%E6%A1%A5_(%E6%BD%AE%E5%B7%9E)",
     "caption": "图片来源：维基百科 · 广济桥 (潮州)"
   },
+  "广西-4A-3239": {
+    "url": "assets/images/4A/广西/民歌湖.jpg",
+    "pageUrl": "https://www.flickr.com/photos/32384318@N06/8602526203",
+    "caption": "图片来源：Openverse/flickr · 南宁民歌湖偶遇摄制组"
+  },
   "广西-4A-3240": {
     "url": "assets/images/4A/广西/广西壮族自治区博物馆.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E8%A5%BF%E5%A3%AE%E6%97%8F%E8%87%AA%E6%B2%BB%E5%8C%BA%E5%8D%9A%E7%89%A9%E9%A6%86",
@@ -2310,15 +2315,95 @@ window.CHINA_4A_IMAGES = {
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%B9%BF%E8%A5%BF%E6%B0%91%E6%97%8F%E5%8D%9A%E7%89%A9%E9%A6%86",
     "caption": "图片来源：维基百科 · 广西民族博物馆"
   },
+  "广西-4A-3253": {
+    "url": "assets/images/4A/广西/五象湖公园.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=126714557",
+    "caption": "图片来源：Openverse/wikimedia · 南宁五象湖公园"
+  },
+  "广西-4A-3273": {
+    "url": "assets/images/4A/广西/九龙瀑布群.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=168281534",
+    "caption": "图片来源：Openverse/wikimedia · 九龙瀑布群-风光 (98591)"
+  },
   "广西-4A-3285": {
     "url": "assets/images/4A/广西/柳州龙潭景区.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E9%BE%99%E6%BD%AD%E5%85%AC%E5%9B%AD_(%E6%9F%B3%E5%B7%9E)",
     "caption": "图片来源：维基百科 · 龙潭公园 (柳州)"
   },
+  "广西-4A-3288": {
+    "url": "assets/images/4A/广西/马鹿山奇石博览园.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=126259983",
+    "caption": "图片来源：Openverse/wikimedia · 柳州马鹿山奇石博览园"
+  },
   "广西-4A-3290": {
     "url": "assets/images/4A/广西/柳州博物馆.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E6%9F%B3%E5%B7%9E%E5%8D%9A%E7%89%A9%E9%A6%86",
     "caption": "图片来源：维基百科 · 柳州博物馆"
+  },
+  "广西-4A-3300": {
+    "url": "assets/images/4A/广西/柳州文庙.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=126260018",
+    "caption": "图片来源：Openverse/wikimedia · 柳州文庙"
+  },
+  "广西-4A-3331": {
+    "url": "assets/images/4A/广西/冠岩景区.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=53916268",
+    "caption": "图片来源：Openverse/wikimedia · 桂林市冠岩景区景色 - panoramio (18)"
+  },
+  "广西-4A-3333": {
+    "url": "assets/images/4A/广西/穿山公园.jpg",
+    "pageUrl": "https://www.flickr.com/photos/90409605@N05/8215085515",
+    "caption": "图片来源：Openverse/flickr · 1-7-桂林 穿山公园 月岩 穿山岩 寿佛塔-2560x1600高清壁纸"
+  },
+  "广西-4A-3353": {
+    "url": "assets/images/4A/广西/大圩古镇.jpg",
+    "pageUrl": "https://www.flickr.com/photos/49402562@N04/5383698048",
+    "caption": "图片来源：Openverse/flickr · GUANGXI DAXU old town -广西大圩古镇"
+  },
+  "广西-4A-3355": {
+    "url": "assets/images/4A/广西/古东瀑布.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=53916660",
+    "caption": "图片来源：Openverse/wikimedia · 桂林市古东瀑布群景区景色 - panoramio (19)"
+  },
+  "广西-4A-3356": {
+    "url": "assets/images/4A/广西/龙胜龙脊梯田.jpg",
+    "pageUrl": "https://www.flickr.com/photos/13523064@N03/3304873781",
+    "caption": "图片来源：Openverse/flickr · 龙胜龙脊梯田"
+  },
+  "广西-4A-3363": {
+    "url": "assets/images/4A/广西/猫儿山.jpg",
+    "pageUrl": "https://www.flickr.com/photos/56874363@N05/5467106976",
+    "caption": "图片来源：Openverse/flickr · 桂林猫儿山"
+  },
+  "广西-4A-3372": {
+    "url": "assets/images/4A/广西/八角寨.jpg",
+    "pageUrl": "https://www.flickr.com/photos/72947904@N04/7949593220",
+    "caption": "图片来源：Openverse/flickr · 广西八角寨"
+  },
+  "广西-4A-3389": {
+    "url": "assets/images/4A/广西/北海银滩.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=54179631",
+    "caption": "图片来源：Openverse/wikimedia · 北海银滩胜景 - panoramio"
+  },
+  "广西-4A-3396": {
+    "url": "assets/images/4A/广西/汉闾文化园.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=68354202",
+    "caption": "图片来源：Openverse/wikimedia · 汉闾文化园 3821"
+  },
+  "广西-4A-3458": {
+    "url": "assets/images/4A/广西/通灵大峡谷.jpg",
+    "pageUrl": "https://www.flickr.com/photos/70975864@N00/7332307262",
+    "caption": "图片来源：Openverse/flickr · 通灵大峡谷"
+  },
+  "广西-4A-3477": {
+    "url": "assets/images/4A/广西/姑婆山.jpg",
+    "pageUrl": "https://www.flickr.com/photos/9394586@N04/1791006165",
+    "caption": "图片来源：Openverse/flickr · 广西姑婆山"
+  },
+  "广西-4A-3553": {
+    "url": "assets/images/4A/广西/友谊关.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=53619625",
+    "caption": "图片来源：Openverse/wikimedia · 2011 广西 崇左 友谊关口岸 - panoramio"
   },
   "海南-4A-3570": {
     "url": "assets/images/4A/海南/中国雷琼海口火山群世界地质公园.jpg",
@@ -2945,6 +3030,11 @@ window.CHINA_4A_IMAGES = {
     "pageUrl": "https://zh.wikipedia.org/wiki/%E4%B9%8C%E9%B2%81%E6%9C%A8%E9%BD%90%E5%B8%82%E7%BA%A2%E5%B1%B1%E5%85%AC%E5%9B%AD",
     "caption": "图片来源：维基百科 · 乌鲁木齐市红山公园"
   },
+  "新疆-4A-4953": {
+    "url": "assets/images/4A/新疆/红光山.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=106449180",
+    "caption": "图片来源：Openverse/wikimedia · 乌鲁木齐市红光山钟楼"
+  },
   "新疆-4A-4956": {
     "url": "assets/images/4A/新疆/克拉玛依河.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%85%8B%E6%8B%89%E7%8E%9B%E4%BE%9D%E6%B2%B3",
@@ -2985,6 +3075,11 @@ window.CHINA_4A_IMAGES = {
     "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=52735643",
     "caption": "图片来源：Openverse/wikimedia · 金沙滩Golden Sands China Xinjiang Urumqi Welcome you to tour the - panoramio - 罗布泊 (15)"
   },
+  "新疆-4A-5004": {
+    "url": "assets/images/4A/新疆/罗布人村寨.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=52577589",
+    "caption": "图片来源：Openverse/wikimedia · 罗布人村寨 沙漠泛舟 - panoramio"
+  },
   "新疆-4A-5006": {
     "url": "assets/images/4A/新疆/七个星佛寺遗址.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E4%B8%83%E4%B8%AA%E6%98%9F%E4%BD%9B%E5%AF%BA%E9%81%97%E5%9D%80",
@@ -3000,9 +3095,34 @@ window.CHINA_4A_IMAGES = {
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%85%8B%E5%AD%9C%E5%B0%94%E5%8D%83%E4%BD%9B%E6%B4%9E",
     "caption": "图片来源：维基百科 · 克孜尔千佛洞"
   },
+  "新疆-4A-5022": {
+    "url": "assets/images/4A/新疆/天山神秘大峡谷.jpg",
+    "pageUrl": "https://www.flickr.com/photos/40713859@N00/3007711405",
+    "caption": "图片来源：Openverse/flickr · 天山神秘大峡谷 - Tian Shan Mysterious Grand Canyon"
+  },
   "新疆-4A-5023": {
     "url": "assets/images/4A/新疆/克孜尔尕哈烽燧.jpg",
     "pageUrl": "https://zh.wikipedia.org/wiki/%E5%85%8B%E5%AD%9C%E5%B0%94%E5%B0%95%E5%93%88%E7%83%BD%E7%87%A7",
     "caption": "图片来源：维基百科 · 克孜尔尕哈烽燧"
+  },
+  "新疆-4A-5062": {
+    "url": "assets/images/4A/新疆/唐布拉.jpg",
+    "pageUrl": "https://www.flickr.com/photos/39175099@N00/8909848271",
+    "caption": "图片来源：Openverse/flickr · 花开唐布拉"
+  },
+  "新疆-4A-5071": {
+    "url": "assets/images/4A/新疆/伊犁哈萨克自治州博物馆.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=176325382",
+    "caption": "图片来源：Openverse/wikimedia · 伊犁哈萨克自治州博物馆"
+  },
+  "新疆-4A-5074": {
+    "url": "assets/images/4A/新疆/夏塔.jpg",
+    "pageUrl": "https://www.flickr.com/photos/40460649@N07/21092871059",
+    "caption": "图片来源：Openverse/flickr · 新疆夏塔雪山"
+  },
+  "新疆-4A-5086": {
+    "url": "assets/images/4A/新疆/桦林公园.jpg",
+    "pageUrl": "https://commons.wikimedia.org/w/index.php?curid=50810762",
+    "caption": "图片来源：Openverse/wikimedia · File:阿勒泰桦林公园秋景 余华峰 - panoramio - 余华峰.jpg"
   }
 };
